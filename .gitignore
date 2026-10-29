@@ -1,0 +1,5 @@
+# Only the website goes to GitHub. The program (sc.py, .exe, settings, audio) stays on this computer.
+/*
+!/docs/
+!/.gitignore
+!/README.md

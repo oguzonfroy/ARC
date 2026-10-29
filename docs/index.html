@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARC Rina Fishing</title>
+<meta name="description" content="ARC, Rina'da balık tutarken oyunun sesini dinler, balık vurduğu an oltayı çeker ve bagajını kendisi boşaltır.">
+<meta property="og:title" content="ARC Rina Fishing">
+<meta property="og:description" content="Oltayı at, gerisini ARC halletsin.">
+<meta property="og:image" content="arc-poster.jpg">
+<link rel="icon" type="image/png" href="arc.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  /* Layout: a dark "night lake" page. Hero pairs the pitch with a live replica of ARC's control panel,
+     then a real 4-step sequence, a feature grid, manual-vs-ARC comparison, how to buy, FAQ. Single dark look by choice. */
+  :root {
+    --ink: #07060b;        /* page */
+    --deep: #0f0c18;       /* panels */
+    --deep-2: #181326;     /* raised */
+    --line: #2a2240;       /* borders */
+    --violet: #8b5cf6;     /* accent, same as the app */
+    --lilac: #c4a8ff;      /* light accent */
+    --text: #ece8f6;
+    --mute: #9a92b3;
+    --ok: #22c55e; --warn: #eab308; --err: #ef4444;
+    --display: "Unbounded", "Segoe UI", system-ui, sans-serif;
+    --body: "Onest", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--ink); color: var(--text); font: 400 17px/1.6 var(--body); margin: 0; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ink); }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+  h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.1; }
+  .eyebrow { font: 600 13px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--lilac); }
+  .lead { color: var(--mute); max-width: 62ch; font-size: 18px; }
+  section { padding-block: clamp(64px, 9vw, 112px); }
+  .sec-head { display: grid; gap: 16px; margin-bottom: 44px; }
+
+  /* nav */
+  nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--ink) 82%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 800 20px/1 var(--display); letter-spacing: .06em; }
+  .brand img { width: 36px; height: 36px; }
+  .links { display: flex; gap: 28px; font-size: 15px; color: var(--mute); }
+  .links a { text-decoration: none; }
+  .links a:hover { color: var(--text); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 12px; padding: 13px 22px; font: 600 16px/1 var(--body); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .15s, background .15s, border-color .15s; }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: 3px; }
+  .btn-main { background: var(--violet); color: #fff; box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--violet) 70%, transparent); }
+  .btn-main:hover { transform: translateY(-1px); background: #9a6bff; }
+  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--violet); }
+  nav .btn { padding: 10px 18px; font-size: 15px; }
+
+  /* hero */
+  .hero { position: relative; padding-block: clamp(48px, 7vw, 88px) clamp(64px, 8vw, 100px); overflow: hidden; }
+  .hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 120%; pointer-events: none;
+    background: radial-gradient(50% 50% at 72% 40%, color-mix(in srgb, var(--violet) 26%, transparent), transparent 70%),
+                radial-gradient(40% 40% at 10% 0%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 70%); }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+  .hero h1 { font-size: clamp(38px, 6.2vw, 74px); font-weight: 800; line-height: 1.02; margin-top: 18px; }
+  .hero h1 em { font-style: normal; color: var(--lilac); }
+  .hero .lead { margin: 22px 0 32px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; color: var(--mute); font-size: 14px; }
+  .facts span::before { content: "◆"; color: var(--violet); margin-right: 8px; font-size: 10px; vertical-align: 2px; }
+
+  /* promo video: vertical 9:16, autoplays muted, sound on tap */
+  .promo { position: relative; justify-self: center; width: min(100%, 360px); aspect-ratio: 9 / 16; max-width: 100%; border-radius: 28px; overflow: hidden; background: var(--deep);
+    border: 1px solid var(--line); box-shadow: 0 40px 90px -30px #000, 0 0 90px -20px color-mix(in srgb, var(--violet) 55%, transparent); }
+  .promo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sound { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+    padding: 11px 16px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--violet) 60%, transparent); background: color-mix(in srgb, var(--ink) 75%, transparent);
+    backdrop-filter: blur(8px); color: var(--text); font: 600 14px/1 var(--body); cursor: pointer; }
+  .sound:hover { border-color: var(--lilac); }
+  .sound svg { width: 18px; height: 18px; }
+  .panel-sec .app { max-width: 620px; margin: 0 auto; }
+
+  /* app replica */
+  .app { min-width: 0; background: var(--deep); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+    box-shadow: 0 40px 90px -30px #000, 0 0 0 1px color-mix(in srgb, var(--violet) 15%, transparent), 0 0 80px -20px color-mix(in srgb, var(--violet) 45%, transparent); }
+  .bar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--deep-2); border-bottom: 1px solid var(--line); font: 600 13px/1 var(--body); }
+  .bar img { width: 18px; height: 18px; }
+  .bar .v { color: var(--lilac); font-weight: 500; }
+  .bar .x { margin-left: auto; color: var(--mute); }
+  .app-body { padding: 18px; display: grid; gap: 12px; }
+  .app-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .app-top b { font: 600 17px/1 var(--body); }
+  .pill { font: 600 12px/1 var(--body); padding: 7px 12px; border-radius: 999px; background: var(--deep-2); border: 1px solid var(--line); display: inline-flex; gap: 7px; align-items: center; }
+  .pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+  .pill.wait i { background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { background: var(--deep-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .stat small { display: block; font: 500 11px/1 var(--body); letter-spacing: .08em; color: var(--mute); }
+  .stat b { font: 600 24px/1.3 var(--body); color: var(--lilac); font-variant-numeric: tabular-nums; }
+  .meter { background: var(--deep-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: grid; gap: 8px; }
+  .meter-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--mute); }
+  .meter-row span:last-child { font-family: var(--mono); color: var(--text); font-variant-numeric: tabular-nums; }
+  canvas { width: 100%; height: 56px; display: block; }
+  .log { background: #06050a; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; height: 150px; overflow: hidden; font: 400 12.5px/1.65 var(--mono); display: flex; flex-direction: column; justify-content: flex-end; }
+  .log div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--mute); }
+  .log .t { color: #5d5677; margin-right: 8px; }
+  .log .ok { color: var(--ok); } .log .mor { color: var(--lilac); } .log .warn { color: var(--warn); } .log .err { color: var(--err); }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+  .step { position: relative; padding: 26px 22px 24px; border-top: 2px solid var(--line); min-width: 0; }
+  .step::before { counter-increment: s; content: "0" counter(s); font: 700 14px/1 var(--mono); color: var(--violet); display: block; margin-bottom: 18px; }
+  .step::after { content: ""; position: absolute; top: -2px; left: 0; width: 44px; height: 2px; background: var(--violet); }
+  .step h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+  .step p { margin: 0; color: var(--mute); font-size: 15.5px; }
+  kbd { font: 600 12.5px/1 var(--mono); padding: 3px 7px; border-radius: 6px; background: var(--deep-2); border: 1px solid var(--line); border-bottom-width: 2px; color: var(--text); white-space: nowrap; }
+
+  /* features */
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .feat { background: var(--ink); padding: 28px 26px; min-width: 0; display: grid; gap: 10px; align-content: start; }
+  .feat.big { grid-column: span 2; background: linear-gradient(140deg, color-mix(in srgb, var(--violet) 14%, var(--ink)), var(--ink) 60%); }
+  @media (min-width: 961px) { .feat.end { grid-column: span 2; } }
+  .feat svg { width: 30px; height: 30px; color: var(--lilac); }
+  .feat h3 { font-size: 18px; font-weight: 700; }
+  .feat p { margin: 0; color: var(--mute); font-size: 15.5px; max-width: 58ch; }
+  .tag { justify-self: start; font: 600 12px/1 var(--mono); color: var(--lilac); background: color-mix(in srgb, var(--violet) 14%, transparent); border: 1px solid color-mix(in srgb, var(--violet) 35%, transparent); padding: 6px 9px; border-radius: 7px; }
+
+  /* compare */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .col { border-radius: 18px; padding: 30px 28px; border: 1px solid var(--line); background: var(--deep); min-width: 0; }
+  .col.arc { border-color: color-mix(in srgb, var(--violet) 55%, var(--line)); background: linear-gradient(160deg, color-mix(in srgb, var(--violet) 16%, var(--deep)), var(--deep) 70%); }
+  .col h3 { font-size: 20px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .col li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; color: var(--mute); font-size: 16px; }
+  .col li::before { content: "—"; color: #5d5677; }
+  .col.arc li { color: var(--text); }
+  .col.arc li::before { content: "✓"; color: var(--lilac); font-weight: 700; }
+
+  /* buy */
+  .buy { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
+  .license { border-radius: 22px; padding: 34px 32px; background: var(--deep); border: 1px solid color-mix(in srgb, var(--violet) 50%, var(--line)); position: relative; overflow: hidden; min-width: 0; }
+  .license::after { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--violet) 35%, transparent), transparent 70%); pointer-events: none; }
+  .license h3 { font-size: 26px; font-weight: 800; }
+  .key { margin: 18px 0 22px; font: 600 clamp(14px, 2.2vw, 18px)/1 var(--mono); letter-spacing: .08em; color: var(--lilac); background: #06050a; border: 1px dashed color-mix(in srgb, var(--violet) 55%, var(--line)); border-radius: 10px; padding: 14px 16px; overflow-x: auto; white-space: nowrap; }
+  .license ul { margin: 0 0 26px; padding: 0; list-style: none; display: grid; gap: 11px; }
+  .license li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; }
+  .license li::before { content: "✓"; color: var(--lilac); font-weight: 700; }
+  .how { display: grid; gap: 12px; align-content: start; }
+  .how-step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 20px; border-radius: 16px; background: var(--deep); border: 1px solid var(--line); }
+  .how-step b { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font: 700 16px/1 var(--display); background: var(--deep-2); color: var(--lilac); border: 1px solid var(--line); }
+  .how-step h3 { font-size: 16px; margin-bottom: 4px; font-family: var(--body); font-weight: 700; }
+  .how-step p { margin: 0; color: var(--mute); font-size: 15px; }
+  .discord { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 6px; }
+  .handle { font: 600 15px/1 var(--mono); padding: 12px 14px; border-radius: 10px; background: #06050a; border: 1px solid var(--line); user-select: all; }
+  .copy { background: var(--deep-2); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font: 600 14px/1 var(--body); cursor: pointer; }
+  .copy:hover { border-color: var(--violet); }
+
+  /* faq */
+  .faq { display: grid; gap: 10px; max-width: 820px; }
+  details { border: 1px solid var(--line); border-radius: 14px; background: var(--deep); }
+  summary { cursor: pointer; list-style: none; padding: 20px 22px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--lilac); font: 500 22px/1 var(--display); }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 0; padding: 0 22px 20px; color: var(--mute); max-width: 68ch; }
+
+  /* end */
+  .final { text-align: center; }
+  .final .wrap { display: grid; justify-items: center; gap: 22px; }
+  .final img { width: 96px; height: 96px; filter: drop-shadow(0 0 40px color-mix(in srgb, var(--violet) 55%, transparent)); }
+  footer { border-top: 1px solid var(--line); color: var(--mute); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 28px; }
+
+  @media (max-width: 960px) {
+    .hero .wrap, .buy { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .feat-grid { grid-template-columns: 1fr 1fr; }
+    .links { display: none; }
+  }
+  @media (max-width: 620px) {
+    .steps, .feat-grid, .compare { grid-template-columns: 1fr; }
+    .feat.big { grid-column: auto; }
+    .stat b { font-size: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
+    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#lisans">Lisans</a><a href="#sss">SSS</a></div>
+    <a class="btn btn-main" href="#lisans">Satın Al</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Rina · FiveM balıkçılık otomasyonu</div>
+      <h1>Oltayı at,<br><em>gerisini ARC</em> halletsin.</h1>
+      <p class="lead">ARC oyunun sesini dinler. Balık vurduğu an oltayı çeker, kaçan atışı tanıyıp yeniden atar, 20 balıkta bir bagajını kendisi boşaltır. Sen ekrana kilitlenmezsin.</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#lisans">Lisans al</a>
+        <a class="btn btn-ghost" href="#nasil">Nasıl çalışır?</a>
+      </div>
+      <div class="facts"><span>Windows 10 / 11</span><span>Tek tıkla kurulum</span><span>Tüm tuşlar ayarlanabilir</span></div>
+    </div>
+
+    <div class="promo">
+      <video id="promo" src="arc-tanitim.mp4" poster="arc-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="ARC tanıtım videosu"></video>
+      <button class="sound" id="sound" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path id="snd-on" d="M15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13" hidden/><path id="snd-off" d="M22 9l-6 6M16 9l6 6"/></svg><span id="snd-t">Sesi aç</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="panel-sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">Programın içinden</div>
+      <h2>Canlı kontrol paneli</h2>
+    </div>
+    <div class="app" aria-label="ARC kontrol paneli önizlemesi">
+      <div class="bar"><img src="arc.png" alt="">ARC RINA AUTO FISHING <span class="v">v2.0</span><span class="x">✕</span></div>
+      <div class="app-body">
+        <div class="app-top"><b>Kontrol Paneli</b><span class="pill" id="pill"><i></i><span id="durum">Çalışıyor</span></span></div>
+        <div class="stats">
+          <div class="stat"><small>DÖNGÜ</small><b id="s-dongu">47</b></div>
+          <div class="stat"><small>YAKALANAN</small><b id="s-yak">41</b></div>
+          <div class="stat"><small>BAGAJ</small><b id="s-bag">2</b></div>
+        </div>
+        <div class="meter">
+          <div class="meter-row"><span>Ses Seviyesi · eşik 0.0050</span><span id="lvl">0.0012</span></div>
+          <canvas id="cv" width="600" height="112"></canvas>
+        </div>
+        <div class="log" id="log">
+          <div><span class="t">21:14:02</span><span class="mor">46. döngü — olta atılıyor</span></div>
+          <div><span class="t">21:14:03</span>Olta suda, ses bekleniyor...</div>
+          <div><span class="t">21:14:09</span><span class="ok">Ses algılandı (0.0131) — balık çekiliyor!</span></div>
+          <div><span class="t">21:14:11</span><span class="mor">47. döngü — olta atılıyor</span></div>
+          <div><span class="t">21:14:12</span>Olta suda, ses bekleniyor...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nasil">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Nasıl çalışır</div>
+      <h2>Dört adımda balık başında değil, keyfinde ol.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Kur ve kontrol et</h3><p>ARC, oyun sesini dinlemek için gereken VB-Cable sürücüsünü tek tıkla kurar ve FiveM ses çıkışını kendisi ayarlar. <b>Sistem Kontrolü</b> her şeyin hazır olduğunu gösterir.</p></div>
+      <div class="step"><h3>Bagajı göster</h3><p>Fareyi envanterde bagaja aktarma noktasına getir ve <kbd>C</kbd> tuşuna bas. ARC bu koordinatı kaydeder.</p></div>
+      <div class="step"><h3>Başlat, oyuna dön</h3><p>Başlata bas. 5 saniyelik geri sayım biterken oyuna dön. Menüyü <kbd>INSERT</kbd> ile gizleyip açabilirsin.</p></div>
+      <div class="step"><h3>ARC döngüye girer</h3><p>Oltayı atar, sesi dinler, balık vurunca çeker. Bagaj limiti dolunca <kbd>/bagaj</kbd> yazıp balıkları aktarır ve kaldığı yerden devam eder.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ozellikler" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Özellikler</div>
+      <h2>Balık tutmanın sıkıcı kısmı ARC'ta.</h2>
+      <p class="lead">Ekrana bakıp ses beklemek, kaçan oltayı yeniden atmak, chat'e komut yazıp tek tek tıklamak. Hepsi otomatik.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat big">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2M21 12h0"/></svg>
+        <h3>Sese duyarlı yakalama</h3>
+        <p>ARC, oyunun sesini sanal kablo üzerinden ayrı bir kanaldan dinler. Ses seviyesi eşiği aştığı an oltayı çeker. Eşiği ve çarpanı kendi kulaklığına, kendi ses ayarına göre ince ayarlayabilirsin.</p>
+        <span class="tag">ses eşiği 0.005 · çarpan ×5</span>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>
+        <h3>Kaçan oltayı tanır</h3>
+        <p>"Olta yetişmedi" uyarısı ekrana düşünce ARC bunu fark eder, uyarının geçmesini bekler ve yeniden atar.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg>
+        <h3>Otomatik bagaj aktarımı</h3>
+        <p>Belirlediğin sayıda balık dolunca chat'e /bagaj yazar, balıkları bagaja aktarır, envanteri kapatıp devam eder.</p>
+        <span class="tag">varsayılan: 20 balık</span>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Doğrulama uyarısı</h3>
+        <p>İnsan doğrulaması ekrana gelince ARC durur ve sesli uyarı verir. Sen çözüp "Doğrulamayı Çözdüm"e basınca 3 saniye sonra devam eder.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+        <h3>Tuşlar senin</h3>
+        <p>Olta, chat, envanter ve kısayol tuşlarını Ayarlar'dan tek tıkla değiştir. Çakışan tuşu ARC sana söyler.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+        <h3>Canlı panel ve kayıtlar</h3>
+        <p>Döngü, yakalanan ve bagaj sayısı, anlık ses seviyesi ve her adımın kaydı tek ekranda.</p>
+      </div>
+      <div class="feat end">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <h3>Anında kontrol</h3>
+        <p><kbd>P</kbd> ile duraklat ya da devam ettir, <kbd>Q</kbd> ile acil durdur. Oyundan çıkmana gerek yok.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Ne kazanırsın</div>
+      <h2>Aynı balık, yarı emek.</h2>
+    </div>
+    <div class="compare">
+      <div class="col">
+        <h3>Elle tutarken</h3>
+        <ul>
+          <li>Her atışta ekrana bakıp balığın vurmasını beklersin.</li>
+          <li>Geç kalınca olta kaçar, yeniden atarsın.</li>
+          <li>Envanter dolunca chat'e /bagaj yazıp balıkları tek tek aktarırsın.</li>
+          <li>Kaç balık tuttuğunu aklında tutarsın.</li>
+        </ul>
+      </div>
+      <div class="col arc">
+        <h3><img src="arc.png" alt="" width="26" height="26">ARC ile</h3>
+        <ul>
+          <li>ARC sesi dinler, balık vurduğu an çeker.</li>
+          <li>Kaçan atışı tanır ve kendisi yeniden atar.</li>
+          <li>Bagajı belirlediğin sayıda kendisi boşaltır.</li>
+          <li>Döngü, yakalanan ve bagaj sayısını panelde görürsün.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lisans" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Lisans</div>
+      <h2>Bir anahtar, sınırsız döngü.</h2>
+      <p class="lead">Ödeme IBAN ile yapılır. Discord'dan yaz, IBAN bilgisini ve lisans anahtarını sana biz iletelim.</p>
+    </div>
+    <div class="buy">
+      <div class="license">
+        <div class="eyebrow">ARC Rina Auto Fishing v2.0</div>
+        <h3 style="margin-top:12px">Lisans anahtarı</h3>
+        <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
+        <ul>
+          <li>ARC'ın bütün özellikleri</li>
+          <li>Bilgisayarına tanımlanan kişisel anahtar</li>
+          <li>Kurulumda Discord'dan destek</li>
+        </ul>
+        <a class="btn btn-main" href="#iletisim">Satın almak için yaz</a>
+      </div>
+      <div class="how" id="iletisim">
+        <div class="how-step"><b>1</b><div><h3>Discord'dan yaz</h3><p>Lisans almak istediğini söyle, IBAN bilgisini sana iletelim.</p>
+          <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
+          <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div></div></div>
+        <div class="how-step"><b>2</b><div><h3>IBAN'a ödemeyi yap</h3><p>Açıklamaya Discord adını yaz ki ödemeni hemen eşleştirelim.</p></div></div>
+        <div class="how-step"><b>3</b><div><h3>Anahtarını gir</h3><p>Anahtarın Discord'dan gelir. ARC'ı aç, anahtarı yapıştır ve balığa çık.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Sıkça sorulanlar</div><h2>Aklına takılanlar</h2></div>
+    <div class="faq">
+      <details><summary>Hangi bilgisayarda çalışır?</summary><p>Windows 10 ve Windows 11'de çalışır. Rina sunucusuna FiveM üzerinden bağlı olman yeterli.</p></details>
+      <details><summary>VB-Cable nedir, kurmam gerekiyor mu?</summary><p>VB-Cable ücretsiz bir sanal ses kablosu. ARC oyun sesini bunun üzerinden dinler. Kurulumu ARC tek tıkla yapar, FiveM ses ayarını da kendisi düzenler.</p></details>
+      <details><summary>İnsan doğrulaması gelirse ne olur?</summary><p>ARC doğrulamayı çözmez, durur ve sesli uyarı verir. Doğrulamayı sen çözersin, butona basınca 3 saniye sonra devam eder.</p></details>
+      <details><summary>Lisansımı başka bilgisayarda kullanabilir miyim?</summary><p>Lisans anahtarı bir bilgisayara tanımlanır. Bilgisayar değiştirirsen Discord'dan yaz.</p></details>
+      <details><summary>Sunucu kuralları?</summary><p>Otomasyon araçlarıyla ilgili kurallar sunucudan sunucuya değişir. Oynadığın sunucunun kurallarına uymak senin sorumluluğunda.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <img src="arc.png" alt="ARC">
+    <h2>Olta hazır. Sen hazır mısın?</h2>
+    <a class="btn btn-main" href="#lisans">Lisans al</a>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 ARC Studio · v2.0</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+
+<script>
+(() => {
+  // promo video: muted autoplay is allowed; sound needs the viewer's tap
+  const vid = document.getElementById('promo'), snd = document.getElementById('sound');
+  const tryPlay = () => { const p = vid.play(); if (p) p.catch(() => {}); };
+  tryPlay();
+  snd.addEventListener('click', () => {
+    vid.muted = !vid.muted;
+    if (!vid.muted) { vid.currentTime = 0; vid.volume = 1; }
+    tryPlay();
+    document.getElementById('snd-on').hidden = vid.muted;
+    document.getElementById('snd-off').hidden = !vid.muted;
+    document.getElementById('snd-t').textContent = vid.muted ? 'Sesi aç' : 'Sesi kapat';
+  });
+
+  document.querySelectorAll('.copy').forEach((copy) => copy.addEventListener('click', () => {
+    const el = document.getElementById(copy.dataset.for), t = el.textContent;
+    const done = () => { copy.textContent = 'Kopyalandı'; setTimeout(() => copy.textContent = 'Kopyala', 1600); };
+    try { navigator.clipboard.writeText(t).then(done, () => sel()); } catch (e) { sel(); }
+    function sel() { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  }));
+
+  // Control panel replica: same loop as the real bot (cast, listen, reel, every 20 fish /bagaj)
+  const cv = document.getElementById('cv'), cx = cv.getContext('2d');
+  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const VIOLET = css('--violet'), LILAC = css('--lilac'), LINE = css('--line'), OK = css('--ok');
+  const N = 60, hist = Array.from({ length: N }, () => 0.0008 + Math.random() * 0.0012);
+  const TH = 0.005, MAX = 0.016;
+  const st = { dongu: 47, yak: 41, bag: 2, sayac: 1 };
+  const logEl = document.getElementById('log');
+  let clock = 21 * 3600 + 14 * 60 + 12;
+  const ts = () => { clock += 1 + Math.floor(Math.random() * 2); const h = Math.floor(clock / 3600) % 24, m = Math.floor(clock / 60) % 60, s = clock % 60; return [h, m, s].map(v => String(v).padStart(2, '0')).join(':'); };
+  function log(msg, cls) {
+    const d = document.createElement('div');
+    d.innerHTML = `<span class="t">${ts()}</span>` + (cls ? `<span class="${cls}">${msg}</span>` : msg);
+    logEl.appendChild(d);
+    while (logEl.children.length > 7) logEl.firstChild.remove();
+  }
+  const set = (id, v) => document.getElementById(id).textContent = v;
+  const pill = document.getElementById('pill');
+  function draw(level) {
+    hist.push(level); hist.shift();
+    const w = cv.width, h = cv.height, bw = w / N;
+    cx.clearRect(0, 0, w, h);
+    const ty = h - (TH / MAX) * h;
+    cx.strokeStyle = LINE; cx.setLineDash([6, 6]); cx.beginPath(); cx.moveTo(0, ty); cx.lineTo(w, ty); cx.stroke(); cx.setLineDash([]);
+    hist.forEach((v, i) => {
+      const bh = Math.max(3, Math.min(1, v / MAX) * h);
+      cx.fillStyle = v > TH ? OK : (i > N - 6 ? LILAC : VIOLET);
+      cx.globalAlpha = 0.35 + 0.65 * (i / N);
+      cx.fillRect(i * bw + 1, h - bh, bw - 3, bh);
+    });
+    cx.globalAlpha = 1;
+    set('lvl', level.toFixed(4));
+  }
+  draw(hist[N - 1]);
+
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let phase = 'wait', t0 = performance.now(), bite = 3500 + Math.random() * 4000, miss = false;
+  function tick(now) {
+    const el = now - t0;
+    let level = 0.0008 + Math.random() * 0.0014;
+    if (phase === 'wait') {
+      if (el > bite) {
+        level = 0.009 + Math.random() * 0.006;
+        st.yak++; st.sayac++; set('s-yak', st.yak);
+        log(`Ses algılandı (${level.toFixed(4)}) — balık çekiliyor!`, 'ok');
+        phase = 'reel'; t0 = now;
+      }
+    } else if (phase === 'reel' && el > 1500) {
+      if (st.sayac >= 20) {
+        phase = 'bagaj'; t0 = now; st.sayac = 0;
+        pill.classList.add('wait'); set('durum', 'Bagaj');
+        log('20 balık doldu, bagaja aktarılıyor...', 'mor');
+      } else cast(now);
+    } else if (phase === 'bagaj' && el > 2600) {
+      st.bag++; set('s-bag', st.bag);
+      log('Bagaj aktarımı tamamlandı.', 'ok');
+      pill.classList.remove('wait'); set('durum', 'Çalışıyor');
+      cast(now);
+    } else if (phase === 'miss' && el > 2500) cast(now);
+    draw(level);
+    setTimeout(() => requestAnimationFrame(tick), 90);
+  }
+  function cast(now) {
+    st.dongu++; set('s-dongu', st.dongu);
+    log(`${st.dongu}. döngü — olta atılıyor`, 'mor');
+    t0 = now; bite = 3000 + Math.random() * 4500;
+    if (Math.random() < 0.08) { phase = 'miss'; setTimeout(() => log('Olta yetişmedi! Uyarının geçmesi bekleniyor...', 'err'), 900); return; }
+    phase = 'wait';
+    setTimeout(() => log('Olta suda, ses bekleniyor...'), 700);
+  }
+  st.sayac = 18; // so a bagaj transfer shows up within the first minute
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
