@@ -280,6 +280,25 @@
   }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+  /* ARC Macro: second module, own video + real screenshots */
+  .macro-sec .wrap { display: grid; gap: 34px; }
+  .macro-top { display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: center; }
+  .macro-top img { width: 104px; height: 104px; filter: drop-shadow(0 0 40px color-mix(in srgb, var(--violet) 55%, transparent)); }
+  .badge-new { justify-self: start; font: 700 12px/1 var(--mono); letter-spacing: .18em; color: #fff; background: var(--violet); padding: 7px 10px; border-radius: 7px; }
+  .macro-video { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; background: var(--deep);
+    border: 1px solid color-mix(in srgb, var(--violet) 45%, var(--line)); box-shadow: 0 40px 90px -30px #000, 0 0 90px -25px var(--violet); }
+  .macro-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .macro-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: m; }
+  .macro-steps div { padding: 24px 22px; border-radius: 18px; background: var(--deep); border: 1px solid var(--line); min-width: 0; }
+  .macro-steps div::before { counter-increment: m; content: "0" counter(m); display: block; font: 700 14px/1 var(--mono); color: var(--violet); margin-bottom: 14px; }
+  .macro-steps h3 { font-size: 19px; margin-bottom: 8px; }
+  .macro-steps p { margin: 0; color: var(--mute); font-size: 15.5px; }
+  .macro-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .macro-shots img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px #000; }
+  .macro-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .macro-list span { font: 600 14px/1 var(--body); padding: 10px 14px; border-radius: 999px; background: var(--deep-2); border: 1px solid var(--line); }
+  @media (max-width: 760px) { .macro-steps, .macro-shots { grid-template-columns: 1fr; } .macro-top { grid-template-columns: 1fr; } }
+
   /* faq */
   .faq { display: grid; gap: 10px; max-width: 820px; }
   details { border: 1px solid var(--line); border-radius: 14px; background: var(--deep); }
@@ -315,7 +334,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
+    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
     <a class="btn btn-main" href="#lisans">Satın Al</a>
   </div>
 </nav>
@@ -385,7 +404,7 @@
       <h2>Canlı kontrol paneli</h2>
     </div>
     <div class="app" aria-label="ARC kontrol paneli önizlemesi">
-      <div class="bar"><img src="arc.png" alt="">ARC RINA AUTO FISHING <span class="v">v2.0</span><span class="x">✕</span></div>
+      <div class="bar"><img src="arc.png" alt="">ARC RINA AUTO FISHING <span class="v">v2.1</span><span class="x">✕</span></div>
       <div class="app-body">
         <div class="app-top"><b>Kontrol Paneli</b><span class="pill" id="pill"><i></i><span id="durum">Çalışıyor</span></span></div>
         <div class="stats">
@@ -502,6 +521,36 @@
   </div>
 </section>
 
+<section id="macro" class="macro-sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="macro-top">
+      <img src="arc-macro.png" alt="ARC Macro">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">YENİ · ARC HUB İÇİNDE</span>
+        <h2>ARC Macro: bir kez yap, ARC tekrarlasın.</h2>
+        <p class="lead">Klavye ve mouse hareketlerini kaydet, bir tuşa ata, istediğin kadar oynat. ARC Hub'da ikinci modül olarak gelir, aynı lisansınla açılır.</p>
+      </div>
+    </div>
+    <div class="macro-video">
+      <video id="macro-video" src="arc-macro-tanitim.mp4" poster="arc-macro-poster.jpg" muted loop playsinline preload="metadata" aria-label="ARC Macro tanıtım videosu"></video>
+      <button class="sound" id="macro-sound" type="button"><span id="macro-snd-t">Sesi aç</span></button>
+    </div>
+    <div class="macro-steps">
+      <div><h3>Kaydet</h3><p>F9'a bas ve yapacağını yap. Tuşlar, tıklar, fare hareketleri ve aradaki beklemeler kaydedilir.</p></div>
+      <div><h3>Düzenle ve ata</h3><p>Beklemeleri değiştir, gereksiz adımları sil. Makroya bir tetik tuşu ya da Mouse 4/5 ata.</p></div>
+      <div><h3>Oynat</h3><p>Tetiğe bas ya da F10'a bas. Hız, tekrar sayısı ve sonsuz döngü senin elinde. F12 her şeyi anında durdurur.</p></div>
+    </div>
+    <div class="macro-shots">
+      <img src="macro-ana.jpg" alt="ARC Macro kontrol paneli" loading="lazy" width="760" height="640">
+      <img src="macro-liste.jpg" alt="ARC Macro makro düzenleyici ve adım listesi" loading="lazy" width="760" height="640">
+    </div>
+    <div class="macro-list">
+      <span>⌨ Klavye + mouse kaydı</span><span>⏱ Bekleme düzenleme</span><span>🖱 Mouse 4/5 tetik</span>
+      <span>Bas ya da basılı tut</span><span>∞ Sonsuz döngü</span><span>⏹ F12 acil durdur</span><span>▣ Oyun üstünde mini mod</span>
+    </div>
+  </div>
+</section>
+
 <section id="yenilikler" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
@@ -522,7 +571,7 @@
     </div>
     <div class="buy">
       <div class="license">
-        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.0</div>
+        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.1</div>
         <h3 style="margin-top:12px">Lisans anahtarı</h3>
         <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
         <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı ARC ile balık tutuyor</div>
@@ -571,10 +620,21 @@
   <button type="button" id="toast-x" aria-label="Kapat">✕</button>
 </div>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio · v2.0</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio · v2.1</span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <script>
 (() => {
+  // ARC Macro video: starts (muted) when it scrolls into view, pauses when out of view
+  const mv = document.getElementById('macro-video'), ms = document.getElementById('macro-sound');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((e) => { const p = e[0].isIntersecting ? mv.play() : mv.pause(); if (p) p.catch(() => {}); }, { threshold: .35 }).observe(mv);
+  } else { const p = mv.play(); if (p) p.catch(() => {}); }
+  ms.addEventListener('click', () => {
+    mv.muted = !mv.muted;
+    if (!mv.muted) { mv.currentTime = 0; const p = mv.play(); if (p) p.catch(() => {}); }
+    document.getElementById('macro-snd-t').textContent = mv.muted ? 'Sesi aç' : 'Sesi kapat';
+  });
+
   // promo video: muted autoplay is allowed; sound needs the viewer's tap
   const vid = document.getElementById('promo'), snd = document.getElementById('sound');
   const tryPlay = () => { const p = vid.play(); if (p) p.catch(() => {}); };

@@ -1,6 +1,18 @@
 {
   "surumler": [
     {
+      "surum": "v2.1",
+      "tarih": "2026-10-30",
+      "tr": [
+        {"baslik": "Yeni modül: ARC Macro", "aciklama": "ARC Hub'da ikinci modül. Klavye ve mouse hareketlerini kaydet (F9), beklemeleri düzenle, makroya bir tetik tuşu ya da Mouse 4/5 ata ve oynat (F10). Hız, tekrar sayısı ve sonsuz döngü ayarlanabilir; F12 her şeyi anında durdurur."},
+        {"baslik": "Aynı lisans", "aciklama": "ARC Macro ayrı bir kurulum ya da lisans istemez; ARC Hub'dan seçmen yeterli."}
+      ],
+      "en": [
+        {"baslik": "New module: ARC Macro", "aciklama": "The second module in ARC Hub. Record keyboard and mouse (F9), edit the waits, bind the macro to a key or Mouse 4/5 and play it (F10). Speed, repeat count and endless loop are adjustable; F12 stops everything instantly."},
+        {"baslik": "Same license", "aciklama": "ARC Macro needs no separate install or license; just pick it in ARC Hub."}
+      ]
+    },
+    {
       "surum": "v2.0",
       "tarih": "2026-10-29",
       "tr": [
