@@ -191,6 +191,28 @@
   .dl-gate b { color: var(--text); font-weight: 600; }
   .dl-ok { color: var(--ok); font-size: 14.5px; }
   [hidden] { display: none !important; }
+
+  /* download box under the hero: animated slogan + slowly turning glow border */
+  .indir-sec { padding-block: clamp(20px, 4vw, 40px) clamp(64px, 9vw, 112px); }
+  .slogan { font-size: clamp(32px, 5.4vw, 60px); font-weight: 800; line-height: 1.06; }
+  .slogan .sw { display: inline-block; animation: sw-in .7s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: calc(var(--i) * .11s + .15s); }
+  .slogan .sg { background: linear-gradient(100deg, var(--lilac) 0%, #fff 22%, var(--violet) 45%, var(--lilac) 70%, #fff 90%);
+    background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: sw-in .7s cubic-bezier(.2, .8, .2, 1) backwards, shimmer 5s linear infinite;
+    animation-delay: calc(var(--i) * .11s + .15s), 1s; }
+  @keyframes sw-in { from { opacity: 0; transform: translateY(.45em); filter: blur(6px); } }
+  @keyframes shimmer { to { background-position: -220% 0; } }
+  .dl-hot { position: relative; max-width: 780px; margin: 0 auto; padding: 2px; border-radius: 24px; overflow: hidden; isolation: isolate; background: var(--line);
+    box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--violet) 70%, transparent); }
+  .dl-hot::before { content: ""; position: absolute; inset: -60%; z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0 55%, var(--violet) 70%, var(--lilac) 78%, transparent 90%);
+    animation: spin 6s linear infinite; }
+  .dl-hot .dl { max-width: none; border-color: transparent; border-radius: 22px; }
+  @keyframes spin { to { transform: rotate(1turn); } }
+  @media (prefers-reduced-motion: reduce) {
+    .slogan .sw, .slogan .sg, .dl-hot::before { animation: none; }
+    .dl-hot { background: color-mix(in srgb, var(--violet) 55%, var(--line)); }
+  }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* faq */
@@ -252,6 +274,36 @@
     </div>
   </div>
 </header>
+
+<section id="indir" class="indir-sec">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">İndir</div>
+      <h2 class="slogan" aria-label="Sen uğraşma, ARC uğraşsın.">
+        <span class="sw" style="--i:0">Sen</span> <span class="sw" style="--i:1">uğraşma,</span>
+        <span class="sw sg" style="--i:2">ARC</span> <span class="sw sg" style="--i:3">uğraşsın.</span>
+      </h2>
+      <p class="lead">Discord'dan doğrula, anahtarını gir, ARC'ı indir. İndirme yalnızca sunucumuzdaki üyelere ve geçerli bir lisans anahtarıyla açılır.</p>
+    </div>
+    <div class="dl-hot">
+    <div class="dl">
+      <div class="dl-top"><h3>ARC Rina Auto Fishing</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
+      <div class="dl-gate" id="dl-gate">
+        <p><b>Önce Discord'dan doğrulama linkini al.</b> Sunucumuza katıl, <b>✅・license-verify</b> kanalındaki
+          <b>Lisansımı Doğrula ve İndir</b> butonuna bas. Bot sana özel bir link verecek, o linkle buraya döndüğünde anahtarını girebilirsin.</p>
+        <a class="btn btn-main" href="https://discord.gg/n9tyDcqwbA" target="_blank" rel="noopener">Discord sunucusuna katıl</a>
+      </div>
+      <form id="dl-form" novalidate hidden>
+        <label for="dl-key" class="sr">Lisans anahtarı</label>
+        <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="ARC-XXXXX-XXXXX-XXXXX-XXXXX" maxlength="40" required>
+        <button class="btn btn-main" id="dl-btn" type="submit">İndir</button>
+      </form>
+      <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
+      <p class="dl-note">Anahtarın, ilk doğrulandığı Discord hesabına bağlanır. Anahtarın yoksa aşağıdaki <a href="#lisans">Lisans</a> bölümünden bize yaz. Kurulum rehberi indirdiğin zip dosyasının içinde.</p>
+    </div>
+    </div>
+  </div>
+</section>
 
 <section class="panel-sec" style="padding-bottom:0">
   <div class="wrap">
@@ -414,31 +466,6 @@
         <div class="how-step"><b>2</b><div><h3>IBAN'a ödemeyi yap</h3><p>Açıklamaya Discord adını yaz ki ödemeni hemen eşleştirelim.</p></div></div>
         <div class="how-step"><b>3</b><div><h3>İndir ve anahtarını gir</h3><p>Anahtarın Discord'dan gelir. Sunucudaki <b>✅・license-verify</b> kanalında butona bas, açılan <a href="#indir">İndir</a> sayfasında anahtarını girip ARC'ı indir. Programı açınca aynı anahtarı gir.</p></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="indir" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head" style="justify-items:center;text-align:center">
-      <div class="eyebrow">İndir</div>
-      <h2>Discord'dan doğrula, ARC'ı indir.</h2>
-      <p class="lead">İndirme yalnızca Discord sunucumuzdaki üyelere ve geçerli bir lisans anahtarıyla açılır.</p>
-    </div>
-    <div class="dl">
-      <div class="dl-top"><h3>ARC Rina Auto Fishing</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
-      <div class="dl-gate" id="dl-gate">
-        <p><b>Önce Discord'dan doğrulama linkini al.</b> Sunucumuza katıl, <b>✅・license-verify</b> kanalındaki
-          <b>Lisansımı Doğrula ve İndir</b> butonuna bas. Bot sana özel bir link verecek, o linkle buraya döndüğünde anahtarını girebilirsin.</p>
-        <a class="btn btn-main" href="https://discord.gg/n9tyDcqwbA" target="_blank" rel="noopener">Discord sunucusuna katıl</a>
-      </div>
-      <form id="dl-form" novalidate hidden>
-        <label for="dl-key" class="sr">Lisans anahtarı</label>
-        <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="ARC-XXXXX-XXXXX-XXXXX-XXXXX" maxlength="40" required>
-        <button class="btn btn-main" id="dl-btn" type="submit">İndir</button>
-      </form>
-      <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
-      <p class="dl-note">Anahtarın, ilk doğrulandığı Discord hesabına bağlanır. Anahtarın yoksa yukarıdaki Lisans bölümünden bize yaz. Kurulum rehberi indirdiğin zip dosyasının içinde.</p>
     </div>
   </div>
 </section>
