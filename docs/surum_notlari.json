@@ -1,0 +1,32 @@
+{
+  "surumler": [
+    {
+      "surum": "v2.1",
+      "tarih": "2026-10-29",
+      "tr": [
+        {"baslik": "Kurulum sihirbazı", "aciklama": "ARC artık kurulum dosyasıyla geliyor: Başlat menüsü kısayolu, isteğe bağlı masaüstü kısayolu ve Windows Uygulamalar listesinden tek tıkla kaldırma. Kaldırınca ayarların, istatistiklerin ve lisansın korunur."},
+        {"baslik": "Başarımlar", "aciklama": "İlk 50 balıktan 10 saat ARC'a kadar 10 rozet. Her rozetin ilerleme çubuğu var; bir rozet açıldığında kontrol panelinde bildirim çıkar."},
+        {"baslik": "Yenilikler penceresi", "aciklama": "Her güncellemeden sonraki ilk açılışta neyin değiştiğini gösterir."},
+        {"baslik": "Discord'dan anında lisans", "aciklama": "Ödemen onaylanınca lisans anahtarın Discord botundan DM ile anında gelir."},
+        {"baslik": "Daha güvenilir paketleme", "aciklama": "Yanlış virüs uyarılarını azaltan yeni paketleme; programa yayıncı ve sürüm bilgisi eklendi."}
+      ],
+      "en": [
+        {"baslik": "Setup wizard", "aciklama": "ARC now ships with an installer: Start menu shortcut, optional desktop shortcut and one-click removal from Windows Apps. Your settings, statistics and license are kept when you uninstall."},
+        {"baslik": "Achievements", "aciklama": "10 badges, from your first 50 fish to 10 hours of ARC. Every badge has a progress bar, and the control panel shows a notification when one unlocks."},
+        {"baslik": "What's new window", "aciklama": "Shows what changed on the first launch after every update."},
+        {"baslik": "Instant license on Discord", "aciklama": "Once your payment is confirmed, your license key arrives instantly by DM from the Discord bot."},
+        {"baslik": "More reliable packaging", "aciklama": "New packaging that reduces false antivirus alerts; the program now carries publisher and version details."}
+      ]
+    },
+    {
+      "surum": "v2.0",
+      "tarih": "2026-10-29",
+      "tr": [
+        {"baslik": "İlk sürüm", "aciklama": "Sese duyarlı yakalama, otomatik bagaj aktarımı, insan doğrulaması uyarısı, Liquid Glass görünüm, mini mod, istatistikler, profiller, zamanlayıcı ve Türkçe / İngilizce dil desteğiyle ARC Rina Auto Fishing'in ilk sürümü."}
+      ],
+      "en": [
+        {"baslik": "First release", "aciklama": "The first release of ARC Rina Auto Fishing, with sound-based reeling, automatic trunk transfer, human verification alerts, Liquid Glass look, mini mode, statistics, profiles, a timer and Turkish / English language support."}
+      ]
+    }
+  ]
+}

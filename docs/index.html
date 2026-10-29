@@ -138,6 +138,20 @@
   .col.arc li { color: var(--text); }
   .col.arc li::before { content: "✓"; color: var(--lilac); font-weight: 700; }
 
+  /* release notes: rendered from surum_notlari.json (same file the app ships with) */
+  .notes { display: grid; gap: 16px; max-width: 920px; }
+  .release { border-radius: 18px; padding: 28px; border: 1px solid var(--line); background: var(--deep); min-width: 0; }
+  .release.latest { border-color: color-mix(in srgb, var(--violet) 55%, var(--line)); background: linear-gradient(160deg, color-mix(in srgb, var(--violet) 16%, var(--deep)), var(--deep) 70%); }
+  .release-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 18px; }
+  .release-head h3 { font-size: 24px; font-weight: 800; }
+  .release-head time { color: var(--mute); font: 500 14px/1 var(--mono); }
+  .release ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .release li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+  .release li::before { content: "✓"; color: var(--lilac); font-weight: 700; }
+  .release li b { display: block; font-weight: 600; }
+  .release li span { color: var(--mute); font-size: 15.5px; }
+  .notes-empty { color: var(--mute); }
+
   /* buy */
   .buy { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
   .license { border-radius: 22px; padding: 34px 32px; background: var(--deep); border: 1px solid color-mix(in srgb, var(--violet) 50%, var(--line)); position: relative; overflow: hidden; min-width: 0; }
@@ -156,6 +170,23 @@
   .handle { font: 600 15px/1 var(--mono); padding: 12px 14px; border-radius: 10px; background: #06050a; border: 1px solid var(--line); user-select: all; }
   .copy { background: var(--deep-2); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font: 600 14px/1 var(--body); cursor: pointer; }
   .copy:hover { border-color: var(--violet); }
+
+  /* key-gated download */
+  .dl { max-width: 760px; margin: 0 auto; border-radius: 22px; padding: clamp(26px, 4vw, 40px); background: var(--deep);
+    border: 1px solid color-mix(in srgb, var(--violet) 50%, var(--line)); display: grid; gap: 18px; }
+  .dl-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .dl-top h3 { font-size: 24px; font-weight: 800; }
+  .dl-ver { font: 600 14px/1 var(--mono); color: var(--lilac); }
+  .dl form { display: flex; flex-wrap: wrap; gap: 10px; }
+  .dl input { flex: 1 1 280px; min-width: 0; font: 600 17px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text);
+    background: #06050a; border: 1px solid var(--line); border-radius: 12px; padding: 15px 16px; }
+  .dl input:focus { outline: 2px solid var(--lilac); outline-offset: 2px; border-color: var(--violet); }
+  .dl input::placeholder { color: #5d5677; }
+  .dl .btn[disabled] { opacity: .6; cursor: wait; }
+  .dl-msg { min-height: 24px; font-size: 15px; color: var(--mute); }
+  .dl-msg.ok { color: var(--ok); } .dl-msg.err { color: var(--err); }
+  .dl-note { margin: 0; color: var(--mute); font-size: 14.5px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* faq */
   .faq { display: grid; gap: 10px; max-width: 820px; }
@@ -192,7 +223,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#lisans">Lisans</a><a href="#sss">SSS</a></div>
+    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
     <a class="btn btn-main" href="#lisans">Satın Al</a>
   </div>
 </nav>
@@ -341,6 +372,17 @@
   </div>
 </section>
 
+<section id="yenilikler" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Yenilikler</div>
+      <h2>ARC'ta neler değişti?</h2>
+      <p class="lead">Her sürümde gelenler. Programdaki "Yenilikler" penceresi de aynı listeyi gösterir.</p>
+    </div>
+    <div class="notes" id="notlar"><p class="notes-empty">Sürüm notları yükleniyor…</p></div>
+  </div>
+</section>
+
 <section id="lisans" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
@@ -350,7 +392,7 @@
     </div>
     <div class="buy">
       <div class="license">
-        <div class="eyebrow">ARC Rina Auto Fishing v2.0</div>
+        <div class="eyebrow">ARC Rina Auto Fishing v2.1</div>
         <h3 style="margin-top:12px">Lisans anahtarı</h3>
         <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
         <ul>
@@ -365,8 +407,28 @@
           <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
           <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div></div></div>
         <div class="how-step"><b>2</b><div><h3>IBAN'a ödemeyi yap</h3><p>Açıklamaya Discord adını yaz ki ödemeni hemen eşleştirelim.</p></div></div>
-        <div class="how-step"><b>3</b><div><h3>Anahtarını gir</h3><p>Anahtarın Discord'dan gelir. ARC'ı aç, anahtarı yapıştır ve balığa çık.</p></div></div>
+        <div class="how-step"><b>3</b><div><h3>İndir ve anahtarını gir</h3><p>Anahtarın Discord'dan gelir. Aşağıdaki <a href="#indir">İndir</a> bölümüne anahtarını yazıp ARC'ı indir, programı açınca aynı anahtarı gir.</p></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="indir" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">İndir</div>
+      <h2>Anahtarını gir, ARC'ı indir.</h2>
+      <p class="lead">Dosya yalnızca geçerli bir lisans anahtarıyla açılır. İndirme linki 2 dakika geçerlidir.</p>
+    </div>
+    <div class="dl">
+      <div class="dl-top"><h3>ARC Rina Auto Fishing</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
+      <form id="dl-form" novalidate>
+        <label for="dl-key" class="sr">Lisans anahtarı</label>
+        <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="ARC-XXXXX-XXXXX-XXXXX-XXXXX" maxlength="40" required>
+        <button class="btn btn-main" id="dl-btn" type="submit">İndir</button>
+      </form>
+      <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
+      <p class="dl-note">Anahtarın yoksa yukarıdaki Lisans bölümünden Discord'a yaz. Kurulum rehberi indirdiğin zip dosyasının içinde.</p>
     </div>
   </div>
 </section>
@@ -392,7 +454,7 @@
   </div>
 </section>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio · v2.0</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio · v2.1</span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <script>
 (() => {
@@ -407,6 +469,52 @@
     document.getElementById('snd-on').hidden = vid.muted;
     document.getElementById('snd-off').hidden = !vid.muted;
     document.getElementById('snd-t').textContent = vid.muted ? 'Sesi aç' : 'Sesi kapat';
+  });
+
+  // Release notes: one source of truth (surum_notlari.json), also bundled into the app
+  const notlar = document.getElementById('notlar');
+  const tarih = (t) => new Date(t + 'T12:00:00').toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+  fetch('surum_notlari.json', { cache: 'no-cache' }).then((r) => r.json()).then((veri) => {
+    notlar.textContent = '';
+    veri.surumler.forEach((s, i) => {
+      const kart = document.createElement('article');
+      kart.className = 'release' + (i === 0 ? ' latest' : '');
+      const bas = document.createElement('div'); bas.className = 'release-head';
+      const h = document.createElement('h3'); h.textContent = s.surum;
+      const z = document.createElement('time'); z.dateTime = s.tarih; z.textContent = tarih(s.tarih);
+      bas.append(h, z);
+      if (i === 0) { const t = document.createElement('span'); t.className = 'tag'; t.textContent = 'son sürüm'; bas.append(t); }
+      const ul = document.createElement('ul');
+      s.tr.forEach((m) => {
+        const li = document.createElement('li'), d = document.createElement('div'), b = document.createElement('b'), a = document.createElement('span');
+        b.textContent = m.baslik; a.textContent = m.aciklama; d.append(b, a); li.append(d); ul.append(li);
+      });
+      kart.append(bas, ul); notlar.append(kart);
+    });
+  }).catch(() => { notlar.innerHTML = '<p class="notes-empty">Sürüm notları şu an yüklenemedi.</p>'; });
+
+  // key-gated download: the server checks the key and returns a short-lived link to the private file
+  const DL = 'https://vzibpccxwknhakzgmxfy.supabase.co/functions/v1/download';
+  const dlMsg = document.getElementById('dl-msg'), dlBtn = document.getElementById('dl-btn'), dlKey = document.getElementById('dl-key');
+  const say = (t, cls) => { dlMsg.textContent = t; dlMsg.className = 'dl-msg' + (cls ? ' ' + cls : ''); };
+  fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"action":"info"}' })
+    .then((r) => r.json()).then((d) => { document.getElementById('dl-ver').textContent = d.version ? 'Güncel sürüm: ' + d.version : 'Yakında'; })
+    .catch(() => { document.getElementById('dl-ver').textContent = ''; });
+  document.getElementById('dl-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const key = dlKey.value.trim();
+    if (key.replace(/[^0-9a-z]/gi, '').length < 20) { say('Anahtar ARC-XXXXX-XXXXX-XXXXX-XXXXX biçiminde olmalı.', 'err'); dlKey.focus(); return; }
+    dlBtn.disabled = true; say('Anahtar doğrulanıyor...');
+    try {
+      const r = await fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key }) });
+      const d = await r.json().catch(() => ({}));
+      if (d.status === 'ok' && d.url) { say('✓ Anahtar doğrulandı, ' + d.version + ' indiriliyor...', 'ok'); window.location.href = d.url; }
+      else if (d.status === 'limit') say('Bu anahtarla bugün çok fazla indirme yapıldı. Yarın tekrar dene ya da Discord\'dan yaz.', 'err');
+      else if (d.status === 'none') say('Şu an indirilebilir sürüm yok. Discord\'dan yaz.', 'err');
+      else if (d.status === 'invalid') say('Bu anahtar geçerli değil. Doğru yazdığından emin ol ya da Discord\'dan yaz.', 'err');
+      else say('Sunucuya ulaşılamadı. Birazdan tekrar dene.', 'err');
+    } catch { say('Sunucuya ulaşılamadı. İnternet bağlantını kontrol et.', 'err'); }
+    dlBtn.disabled = false;
   });
 
   document.querySelectorAll('.copy').forEach((copy) => copy.addEventListener('click', () => {
