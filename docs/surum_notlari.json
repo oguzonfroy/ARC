@@ -1,31 +1,23 @@
 {
   "surumler": [
     {
-      "surum": "v2.1",
-      "tarih": "2026-10-29",
-      "tr": [
-        {"baslik": "Kurulum sihirbazı", "aciklama": "ARC artık kurulum dosyasıyla geliyor: Başlat menüsü kısayolu, isteğe bağlı masaüstü kısayolu ve Windows Uygulamalar listesinden tek tıkla kaldırma. Kaldırınca ayarların, istatistiklerin ve lisansın korunur."},
-        {"baslik": "Başarımlar", "aciklama": "İlk 50 balıktan 10 saat ARC'a kadar 10 rozet. Her rozetin ilerleme çubuğu var; bir rozet açıldığında kontrol panelinde bildirim çıkar."},
-        {"baslik": "Yenilikler penceresi", "aciklama": "Her güncellemeden sonraki ilk açılışta neyin değiştiğini gösterir."},
-        {"baslik": "Discord'dan anında lisans", "aciklama": "Ödemen onaylanınca lisans anahtarın Discord botundan DM ile anında gelir."},
-        {"baslik": "Daha güvenilir paketleme", "aciklama": "Yanlış virüs uyarılarını azaltan yeni paketleme; programa yayıncı ve sürüm bilgisi eklendi."}
-      ],
-      "en": [
-        {"baslik": "Setup wizard", "aciklama": "ARC now ships with an installer: Start menu shortcut, optional desktop shortcut and one-click removal from Windows Apps. Your settings, statistics and license are kept when you uninstall."},
-        {"baslik": "Achievements", "aciklama": "10 badges, from your first 50 fish to 10 hours of ARC. Every badge has a progress bar, and the control panel shows a notification when one unlocks."},
-        {"baslik": "What's new window", "aciklama": "Shows what changed on the first launch after every update."},
-        {"baslik": "Instant license on Discord", "aciklama": "Once your payment is confirmed, your license key arrives instantly by DM from the Discord bot."},
-        {"baslik": "More reliable packaging", "aciklama": "New packaging that reduces false antivirus alerts; the program now carries publisher and version details."}
-      ]
-    },
-    {
       "surum": "v2.0",
       "tarih": "2026-10-29",
       "tr": [
-        {"baslik": "İlk sürüm", "aciklama": "Sese duyarlı yakalama, otomatik bagaj aktarımı, insan doğrulaması uyarısı, Liquid Glass görünüm, mini mod, istatistikler, profiller, zamanlayıcı ve Türkçe / İngilizce dil desteğiyle ARC Rina Auto Fishing'in ilk sürümü."}
+        {"baslik": "ARC Hub", "aciklama": "Program açılınca oyununu seçtiğin yeni ekran. İstersen son seçimini sormadan açar; menüdeki Oyun Değiştir ile her zaman geri dönebilirsin. Yeni oyunlar eklendikçe burada görünecek."},
+        {"baslik": "Yepyeni arayüz", "aciklama": "Açılış animasyonu, parlayan başlık çubuğu, ikonlu yan menü, kayan sayfa geçişleri, sayarak artan sayaçlar, nabız atan durum ışığı ve canlı ses grafiği."},
+        {"baslik": "Sese duyarlı yakalama", "aciklama": "Oyunun sesini dinler, balık vurduğu an oltayı çeker; kaçan atışı tanıyıp yeniden atar."},
+        {"baslik": "Otomatik bagaj ve doğrulama uyarısı", "aciklama": "Bagaj dolunca balıkları kendisi aktarır. İnsan doğrulaması gelince durur, sesli uyarı verir, sen çözünce devam eder."},
+        {"baslik": "Başarımlar ve istatistikler", "aciklama": "Günlük istatistikler, 10 rozet ve oturum özeti; Liquid Glass görünüm, mini mod, profiller, zamanlayıcı, Türkçe / İngilizce."},
+        {"baslik": "Kurulum dosyası ve Discord lisansı", "aciklama": "Tek kurulum dosyasıyla gelir. Lisansın Discord'da doğrulanır, indirme yalnızca sunucu üyelerine açıktır."}
       ],
       "en": [
-        {"baslik": "First release", "aciklama": "The first release of ARC Rina Auto Fishing, with sound-based reeling, automatic trunk transfer, human verification alerts, Liquid Glass look, mini mode, statistics, profiles, a timer and Turkish / English language support."}
+        {"baslik": "ARC Hub", "aciklama": "A new screen where you pick your game when the program opens. It can open your last choice without asking, and Switch Game in the menu always brings it back. New games will appear here as they are added."},
+        {"baslik": "All-new interface", "aciklama": "Opening animation, glowing title bar, icon side menu, sliding page transitions, counting stats, a pulsing status light and a live sound graph."},
+        {"baslik": "Sound-based reeling", "aciklama": "Listens to the game, reels in the moment a fish bites, and recasts after a missed throw."},
+        {"baslik": "Automatic trunk and verification alert", "aciklama": "Moves fish to the trunk when it fills up. When a human verification appears it stops, sounds an alert and continues after you solve it."},
+        {"baslik": "Achievements and statistics", "aciklama": "Daily statistics, 10 badges and a session summary; Liquid Glass look, mini mode, profiles, a timer, Turkish / English."},
+        {"baslik": "Installer and Discord license", "aciklama": "Ships as a single installer. Your license is verified on Discord, and downloads are open to server members only."}
       ]
     }
   ]
