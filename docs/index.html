@@ -192,6 +192,23 @@
   .dl-ok { color: var(--ok); font-size: 14.5px; }
   [hidden] { display: none !important; }
 
+  /* real social proof: active users next to the license card, recent verifications as toasts */
+  .live { display: flex; align-items: center; gap: 10px; margin: -8px 0 20px; color: var(--mute); font-size: 15px; }
+  .live b { color: var(--text); font: 700 18px/1 var(--mono); font-variant-numeric: tabular-nums; }
+  .live i { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 60%, transparent); animation: ping 2s ease-out infinite; flex: none; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 10px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+  .toast { position: fixed; z-index: 20; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    display: flex; align-items: center; gap: 12px; max-width: min(360px, calc(100vw - 32px)); padding: 12px 14px; border-radius: 16px;
+    background: color-mix(in srgb, var(--deep) 92%, transparent); backdrop-filter: blur(10px); border: 1px solid color-mix(in srgb, var(--violet) 45%, var(--line));
+    box-shadow: 0 20px 50px -15px #000, 0 0 40px -18px var(--violet); transition: transform .45s cubic-bezier(.2, .8, .2, 1), opacity .45s; }
+  .toast.off { transform: translateY(24px); opacity: 0; pointer-events: none; }
+  .toast img { width: 38px; height: 38px; flex: none; }
+  .toast div { display: grid; gap: 3px; min-width: 0; }
+  .toast b { font-size: 14.5px; font-weight: 600; }
+  .toast span { color: var(--mute); font-size: 13px; }
+  .toast button { align-self: flex-start; margin-left: 4px; background: none; border: 0; color: var(--mute); cursor: pointer; font-size: 13px; padding: 2px; }
+  @media (prefers-reduced-motion: reduce) { .live i { animation: none; } .toast { transition: none; } }
+
   /* download box under the hero: animated slogan + slowly turning glow border */
   .indir-sec { padding-block: clamp(20px, 4vw, 40px) clamp(64px, 9vw, 112px); }
   .slogan { font-size: clamp(32px, 5.4vw, 60px); font-weight: 800; line-height: 1.06; }
@@ -449,9 +466,10 @@
     </div>
     <div class="buy">
       <div class="license">
-        <div class="eyebrow">ARC Rina Auto Fishing v2.1</div>
+        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.1</div>
         <h3 style="margin-top:12px">Lisans anahtarı</h3>
         <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
+        <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı ARC ile balık tutuyor</div>
         <ul>
           <li>ARC'ın bütün özellikleri</li>
           <li>Bilgisayarına tanımlanan kişisel anahtar</li>
@@ -490,6 +508,12 @@
     <a class="btn btn-main" href="#lisans">Lisans al</a>
   </div>
 </section>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden>
+  <img src="arc.png" alt="">
+  <div><b id="toast-t"></b><span id="toast-s"></span></div>
+  <button type="button" id="toast-x" aria-label="Kapat">✕</button>
+</div>
 
 <footer><div class="wrap"><span>© 2026 ARC Studio · v2.1</span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
@@ -569,6 +593,39 @@
     } catch { say('Sunucuya ulaşılamadı. İnternet bağlantını kontrol et.', 'err'); }
     dlBtn.disabled = false;
   });
+
+  // Real social proof only: counts and events come from the license server; names are masked server-side
+  const once = (sn) => { const s = Math.max(0, (Date.now() - new Date(sn).getTime()) / 1000);
+    if (s < 90) return 'az önce'; if (s < 3600) return Math.round(s / 60) + ' dakika önce';
+    if (s < 86400) return Math.round(s / 3600) + ' saat önce'; return Math.round(s / 86400) + ' gün önce'; };
+  fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"action":"stats"}' })
+    .then((r) => r.json()).then((st) => {
+      if (st.active > 0) {
+        const n = document.getElementById('live-n'), hedef = st.active, t0 = performance.now();
+        document.getElementById('live').hidden = false;
+        const say = (t) => { const p = Math.min(1, (t - t0) / 1200); n.textContent = Math.round(hedef * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(say); };
+        requestAnimationFrame(say);
+      }
+      const olaylar = (st.events || []).filter((e) => e && e.at);
+      if (!olaylar.length) return;
+      const toast = document.getElementById('toast');
+      let i = 0, kapali = false;
+      try { kapali = sessionStorage.getItem('arc_toast_off') === '1'; } catch {}
+      document.getElementById('toast-x').addEventListener('click', () => {
+        kapali = true; toast.classList.add('off'); try { sessionStorage.setItem('arc_toast_off', '1'); } catch {}
+      });
+      const goster = () => {
+        if (kapali) return;
+        const e = olaylar[i++ % olaylar.length];
+        document.getElementById('toast-t').textContent = e.name + (e.kind === 'purchased' ? ' ARC lisansı aldı' : ' lisansını doğruladı');
+        document.getElementById('toast-s').textContent = '✅ ' + once(e.at);
+        toast.hidden = false; toast.classList.add('off');
+        requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.remove('off')));
+        setTimeout(() => toast.classList.add('off'), 5500);
+        if (i < olaylar.length * 2) setTimeout(goster, 14000);  // her olay en fazla iki kez gösterilir
+      };
+      setTimeout(goster, 4000);
+    }).catch(() => {});
 
   document.querySelectorAll('.copy').forEach((copy) => copy.addEventListener('click', () => {
     const el = document.getElementById(copy.dataset.for), t = el.textContent;
