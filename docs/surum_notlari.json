@@ -6,6 +6,7 @@
       "tr": [
         {"baslik": "ARC Hub", "aciklama": "Program açılınca oyununu seçtiğin yeni ekran. İstersen son seçimini sormadan açar; menüdeki Oyun Değiştir ile her zaman geri dönebilirsin. Yeni oyunlar eklendikçe burada görünecek."},
         {"baslik": "Yepyeni arayüz", "aciklama": "Açılış animasyonu, parlayan başlık çubuğu, ikonlu yan menü, kayan sayfa geçişleri, sayarak artan sayaçlar, nabız atan durum ışığı ve canlı ses grafiği."},
+        {"baslik": "Tanıtım turu ve arayüz sesleri", "aciklama": "İlk açılışta programı adım adım gösteren kısa bir tur (Ayarlar'dan tekrar başlatılabilir). Tıklama, başlatma, durdurma ve başarım için kısık sesli efektler; Ayarlar'dan kapatılabilir."},
         {"baslik": "Sese duyarlı yakalama", "aciklama": "Oyunun sesini dinler, balık vurduğu an oltayı çeker; kaçan atışı tanıyıp yeniden atar."},
         {"baslik": "Otomatik bagaj ve doğrulama uyarısı", "aciklama": "Bagaj dolunca balıkları kendisi aktarır. İnsan doğrulaması gelince durur, sesli uyarı verir, sen çözünce devam eder."},
         {"baslik": "Başarımlar ve istatistikler", "aciklama": "Günlük istatistikler, 10 rozet ve oturum özeti; Liquid Glass görünüm, mini mod, profiller, zamanlayıcı, Türkçe / İngilizce."},
@@ -14,6 +15,7 @@
       "en": [
         {"baslik": "ARC Hub", "aciklama": "A new screen where you pick your game when the program opens. It can open your last choice without asking, and Switch Game in the menu always brings it back. New games will appear here as they are added."},
         {"baslik": "All-new interface", "aciklama": "Opening animation, glowing title bar, icon side menu, sliding page transitions, counting stats, a pulsing status light and a live sound graph."},
+        {"baslik": "Guided tour and interface sounds", "aciklama": "A short step-by-step tour on first launch (restart it from Settings). Quiet sound effects for clicks, start, stop and achievements; turn them off in Settings."},
         {"baslik": "Sound-based reeling", "aciklama": "Listens to the game, reels in the moment a fish bites, and recasts after a missed throw."},
         {"baslik": "Automatic trunk and verification alert", "aciklama": "Moves fish to the trunk when it fills up. When a human verification appears it stops, sounds an alert and continues after you solve it."},
         {"baslik": "Achievements and statistics", "aciklama": "Daily statistics, 10 badges and a session summary; Liquid Glass look, mini mode, profiles, a timer, Turkish / English."},
