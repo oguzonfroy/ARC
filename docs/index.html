@@ -606,7 +606,7 @@
         const say = (t) => { const p = Math.min(1, (t - t0) / 1200); n.textContent = Math.round(hedef * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(say); };
         requestAnimationFrame(say);
       }
-      const olaylar = (st.events || []).filter((e) => e && e.at);
+      const olaylar = (st.events || []).filter((e) => e && e.name && (e.at || e.kind === 'owner'));
       if (!olaylar.length) return;
       const toast = document.getElementById('toast');
       let i = 0, kapali = false;
@@ -617,8 +617,10 @@
       const goster = () => {
         if (kapali) return;
         const e = olaylar[i++ % olaylar.length];
-        document.getElementById('toast-t').textContent = e.name + (e.kind === 'purchased' ? ' ARC lisansı aldı' : ' lisansını doğruladı');
-        document.getElementById('toast-s').textContent = '✅ ' + once(e.at);
+        // owner = sold before the license system, date unknown: no time is shown
+        document.getElementById('toast-t').textContent = e.name + (e.kind === 'owner' ? ' · ARC kullanıcısı'
+          : e.kind === 'purchased' ? ' ARC lisansı aldı' : ' lisansını doğruladı');
+        document.getElementById('toast-s').textContent = e.kind === 'owner' ? '✅ ARC lisans sahibi' : '✅ ' + once(e.at);
         toast.hidden = false; toast.classList.add('off');
         requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.remove('off')));
         setTimeout(() => toast.classList.add('off'), 5500);
