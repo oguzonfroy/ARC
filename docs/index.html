@@ -334,7 +334,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
+    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
     <a class="btn btn-main" href="#lisans">Satın Al</a>
   </div>
 </nav>
@@ -551,6 +551,39 @@
   </div>
 </section>
 
+<section id="drive" class="macro-sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="macro-top">
+      <img src="arc-drive.png" alt="ARC Drive">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">TEST SÜRÜMÜ · ARC HUB İÇİNDE</span>
+        <h2>ARC Drive: sen yolu seç, ARC sürsün.</h2>
+        <p class="lead">Haritada bir yer işaretle. ARC mini haritadaki GPS çizgisini okuyup direksiyonu ve gazı kendisi yönetir. Kurye, tır ve taksi işlerinde uzun yollar için. ARC Hub'da üçüncü modül, aynı lisansınla açılır.</p>
+      </div>
+    </div>
+    <div class="macro-video">
+      <video id="drive-video" src="arc-drive-tanitim.mp4" poster="arc-drive-poster.jpg" muted loop playsinline preload="metadata" aria-label="ARC Drive tanıtım videosu"></video>
+      <button class="sound" id="drive-sound" type="button"><span id="drive-snd-t">Sesi aç</span></button>
+    </div>
+    <div class="macro-steps">
+      <div><h3>Bir kere kalibre et</h3><p>"◎ Kalibre Et"e bas, mouse'u mini haritanın iki köşesine, aracının okuna ve GPS çizgisine getirip her birinde F6'ya bas.</p></div>
+      <div><h3>Hedefi işaretle</h3><p>Haritada gideceğin yeri seç, araca bin ve F7'ye bas. ARC rotayı saniyede 20 kez okur, A / D ile döner, W ile gaz verir.</p></div>
+      <div><h3>Direksiyon sende</h3><p>Virajda yavaşlar, takılırsa geri çıkar, hedefe varınca durur. W, A, S, D ya da boşluğa bastığın an sürüş sana geçer.</p></div>
+    </div>
+    <div class="macro-shots">
+      <img src="drive-ana.jpg" alt="ARC Drive kontrol paneli ve mini harita önizlemesi" loading="lazy" width="760" height="700">
+      <div style="align-self:start;padding:24px 22px;border-radius:18px;background:var(--deep);border:1px solid color-mix(in srgb, var(--violet) 55%, var(--line))">
+        <h3 style="font-size:19px;margin-bottom:8px">Test sürümü: bilmen gerekenler</h3>
+        <p style="margin:0;color:var(--mute);font-size:15.5px">ARC Drive yalnızca ekrandaki mini haritayı okur; trafiği, yayaları ve duvarları göremez. Direksiyon başında ol, F12 her şeyi anında durdurur. Oyun "Pencereli Tam Ekran" modunda olmalı. Sorun yaşarsan ana sayfadaki önizlemenin ekran görüntüsünü Discord'dan gönder, birlikte düzeltelim.</p>
+      </div>
+    </div>
+    <div class="macro-list">
+      <span>🗺 GPS rotasını takip</span><span>🎚 Ayarlanabilir gaz sınırı</span><span>↷ Virajda yavaşlama</span>
+      <span>⟲ Takılınca geri çıkma</span><span>⚑ Hedefte durma</span><span>⌨ WASD ile anında devral</span><span>⏹ F12 acil durdur</span>
+    </div>
+  </div>
+</section>
+
 <section id="yenilikler" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
@@ -624,16 +657,18 @@
 
 <script>
 (() => {
-  // ARC Macro video: starts (muted) when it scrolls into view, pauses when out of view
-  const mv = document.getElementById('macro-video'), ms = document.getElementById('macro-sound');
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver((e) => { const p = e[0].isIntersecting ? mv.play() : mv.pause(); if (p) p.catch(() => {}); }, { threshold: .35 }).observe(mv);
-  } else { const p = mv.play(); if (p) p.catch(() => {}); }
-  ms.addEventListener('click', () => {
-    mv.muted = !mv.muted;
-    if (!mv.muted) { mv.currentTime = 0; const p = mv.play(); if (p) p.catch(() => {}); }
-    document.getElementById('macro-snd-t').textContent = mv.muted ? 'Sesi aç' : 'Sesi kapat';
-  });
+  // ARC Macro / ARC Drive videos: start (muted) when they scroll into view, pause when out of view
+  for (const ad of ['macro', 'drive']) {
+    const mv = document.getElementById(`${ad}-video`), ms = document.getElementById(`${ad}-sound`);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((e) => { const p = e[0].isIntersecting ? mv.play() : mv.pause(); if (p) p.catch(() => {}); }, { threshold: .35 }).observe(mv);
+    } else { const p = mv.play(); if (p) p.catch(() => {}); }
+    ms.addEventListener('click', () => {
+      mv.muted = !mv.muted;
+      if (!mv.muted) { mv.currentTime = 0; const p = mv.play(); if (p) p.catch(() => {}); }
+      document.getElementById(`${ad}-snd-t`).textContent = mv.muted ? 'Sesi aç' : 'Sesi kapat';
+    });
+  }
 
   // promo video: muted autoplay is allowed; sound needs the viewer's tap
   const vid = document.getElementById('promo'), snd = document.getElementById('sound');
