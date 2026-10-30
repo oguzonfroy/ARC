@@ -5,12 +5,12 @@
       "tarih": "2026-10-30",
       "tr": [
         {"baslik": "Yeni modül: ARC Macro", "aciklama": "ARC Hub'da ikinci modül. Klavye ve mouse hareketlerini kaydet (F9), beklemeleri düzenle, makroya bir tetik tuşu ya da Mouse 4/5 ata ve oynat (F10). Hız, tekrar sayısı ve sonsuz döngü ayarlanabilir; F12 her şeyi anında durdurur."},
-        {"baslik": "Yeni (test): ARC Drive", "aciklama": "ARC Hub'da üçüncü modül, deneme sürümünde. Haritada bir yer işaretle, ARC mini haritadaki GPS çizgisini okuyup direksiyonu ve gazı kendisi yönetsin; virajda yavaşlar, takılırsa geri çıkar, hedefe varınca durur. Trafiği göremez: W, A, S, D ya da boşluğa bastığın an direksiyon sana geçer."},
+        {"baslik": "Yeni (test): ARC Drive", "aciklama": "ARC Hub'da üçüncü modül, deneme sürümünde. Haritada bir yer işaretle, ARC mini haritadaki GPS çizgisini okuyup direksiyonu ve gazı kendisi yönetsin; virajda yavaşlar, takılırsa geri çıkar, hedefe varınca durur. Yaya modunda karakteri yürüterek götürür: W basılı kalır, kamera mouse ile rotaya döner, takılınca zıplar ya da yana kayar. Trafiği göremez: W, A, S, D ya da boşluğa bastığın (yayada mouse'u oynattığın) an kontrol sana geçer."},
         {"baslik": "Aynı lisans", "aciklama": "ARC Macro ve ARC Drive ayrı bir kurulum ya da lisans istemez; ARC Hub'dan seçmen yeterli."}
       ],
       "en": [
         {"baslik": "New module: ARC Macro", "aciklama": "The second module in ARC Hub. Record keyboard and mouse (F9), edit the waits, bind the macro to a key or Mouse 4/5 and play it (F10). Speed, repeat count and endless loop are adjustable; F12 stops everything instantly."},
-        {"baslik": "New (test): ARC Drive", "aciklama": "The third module in ARC Hub, in beta. Set a waypoint and ARC reads the GPS line on the minimap and handles steering and throttle; it slows for corners, backs out when stuck and stops at the destination. It can't see traffic: press W, A, S, D or space and the wheel is yours."},
+        {"baslik": "New (test): ARC Drive", "aciklama": "The third module in ARC Hub, in beta. Set a waypoint and ARC reads the GPS line on the minimap and handles steering and throttle; it slows for corners, backs out when stuck and stops at the destination. On-foot mode walks your character there: W stays held, the camera turns to the route with the mouse, and it jumps or sidesteps when stuck. It can't see traffic: press W, A, S, D or space (or move the mouse on foot) and you take over."},
         {"baslik": "Same license", "aciklama": "ARC Macro and ARC Drive need no separate install or license; just pick them in ARC Hub."}
       ]
     },
