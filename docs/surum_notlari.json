@@ -1,39 +1,139 @@
 {
   "surumler": [
     {
+      "surum": "v2.2",
+      "tarih": "2026-11-02",
+      "tr": [
+        {
+          "baslik": "Yeni (test): ETS2 Auto Drive",
+          "aciklama": "ARC Hub'da dördüncü modül, deneme sürümünde. Euro Truck Simulator 2 ve TruckersMP'de GPS'e hedefini koy, ARC sağ alttaki rota danışmanından kırmızı rotayı okuyup tırı kendisi sürsün: direksiyon, gaz ve fren ARC'ta. Hız sınırını sen belirlersin; yoldaki limitlere uyar, virajda yavaşlar, hedefe varınca durur."
+        },
+        {
+          "baslik": "Telemetri kendiliğinden kurulur",
+          "aciklama": "ARC, tırın hızını ve yoldaki hız limitini okumak için gereken telemetri eklentisini oyunun klasörüne kendisi kopyalar. Ayrı program ya da yönetici izni gerekmez; ilk seferde oyunu yeniden başlatman yeterli."
+        },
+        {
+          "baslik": "Mouse direksiyonla daha yumuşak sürüş",
+          "aciklama": "Oyunda 'Klavye + Mouse Direksiyon' seçiliyse ARC direksiyonu doğrudan istenen açıya getirir; şeritte klavyeye göre çok daha sakin gider."
+        },
+        {
+          "baslik": "Güvenlik",
+          "aciklama": "Oyun penceresi önde değilken tuşlar başka pencerelere gitmesin diye sürüş duraklar. Tır takılırsa durup kontrolü sana verir. Trafiği görmez: önündeki araca dikkat et, W, A, S, D ya da END'e bastığın an kontrol sende."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New (test): ETS2 Auto Drive",
+          "aciklama": "The fourth module in ARC Hub, in beta. Set your destination in the GPS in Euro Truck Simulator 2 or TruckersMP and ARC reads the red route on the route advisor and drives the truck: steering, throttle and brakes. You set the speed cap; it follows road limits, slows for corners and stops at the destination."
+        },
+        {
+          "baslik": "Telemetry installs itself",
+          "aciklama": "ARC copies the telemetry plugin it needs for speed and speed limits into the game folder by itself. No separate program or admin rights; just restart the game the first time."
+        },
+        {
+          "baslik": "Smoother driving with mouse steering",
+          "aciklama": "With 'Keyboard + Mouse Steering' selected in the game, ARC sets the wheel straight to the angle it wants; it stays much calmer in the lane than with keys."
+        },
+        {
+          "baslik": "Safety",
+          "aciklama": "Driving pauses while the game window is not in front, so keys never reach other windows. If the truck gets stuck it stops and hands control back. It cannot see traffic: watch the car ahead; press W, A, S, D or END and you take over."
+        }
+      ]
+    },
+    {
       "surum": "v2.1",
       "tarih": "2026-10-30",
       "tr": [
-        {"baslik": "Yeni modül: ARC Macro", "aciklama": "ARC Hub'da ikinci modül. Klavye ve mouse hareketlerini kaydet (F9), beklemeleri düzenle, makroya bir tetik tuşu ya da Mouse 4/5 ata ve oynat (F10). Hız, tekrar sayısı ve sonsuz döngü ayarlanabilir; F12 her şeyi anında durdurur."},
-        {"baslik": "Yeni (test): ARC Drive", "aciklama": "ARC Hub'da üçüncü modül, deneme sürümünde. Haritada bir yer işaretle, ARC mini haritadaki GPS çizgisini okuyup direksiyonu ve gazı kendisi yönetsin; virajda yavaşlar, takılırsa geri çıkar, hedefe varınca durur. Yaya modunda karakteri yürüterek götürür: W basılı kalır, kamera mouse ile rotaya döner, takılınca zıplar ya da yana kayar. Trafiği göremez: W, A, S, D ya da boşluğa bastığın (yayada mouse'u oynattığın) an kontrol sana geçer."},
-        {"baslik": "Aynı lisans", "aciklama": "ARC Macro ve ARC Drive ayrı bir kurulum ya da lisans istemez; ARC Hub'dan seçmen yeterli."}
+        {
+          "baslik": "Yeni modül: ARC Macro",
+          "aciklama": "ARC Hub'da ikinci modül. Klavye ve mouse hareketlerini kaydet (F9), beklemeleri düzenle, makroya bir tetik tuşu ya da Mouse 4/5 ata ve oynat (F10). Hız, tekrar sayısı ve sonsuz döngü ayarlanabilir; F12 her şeyi anında durdurur."
+        },
+        {
+          "baslik": "Yeni (test): ARC Drive",
+          "aciklama": "ARC Hub'da üçüncü modül, deneme sürümünde. Haritada bir yer işaretle, ARC mini haritadaki GPS çizgisini okuyup direksiyonu ve gazı kendisi yönetsin; virajda yavaşlar, takılırsa geri çıkar, hedefe varınca durur. Yaya modunda karakteri yürüterek götürür: W basılı kalır, kamera mouse ile rotaya döner, takılınca zıplar ya da yana kayar. Trafiği göremez: W, A, S, D ya da boşluğa bastığın (yayada mouse'u oynattığın) an kontrol sana geçer."
+        },
+        {
+          "baslik": "Aynı lisans",
+          "aciklama": "ARC Macro ve ARC Drive ayrı bir kurulum ya da lisans istemez; ARC Hub'dan seçmen yeterli."
+        }
       ],
       "en": [
-        {"baslik": "New module: ARC Macro", "aciklama": "The second module in ARC Hub. Record keyboard and mouse (F9), edit the waits, bind the macro to a key or Mouse 4/5 and play it (F10). Speed, repeat count and endless loop are adjustable; F12 stops everything instantly."},
-        {"baslik": "New (test): ARC Drive", "aciklama": "The third module in ARC Hub, in beta. Set a waypoint and ARC reads the GPS line on the minimap and handles steering and throttle; it slows for corners, backs out when stuck and stops at the destination. On-foot mode walks your character there: W stays held, the camera turns to the route with the mouse, and it jumps or sidesteps when stuck. It can't see traffic: press W, A, S, D or space (or move the mouse on foot) and you take over."},
-        {"baslik": "Same license", "aciklama": "ARC Macro and ARC Drive need no separate install or license; just pick them in ARC Hub."}
+        {
+          "baslik": "New module: ARC Macro",
+          "aciklama": "The second module in ARC Hub. Record keyboard and mouse (F9), edit the waits, bind the macro to a key or Mouse 4/5 and play it (F10). Speed, repeat count and endless loop are adjustable; F12 stops everything instantly."
+        },
+        {
+          "baslik": "New (test): ARC Drive",
+          "aciklama": "The third module in ARC Hub, in beta. Set a waypoint and ARC reads the GPS line on the minimap and handles steering and throttle; it slows for corners, backs out when stuck and stops at the destination. On-foot mode walks your character there: W stays held, the camera turns to the route with the mouse, and it jumps or sidesteps when stuck. It can't see traffic: press W, A, S, D or space (or move the mouse on foot) and you take over."
+        },
+        {
+          "baslik": "Same license",
+          "aciklama": "ARC Macro and ARC Drive need no separate install or license; just pick them in ARC Hub."
+        }
       ]
     },
     {
       "surum": "v2.0",
       "tarih": "2026-10-29",
       "tr": [
-        {"baslik": "ARC Hub", "aciklama": "Program açılınca oyununu seçtiğin yeni ekran. İstersen son seçimini sormadan açar; menüdeki Oyun Değiştir ile her zaman geri dönebilirsin. Yeni oyunlar eklendikçe burada görünecek."},
-        {"baslik": "Yepyeni arayüz", "aciklama": "Açılış animasyonu, parlayan başlık çubuğu, ikonlu yan menü, kayan sayfa geçişleri, sayarak artan sayaçlar, nabız atan durum ışığı ve canlı ses grafiği."},
-        {"baslik": "Tanıtım turu ve arayüz sesleri", "aciklama": "İlk açılışta programı adım adım gösteren kısa bir tur (Ayarlar'dan tekrar başlatılabilir). Tıklama, başlatma, durdurma ve başarım için kısık sesli efektler; Ayarlar'dan kapatılabilir."},
-        {"baslik": "Sese duyarlı yakalama", "aciklama": "Oyunun sesini dinler, balık vurduğu an oltayı çeker; kaçan atışı tanıyıp yeniden atar."},
-        {"baslik": "Otomatik bagaj ve doğrulama uyarısı", "aciklama": "Bagaj dolunca balıkları kendisi aktarır. İnsan doğrulaması gelince durur, sesli uyarı verir, sen çözünce devam eder."},
-        {"baslik": "Başarımlar ve istatistikler", "aciklama": "Günlük istatistikler, 10 rozet ve oturum özeti; Liquid Glass görünüm, mini mod, profiller, zamanlayıcı, Türkçe / İngilizce."},
-        {"baslik": "Kurulum dosyası ve Discord lisansı", "aciklama": "Tek kurulum dosyasıyla gelir. Lisansın Discord'da doğrulanır, indirme yalnızca sunucu üyelerine açıktır."}
+        {
+          "baslik": "ARC Hub",
+          "aciklama": "Program açılınca oyununu seçtiğin yeni ekran. İstersen son seçimini sormadan açar; menüdeki Oyun Değiştir ile her zaman geri dönebilirsin. Yeni oyunlar eklendikçe burada görünecek."
+        },
+        {
+          "baslik": "Yepyeni arayüz",
+          "aciklama": "Açılış animasyonu, parlayan başlık çubuğu, ikonlu yan menü, kayan sayfa geçişleri, sayarak artan sayaçlar, nabız atan durum ışığı ve canlı ses grafiği."
+        },
+        {
+          "baslik": "Tanıtım turu ve arayüz sesleri",
+          "aciklama": "İlk açılışta programı adım adım gösteren kısa bir tur (Ayarlar'dan tekrar başlatılabilir). Tıklama, başlatma, durdurma ve başarım için kısık sesli efektler; Ayarlar'dan kapatılabilir."
+        },
+        {
+          "baslik": "Sese duyarlı yakalama",
+          "aciklama": "Oyunun sesini dinler, balık vurduğu an oltayı çeker; kaçan atışı tanıyıp yeniden atar."
+        },
+        {
+          "baslik": "Otomatik bagaj ve doğrulama uyarısı",
+          "aciklama": "Bagaj dolunca balıkları kendisi aktarır. İnsan doğrulaması gelince durur, sesli uyarı verir, sen çözünce devam eder."
+        },
+        {
+          "baslik": "Başarımlar ve istatistikler",
+          "aciklama": "Günlük istatistikler, 10 rozet ve oturum özeti; Liquid Glass görünüm, mini mod, profiller, zamanlayıcı, Türkçe / İngilizce."
+        },
+        {
+          "baslik": "Kurulum dosyası ve Discord lisansı",
+          "aciklama": "Tek kurulum dosyasıyla gelir. Lisansın Discord'da doğrulanır, indirme yalnızca sunucu üyelerine açıktır."
+        }
       ],
       "en": [
-        {"baslik": "ARC Hub", "aciklama": "A new screen where you pick your game when the program opens. It can open your last choice without asking, and Switch Game in the menu always brings it back. New games will appear here as they are added."},
-        {"baslik": "All-new interface", "aciklama": "Opening animation, glowing title bar, icon side menu, sliding page transitions, counting stats, a pulsing status light and a live sound graph."},
-        {"baslik": "Guided tour and interface sounds", "aciklama": "A short step-by-step tour on first launch (restart it from Settings). Quiet sound effects for clicks, start, stop and achievements; turn them off in Settings."},
-        {"baslik": "Sound-based reeling", "aciklama": "Listens to the game, reels in the moment a fish bites, and recasts after a missed throw."},
-        {"baslik": "Automatic trunk and verification alert", "aciklama": "Moves fish to the trunk when it fills up. When a human verification appears it stops, sounds an alert and continues after you solve it."},
-        {"baslik": "Achievements and statistics", "aciklama": "Daily statistics, 10 badges and a session summary; Liquid Glass look, mini mode, profiles, a timer, Turkish / English."},
-        {"baslik": "Installer and Discord license", "aciklama": "Ships as a single installer. Your license is verified on Discord, and downloads are open to server members only."}
+        {
+          "baslik": "ARC Hub",
+          "aciklama": "A new screen where you pick your game when the program opens. It can open your last choice without asking, and Switch Game in the menu always brings it back. New games will appear here as they are added."
+        },
+        {
+          "baslik": "All-new interface",
+          "aciklama": "Opening animation, glowing title bar, icon side menu, sliding page transitions, counting stats, a pulsing status light and a live sound graph."
+        },
+        {
+          "baslik": "Guided tour and interface sounds",
+          "aciklama": "A short step-by-step tour on first launch (restart it from Settings). Quiet sound effects for clicks, start, stop and achievements; turn them off in Settings."
+        },
+        {
+          "baslik": "Sound-based reeling",
+          "aciklama": "Listens to the game, reels in the moment a fish bites, and recasts after a missed throw."
+        },
+        {
+          "baslik": "Automatic trunk and verification alert",
+          "aciklama": "Moves fish to the trunk when it fills up. When a human verification appears it stops, sounds an alert and continues after you solve it."
+        },
+        {
+          "baslik": "Achievements and statistics",
+          "aciklama": "Daily statistics, 10 badges and a session summary; Liquid Glass look, mini mode, profiles, a timer, Turkish / English."
+        },
+        {
+          "baslik": "Installer and Discord license",
+          "aciklama": "Ships as a single installer. Your license is verified on Discord, and downloads are open to server members only."
+        }
       ]
     }
   ]
