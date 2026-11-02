@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v2.6",
+      "tarih": "2026-11-03",
+      "tr": [
+        {
+          "baslik": "Seçtiğin hız korunur",
+          "aciklama": "Üst hız sınırı kapalıyken otomatik sürüşte seçtiğin hedef hız, yeni bir hız tabelasına gelince silinmiyor."
+        },
+        {
+          "baslik": "ARC adı ve logosu",
+          "aciklama": "ETS2 Auto Drive, Görev Yöneticisi'nde ARC APP adıyla, görev çubuğunda ARC logosuyla görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Your chosen speed is kept",
+          "aciklama": "With the speed cap off, the target speed you choose while auto driving is no longer reset at a new speed limit sign."
+        },
+        {
+          "baslik": "ARC name and logo",
+          "aciklama": "ETS2 Auto Drive now appears as ARC APP in Task Manager and with the ARC logo on the taskbar."
+        }
+      ]
+    },
+    {
       "surum": "v2.5",
       "tarih": "2026-11-03",
       "tr": [
