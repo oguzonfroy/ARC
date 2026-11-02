@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v2.5",
+      "tarih": "2026-11-03",
+      "tr": [
+        {
+          "baslik": "TruckersMP'de Başlat",
+          "aciklama": "Oyunu Başlat sayfası yenilendi. TruckersMP launcher'ının yeri otomatik bulunur, bulunamazsa konumunu seçebilir ya da indirebilirsin. TruckersMP'de kullanım riski sana aittir, kurallarını kontrol et."
+        },
+        {
+          "baslik": "Şerit görünümü",
+          "aciklama": "Otomatik sürüşte fazladan görünen düz mavi çizgiler kaldırıldı."
+        },
+        {
+          "baslik": "Eklenti listesi düzeltmesi",
+          "aciklama": "ETS2 Auto Drive başka bir klasörden açılınca kurulu eklentilerin listeden silinmesine yol açan hata giderildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Start on TruckersMP",
+          "aciklama": "The Start Game page is redesigned. The TruckersMP launcher is found automatically; if not, you can pick its location or download it. Use on TruckersMP is at your own risk, check their rules."
+        },
+        {
+          "baslik": "Lane display",
+          "aciklama": "Removed the extra straight blue lines shown while auto driving."
+        },
+        {
+          "baslik": "Plugin list fix",
+          "aciklama": "Fixed a bug that removed installed plugins from the list when ETS2 Auto Drive was opened from another folder."
+        }
+      ]
+    },
+    {
       "surum": "v2.4",
       "tarih": "2026-11-02",
       "tr": [
