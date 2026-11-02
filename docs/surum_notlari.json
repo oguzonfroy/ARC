@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v2.3",
+      "tarih": "2026-11-02",
+      "tr": [
+        {
+          "baslik": "Kurulum dosyası",
+          "aciklama": "ARC artık tek bir kurulum dosyasıyla gelir: indir, çalıştır, bitti. Masaüstü kısayolu ve Uygulamalar listesinden kaldırma dahil."
+        },
+        {
+          "baslik": "Yeni ETS2 Auto Drive",
+          "aciklama": "Şerit takibi, adaptif hız ve oyun içi GPS rotasıyla tamamen yenilenen otomatik sürüş. Sürüş modunu menüden seçersin, Insert ile pencereyi oyunun içinde açıp kapatırsın. İlk açılışta kısa bir tanıtım ve 'Nasıl Kurulur' rehberi seni adım adım götürür."
+        },
+        {
+          "baslik": "Yeni görünüm",
+          "aciklama": "Yeni ARC logosu ve her uygulama için yeni Hub kartları."
+        },
+        {
+          "baslik": "Lisans süresi",
+          "aciklama": "Lisans doğrulanınca bitiş tarihin ve kalan gün sayın gösterilir. Süresiz lisanslarda değişen bir şey yok."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Installer",
+          "aciklama": "ARC now ships as a single installer: download, run, done. Includes a desktop shortcut and uninstall from Apps."
+        },
+        {
+          "baslik": "New ETS2 Auto Drive",
+          "aciklama": "Fully rebuilt auto drive with lane keeping, adaptive speed and the in-game GPS route. Pick the driving mode from the menu and toggle the window in game with Insert. A short intro and a 'How to set up' guide walk you through first use."
+        },
+        {
+          "baslik": "New look",
+          "aciklama": "New ARC logo and new Hub cards for every app."
+        },
+        {
+          "baslik": "License duration",
+          "aciklama": "After your license is verified you see its end date and the days left. Nothing changes for unlimited licenses."
+        }
+      ]
+    },
+    {
       "surum": "v2.2",
       "tarih": "2026-11-02",
       "tr": [

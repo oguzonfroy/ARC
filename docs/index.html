@@ -402,7 +402,7 @@
         <button class="btn btn-main" id="dl-btn" type="submit">İndir</button>
       </form>
       <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
-      <p class="dl-note">Anahtarın, ilk doğrulandığı Discord hesabına bağlanır. Anahtarın yoksa aşağıdaki <a href="#lisans">Lisans</a> bölümünden bize yaz. Kurulum rehberi indirdiğin zip dosyasının içinde.</p>
+      <p class="dl-note">Anahtarın, ilk doğrulandığı Discord hesabına bağlanır. Anahtarın yoksa aşağıdaki <a href="#lisans">Lisans</a> bölümünden bize yaz. İndirdiğin ARC-Setup dosyasını çalıştır, kurulum gerisini halleder.</p>
     </div>
     </div>
   </div>
@@ -415,7 +415,7 @@
       <h2>Canlı kontrol paneli</h2>
     </div>
     <div class="app" aria-label="ARC kontrol paneli önizlemesi">
-      <div class="bar"><img src="arc.png" alt="">ARC RINA AUTO FISHING <span class="v">v2.1</span><span class="x">✕</span></div>
+      <div class="bar"><img src="arc.png" alt="">ARC RINA AUTO FISHING <span class="v">v2.3</span><span class="x">✕</span></div>
       <div class="app-body">
         <div class="app-top"><b>Kontrol Paneli</b><span class="pill" id="pill"><i></i><span id="durum">Çalışıyor</span></span></div>
         <div class="stats">
@@ -655,7 +655,7 @@
     </div>
     <div class="buy">
       <div class="license">
-        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.1</div>
+        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.3</div>
         <h3 style="margin-top:12px">Lisans anahtarı</h3>
         <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
         <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı ARC ile balık tutuyor</div>
@@ -704,7 +704,7 @@
   <button type="button" id="toast-x" aria-label="Kapat">✕</button>
 </div>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio · v2.1</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio · v2.3</span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <script>
 (() => {
@@ -792,6 +792,7 @@
         say('Discord doğrulama linkinin süresi doldu. #license-verify kanalından butona basıp yeni link al.', 'err');
       }
       else if (d.status === 'other_discord') say('Bu anahtar başka bir Discord hesabına bağlı. Senin değilse bize bilet aç.', 'err');
+      else if (d.status === 'expired') say('Bu anahtarın süresi dolmuş. Yenilemek için Discord\'dan bize yaz.', 'err');
       else if (d.status === 'limit') say('Bu anahtarla bugün çok fazla indirme yapıldı. Yarın tekrar dene ya da Discord\'dan yaz.', 'err');
       else if (d.status === 'none') say('Şu an indirilebilir sürüm yok. Discord\'dan yaz.', 'err');
       else if (d.status === 'invalid') say('Bu anahtar geçerli değil. Doğru yazdığından emin ol ya da Discord\'dan yaz.', 'err');
