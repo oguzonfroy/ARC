@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "v2.4",
+      "tarih": "2026-11-02",
+      "tr": [
+        {
+          "baslik": "Sınırsız hız",
+          "aciklama": "ETS2 Auto Drive'da Gösterge Paneli'ndeki tek düğmeyle hız sınırını kaldır: otomatik sürüş hedef hızı aşağı çekmez, hızı ↑ ve ↓ tuşlarıyla sen seçersin. Oyunun kendi hız sınırlayıcısı ve sunucu kuralları ayrıca geçerlidir."
+        },
+        {
+          "baslik": "Öndeki araç bilgisi",
+          "aciklama": "Önündeki araçların hızı ve sana uzaklığı oyunun içinde üstlerinde yazar, kendi şeridindeki araç işaretlenir. Otomatik sürüş kapalıyken de çalışır; Gösterge Paneli'nden açıp kapatabilirsin."
+        },
+        {
+          "baslik": "Otomatik sürüşte şerit çizgileri",
+          "aciklama": "Otomatik sürüş açıkken bulunduğun şerit oyunun içinde mavi çizgilerle gösterilir."
+        },
+        {
+          "baslik": "Oyunu Başlat sayfası",
+          "aciklama": "Yan menüye eklendi. Euro Truck Simulator 2'yi ya da TruckersMP launcher'ını buradan açabilirsin. TruckersMP'de kullanım riski sana aittir, kurallarını kontrol et."
+        },
+        {
+          "baslik": "Hata düzeltmesi",
+          "aciklama": "Hız tuşlarına kısa basınca ETS2 Auto Drive'ın kapanmasına yol açan hata giderildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Unlimited speed",
+          "aciklama": "Remove the speed cap in ETS2 Auto Drive with one button on the Dashboard: auto drive no longer pulls your target speed down, you choose it with the ↑ and ↓ keys. The game's own speed limiter and server rules still apply."
+        },
+        {
+          "baslik": "Vehicle info ahead",
+          "aciklama": "The speed and distance of vehicles ahead appear above them in game, and the one in your lane is marked. Also works with auto drive off; toggle it from the Dashboard."
+        },
+        {
+          "baslik": "Lane lines while auto driving",
+          "aciklama": "While auto drive is on, your lane is shown in game with blue lines."
+        },
+        {
+          "baslik": "Start Game page",
+          "aciklama": "Added to the side menu. Open Euro Truck Simulator 2 or the TruckersMP launcher from here. Use on TruckersMP is at your own risk, check their rules."
+        },
+        {
+          "baslik": "Bug fix",
+          "aciklama": "Fixed a crash that closed ETS2 Auto Drive when the speed keys were tapped briefly."
+        }
+      ]
+    },
+    {
       "surum": "v2.3",
       "tarih": "2026-11-02",
       "tr": [
