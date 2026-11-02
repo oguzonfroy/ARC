@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v2.7",
+      "tarih": "2026-11-03",
+      "tr": [
+        {
+          "baslik": "Lisans süresi takibi",
+          "aciklama": "Key'in süresi dolunca program açık olsa bile uyarı verip kendini kapatır; ETS2 Auto Drive önce otonom sürüşü bırakır. İnternet kesilirse program çalışmaya devam eder."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "License expiry check",
+          "aciklama": "When your key expires, the program warns you and closes itself even while running; ETS2 Auto Drive releases auto driving first. If the internet drops, the program keeps running."
+        }
+      ]
+    },
+    {
       "surum": "v2.6",
       "tarih": "2026-11-03",
       "tr": [
