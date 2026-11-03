@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v2.8",
+      "tarih": "2026-11-03",
+      "tr": [
+        {
+          "baslik": "Oyun içi pencereler yenilendi",
+          "aciklama": "İç Görselleştirme gibi pencereler artık fareyle tıklanıyor, taşınıyor ve boyutlanıyor; konum ve boyutları kaydediliyor. ARC temasıyla saydam görünüyorlar. Oyun duraklatılmışken ya da Alt+Tab ile çıkınca düzenlenir, sürerken sağ Alt'a basılı tutulur."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "In-game windows refreshed",
+          "aciklama": "Windows like Internal Visualization can now be clicked, moved and resized with the mouse, and their position and size are saved. They use the transparent ARC theme. Edit them while the game is paused or after Alt+Tab; while driving, hold Right Alt."
+        }
+      ]
+    },
+    {
       "surum": "v2.7",
       "tarih": "2026-11-03",
       "tr": [
