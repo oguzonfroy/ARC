@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.6",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "Yeni ARC Play: Horizon tasarımı",
+          "aciklama": "Tırının ekranı baştan tasarlandı. Ekranın tamamı ARC'ın: üstte saat, altta büyük düğmeli ARC kumanda yayı, kenarlarda mor neon çerçeve. Uygulamalar artık bir kadranda; dokun ve aç."
+        },
+        {
+          "baslik": "ARC Gece haritası",
+          "aciklama": "Navigasyon haritası ARC renklerinde: koyu mor zemin, mor yollar ve ışık saçan neon rota."
+        },
+        {
+          "baslik": "Spotify ile giriş",
+          "aciklama": "Tırın ekranındaki Spotify ile giriş yap düğmesiyle hesabına bağlan; giriş Spotify'ın kendi sayfasında yapılır, ARC şifreni görmez."
+        },
+        {
+          "baslik": "YouTube düzeltmesi",
+          "aciklama": "Açılmayan videolar artık yeniden denenir; yine açılmazsa nedeni yazılır ve sonraki videoya geçebilirsin."
+        },
+        {
+          "baslik": "Yeni ad: ARC APP",
+          "aciklama": "Program artık ARC APP adıyla görünür. Ayarların, lisansın ve istatistiklerin olduğu gibi kalır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New ARC Play: Horizon design",
+          "aciklama": "Your truck's screen, redesigned. The whole screen is ARC's: the clock on top, the ARC command arc with big buttons at the bottom and a purple neon frame. Your apps sit on a dial; tap and open."
+        },
+        {
+          "baslik": "ARC Night map",
+          "aciklama": "The navigation map in ARC's colours: deep purple ground, purple roads and a glowing neon route."
+        },
+        {
+          "baslik": "Sign in with Spotify",
+          "aciklama": "Connect your account with the Sign in with Spotify button on the truck screen; you sign in on Spotify's own page and ARC never sees your password."
+        },
+        {
+          "baslik": "YouTube fix",
+          "aciklama": "Videos that wouldn't open are tried again; if one still won't play, you see why and can skip to the next."
+        },
+        {
+          "baslik": "New name: ARC APP",
+          "aciklama": "The program is now called ARC APP. Your settings, license and stats stay as they are."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.5",
       "tarih": "2026-11-04",
       "tr": [

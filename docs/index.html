@@ -345,6 +345,18 @@
     .stat b { font-size: 20px; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  /* ARC Play bölümü (2026-11-05) */
+  .ap-sec .ap-buyuk { margin: 34px 0 18px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: #07060b;
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,.8), 0 0 60px color-mix(in srgb, var(--violet) 22%, transparent); }
+  .ap-sec .ap-buyuk img { display: block; width: 100%; height: auto; }
+  .ap-sec .ap-ikili { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; }
+  .ap-sec figure { margin: 0; }
+  .ap-sec .ap-ikili img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line);
+    filter: drop-shadow(0 20px 34px rgba(0,0,0,.55)); }
+  .ap-sec figcaption { margin-top: 10px; font: 600 14px/1.4 var(--body); color: var(--muted, #b9b2cc); text-align: center; }
+  .ap-nasil { margin-top: 22px; padding: 18px 20px; border-radius: 16px; background: var(--deep-2); border: 1px solid var(--line); font: 500 15px/1.6 var(--body); }
+  .ap-nasil b { color: #fff; }
+  @media (max-width: 760px) { .ap-sec .ap-ikili { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -352,7 +364,7 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#ets2">ETS2</a><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#phone">ARC Phone</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
+    <div class="links"><a href="#ets2">ETS2</a><a href="#arcplay">ARC Play</a><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#phone">ARC Phone</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
     <a class="btn btn-main" href="#lisans">Satın Al</a>
   </div>
 </nav>
@@ -362,7 +374,7 @@
     <div class="macro-top">
       <img src="arc.png" alt="ARC">
       <div class="sec-head" style="margin:0">
-        <span class="badge-new">YENİ SÜRÜM · v2.9.4 · ETS2 / ATS</span>
+        <span class="badge-new">YENİ SÜRÜM · v2.9.6 · ETS2 / ATS</span>
         <h2>ETS2 Auto Drive yenilendi.</h2>
         <p class="lead">Baştan tasarlanan arayüz, tek tuşla kontrol edilen özellikler ve yolun üstünde seni yönlendiren oklar. Açtığın an hazır: gerekli sistemler kendiliğinden kurulur, tercihlerin hatırlanır.</p>
       </div>
@@ -385,6 +397,29 @@
       <span>🧭 Yol yönlendirme okları</span><span>👁 ARC Vision</span><span>⌨ F6 · F7 · F8 · F10 kısayolları</span><span>🛑 Öncelikli acil durdurma</span>
       <span>⚙ Otomatik hazırlanan sistemler</span><span>🎮 Discord'da ARC durumu</span><span>🇹🇷 Tamamen Türkçe</span>
     </div>
+  </div>
+</section>
+
+<section id="arcplay" class="macro-sec ap-sec">
+  <div class="wrap">
+    <div class="macro-top">
+      <img src="arc.png" alt="ARC">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">YENİ · ARC PLAY 2.0.5 · ETS2</span>
+        <h2>Tırının ekranı artık ARC.</h2>
+        <p class="lead">ARC Play, Euro Truck Simulator 2'de tırının kendi gösterge ekranına harita, müzik ve YouTube getirir. Yeni Horizon tasarımıyla ekranın tamamı ARC'ın: üstte saat, altta büyük düğmeli ARC kumanda yayı, kenarlarda mor neon çerçeve.</p>
+      </div>
+    </div>
+    <figure class="ap-buyuk"><img src="arc-play/gorsel/oyunda-gercek.webp?v=205" alt="ETS2'de gerçek oyun görüntüsü: tırın ekranında ARC Play" loading="lazy" width="1360" height="750"><figcaption>Oyundan gerçek görüntü · Scania S, gece sürüşü</figcaption></figure>
+    <div class="ap-ikili">
+      <figure><img src="arc-play/gorsel/oyunda-yakin.webp?v=205" alt="Oyunda tırın ekranı: ARC Play kadran ana ekranı" loading="lazy" width="980" height="620"><figcaption>Oyunda · uygulamalar kadranda, altta ARC kumanda yayı</figcaption></figure>
+      <figure><img src="arc-play/gorsel/gosterge.webp?v=205" alt="ARC Play gösterge: ARC Gece haritası ve Spotify girişi" loading="lazy" width="1920" height="1080"><figcaption>Gösterge · ARC Gece haritası, neon rota ve müzik</figcaption></figure>
+    </div>
+    <div class="macro-list">
+      <span>🗺 ARC Gece haritası ve neon rota</span><span>🎵 Spotify, Apple Music, YouTube Music</span><span>▶ YouTube</span>
+      <span>🟣 Büyük, kolay düğmeler</span><span>🎨 Duvar kâğıdı ve ikon setleri</span><span>🔐 Hesaplar güvende</span>
+    </div>
+    <p class="ap-nasil"><b>Nasıl açılır?</b> ARC'ı aç, Hub'dan <b>ETS2 Auto Drive</b>'ı seç; Gösterge'deki <b>ARC Play</b> kartında <b>YÜKLE</b>'ye bas. Tek tuşla kurulur ve oyuna kendisi yerleşir, sonra <b>AÇ / KAPAT</b> ile yönetirsin. Spotify'a tırın ekranındaki <b>Spotify ile giriş yap</b> düğmesinden girersin; giriş Spotify'ın kendi sayfasında yapılır.</p>
   </div>
 </section>
 
@@ -420,7 +455,7 @@
     </div>
     <div class="dl-hot">
     <div class="dl">
-      <div class="dl-top"><h3>ARC Rina Auto Fishing</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
+      <div class="dl-top"><h3>ARC APP</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
       <div class="dl-gate" id="dl-gate">
         <ol class="g-steps">
           <li style="--i:0"><span class="g-ico g-dc"><svg viewBox="0 0 127.14 96.36" aria-hidden="true"><path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/></svg></span>
