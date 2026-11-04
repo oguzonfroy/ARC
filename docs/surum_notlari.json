@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.3",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "Güncelleme her modülde görünür",
+          "aciklama": "Yeni sürüm çıktığında ARC açılırken, lisans doğrulandıktan hemen sonra sorulur: Şimdi güncelle dersen indirilir, kurulur ve ARC yeni sürümle açılır. ETS2 Auto Drive dahil hangi aracı kullanırsan kullan görürsün."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Updates show up in every module",
+          "aciklama": "When a new version is out, ARC asks right after your license is verified at startup: choose Update now and it downloads, installs and reopens on the new version. You see it whichever tool you use, ETS2 Auto Drive included."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.2",
       "tarih": "2026-11-04",
       "tr": [
