@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.1",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "Yol yönlendirme okları düzeltildi",
+          "aciklama": "v2.9 kurulumunda yol okları eklentisi pakete girmiyordu, bu yüzden oklar oyunda görünmüyordu. Artık kurulumla birlikte geliyor ve Gösterge Paneli'nden ya da F8 ile açılıyor."
+        },
+        {
+          "baslik": "Okların rengini sen seç",
+          "aciklama": "Yol okları açıkken Gösterge Paneli'nde Ok rengi satırı çıkar: beyaz, turkuaz, mor, yeşil, sarı, turuncu, kırmızı, mavi ya da renk seçiciden istediğin herhangi bir renk. Seçimin hatırlanır."
+        },
+        {
+          "baslik": "Discord'da ARC durumu düzeltildi",
+          "aciklama": "Discord profilindeki ARC görünümü de v2.9 kurulumunda eksikti; artık kurulumla birlikte geliyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Road guidance arrows fixed",
+          "aciklama": "The v2.9 installer left out the road arrows plugin, so the arrows never showed up in game. It now ships with the installer and is toggled from the Dashboard or with F8."
+        },
+        {
+          "baslik": "Pick your arrow color",
+          "aciklama": "With road arrows on, the Dashboard shows an Arrow color row: white, teal, violet, green, yellow, orange, red, blue, or any color from the color picker. Your choice is remembered."
+        },
+        {
+          "baslik": "Discord ARC status fixed",
+          "aciklama": "The ARC look on your Discord profile was also missing from the v2.9 installer; it now ships with it."
+        }
+      ]
+    },
+    {
       "surum": "v2.9",
       "tarih": "2026-11-04",
       "tr": [
