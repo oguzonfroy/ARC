@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.7",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "ARC Play kurulumu düzeltildi",
+          "aciklama": "ARC Play'in kurulumu yarıda kalıp geri alınıyordu; artık eksiksiz kurulur. ARC Play masaüstüne ve Başlat menüsüne ayrı bir kısayol da koymaz, yalnız ETS2 Auto Drive'dan açılır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Play install fixed",
+          "aciklama": "ARC Play's install could stop halfway and roll back; it now installs completely. It no longer puts its own shortcut on the desktop or Start menu: you open it from ETS2 Auto Drive."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.6",
       "tarih": "2026-11-05",
       "tr": [
