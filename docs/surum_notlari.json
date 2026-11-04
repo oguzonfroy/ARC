@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.2",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "Uygulama içinden tek tıkla güncelleme",
+          "aciklama": "Yeni sürüm çıktığında ARC'taki Güncelle düğmesine basman yeterli: güncelleme indirilir, kurulur ve ARC yeni sürümle kendiliğinden açılır. Siteye gidip ayrıca indirmen gerekmez."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "One-click update inside the app",
+          "aciklama": "When a new version is out, just press Update in ARC: it downloads, installs and reopens on the new version by itself. No need to visit the site to download it."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.1",
       "tarih": "2026-11-04",
       "tr": [
