@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.5",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive yeni kokpit tasarımı",
+          "aciklama": "ETS2 Auto Drive baştan tasarlandı: tır içi ekran gibi bir kokpit. Canlı hız göstergesi, hız sınırı ve hedef hız, rota mesafesi ve kalan süre, tek tuşla Sürüşü Başlat / Durdur ve hızlı kontrol anahtarları. Üst çubukta oyun bağlantısı ve otopilot durumu her an görünür."
+        },
+        {
+          "baslik": "ARC Play artık ETS2 Auto Drive'da",
+          "aciklama": "ARC Play, ETS2 Auto Drive'ın gösterge panelinden tek tuşla kurulur, açılır ve kapanır. Duvar kâğıdı, ikonlar ve müzik hesapları da aynı yerden yönetilir; ARC Play'in ayrı bir penceresi açılmaz."
+        },
+        {
+          "baslik": "Yeni ARC Hub",
+          "aciklama": "Hub sadeleşti: uygulamalar düzenli bir listede. Başlık çubuğuna Küçült ve Arka plana at düğmeleri eklendi; arka plana atınca ARC saatin yanındaki simge alanında bekler, simgeye tıklayınca geri gelir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ETS2 Auto Drive: new cockpit design",
+          "aciklama": "ETS2 Auto Drive has been redesigned as an in-cab cockpit screen: a live speedometer with the speed limit and target speed, route distance and time left, one-tap Start / Stop driving and quick toggles. The top bar always shows the game connection and autopilot status."
+        },
+        {
+          "baslik": "ARC Play now lives in ETS2 Auto Drive",
+          "aciklama": "Install, open and close ARC Play with one tap from the ETS2 Auto Drive dashboard. Wallpapers, icons and music accounts are managed there too; ARC Play never opens a separate window."
+        },
+        {
+          "baslik": "New ARC Hub",
+          "aciklama": "The Hub is cleaner: your apps in a tidy list. The title bar now has Minimize and Send to background; in the background ARC waits in the tray next to the clock, click its icon to bring it back."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.4",
       "tarih": "2026-11-04",
       "tr": [
