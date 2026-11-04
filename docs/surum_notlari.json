@@ -1,6 +1,78 @@
 {
   "surumler": [
     {
+      "surum": "v2.9",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive için yeni arayüz",
+          "aciklama": "Yan menü baştan tasarlandı: cam görünümlü panel, ikonlu menüler, mor ve turkuaz vurgular, aktif sayfada animasyonlu işaret. Ayarlar ve Oyun Değiştir artık altta sabit."
+        },
+        {
+          "baslik": "Gerekli sistemler kendiliğinden hazır",
+          "aciklama": "Uygulama açılınca sürüş için gereken bileşenler otomatik yüklenip açılır. Açtığın ya da kapattığın özellikler bir sonraki açılışta aynen hatırlanır; ayrı menülerden etkinleştirmen gerekmez."
+        },
+        {
+          "baslik": "Klavye kısayolları",
+          "aciklama": "Ayarlar > Klavye Kısayolları: Otonom Sürüş (F6), ARC Vision (F7), Yol Yönlendirme Okları (F8) ve Acil Durdurma (F10). Ctrl, Shift ve Alt kombinasyonları desteklenir, çakışan tuşlarda uyarı çıkar, kısayollar oyun öndeyken de çalışır. Acil durdurma her durumda önceliklidir."
+        },
+        {
+          "baslik": "Yol yönlendirme okları",
+          "aciklama": "GPS rotan, oyundaki asfaltın üstünde beyaz oklarla gösterilir; viraja girerken oklar yönünü değiştirir. Otonom sürüşten bağımsızdır, yalnız görseldir. Gösterge Paneli'nden ya da F8 ile açılıp kapanır."
+        },
+        {
+          "baslik": "ARC Vision",
+          "aciklama": "Yol geometrisini, şeritleri ve tırın konumunu canlı gösteren görünüm. Otonom sürüşten bağımsız kullanılabilir; Gösterge Paneli'nden ya da F7 ile açılır."
+        },
+        {
+          "baslik": "Discord'da ARC durumu",
+          "aciklama": "Discord profilinde ARC logosuyla birlikte sürüş durumun (Otonom ya da Manuel Sürüş), ARC Vision açıksa bilgisi ve anlık hızın görünür. Discord kapanıp açılırsa bağlantı kendiliğinden yenilenir."
+        },
+        {
+          "baslik": "Tamamen Türkçe ve anlaşılır",
+          "aciklama": "Kalan İngilizce metinler Türkçeleştirildi; her özelliğin ne işe yaradığı kısa ve net açıklamalarla anlatılıyor."
+        },
+        {
+          "baslik": "ARC Mining (deneme)",
+          "aciklama": "ARC Hub'a FiveM kazı mini oyunu için yeni araç eklendi: halkayı bulur, nişan alır ve kazar. Mouse hassasiyetini kendisi öğrenir, isabeti ölçer."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New interface for ETS2 Auto Drive",
+          "aciklama": "The sidebar was redesigned: glass panel, icon menus, violet and teal accents, an animated marker on the active page. Settings and Switch Game stay pinned at the bottom."
+        },
+        {
+          "baslik": "Required systems are ready automatically",
+          "aciklama": "Driving components load and start on launch. Features you turn on or off are remembered next time; no separate menus needed."
+        },
+        {
+          "baslik": "Keyboard shortcuts",
+          "aciklama": "Settings > Keyboard Shortcuts: Autopilot (F6), ARC Vision (F7), Road Navigation Arrows (F8) and Emergency Stop (F10). Ctrl, Shift and Alt combinations are supported, conflicts are flagged, and shortcuts work while the game is focused. Emergency stop always takes priority."
+        },
+        {
+          "baslik": "Road navigation arrows",
+          "aciklama": "Your GPS route is shown with white arrows on the in-game road; arrows turn as you approach a bend. Visual only and independent of autopilot. Toggle from the Dashboard or with F8."
+        },
+        {
+          "baslik": "ARC Vision",
+          "aciklama": "A live view of the road geometry, lanes and your truck's position. Works without autopilot; toggle from the Dashboard or with F7."
+        },
+        {
+          "baslik": "ARC status on Discord",
+          "aciklama": "Your Discord profile shows the ARC logo with your driving state (Autopilot or Manual), ARC Vision when it's on, and your current speed. The connection recovers on its own if Discord restarts."
+        },
+        {
+          "baslik": "Fully Turkish and clear",
+          "aciklama": "Remaining English texts were translated, and every feature now has a short, clear description."
+        },
+        {
+          "baslik": "ARC Mining (beta)",
+          "aciklama": "A new ARC Hub tool for the FiveM mining minigame: finds the ring, aims and mines. It learns your mouse sensitivity and measures accuracy."
+        }
+      ]
+    },
+    {
       "surum": "v2.8",
       "tarih": "2026-11-03",
       "tr": [

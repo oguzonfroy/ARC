@@ -307,6 +307,13 @@
   .phone-track figcaption { margin-top: 10px; font: 600 14px/1.2 var(--body); color: var(--mute); }
   .car-btn { position: absolute; top: 42%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--deep-2); color: var(--text); font-size: 22px; cursor: pointer; z-index: 1; }
   .car-btn:hover { border-color: var(--lilac); }
+  /* ETS2 Auto Drive (sayfanın en üstü): yatay ekran görüntüleri için geniş kartlar */
+  .ets2-sec { padding-top: 120px; }
+  .ets2-track figure { width: clamp(280px, 62vw, 760px); }
+  .ets2-track img { border-radius: 16px; border: 1px solid var(--line); filter: drop-shadow(0 24px 40px rgba(0,0,0,.6)) drop-shadow(0 0 40px color-mix(in srgb, var(--violet) 22%, transparent)); }
+  .ets2-dots { display: flex; justify-content: center; gap: 8px; margin-top: -4px; }
+  .ets2-dots button { width: 8px; height: 8px; padding: 0; border-radius: 99px; border: 0; background: var(--line); cursor: pointer; transition: width .3s ease, background .3s ease; }
+  .ets2-dots button.on { width: 26px; background: linear-gradient(90deg, var(--violet), #2dd4bf); }
   .car-btn.prev { left: -8px; } .car-btn.next { right: -8px; }
   @media (hover: none) { .car-btn { display: none; } }
 
@@ -345,10 +352,41 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#phone">ARC Phone</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
+    <div class="links"><a href="#ets2">ETS2</a><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#phone">ARC Phone</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
     <a class="btn btn-main" href="#lisans">Satın Al</a>
   </div>
 </nav>
+
+<section id="ets2" class="macro-sec ets2-sec">
+  <div class="wrap">
+    <div class="macro-top">
+      <img src="arc.png" alt="ARC">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">YENİ SÜRÜM · v2.9 · ETS2 / ATS</span>
+        <h2>ETS2 Auto Drive yenilendi.</h2>
+        <p class="lead">Baştan tasarlanan arayüz, tek tuşla kontrol edilen özellikler ve yolun üstünde seni yönlendiren oklar. Açtığın an hazır: gerekli sistemler kendiliğinden kurulur, tercihlerin hatırlanır.</p>
+      </div>
+    </div>
+    <div class="macro-video">
+      <video id="ets2-video" src="arc-ets2-tanitim.mp4" poster="arc-ets2-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="ARC ETS2 Auto Drive tanıtım videosu"></video>
+      <button class="sound" id="ets2-sound" type="button"><span id="ets2-snd-t">Sesi aç</span></button>
+    </div>
+    <div class="phone-car">
+      <button class="car-btn prev" type="button" aria-label="Önceki ekran">‹</button>
+      <div class="phone-track ets2-track" id="ets2-track" tabindex="0" aria-label="ETS2 Auto Drive ekran görüntüleri">
+        <figure><img src="ets2/gosterge.webp" alt="ETS2 Auto Drive gösterge paneli ve yeni menü" loading="lazy" width="1280" height="800"><figcaption>Yeni menü ve Gösterge Paneli</figcaption></figure>
+        <figure><img src="ets2/arc-vision.webp" alt="ARC Vision canlı yol görünümü" loading="lazy" width="1280" height="800"><figcaption>ARC Vision · canlı yol görünümü</figcaption></figure>
+        <figure><img src="ets2/kisayollar.webp" alt="Klavye kısayolları ayarları" loading="lazy" width="1280" height="800"><figcaption>Klavye kısayolları</figcaption></figure>
+      </div>
+      <button class="car-btn next" type="button" aria-label="Sonraki ekran">›</button>
+    </div>
+    <div class="ets2-dots" id="ets2-dots"></div>
+    <div class="macro-list">
+      <span>🧭 Yol yönlendirme okları</span><span>👁 ARC Vision</span><span>⌨ F6 · F7 · F8 · F10 kısayolları</span><span>🛑 Öncelikli acil durdurma</span>
+      <span>⚙ Otomatik hazırlanan sistemler</span><span>🎮 Discord'da ARC durumu</span><span>🇹🇷 Tamamen Türkçe</span>
+    </div>
+  </div>
+</section>
 
 <header class="hero" id="top">
   <div class="wrap">
@@ -704,16 +742,33 @@
   <button type="button" id="toast-x" aria-label="Kapat">✕</button>
 </div>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio · v2.8</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio · v2.9</span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <script>
 (() => {
   // ARC Phone carousel arrows: scroll by one screen of the track
-  const pt = document.getElementById('phone-track');
-  for (const [cls, dir] of [['prev', -1], ['next', 1]]) document.querySelector(`.phone-car .${cls}`).addEventListener('click', () => pt.scrollBy({ left: dir * pt.clientWidth * .8 }));
+  // (each carousel's arrows scroll its own track)
+  for (const car of document.querySelectorAll('.phone-car')) {
+    const tr = car.querySelector('.phone-track');
+    if (tr.id === 'ets2-track') continue; // ETS2 galerisi kart kart ilerler (aşağıda)
+    for (const [cls, dir] of [['prev', -1], ['next', 1]]) car.querySelector(`.${cls}`).addEventListener('click', () => tr.scrollBy({ left: dir * tr.clientWidth * .8 }));
+  }
 
-  // ARC Macro / ARC Drive / ARC Phone videos: start (muted) when they scroll into view, pause when out of view
-  for (const ad of ['macro', 'drive', 'phone']) {
+  // ETS2 carousel: one card per step, dots follow the visible card, slides on by itself until the viewer touches it
+  const et = document.getElementById('ets2-track'), dots = document.getElementById('ets2-dots');
+  const kartlar = [...et.querySelectorAll('figure')];
+  const git = (i) => et.scrollTo({ left: kartlar[i].offsetLeft - (et.clientWidth - kartlar[i].clientWidth) / 2 });
+  kartlar.forEach((_, i) => { const b = document.createElement('button'); b.type = 'button'; b.ariaLabel = `${i + 1}. ekran`; b.addEventListener('click', () => { durdu = true; git(i); }); dots.append(b); });
+  const sec = () => { const orta = et.scrollLeft + et.clientWidth / 2; let en = 0; kartlar.forEach((k, i) => { if (Math.abs(k.offsetLeft + k.clientWidth / 2 - orta) < Math.abs(kartlar[en].offsetLeft + kartlar[en].clientWidth / 2 - orta)) en = i; }); [...dots.children].forEach((d, i) => d.classList.toggle('on', i === en)); return en; };
+  et.addEventListener('scroll', sec, { passive: true }); sec();
+  for (const [cls, dir] of [['prev', -1], ['next', 1]])
+    document.querySelector(`#ets2 .car-btn.${cls}`).addEventListener('click', () => { durdu = true; git((sec() + dir + kartlar.length) % kartlar.length); });
+  let durdu = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const ev of ['pointerdown', 'wheel', 'touchstart', 'keydown']) et.addEventListener(ev, () => { durdu = true; }, { passive: true });
+  setInterval(() => { if (!durdu && document.visibilityState === 'visible') git((sec() + 1) % kartlar.length); }, 4500);
+
+  // ETS2 / ARC Macro / ARC Drive / ARC Phone videos: start (muted) when they scroll into view, pause when out of view
+  for (const ad of ['ets2', 'macro', 'drive', 'phone']) {
     const mv = document.getElementById(`${ad}-video`), ms = document.getElementById(`${ad}-sound`);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver((e) => { const p = e[0].isIntersecting ? mv.play() : mv.pause(); if (p) p.catch(() => {}); }, { threshold: .35 }).observe(mv);
