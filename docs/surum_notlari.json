@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.4",
+      "tarih": "2026-11-04",
+      "tr": [
+        {
+          "baslik": "Yeni: ARC Play",
+          "aciklama": "Euro Truck Simulator 2'de tırının kendi gösterge ekranında harita, müzik ve YouTube. ARC Hub'dan ARC Play'i seçmen yeterli: ilk açılışta kendiliğinden kurulur, ayrıca bir şey indirmezsin. Kendi yardımcısı oyunu bulur ve haritanı oyunundan oluşturur."
+        },
+        {
+          "baslik": "Lisans güvenliği",
+          "aciklama": "Lisans program açıkken de düzenli kontrol edilir. Süre dolunca ARC ve ETS2 Auto Drive kilitlenir, otonom sürüş güvenle durur; lisansını yenilediğinde kilit program kapanmadan açılır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New: ARC Play",
+          "aciklama": "Map, music and YouTube on your truck's own dashboard screen in Euro Truck Simulator 2. Just pick ARC Play in the ARC Hub: it installs itself the first time, nothing else to download. Its helper finds your game and builds your map from it."
+        },
+        {
+          "baslik": "License security",
+          "aciklama": "Your license is checked regularly while the app is open. When it expires, ARC and ETS2 Auto Drive lock and autopilot stops safely; renew it and the lock lifts without restarting."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.3",
       "tarih": "2026-11-04",
       "tr": [
