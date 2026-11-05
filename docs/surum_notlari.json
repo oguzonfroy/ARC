@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.8",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "Uygulama içi güncelleme",
+          "aciklama": "Güncellemeler artık ARC APP'ın içinden iner ve kurulur: yüzde, hız ve kalan süreyi gösteren bir çubukla. Kurulum penceresi açılmaz; bitince ARC APP yeni sürümle kendiliğinden açılır. Bir sorun çıkarsa önceki sürüm korunur."
+        },
+        {
+          "baslik": "Güncelleme zorunlu",
+          "aciklama": "Yeni sürüm çıktığında herkes aynı sürümde olsun diye güncelleme açılışta yapılır."
+        },
+        {
+          "baslik": "Saatlik lisanslar",
+          "aciklama": "Dakika ve saat süreli lisanslar desteklenir; lisans ekranı kalan süreyi saat ve dakika olarak gösterir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "In-app updates",
+          "aciklama": "Updates now download and install inside ARC APP, with a bar showing the percentage, speed and time left. No installer window opens; ARC APP reopens on the new version by itself. If anything goes wrong, the previous version is kept."
+        },
+        {
+          "baslik": "Updates are required",
+          "aciklama": "When a new version is out, it's installed at startup so everyone stays on the same version."
+        },
+        {
+          "baslik": "Hourly licenses",
+          "aciklama": "Licenses can last minutes or hours; the license screen shows the time left in hours and minutes."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.7",
       "tarih": "2026-11-05",
       "tr": [
