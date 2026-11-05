@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.1",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive siyah ekran düzeltildi",
+          "aciklama": "Bazı bilgisayarlarda (özellikle iki ekran kartlı dizüstülerde) ETS2 Auto Drive açılınca oyunun üstünü kaplayan siyah ekran artık çıkmıyor; arayüz katmanının yalnız panelleri görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ETS2 Auto Drive black screen fixed",
+          "aciklama": "On some PCs (especially laptops with two graphics cards) ETS2 Auto Drive no longer covers the game with a black screen; only the overlay's panels show."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.0",
       "tarih": "2026-11-05",
       "tr": [
