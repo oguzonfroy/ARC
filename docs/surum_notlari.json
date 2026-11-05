@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v2.9.9",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "ARC Play: 3D tablet",
+          "aciklama": "ARC Play artık kabinde gerçek bir tablet gibi duruyor: ince kenarlı, ekranı tüm yüzeyi kaplıyor. Sol Alt basılıyken sağ tıkla tutup istediğin yere taşı, tekerlekle büyüt ya da küçült, orta tıkla döndür. Hazır noktalara yaklaştırınca kendiliğinden oturur ve sana döner; her tır için yeri hatırlanır."
+        },
+        {
+          "baslik": "Oyunun navigasyonu yerinde",
+          "aciklama": "Tableti tırın ekranından çıkarınca o ekranda oyunun kendi navigasyonu görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Play: 3D tablet",
+          "aciklama": "ARC Play now sits in the cab like a real tablet: thin bezels, the screen filling the whole face. Hold Left Alt, then hold right click to move it anywhere, use the wheel to resize it and middle click to turn it. Bring it near a ready spot and it settles there facing you; its place is remembered for each truck."
+        },
+        {
+          "baslik": "The game's navigation stays",
+          "aciklama": "Take the tablet off the truck's screen and that screen shows the game's own navigation."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.8",
       "tarih": "2026-11-05",
       "tr": [
