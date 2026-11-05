@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.0",
+      "tarih": "2026-11-05",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive düzeltildi",
+          "aciklama": "Otonom sürüş ve şerit takibi yeniden çalışıyor: yol verisi okunurken oluşan bir hata rotayı bozuyordu. Oyun eklentisi yüklenmese de araç sürülebiliyor. Arayüz katmanı artık Alt+Tab'da ayrı pencere olarak görünmüyor ve siyah ekran vermiyor."
+        },
+        {
+          "baslik": "ARC Play: tablet yuvası",
+          "aciklama": "ARC Play tırın kendi GPS ekranında görünür; F8 ile 3D tablet olarak çıkar, yine F8 ile yerine takılır. Yuva her tırın kendi ekranına göre ayarlanır, tablet kabinle birlikte hareket eder. Mor neon çerçeve kaldırıldı."
+        },
+        {
+          "baslik": "Oyun sürümü",
+          "aciklama": "ETS2 Auto Drive için oyunu 1.61'de kullanın (Steam › Özellikler › Betalar › temporary_1_61); TruckersMP de 1.61'de."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ETS2 Auto Drive fixed",
+          "aciklama": "Autopilot and lane keeping work again: an error while reading road data broke the route. The truck can be driven even without the game plugin. The overlay no longer shows as a separate window in Alt+Tab or turns black."
+        },
+        {
+          "baslik": "ARC Play: tablet slot",
+          "aciklama": "ARC Play shows on the truck's own GPS screen; F8 takes it out as a 3D tablet and puts it back. The slot fits each truck's own screen and the tablet moves with the cab. The purple neon frame is gone."
+        },
+        {
+          "baslik": "Game version",
+          "aciklama": "Use the game on 1.61 for ETS2 Auto Drive (Steam › Properties › Betas › temporary_1_61); TruckersMP is on 1.61 too."
+        }
+      ]
+    },
+    {
       "surum": "v2.9.9",
       "tarih": "2026-11-05",
       "tr": [
