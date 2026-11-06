@@ -401,6 +401,23 @@
   .ap-nasil { margin-top: 22px; padding: 18px 20px; border-radius: 16px; background: var(--deep-2); border: 1px solid var(--line); font: 500 15px/1.6 var(--body); }
   .ap-nasil b { color: #fff; }
   @media (max-width: 760px) { .ap-sec .ap-ikili { grid-template-columns: 1fr; } }
+
+  /* 3D eğim (2026-11-06): fareyle üstüne gelince kartlar, videolar ve görseller imlece doğru yatar, üstlerinde ışık gezer */
+  .tilt { --rx: 0deg; --ry: 0deg; --ty: 0px; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty));
+    transition: transform .6s cubic-bezier(.2, .8, .2, 1), box-shadow .4s, border-color .2s; will-change: transform; }
+  .tilt.uzerinde { transition: transform .1s linear, box-shadow .4s, border-color .2s; box-shadow: 0 30px 60px -28px var(--violet); }
+  .urun.tilt:hover { --ty: -4px; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty)); }
+  .tilt > .parilti { position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; opacity: 0; transition: opacity .4s;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .14), transparent 55%); }
+  .tilt.uzerinde > .parilti { opacity: 1; }
+  .urun, .ap-buyuk, .ap-ikili figure, .ets2-track figure, .phone-track figure, .macro-steps > div, .feat, .col, .how-step, .release, .step { position: relative; }
+  /* Başlık: farenin hareketine göre 3D döner, katmanlı gölgeyle derinlik kazanır */
+  .hero h1 { --hx: 0deg; --hy: 0deg; transform: perspective(900px) rotateX(var(--hx)) rotateY(var(--hy)); transform-origin: 30% 50%;
+    transition: transform .7s cubic-bezier(.2, .8, .2, 1);
+    text-shadow: 0 1px 0 #2a2240, 0 2px 0 #241c38, 0 3px 0 #1e1730, 0 4px 0 #181326, 0 16px 34px rgba(139, 92, 246, .35); }
+  .hero.uzerinde h1 { transition: transform .12s linear; }
+  .hero h1 em { display: inline-block; transform: translateZ(40px); text-shadow: 0 0 30px rgba(196, 168, 255, .55), 0 3px 0 #3b2a6b, 0 16px 34px rgba(139, 92, 246, .5); }
+  @media (prefers-reduced-motion: reduce) { .tilt, .hero h1 { transform: none !important; transition: none; } }
 </style>
 </head>
 <body>
@@ -432,6 +449,36 @@
     </div>
   </div>
 </header>
+<section id="ets2" class="macro-sec urun-bas ets2-sec">
+  <div class="wrap">
+    <div class="macro-top">
+      <img src="arc.png" alt="ARC">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">YENİ SÜRÜM · v2.9.6 · ETS2 / ATS</span>
+        <h2>ETS2 Auto Drive yenilendi.</h2>
+        <p class="lead">Baştan tasarlanan arayüz, tek tuşla kontrol edilen özellikler ve yolun üstünde seni yönlendiren oklar. Açtığın an hazır: gerekli sistemler kendiliğinden kurulur, tercihlerin hatırlanır.</p>
+      </div>
+    </div>
+    <div class="macro-video">
+      <video id="ets2-video" src="arc-ets2-tanitim.mp4?v=291" poster="arc-ets2-poster.jpg?v=291" autoplay muted loop playsinline preload="metadata" aria-label="ARC ETS2 Auto Drive tanıtım videosu"></video>
+      <button class="sound" id="ets2-sound" type="button"><span id="ets2-snd-t">Sesi aç</span></button>
+    </div>
+    <div class="phone-car">
+      <button class="car-btn prev" type="button" aria-label="Önceki ekran">‹</button>
+      <div class="phone-track ets2-track" id="ets2-track" tabindex="0" aria-label="ETS2 Auto Drive ekran görüntüleri">
+        <figure><img src="ets2/gosterge.webp?v=295" alt="ETS2 Auto Drive yeni kokpit gösterge paneli" loading="lazy" width="1280" height="782"><figcaption>Yeni kokpit arayüzü · Gösterge</figcaption></figure>
+        <figure><img src="ets2/arc-vision.webp" alt="ARC Vision canlı yol görünümü" loading="lazy" width="1280" height="800"><figcaption>ARC Vision · canlı yol görünümü</figcaption></figure>
+        <figure><img src="ets2/kisayollar.webp" alt="Klavye kısayolları ayarları" loading="lazy" width="1280" height="800"><figcaption>Klavye kısayolları</figcaption></figure>
+      </div>
+      <button class="car-btn next" type="button" aria-label="Sonraki ekran">›</button>
+    </div>
+    <div class="ets2-dots" id="ets2-dots"></div>
+    <div class="macro-list">
+      <span>🧭 Yol yönlendirme okları</span><span>👁 ARC Vision</span><span>⌨ F6 · F7 · F8 · F10 kısayolları</span><span>🛑 Öncelikli acil durdurma</span>
+      <span>⚙ Otomatik hazırlanan sistemler</span><span>🎮 Discord'da ARC durumu</span><span>🇹🇷 Tamamen Türkçe</span>
+    </div>
+  </div>
+</section>
 <section id="urunler" class="urun-sec">
   <div class="wrap">
     <div class="sec-head">
@@ -481,36 +528,6 @@
   </div>
 </section>
 
-<section id="ets2" class="macro-sec urun-bas ets2-sec">
-  <div class="wrap">
-    <div class="macro-top">
-      <img src="arc.png" alt="ARC">
-      <div class="sec-head" style="margin:0">
-        <span class="badge-new">YENİ SÜRÜM · v2.9.6 · ETS2 / ATS</span>
-        <h2>ETS2 Auto Drive yenilendi.</h2>
-        <p class="lead">Baştan tasarlanan arayüz, tek tuşla kontrol edilen özellikler ve yolun üstünde seni yönlendiren oklar. Açtığın an hazır: gerekli sistemler kendiliğinden kurulur, tercihlerin hatırlanır.</p>
-      </div>
-    </div>
-    <div class="macro-video">
-      <video id="ets2-video" src="arc-ets2-tanitim.mp4?v=291" poster="arc-ets2-poster.jpg?v=291" autoplay muted loop playsinline preload="metadata" aria-label="ARC ETS2 Auto Drive tanıtım videosu"></video>
-      <button class="sound" id="ets2-sound" type="button"><span id="ets2-snd-t">Sesi aç</span></button>
-    </div>
-    <div class="phone-car">
-      <button class="car-btn prev" type="button" aria-label="Önceki ekran">‹</button>
-      <div class="phone-track ets2-track" id="ets2-track" tabindex="0" aria-label="ETS2 Auto Drive ekran görüntüleri">
-        <figure><img src="ets2/gosterge.webp?v=295" alt="ETS2 Auto Drive yeni kokpit gösterge paneli" loading="lazy" width="1280" height="782"><figcaption>Yeni kokpit arayüzü · Gösterge</figcaption></figure>
-        <figure><img src="ets2/arc-vision.webp" alt="ARC Vision canlı yol görünümü" loading="lazy" width="1280" height="800"><figcaption>ARC Vision · canlı yol görünümü</figcaption></figure>
-        <figure><img src="ets2/kisayollar.webp" alt="Klavye kısayolları ayarları" loading="lazy" width="1280" height="800"><figcaption>Klavye kısayolları</figcaption></figure>
-      </div>
-      <button class="car-btn next" type="button" aria-label="Sonraki ekran">›</button>
-    </div>
-    <div class="ets2-dots" id="ets2-dots"></div>
-    <div class="macro-list">
-      <span>🧭 Yol yönlendirme okları</span><span>👁 ARC Vision</span><span>⌨ F6 · F7 · F8 · F10 kısayolları</span><span>🛑 Öncelikli acil durdurma</span>
-      <span>⚙ Otomatik hazırlanan sistemler</span><span>🎮 Discord'da ARC durumu</span><span>🇹🇷 Tamamen Türkçe</span>
-    </div>
-  </div>
-</section>
 <section id="arcplay" class="macro-sec urun-bas ap-sec">
   <div class="wrap">
     <div class="macro-top">
@@ -1109,6 +1126,52 @@
   }
   st.sayac = 18; // so a bagaj transfer shows up within the first minute
   requestAnimationFrame(tick);
+
+  // 3D eğim: yalnızca fare kullananlarda ve hareket azaltma kapalıyken
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const SECICI = '.urun, .promo, .macro-video, .ap-buyuk, .ap-ikili figure, .macro-shots > *, .ets2-track figure, .phone-track figure, .macro-steps > div, .feat, .col, .license, .how-step, .step';
+    const egimVer = (el) => {
+      if (el.classList.contains('tilt')) return;
+      el.classList.add('tilt');
+      if (el.tagName !== 'IMG') { const p = document.createElement('span'); p.className = 'parilti'; p.setAttribute('aria-hidden', 'true'); el.append(p); }
+      let kare = 0;
+      el.addEventListener('pointermove', (e) => {
+        cancelAnimationFrame(kare);
+        kare = requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          const enCok = r.width > 700 ? 4 : r.width > 420 ? 7 : 11;  // büyük kutular daha az yatar
+          el.style.setProperty('--ry', ((x - .5) * 2 * enCok).toFixed(2) + 'deg');
+          el.style.setProperty('--rx', ((.5 - y) * 2 * enCok).toFixed(2) + 'deg');
+          el.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+          el.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+          el.classList.add('uzerinde');
+        });
+      });
+      el.addEventListener('pointerleave', () => {
+        cancelAnimationFrame(kare);
+        el.classList.remove('uzerinde');
+        el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg');
+      });
+    };
+    document.querySelectorAll(SECICI).forEach(egimVer);
+    // Yenilikler kartları sonradan eklenir: eklendikçe onlar da yatsın
+    for (const kap of [notlar, eskiler]) new MutationObserver(() => kap.querySelectorAll('.release').forEach(egimVer)).observe(kap, { childList: true });
+    const hero = document.querySelector('.hero'), baslik = hero.querySelector('h1');
+    let hk = 0;
+    hero.addEventListener('pointermove', (e) => {
+      cancelAnimationFrame(hk);
+      hk = requestAnimationFrame(() => {
+        const r = baslik.getBoundingClientRect(), x = (e.clientX - (r.left + r.width / 2)) / innerWidth, y = (e.clientY - (r.top + r.height / 2)) / innerHeight;
+        baslik.style.setProperty('--hy', (Math.max(-1, Math.min(1, x * 2)) * 14).toFixed(2) + 'deg');
+        baslik.style.setProperty('--hx', (Math.max(-1, Math.min(1, -y * 2)) * 10).toFixed(2) + 'deg');
+        hero.classList.add('uzerinde');
+      });
+    });
+    hero.addEventListener('pointerleave', () => {
+      cancelAnimationFrame(hk); hero.classList.remove('uzerinde');
+      baslik.style.setProperty('--hx', '0deg'); baslik.style.setProperty('--hy', '0deg');
+    });
+  }
 })();
 </script>
 </body>
