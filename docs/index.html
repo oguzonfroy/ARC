@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ARC Rina Fishing</title>
-<meta name="description" content="ARC, Rina'da balık tutarken oyunun sesini dinler, balık vurduğu an oltayı çeker ve bagajını kendisi boşaltır.">
-<meta property="og:title" content="ARC Rina Fishing">
-<meta property="og:description" content="Oltayı at, gerisini ARC halletsin.">
+<title>ARC Studio</title>
+<meta name="description" content="ARC: ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro ve ARC Drive tek uygulamada; ARC Phone FiveM scripti.">
+<meta property="og:title" content="ARC Studio">
+<meta property="og:description" content="Sen uğraşma, ARC uğraşsın.">
 <meta property="og:image" content="arc-poster.jpg">
 <link rel="icon" type="image/png" href="arc.png"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,9 +54,11 @@
   .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: 3px; }
   .btn-main { background: var(--violet); color: #fff; box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--violet) 70%, transparent); }
   .btn-main:hover { transform: translateY(-1px); background: #9a6bff; }
-  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: transparent; }
   .btn-ghost:hover { border-color: var(--violet); }
   nav .btn { padding: 10px 18px; font-size: 15px; }
+  .nav-cta { display: flex; gap: 8px; }
+  @media (max-width: 520px) { .nav-cta .btn-ghost { display: none; } }
 
   /* hero */
   .hero { position: relative; padding-block: clamp(48px, 7vw, 88px) clamp(64px, 8vw, 100px); overflow: hidden; }
@@ -184,6 +186,7 @@
   .dl input::placeholder { color: #5d5677; }
   .dl .btn[disabled] { opacity: .6; cursor: wait; }
   .dl-msg { min-height: 24px; font-size: 15px; color: var(--mute); }
+  .dl-msg:empty { display: none; }
   .dl-msg.ok { color: var(--ok); } .dl-msg.err { color: var(--err); }
   .dl-note { margin: 0; color: var(--mute); font-size: 14.5px; }
   /* Discord gate: three real steps, a light that walks along them, and a Discord-coloured join button */
@@ -308,7 +311,6 @@
   .car-btn { position: absolute; top: 42%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--deep-2); color: var(--text); font-size: 22px; cursor: pointer; z-index: 1; }
   .car-btn:hover { border-color: var(--lilac); }
   /* ETS2 Auto Drive (sayfanın en üstü): yatay ekran görüntüleri için geniş kartlar */
-  .ets2-sec { padding-top: 120px; }
   .ets2-track figure { width: clamp(280px, 62vw, 760px); }
   .ets2-track img { border-radius: 16px; border: 1px solid var(--line); filter: drop-shadow(0 24px 40px rgba(0,0,0,.6)) drop-shadow(0 0 40px color-mix(in srgb, var(--violet) 22%, transparent)); }
   .ets2-dots { display: flex; justify-content: center; gap: 8px; margin-top: -4px; }
@@ -345,6 +347,48 @@
     .stat b { font-size: 20px; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+
+  /* Sayfa düzeni (2026-11-06): her ürün bölümü ince bir çizgiyle başlar; bir ürünün alt bölümleri (.alt) aralıksız devam eder */
+  .urun-bas { border-top: 1px solid var(--line); }
+  section.alt { padding-top: 0; }
+  section[id] { scroll-margin-top: 72px; }
+  .urun-sec { padding-top: clamp(24px, 4vw, 48px); }
+  .urunler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .urun { display: grid; grid-template-rows: auto auto auto 1fr; gap: 6px; text-decoration: none; padding: 0 0 20px; border-radius: 18px; overflow: hidden;
+    background: var(--deep); border: 1px solid var(--line); transition: transform .2s, border-color .2s, box-shadow .2s; min-width: 0; }
+  .urun img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .urun-tag { margin: 0 20px; font: 600 11px/1 var(--mono); letter-spacing: .16em; color: var(--lilac); }
+  .urun b { margin: 0 20px; font: 700 19px/1.25 var(--display); }
+  .urun small { margin: 0 20px; color: var(--mute); font-size: 15px; line-height: 1.45; }
+  .urun:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--violet) 60%, var(--line)); box-shadow: 0 24px 50px -24px var(--violet); }
+  @media (max-width: 960px) { .urunler { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .urunler { gap: 10px; } .urun { padding-bottom: 14px; border-radius: 14px; }
+    .urun-tag { margin: 0 12px; font-size: 10px; letter-spacing: .1em; } .urun b { margin: 0 12px; font-size: 15px; } .urun small { margin: 0 12px; font-size: 13px; } }
+  @media (prefers-reduced-motion: reduce) { .urun { transition: none; } }
+
+  /* Yenilikler: son 3 sürüm açık, gerisi butonla */
+  .notes-eski { margin-top: 16px; }
+  .notes-btn { margin-top: 20px; }
+  .notes-btn::after { content: "↓"; transition: transform .2s; }
+  .notes-btn[aria-expanded="true"]::after { transform: rotate(180deg); }
+
+  /* İndir: anahtar kutusu doğrudan açık; doğrulanınca sürüm ve indirme butonu */
+  .dl-ok-box { display: grid; gap: 16px; padding: 20px; border-radius: 16px; background: color-mix(in srgb, var(--ok) 8%, #06050a);
+    border: 1px solid color-mix(in srgb, var(--ok) 40%, var(--line)); }
+  .dl-ok-top { display: flex; gap: 14px; align-items: center; }
+  .dl-check { width: 40px; height: 40px; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #06050a; background: var(--ok); }
+  .dl-ok-top b { display: block; font-size: 17px; }
+  .dl-ok-top small { color: var(--mute); font-size: 14.5px; }
+  .dl-ok-box .btn { justify-self: start; }
+  .dl-yeni small { font: 600 11px/1 var(--mono); letter-spacing: .16em; color: var(--lilac); }
+  .dl-yeni ul { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .dl-yeni li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 15px; color: var(--text); }
+  .dl-yeni li::before { content: "✓"; color: var(--lilac); font-weight: 700; }
+  .dl-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--mute); font-size: 15px; }
+  .btn-dc.sm { padding: 11px 18px; font-size: 15px; gap: 10px; animation: none; box-shadow: 0 10px 30px -12px #5865f2; }
+  .btn-dc.sm svg { width: 22px; height: 17px; }
+  .btn-dc.sm::after { display: none; }
+  @media (max-width: 620px) { .btn-dc.sm { width: auto; } .dl-ok-box .btn { justify-self: stretch; justify-content: center; } }
   /* ARC Play bölümü (2026-11-05) */
   .ap-sec .ap-buyuk { margin: 34px 0 18px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: #07060b;
     box-shadow: 0 30px 70px -30px rgba(0,0,0,.8), 0 0 60px color-mix(in srgb, var(--violet) 22%, transparent); }
@@ -364,12 +408,80 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#ets2">ETS2</a><a href="#arcplay">ARC Play</a><a href="#nasil">Nasıl çalışır</a><a href="#ozellikler">Özellikler</a><a href="#macro">ARC Macro</a><a href="#drive">ARC Drive</a><a href="#phone">ARC Phone</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#indir">İndir</a><a href="#sss">SSS</a></div>
-    <a class="btn btn-main" href="#lisans">Satın Al</a>
+    <div class="links"><a href="#urunler">Ürünler</a><a href="#indir">İndir</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#sss">SSS</a></div>
+    <div class="nav-cta"><a class="btn btn-ghost" href="#indir">İndir</a><a class="btn btn-main" href="#lisans">Satın Al</a></div>
   </div>
 </nav>
 
-<section id="ets2" class="macro-sec ets2-sec">
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">ARC Studio · tek uygulama, hepsi içinde</div>
+      <h1>Sen uğraşma,<br><em>ARC</em> uğraşsın.</h1>
+      <p class="lead">ETS2'de tırını sürer, FiveM'de balığını tutar, makrolarını tekrarlar, seni haritada işaretlediğin yere götürür. Hepsi tek ARC uygulamasında, tek lisansla.</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#indir">Anahtarınla indir</a>
+        <a class="btn btn-ghost" href="#urunler">Neler var?</a>
+      </div>
+      <div class="facts"><span>Windows 10 / 11</span><span>Tek tıkla kurulum</span><span>Uygulama içinden güncelleme</span></div>
+    </div>
+
+    <div class="promo">
+      <video id="promo" src="arc-tanitim.mp4" poster="arc-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="ARC tanıtım videosu"></video>
+      <button class="sound" id="sound" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path id="snd-on" d="M15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13" hidden/><path id="snd-off" d="M22 9l-6 6M16 9l6 6"/></svg><span id="snd-t">Sesi aç</span></button>
+    </div>
+  </div>
+</header>
+<section id="urunler" class="urun-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Ürünler</div>
+      <h2>ARC'ta neler var?</h2>
+      <p class="lead">İlk beşi ARC uygulamasının içinde gelir: programı açıp Hub'dan seçmen yeter. ARC Phone, FiveM sunucuları için ayrı bir script.</p>
+    </div>
+    <div class="urunler">
+      <a class="urun" href="#ets2"><img src="arc-ets2-poster.jpg?v=291" alt="" loading="lazy"><span class="urun-tag">ETS2 · ATS</span><b>ETS2 Auto Drive</b><small>Tırını GPS rotasında kendisi sürer.</small></a>
+      <a class="urun" href="#arcplay"><img src="arc-play/gorsel/oyunda-yakin.webp?v=205" alt="" loading="lazy"><span class="urun-tag">ETS2</span><b>ARC Play</b><small>Tırın ekranında harita, müzik, YouTube.</small></a>
+      <a class="urun" href="#fishing"><img src="arc-poster.jpg" alt="" loading="lazy" style="object-position:50% 28%"><span class="urun-tag">FIVEM · RINA</span><b>Rina Auto Fishing</b><small>Sesi dinler, balığı çeker, bagajı boşaltır.</small></a>
+      <a class="urun" href="#macro"><img src="arc-macro-poster.jpg" alt="" loading="lazy"><span class="urun-tag">HER OYUN</span><b>ARC Macro</b><small>Bir kez kaydet, istediğin kadar tekrarlat.</small></a>
+      <a class="urun" href="#drive"><img src="arc-drive-poster.jpg" alt="" loading="lazy"><span class="urun-tag">FIVEM · TEST</span><b>ARC Drive</b><small>Haritada işaretle, ARC seni götürsün.</small></a>
+      <a class="urun" href="#phone"><img src="arc-phone-poster.jpg" alt="" loading="lazy"><span class="urun-tag">FIVEM SCRIPT</span><b>ARC Phone</b><small>Sunucun için yeni nesil telefon.</small></a>
+    </div>
+  </div>
+</section>
+
+<section id="indir" class="indir-sec">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">İndir</div>
+      <h2>Anahtarını gir, güncel ARC'ı indir.</h2>
+      <p class="lead">Lisans anahtarın geçerliyse en son sürüm hemen iner. Tek kurulumda ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro ve ARC Drive birlikte gelir.</p>
+    </div>
+    <div class="dl-hot">
+    <div class="dl">
+      <div class="dl-top"><h3>ARC APP</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
+      <form id="dl-form" novalidate>
+        <label for="dl-key" class="sr">Lisans anahtarı</label>
+        <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="ARC-XXXXX-XXXXX-XXXXX-XXXXX" maxlength="40" required>
+        <button class="btn btn-main" id="dl-btn" type="submit">Doğrula ve indir</button>
+      </form>
+      <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
+      <div class="dl-ok-box" id="dl-ok" hidden>
+        <div class="dl-ok-top"><span class="dl-check" aria-hidden="true">✓</span><div><b id="dl-ok-t">Anahtar geçerli</b><small id="dl-ok-s">İndirme başladı.</small></div></div>
+        <button class="btn btn-main" id="dl-link" type="button">ARC-Setup'ı indir</button>
+        <div class="dl-yeni" id="dl-yeni" hidden><small>BU SÜRÜMDE</small><ul id="dl-yeni-l"></ul></div>
+      </div>
+      <p class="dl-note">İndirdiğin <b>ARC-Setup</b> dosyasını çalıştır, kurulum gerisini halleder. Programı açınca aynı anahtarı gir. Sonraki sürümleri ARC kendisi indirir.</p>
+      <div class="dl-alt">
+        <span>Anahtarın yok mu?</span>
+        <a class="btn-dc sm" href="https://discord.gg/n9tyDcqwbA" target="_blank" rel="noopener"><svg viewBox="0 0 127.14 96.36" aria-hidden="true"><path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/></svg><span>Discord'a katıl: test key al ya da satın al</span></a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="ets2" class="macro-sec urun-bas ets2-sec">
   <div class="wrap">
     <div class="macro-top">
       <img src="arc.png" alt="ARC">
@@ -399,8 +511,7 @@
     </div>
   </div>
 </section>
-
-<section id="arcplay" class="macro-sec ap-sec">
+<section id="arcplay" class="macro-sec urun-bas ap-sec">
   <div class="wrap">
     <div class="macro-top">
       <img src="arc.png" alt="ARC">
@@ -422,66 +533,20 @@
     <p class="ap-nasil"><b>Nasıl açılır?</b> ARC'ı aç, Hub'dan <b>ETS2 Auto Drive</b>'ı seç; Gösterge'deki <b>ARC Play</b> kartında <b>YÜKLE</b>'ye bas. Tek tuşla kurulur ve oyuna kendisi yerleşir, sonra <b>AÇ / KAPAT</b> ile yönetirsin. Spotify'a tırın ekranındaki <b>Spotify ile giriş yap</b> düğmesinden girersin; giriş Spotify'ın kendi sayfasında yapılır.</p>
   </div>
 </section>
-
-<header class="hero" id="top">
+<section id="fishing" class="macro-sec urun-bas">
   <div class="wrap">
-    <div>
-      <div class="eyebrow">Rina · FiveM balıkçılık otomasyonu</div>
-      <h1>Oltayı at,<br><em>gerisini ARC</em> halletsin.</h1>
-      <p class="lead">ARC oyunun sesini dinler. Balık vurduğu an oltayı çeker, kaçan atışı tanıyıp yeniden atar, 20 balıkta bir bagajını kendisi boşaltır. Sen ekrana kilitlenmezsin.</p>
-      <div class="cta">
-        <a class="btn btn-main" href="#lisans">Lisans al</a>
-        <a class="btn btn-ghost" href="#nasil">Nasıl çalışır?</a>
+    <div class="macro-top">
+      <img src="arc.png" alt="ARC">
+      <div class="sec-head" style="margin:0">
+        <span class="badge-new">FIVEM · RINA · ARC UYGULAMASINDA</span>
+        <h2>Rina Auto Fishing: oltayı at, gerisini ARC halletsin.</h2>
+        <p class="lead">ARC oyunun sesini dinler. Balık vurduğu an oltayı çeker, kaçan atışı tanıyıp yeniden atar, 20 balıkta bir bagajını kendisi boşaltır. Sen ekrana kilitlenmezsin.</p>
       </div>
-      <div class="facts"><span>Windows 10 / 11</span><span>Tek tıkla kurulum</span><span>Tüm tuşlar ayarlanabilir</span></div>
-    </div>
-
-    <div class="promo">
-      <video id="promo" src="arc-tanitim.mp4" poster="arc-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="ARC tanıtım videosu"></video>
-      <button class="sound" id="sound" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path id="snd-on" d="M15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13" hidden/><path id="snd-off" d="M22 9l-6 6M16 9l6 6"/></svg><span id="snd-t">Sesi aç</span></button>
-    </div>
-  </div>
-</header>
-
-<section id="indir" class="indir-sec">
-  <div class="wrap">
-    <div class="sec-head" style="justify-items:center;text-align:center">
-      <div class="eyebrow">İndir</div>
-      <h2 class="slogan" aria-label="Sen uğraşma, ARC uğraşsın.">
-        <span class="sw" style="--i:0">Sen</span> <span class="sw" style="--i:1">uğraşma,</span>
-        <span class="sw sg" style="--i:2">ARC</span> <span class="sw sg" style="--i:3">uğraşsın.</span>
-      </h2>
-      <p class="lead">Discord'dan doğrula, anahtarını gir, ARC'ı indir. İndirme yalnızca sunucumuzdaki üyelere ve geçerli bir lisans anahtarıyla açılır.</p>
-    </div>
-    <div class="dl-hot">
-    <div class="dl">
-      <div class="dl-top"><h3>ARC APP</h3><span class="dl-ver" id="dl-ver">Sürüm bilgisi alınıyor...</span></div>
-      <div class="dl-gate" id="dl-gate">
-        <ol class="g-steps">
-          <li style="--i:0"><span class="g-ico g-dc"><svg viewBox="0 0 127.14 96.36" aria-hidden="true"><path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/></svg></span>
-            <b>Sunucuya katıl</b><small>ARC Discord'una gir</small></li>
-          <li style="--i:1"><span class="g-ico">✅</span><b>Butona bas</b><small>✅・license-verify kanalında</small></li>
-          <li style="--i:2"><span class="g-ico">🔑</span><b>Anahtarını gir</b><small>Sana özel linkle buraya dön</small></li>
-        </ol>
-        <a class="btn-dc" href="https://discord.gg/n9tyDcqwbA" target="_blank" rel="noopener">
-          <svg viewBox="0 0 127.14 96.36" aria-hidden="true"><path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/></svg>
-          <span>Discord sunucusuna katıl</span><span class="dc-ok" aria-hidden="true">→</span>
-        </a>
-        <p class="g-note">Bot sana özel, <b>30 dakika</b> geçerli bir link verecek. O linkle döndüğünde anahtar kutusu açılır.</p>
-      </div>
-      <form id="dl-form" novalidate hidden>
-        <label for="dl-key" class="sr">Lisans anahtarı</label>
-        <input id="dl-key" name="key" autocomplete="off" spellcheck="false" placeholder="ARC-XXXXX-XXXXX-XXXXX-XXXXX" maxlength="40" required>
-        <button class="btn btn-main" id="dl-btn" type="submit">İndir</button>
-      </form>
-      <div class="dl-msg" id="dl-msg" role="status" aria-live="polite"></div>
-      <p class="dl-note">Anahtarın, ilk doğrulandığı Discord hesabına bağlanır. Anahtarın yoksa aşağıdaki <a href="#lisans">Lisans</a> bölümünden bize yaz. İndirdiğin ARC-Setup dosyasını çalıştır, kurulum gerisini halleder.</p>
-    </div>
     </div>
   </div>
 </section>
 
-<section class="panel-sec" style="padding-bottom:0">
+<section class="panel-sec alt">
   <div class="wrap">
     <div class="sec-head" style="justify-items:center;text-align:center">
       <div class="eyebrow">Programın içinden</div>
@@ -511,8 +576,7 @@
     </div>
   </div>
 </section>
-
-<section id="nasil">
+<section id="nasil" class="alt">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Nasıl çalışır</div>
@@ -526,8 +590,7 @@
     </div>
   </div>
 </section>
-
-<section id="ozellikler" style="padding-top:0">
+<section id="ozellikler" class="alt">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Özellikler</div>
@@ -575,8 +638,7 @@
     </div>
   </div>
 </section>
-
-<section style="padding-top:0">
+<section class="alt">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Ne kazanırsın</div>
@@ -604,8 +666,7 @@
     </div>
   </div>
 </section>
-
-<section id="macro" class="macro-sec" style="padding-top:0">
+<section id="macro" class="macro-sec urun-bas">
   <div class="wrap">
     <div class="macro-top">
       <img src="arc-macro.png" alt="ARC Macro">
@@ -634,8 +695,7 @@
     </div>
   </div>
 </section>
-
-<section id="drive" class="macro-sec" style="padding-top:0">
+<section id="drive" class="macro-sec urun-bas">
   <div class="wrap">
     <div class="macro-top">
       <img src="arc-drive.png" alt="ARC Drive">
@@ -667,8 +727,7 @@
     </div>
   </div>
 </section>
-
-<section id="phone" class="macro-sec" style="padding-top:0">
+<section id="phone" class="macro-sec urun-bas">
   <div class="wrap">
     <div class="macro-top">
       <img src="arc-phone.svg" alt="ARC Phone">
@@ -707,19 +766,19 @@
     </div>
   </div>
 </section>
-
-<section id="yenilikler" style="padding-top:0">
+<section id="yenilikler" class="urun-bas">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Yenilikler</div>
       <h2>ARC'ta neler değişti?</h2>
-      <p class="lead">Her sürümde gelenler. Programdaki "Yenilikler" penceresi de aynı listeyi gösterir.</p>
+      <p class="lead">Son üç sürüm. Programdaki "Yenilikler" penceresi de aynı listeyi gösterir.</p>
     </div>
     <div class="notes" id="notlar"><p class="notes-empty">Sürüm notları yükleniyor…</p></div>
+    <div class="notes notes-eski" id="notlar-eski" hidden></div>
+    <button class="btn btn-ghost notes-btn" id="notlar-btn" type="button" aria-expanded="false" aria-controls="notlar-eski" hidden></button>
   </div>
 </section>
-
-<section id="lisans" style="padding-top:0">
+<section id="lisans" class="urun-bas">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Lisans</div>
@@ -744,13 +803,12 @@
           <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
           <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div></div></div>
         <div class="how-step"><b>2</b><div><h3>IBAN'a ödemeyi yap</h3><p>Açıklamaya Discord adını yaz ki ödemeni hemen eşleştirelim.</p></div></div>
-        <div class="how-step"><b>3</b><div><h3>İndir ve anahtarını gir</h3><p>Anahtarın Discord'dan gelir. Sunucudaki <b>✅・license-verify</b> kanalında butona bas, açılan <a href="#indir">İndir</a> sayfasında anahtarını girip ARC'ı indir. Programı açınca aynı anahtarı gir.</p></div></div>
+        <div class="how-step"><b>3</b><div><h3>İndir ve anahtarını gir</h3><p>Anahtarın Discord'dan gelir. Bu sayfadaki <a href="#indir">İndir</a> kutusuna anahtarını gir, ARC'ı indir. Programı açınca aynı anahtarı gir.</p></div></div>
       </div>
     </div>
   </div>
 </section>
-
-<section id="sss" style="padding-top:0">
+<section id="sss" class="urun-bas">
   <div class="wrap">
     <div class="sec-head"><div class="eyebrow">Sıkça sorulanlar</div><h2>Aklına takılanlar</h2></div>
     <div class="faq">
@@ -762,22 +820,20 @@
     </div>
   </div>
 </section>
-
-<section class="final" style="padding-top:0">
+<section class="final">
   <div class="wrap">
     <img src="arc.png" alt="ARC">
     <h2>Olta hazır. Sen hazır mısın?</h2>
     <a class="btn btn-main" href="#lisans">Lisans al</a>
   </div>
 </section>
-
 <div class="toast" id="toast" role="status" aria-live="polite" hidden>
   <img src="arc.png" alt="">
   <div><b id="toast-t"></b><span id="toast-s"></span></div>
   <button type="button" id="toast-x" aria-label="Kapat">✕</button>
 </div>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio · v2.9.4</span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio<span id="ft-ver"></span></span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <script>
 (() => {
@@ -828,67 +884,114 @@
     document.getElementById('snd-t').textContent = vid.muted ? 'Sesi aç' : 'Sesi kapat';
   });
 
-  // Release notes: one source of truth (surum_notlari.json), also bundled into the app
-  const notlar = document.getElementById('notlar');
+  // Release notes: one source of truth (surum_notlari.json), also bundled into the app.
+  // Only the latest 3 are open; the rest sit behind a button so the page doesn't keep growing.
+  const notlar = document.getElementById('notlar'), eskiler = document.getElementById('notlar-eski'), notBtn = document.getElementById('notlar-btn');
+  const ACIK = 3;
+  let sonSurum = null;
   const tarih = (t) => new Date(t + 'T12:00:00').toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+  const surumKarti = (s, i) => {
+    const kart = document.createElement('article');
+    kart.className = 'release' + (i === 0 ? ' latest' : '');
+    const bas = document.createElement('div'); bas.className = 'release-head';
+    const h = document.createElement('h3'); h.textContent = s.surum;
+    const z = document.createElement('time'); z.dateTime = s.tarih; z.textContent = tarih(s.tarih);
+    bas.append(h, z);
+    if (i === 0) { const t = document.createElement('span'); t.className = 'tag'; t.textContent = 'son sürüm'; bas.append(t); }
+    const ul = document.createElement('ul');
+    s.tr.forEach((m) => {
+      const li = document.createElement('li'), d = document.createElement('div'), b = document.createElement('b'), a = document.createElement('span');
+      b.textContent = m.baslik; a.textContent = m.aciklama; d.append(b, a); li.append(d); ul.append(li);
+    });
+    kart.append(bas, ul);
+    return kart;
+  };
+  const notBtnYazi = (acik, n) => { notBtn.textContent = acik ? 'Önceki sürümleri gizle ' : `Önceki ${n} sürümü göster `; notBtn.setAttribute('aria-expanded', acik); };
   fetch('surum_notlari.json', { cache: 'no-cache' }).then((r) => r.json()).then((veri) => {
     notlar.textContent = '';
-    veri.surumler.forEach((s, i) => {
-      const kart = document.createElement('article');
-      kart.className = 'release' + (i === 0 ? ' latest' : '');
-      const bas = document.createElement('div'); bas.className = 'release-head';
-      const h = document.createElement('h3'); h.textContent = s.surum;
-      const z = document.createElement('time'); z.dateTime = s.tarih; z.textContent = tarih(s.tarih);
-      bas.append(h, z);
-      if (i === 0) { const t = document.createElement('span'); t.className = 'tag'; t.textContent = 'son sürüm'; bas.append(t); }
-      const ul = document.createElement('ul');
-      s.tr.forEach((m) => {
-        const li = document.createElement('li'), d = document.createElement('div'), b = document.createElement('b'), a = document.createElement('span');
-        b.textContent = m.baslik; a.textContent = m.aciklama; d.append(b, a); li.append(d); ul.append(li);
+    sonSurum = veri.surumler[0] || null;
+    veri.surumler.forEach((s, i) => (i < ACIK ? notlar : eskiler).append(surumKarti(s, i)));
+    const kalan = veri.surumler.length - ACIK;
+    if (kalan > 0) {
+      notBtn.hidden = false; notBtnYazi(false, kalan);
+      notBtn.addEventListener('click', () => {
+        const ac = eskiler.hidden;
+        eskiler.hidden = !ac; notBtnYazi(ac, kalan);
+        if (!ac) document.getElementById('yenilikler').scrollIntoView({ block: 'start' });
       });
-      kart.append(bas, ul); notlar.append(kart);
-    });
+    }
   }).catch(() => { notlar.innerHTML = '<p class="notes-empty">Sürüm notları şu an yüklenemedi.</p>'; });
 
-  // key-gated download: the server checks the key and returns a short-lived link to the private file
+  // Key-gated download: the server checks the key and returns a short-lived (2 min) link to the private file.
+  // Discord is optional: a personal link from the bot (?dc=<token>) still binds the key to that Discord account
+  // and triggers the bot's DM + role, but the key alone is enough to download.
   const DL = 'https://vzibpccxwknhakzgmxfy.supabase.co/functions/v1/download';
   const dlMsg = document.getElementById('dl-msg'), dlBtn = document.getElementById('dl-btn'), dlKey = document.getElementById('dl-key');
+  const dlOk = document.getElementById('dl-ok'), dlLink = document.getElementById('dl-link');
   const say = (t, cls) => { dlMsg.textContent = t; dlMsg.className = 'dl-msg' + (cls ? ' ' + cls : ''); };
-  // Personal link from the Discord bot: ?dc=<token>. Kept for this tab only and removed from the address bar.
   let dcToken = '';
   try {
     const q = new URLSearchParams(location.search).get('dc');
     if (q && /^[0-9a-f]{64}$/i.test(q)) { sessionStorage.setItem('arc_dc', q); history.replaceState(null, '', location.pathname + '#indir'); }
     dcToken = sessionStorage.getItem('arc_dc') || '';
   } catch { dcToken = (new URLSearchParams(location.search).get('dc') || ''); }
-  const kapiAc = (acik) => { document.getElementById('dl-gate').hidden = acik; document.getElementById('dl-form').hidden = !acik; };
-  kapiAc(!!dcToken);
-  if (dcToken) say('Discord doğrulaması alındı. Şimdi lisans anahtarını gir.', 'ok');
+  if (dcToken) say('Discord doğrulaması alındı. Anahtarını girince Discord hesabına da bağlanacak.', 'ok');
   fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"action":"info"}' })
-    .then((r) => r.json()).then((d) => { document.getElementById('dl-ver').textContent = d.version ? 'Güncel sürüm: ' + d.version : 'Yakında'; })
+    .then((r) => r.json()).then((d) => {
+      document.getElementById('dl-ver').textContent = d.version ? 'Güncel sürüm: ' + d.version : 'Yakında';
+      if (d.version) document.getElementById('ft-ver').textContent = ' · ' + d.version;
+    })
     .catch(() => { document.getElementById('dl-ver').textContent = ''; });
+
+  const indirmeyiBaslat = (url) => { const a = document.createElement('a'); a.href = url; a.rel = 'noopener'; document.body.append(a); a.click(); a.remove(); };
+  let sonKey = '', linkZamani = 0, sonUrl = '';
+  async function iste(key) {
+    const r = await fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, token: dcToken }) });
+    return r.json().catch(() => ({}));
+  }
+  const hataMesaji = (d) => ({
+    other_discord: 'Bu anahtar başka bir Discord hesabına bağlı. Senin değilse Discord\'dan bize yaz.',
+    expired: 'Bu anahtarın süresi dolmuş. Yenilemek için Discord\'dan bize yaz.',
+    limit: 'Bu anahtarla bugün çok fazla indirme yapıldı. Yarın tekrar dene ya da Discord\'dan yaz.',
+    none: 'Şu an indirilebilir sürüm yok. Discord\'dan yaz.',
+    invalid: 'Bu anahtar geçerli değil. Doğru yazdığından emin ol ya da Discord\'dan yaz.',
+    need_discord: 'Sunucu henüz Discord doğrulaması istiyor. #license-verify kanalındaki butondan gelen linkle tekrar dene.',
+  }[d.status] || 'Sunucuya ulaşılamadı. Birazdan tekrar dene.');
+  function basarili(d) {
+    sonUrl = d.url; linkZamani = Date.now();
+    say('');
+    document.getElementById('dl-ok-t').textContent = 'Anahtar geçerli · ARC ' + d.version;
+    document.getElementById('dl-ok-s').textContent = dcToken ? 'İndirme başladı. Discord hesabına bağlandı, sana DM geldi.' : 'İndirme başladı. Başlamadıysa aşağıdaki butona bas.';
+    const liste = document.getElementById('dl-yeni-l'); liste.textContent = '';
+    if (sonSurum && sonSurum.surum === d.version) {
+      sonSurum.tr.slice(0, 4).forEach((m) => { const li = document.createElement('li'); li.textContent = m.baslik; liste.append(li); });
+      document.getElementById('dl-yeni').hidden = !liste.children.length;
+    }
+    dlOk.hidden = false;
+    indirmeyiBaslat(d.url);
+  }
   document.getElementById('dl-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const key = dlKey.value.trim();
     if (key.replace(/[^0-9a-z]/gi, '').length < 20) { say('Anahtar ARC-XXXXX-XXXXX-XXXXX-XXXXX biçiminde olmalı.', 'err'); dlKey.focus(); return; }
-    dlBtn.disabled = true; say('Anahtar doğrulanıyor...');
+    dlBtn.disabled = true; dlOk.hidden = true; say('Anahtar doğrulanıyor...');
     try {
-      const r = await fetch(DL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ key, token: dcToken }) });
-      const d = await r.json().catch(() => ({}));
-      if (d.status === 'ok' && d.url) { say('✓ Lisans anahtarın doğrulandı, ' + d.version + ' indiriliyor. Discord\'dan sana DM geldi.', 'ok'); window.location.href = d.url; }
-      else if (d.status === 'need_discord') {
-        try { sessionStorage.removeItem('arc_dc'); } catch {}
-        dcToken = ''; kapiAc(false);
-        say('Discord doğrulama linkinin süresi doldu. #license-verify kanalından butona basıp yeni link al.', 'err');
+      const d = await iste(key);
+      if (d.status === 'ok' && d.url) { sonKey = key; basarili(d); }
+      else {
+        if (d.status === 'need_discord') { try { sessionStorage.removeItem('arc_dc'); } catch {} dcToken = ''; }
+        say(hataMesaji(d), 'err');
       }
-      else if (d.status === 'other_discord') say('Bu anahtar başka bir Discord hesabına bağlı. Senin değilse bize bilet aç.', 'err');
-      else if (d.status === 'expired') say('Bu anahtarın süresi dolmuş. Yenilemek için Discord\'dan bize yaz.', 'err');
-      else if (d.status === 'limit') say('Bu anahtarla bugün çok fazla indirme yapıldı. Yarın tekrar dene ya da Discord\'dan yaz.', 'err');
-      else if (d.status === 'none') say('Şu an indirilebilir sürüm yok. Discord\'dan yaz.', 'err');
-      else if (d.status === 'invalid') say('Bu anahtar geçerli değil. Doğru yazdığından emin ol ya da Discord\'dan yaz.', 'err');
-      else say('Sunucuya ulaşılamadı. Birazdan tekrar dene.', 'err');
     } catch { say('Sunucuya ulaşılamadı. İnternet bağlantını kontrol et.', 'err'); }
     dlBtn.disabled = false;
+  });
+  // The signed link lives 2 minutes; after that the button asks the server for a fresh one
+  dlLink.addEventListener('click', async () => {
+    if (Date.now() - linkZamani < 100000 && sonUrl) { indirmeyiBaslat(sonUrl); return; }
+    dlLink.disabled = true;
+    try { const d = await iste(sonKey); if (d.status === 'ok' && d.url) basarili(d); else { dlOk.hidden = true; say(hataMesaji(d), 'err'); } }
+    catch { say('Sunucuya ulaşılamadı. İnternet bağlantını kontrol et.', 'err'); }
+    dlLink.disabled = false;
   });
 
   // Real social proof only: counts and events come from the license server; names are masked server-side
