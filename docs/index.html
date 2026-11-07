@@ -428,6 +428,11 @@
 
   /* ===== Satın al (2026-11-07): 3D lisans kartı, 3D buton, Shopier ödeme penceresi ===== */
   .satin-sec .sec-head { justify-items: center; text-align: center; }
+  .satin-ust { position: relative; padding-block: clamp(36px, 5vw, 64px) clamp(48px, 6vw, 80px); overflow: hidden; }
+  .satin-ust::before { content: ""; position: absolute; inset: -20% -10% auto; height: 110%; pointer-events: none;
+    background: radial-gradient(45% 45% at 28% 45%, color-mix(in srgb, var(--violet) 24%, transparent), transparent 70%); }
+  .satin-ust .wrap { position: relative; }
+  .satin-ust + .hero { border-top: 1px solid var(--line); }
   .buy2 { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 3vw, 36px); align-items: center; }
   .lic-sahne { perspective: 1200px; display: grid; place-items: center; padding: 10px 0; }
   .lic-card { position: relative; width: min(100%, 520px); border-radius: 28px; padding: clamp(24px, 3.4vw, 36px); transform-style: preserve-3d;
@@ -556,6 +561,46 @@
   </div>
 </nav>
 
+<section id="lisans" class="satin-sec satin-ust">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Lisans</div>
+      <h2>Bir anahtar, ARC'ın tamamı.</h2>
+      <p class="lead">Kartınla güvenle öde, lisans anahtarın saniyeler içinde hem ekranında hem e-postanda. Ödeme Shopier güvencesiyle alınır.</p>
+    </div>
+    <div class="buy2" id="satin-al">
+      <div class="lic-sahne">
+        <div class="lic-card" id="lic-card">
+          <div class="lic-ust"><img src="arc.png" alt=""><div><b>ARC APP</b><small id="lic-urun">Lisans anahtarı</small></div><span class="lic-cip" id="lic-sure">SÜRESİZ</span></div>
+          <div class="lic-fiyat"><strong id="lic-fiyat">500</strong><span>₺</span><em id="lic-tek">tek ödeme</em></div>
+          <div class="lic-key" id="lic-key" aria-hidden="true">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
+          <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı şu an ARC kullanıyor</div>
+          <ul>
+            <li>ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro, ARC Drive</li>
+            <li>Ödeme biter bitmez anahtar e-postanda</li>
+            <li>Yeni sürümler otomatik gelir</li>
+            <li>Kurulumda Discord'dan destek</li>
+          </ul>
+          <button class="btn-3d" id="satin-btn" type="button">Satın Al<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="lic-guven">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Shopier güvenli ödeme</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Anında teslim</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Kredi ve banka kartı</span>
+          </div>
+        </div>
+      </div>
+      <div class="adimlar3">
+        <div class="adim3"><i>1</i><div><h3>Bilgilerini gir</h3><p>Adın, e-postan ve telefonun. Anahtarın bu e-postaya gelir.</p></div></div>
+        <div class="adim3"><i>2</i><div><h3>Shopier'de güvenle öde</h3><p>Kart bilgilerini yalnızca Shopier'in güvenli ödeme sayfasında girersin, biz görmeyiz.</p></div></div>
+        <div class="adim3"><i>3</i><div><h3>Anahtarın hazır</h3><p>Ödeme sonrası bu sayfaya dönersin: anahtarın ekranda. Aynı sayfadan ARC'ı indirip kurarsın.</p></div></div>
+        <div class="iban-not" id="iletisim">IBAN ile ödemek ya da soru sormak istersen Discord'dan yaz:
+          <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
+          <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <header class="hero" id="top">
   <div class="wrap">
     <div>
@@ -931,46 +976,6 @@
     <div class="notes" id="notlar"><p class="notes-empty">Sürüm notları yükleniyor…</p></div>
     <div class="notes notes-eski" id="notlar-eski" hidden></div>
     <button class="btn btn-ghost notes-btn" id="notlar-btn" type="button" aria-expanded="false" aria-controls="notlar-eski" hidden></button>
-  </div>
-</section>
-<section id="lisans" class="urun-bas satin-sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Lisans</div>
-      <h2>Bir anahtar, ARC'ın tamamı.</h2>
-      <p class="lead">Kartınla güvenle öde, lisans anahtarın saniyeler içinde hem ekranında hem e-postanda. Ödeme Shopier güvencesiyle alınır.</p>
-    </div>
-    <div class="buy2" id="satin-al">
-      <div class="lic-sahne">
-        <div class="lic-card" id="lic-card">
-          <div class="lic-ust"><img src="arc.png" alt=""><div><b>ARC APP</b><small id="lic-urun">Lisans anahtarı</small></div><span class="lic-cip" id="lic-sure">SÜRESİZ</span></div>
-          <div class="lic-fiyat"><strong id="lic-fiyat">500</strong><span>₺</span><em id="lic-tek">tek ödeme</em></div>
-          <div class="lic-key" id="lic-key" aria-hidden="true">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
-          <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı şu an ARC kullanıyor</div>
-          <ul>
-            <li>ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro, ARC Drive</li>
-            <li>Ödeme biter bitmez anahtar ekranında ve e-postanda</li>
-            <li>Yeni sürümler otomatik gelir</li>
-            <li>Kurulumda Discord'dan destek</li>
-          </ul>
-          <button class="btn-3d" id="satin-btn" type="button">Satın Al<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <div class="lic-guven">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Shopier güvenli ödeme</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Anında teslim</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Kredi ve banka kartı</span>
-          </div>
-        </div>
-      </div>
-      <div class="adimlar3">
-        <div class="adim3"><i>1</i><div><h3>Bilgilerini gir</h3><p>Adın, e-postan ve telefonun. Anahtarın bu e-postaya gelir.</p></div></div>
-        <div class="adim3"><i>2</i><div><h3>Shopier'de güvenle öde</h3><p>Kart bilgilerini yalnızca Shopier'in güvenli ödeme sayfasında girersin, biz görmeyiz.</p></div></div>
-        <div class="adim3"><i>3</i><div><h3>Anahtarın hazır</h3><p>Ödeme sonrası bu sayfaya dönersin: anahtarın ekranda. Aynı sayfadan ARC'ı indirip kurarsın.</p></div></div>
-        <div class="iban-not" id="iletisim">IBAN ile ödemek ya da soru sormak istersen Discord'dan yaz:
-          <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
-          <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 <section id="sss" class="urun-bas">
