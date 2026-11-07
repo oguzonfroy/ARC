@@ -425,6 +425,125 @@
   .dl-yardim b { color: var(--text); font-weight: 600; }
   .dl-yardim ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
   .dl-uyari { padding: 10px 12px !important; border-radius: 10px; background: color-mix(in srgb, var(--warn) 10%, transparent); border: 1px solid color-mix(in srgb, var(--warn) 35%, var(--line)); }
+
+  /* ===== Satın al (2026-11-07): 3D lisans kartı, 3D buton, Shopier ödeme penceresi ===== */
+  .satin-sec .sec-head { justify-items: center; text-align: center; }
+  .buy2 { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 3vw, 36px); align-items: center; }
+  .lic-sahne { perspective: 1200px; display: grid; place-items: center; padding: 10px 0; }
+  .lic-card { position: relative; width: min(100%, 520px); border-radius: 28px; padding: clamp(24px, 3.4vw, 36px); transform-style: preserve-3d;
+    background:
+      radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--violet) 34%, transparent), transparent 55%),
+      radial-gradient(90% 70% at 0% 100%, color-mix(in srgb, #2dd4bf 12%, transparent), transparent 60%),
+      linear-gradient(160deg, #1a1430 0%, #100c1c 55%, #0b0914 100%);
+    border: 1px solid color-mix(in srgb, var(--violet) 55%, var(--line));
+    box-shadow: 0 50px 100px -40px #000, 0 0 0 1px rgba(255,255,255,.03) inset, 0 0 90px -30px var(--violet); }
+  .lic-card::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: conic-gradient(from var(--aci, 0deg), transparent 0 70%, var(--lilac) 80%, #2dd4bf 88%, transparent 96%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: kenar 6s linear infinite; opacity: .9; }
+  @property --aci { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  @keyframes kenar { to { --aci: 360deg; } }
+  .lic-ust { display: flex; align-items: center; gap: 12px; transform: translateZ(20px); }
+  .lic-ust img { width: 44px; height: 44px; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--violet) 70%, transparent)); }
+  .lic-ust b { font: 800 19px/1 var(--display); letter-spacing: .06em; }
+  .lic-ust small { display: block; margin-top: 5px; color: var(--mute); font: 500 12.5px/1 var(--body); }
+  .lic-cip { margin-left: auto; font: 700 11px/1 var(--mono); letter-spacing: .16em; padding: 8px 10px; border-radius: 999px; color: #06050a;
+    background: linear-gradient(120deg, var(--lilac), #2dd4bf); box-shadow: 0 6px 20px -6px #2dd4bf; }
+  .lic-fiyat { display: flex; align-items: baseline; gap: 10px; margin: 26px 0 4px; transform: translateZ(40px); }
+  .lic-fiyat strong { font: 800 clamp(48px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em;
+    background: linear-gradient(180deg, #fff 20%, var(--lilac)); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 6px 0 #3b2a6b) drop-shadow(0 18px 30px rgba(139, 92, 246, .45)); }
+  .lic-fiyat span { font: 700 22px/1 var(--display); color: var(--lilac); }
+  .lic-fiyat em { font-style: normal; margin-left: 4px; color: var(--mute); font-size: 14.5px; }
+  .lic-key { margin: 16px 0 18px; font: 600 clamp(13px, 2vw, 16.5px)/1 var(--mono); letter-spacing: .08em; color: var(--lilac); background: #06050a;
+    border: 1px dashed color-mix(in srgb, var(--violet) 55%, var(--line)); border-radius: 12px; padding: 14px 16px; white-space: nowrap; overflow: hidden; transform: translateZ(18px); }
+  .lic-card ul { margin: 0 0 24px; padding: 0; list-style: none; display: grid; gap: 10px; transform: translateZ(12px); }
+  .lic-card li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; font-size: 15.5px; }
+  .lic-card li::before { content: "✓"; color: var(--lilac); font-weight: 800; }
+  .lic-card .live { margin: 0 0 18px; transform: translateZ(20px); }
+  .lic-guven { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; color: var(--mute); font-size: 13px; transform: translateZ(10px); }
+  .lic-guven span { display: inline-flex; align-items: center; gap: 6px; }
+  .lic-guven svg { width: 15px; height: 15px; color: var(--ok); flex: none; }
+
+  /* 3D buton: altında kalın bir taban; basınca tabana iner */
+  .btn-3d { --d: 7px; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%;
+    padding: 19px 28px; border: 0; border-radius: 16px; cursor: pointer; color: #fff; font: 800 18px/1 var(--display); letter-spacing: .02em;
+    background: linear-gradient(180deg, #b08cff 0%, #8b5cf6 48%, #7341ef 100%); transform: translateY(0) translateZ(32px); overflow: hidden;
+    box-shadow: 0 var(--d) 0 #42238f, 0 calc(var(--d) + 18px) 34px -10px rgba(139, 92, 246, .75), inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -2px 0 rgba(0, 0, 0, .15);
+    transition: transform .14s ease, box-shadow .14s ease, filter .2s; text-shadow: 0 1px 0 rgba(0, 0, 0, .25); }
+  .btn-3d::after { content: ""; position: absolute; top: 0; bottom: 0; width: 38%; left: -60%; transform: skewX(-20deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .45), transparent); animation: sweep 3.4s ease-in-out infinite; }
+  .btn-3d svg { width: 20px; height: 20px; flex: none; transition: transform .25s; }
+  .btn-3d:hover { transform: translateY(-2px) translateZ(32px); filter: brightness(1.06);
+    box-shadow: 0 calc(var(--d) + 2px) 0 #42238f, 0 calc(var(--d) + 26px) 44px -10px rgba(139, 92, 246, .85), inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -2px 0 rgba(0, 0, 0, .15); }
+  .btn-3d:hover svg { transform: translateX(4px); }
+  .btn-3d:active { transform: translateY(var(--d)) translateZ(32px); box-shadow: 0 0 0 #42238f, 0 6px 14px -6px rgba(139, 92, 246, .6), inset 0 1px 0 rgba(255, 255, 255, .35); }
+  .btn-3d:focus-visible { outline: 2px solid var(--lilac); outline-offset: 4px; }
+  .btn-3d[disabled] { cursor: wait; filter: saturate(.6) brightness(.9); }
+  .btn-3d .yukleniyor { width: 20px; height: 20px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, .35); border-top-color: #fff; animation: don .8s linear infinite; }
+  @keyframes don { to { transform: rotate(360deg); } }
+
+  .adimlar3 { display: grid; gap: 12px; }
+  .adim3 { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; padding: 18px 20px; border-radius: 18px;
+    background: var(--deep); border: 1px solid var(--line); }
+  .adim3 i { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; font: 800 18px/1 var(--display); font-style: normal; color: #fff;
+    background: linear-gradient(160deg, #9a6bff, #5b32c9); box-shadow: 0 5px 0 #331a74, 0 14px 24px -10px var(--violet), inset 0 1px 0 rgba(255,255,255,.35); }
+  .adim3 h3 { font: 700 16.5px/1.3 var(--body); margin-bottom: 3px; }
+  .adim3 p { margin: 0; color: var(--mute); font-size: 14.5px; }
+  .iban-not { margin-top: 6px; padding: 16px 18px; border-radius: 16px; border: 1px dashed var(--line); color: var(--mute); font-size: 14.5px; }
+  .iban-not .discord { margin-top: 10px; }
+
+  /* Ödeme penceresi */
+  .odeme { width: min(560px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0; border-radius: 26px; color: var(--text);
+    background: linear-gradient(170deg, #17122a, #0d0a17 60%); box-shadow: 0 60px 120px -30px #000, 0 0 0 1px color-mix(in srgb, var(--violet) 45%, var(--line)), 0 0 120px -40px var(--violet); overflow: auto; }
+  .odeme::backdrop { background: rgba(4, 3, 8, .72); backdrop-filter: blur(6px); }
+  .odeme[open] { animation: acil .45s cubic-bezier(.2, .8, .2, 1); }
+  @keyframes acil { from { opacity: 0; transform: translateY(18px) scale(.97) rotateX(8deg); } }
+  .od-ic { padding: clamp(22px, 4vw, 32px); display: grid; gap: 18px; }
+  .od-bas { display: flex; align-items: center; gap: 12px; }
+  .od-bas img { width: 40px; height: 40px; }
+  .od-bas b { font: 800 18px/1.1 var(--display); }
+  .od-bas small { display: block; color: var(--mute); font-size: 13.5px; margin-top: 3px; }
+  .od-x { margin-left: auto; width: 40px; height: 40px; flex: none; border-radius: 12px; border: 1px solid var(--line); background: var(--deep-2); color: var(--mute); font-size: 16px; cursor: pointer; }
+  .od-x:hover { color: var(--text); border-color: var(--violet); }
+  .od-yol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .od-yol span { font: 600 12px/1.2 var(--body); color: var(--mute); padding-top: 9px; border-top: 3px solid var(--line); }
+  .od-yol span.on { color: var(--text); border-color: var(--violet); }
+  .od-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .od-form .tam { grid-column: 1 / -1; }
+  .od-alan { display: grid; gap: 6px; min-width: 0; }
+  .od-alan label { font: 600 12.5px/1 var(--body); color: var(--mute); letter-spacing: .02em; }
+  .od-alan input { width: 100%; min-width: 0; font: 500 16px/1 var(--body); color: var(--text); background: #07060b; border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .od-alan input:focus { outline: 2px solid var(--lilac); outline-offset: 1px; border-color: var(--violet); }
+  .od-alan input[aria-invalid="true"] { border-color: var(--err); }
+  .od-onay { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font-size: 13.5px; color: var(--mute); cursor: pointer; }
+  .od-onay input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--violet); }
+  .od-ozet { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 16px; background: #07060b; border: 1px solid var(--line); }
+  .od-ozet small { color: var(--mute); font-size: 13.5px; }
+  .od-ozet strong { font: 800 26px/1 var(--display); color: #fff; }
+  .od-msg { min-height: 0; font-size: 14.5px; color: var(--err); }
+  .od-msg:empty { display: none; }
+  .od-not { margin: 0; display: flex; gap: 8px; align-items: center; justify-content: center; color: var(--mute); font-size: 13px; text-align: center; }
+  .od-not svg { width: 14px; height: 14px; color: var(--ok); flex: none; }
+  .od-sonuc { display: grid; justify-items: center; text-align: center; gap: 14px; padding: 6px 0 2px; }
+  .od-ikon { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; font: 800 38px/1 var(--display); color: #06050a;
+    background: radial-gradient(circle at 35% 30%, #86efac, var(--ok)); box-shadow: 0 10px 0 #15803d, 0 24px 50px -12px var(--ok); animation: zipla .7s cubic-bezier(.2, 1.4, .4, 1); }
+  .od-ikon.hata { background: radial-gradient(circle at 35% 30%, #fca5a5, var(--err)); box-shadow: 0 10px 0 #991b1b, 0 24px 50px -12px var(--err); }
+  .od-ikon.bekle { background: radial-gradient(circle at 35% 30%, var(--lilac), var(--violet)); box-shadow: 0 10px 0 #42238f, 0 24px 50px -12px var(--violet); }
+  @keyframes zipla { from { transform: scale(.3) rotate(-25deg); opacity: 0; } }
+  .od-sonuc h3 { font: 800 24px/1.2 var(--display); }
+  .od-sonuc p { margin: 0; color: var(--mute); font-size: 15px; max-width: 42ch; }
+  .od-key { display: flex; gap: 8px; width: 100%; }
+  .od-key code { flex: 1; min-width: 0; font: 700 clamp(14px, 3.4vw, 18px)/1 var(--mono); letter-spacing: .06em; color: #fff; padding: 16px; border-radius: 12px; overflow-x: auto; white-space: nowrap;
+    background: #06050a; border: 1px solid color-mix(in srgb, var(--ok) 50%, var(--line)); user-select: all; }
+  .od-sonuc .btn-3d { transform: none; }
+  .od-sonuc .btn-3d:hover { transform: translateY(-2px); } .od-sonuc .btn-3d:active { transform: translateY(var(--d)); }
+  .konfeti { position: fixed; inset: 0; pointer-events: none; z-index: 30; overflow: hidden; }
+  .konfeti i { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; animation: dus var(--t) cubic-bezier(.2, .6, .4, 1) forwards; }
+  @keyframes dus { to { transform: translate(var(--x), 105vh) rotate(var(--r)); opacity: .2; } }
+  @media (max-width: 960px) { .buy2 { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) { .od-form { grid-template-columns: 1fr; } .od-yol span { font-size: 11px; } }
+  @media (prefers-reduced-motion: reduce) { .lic-card::before, .btn-3d::after, .odeme[open], .od-ikon, .konfeti { animation: none; } .konfeti { display: none; } }
 </style>
 </head>
 <body>
@@ -814,32 +933,42 @@
     <button class="btn btn-ghost notes-btn" id="notlar-btn" type="button" aria-expanded="false" aria-controls="notlar-eski" hidden></button>
   </div>
 </section>
-<section id="lisans" class="urun-bas">
+<section id="lisans" class="urun-bas satin-sec">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Lisans</div>
-      <h2>Bir anahtar, sınırsız döngü.</h2>
-      <p class="lead">Ödeme IBAN ile yapılır. Discord'dan yaz, IBAN bilgisini ve lisans anahtarını sana biz iletelim.</p>
+      <h2>Bir anahtar, ARC'ın tamamı.</h2>
+      <p class="lead">Kartınla güvenle öde, lisans anahtarın saniyeler içinde hem ekranında hem e-postanda. Ödeme Shopier güvencesiyle alınır.</p>
     </div>
-    <div class="buy">
-      <div class="license">
-        <div class="eyebrow" lang="en">ARC Rina Auto Fishing v2.8</div>
-        <h3 style="margin-top:12px">Lisans anahtarı</h3>
-        <div class="key">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
-        <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı ARC ile balık tutuyor</div>
-        <ul>
-          <li>ARC'ın bütün özellikleri</li>
-          <li>Bilgisayarına tanımlanan kişisel anahtar</li>
-          <li>Kurulumda Discord'dan destek</li>
-        </ul>
-        <a class="btn btn-main" href="#iletisim">Satın almak için yaz</a>
+    <div class="buy2" id="satin-al">
+      <div class="lic-sahne">
+        <div class="lic-card" id="lic-card">
+          <div class="lic-ust"><img src="arc.png" alt=""><div><b>ARC APP</b><small id="lic-urun">Lisans anahtarı</small></div><span class="lic-cip" id="lic-sure">SÜRESİZ</span></div>
+          <div class="lic-fiyat"><strong id="lic-fiyat">500</strong><span>₺</span><em id="lic-tek">tek ödeme</em></div>
+          <div class="lic-key" id="lic-key" aria-hidden="true">ARC-XXXXX-XXXXX-XXXXX-XXXXX</div>
+          <div class="live" id="live" hidden><i></i><b id="live-n">0</b> aktif kullanıcı şu an ARC kullanıyor</div>
+          <ul>
+            <li>ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro, ARC Drive</li>
+            <li>Ödeme biter bitmez anahtar ekranında ve e-postanda</li>
+            <li>Yeni sürümler otomatik gelir</li>
+            <li>Kurulumda Discord'dan destek</li>
+          </ul>
+          <button class="btn-3d" id="satin-btn" type="button">Satın Al<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="lic-guven">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Shopier güvenli ödeme</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Anında teslim</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Kredi ve banka kartı</span>
+          </div>
+        </div>
       </div>
-      <div class="how" id="iletisim">
-        <div class="how-step"><b>1</b><div><h3>Discord'dan yaz</h3><p>Lisans almak istediğini söyle, IBAN bilgisini sana iletelim.</p>
+      <div class="adimlar3">
+        <div class="adim3"><i>1</i><div><h3>Bilgilerini gir</h3><p>Adın, e-postan ve telefonun. Anahtarın bu e-postaya gelir.</p></div></div>
+        <div class="adim3"><i>2</i><div><h3>Shopier'de güvenle öde</h3><p>Kart bilgilerini yalnızca Shopier'in güvenli ödeme sayfasında girersin, biz görmeyiz.</p></div></div>
+        <div class="adim3"><i>3</i><div><h3>Anahtarın hazır</h3><p>Ödeme sonrası bu sayfaya dönersin: anahtarın ekranda. Aynı sayfadan ARC'ı indirip kurarsın.</p></div></div>
+        <div class="iban-not" id="iletisim">IBAN ile ödemek ya da soru sormak istersen Discord'dan yaz:
           <div class="discord"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
-          <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div></div></div>
-        <div class="how-step"><b>2</b><div><h3>IBAN'a ödemeyi yap</h3><p>Açıklamaya Discord adını yaz ki ödemeni hemen eşleştirelim.</p></div></div>
-        <div class="how-step"><b>3</b><div><h3>İndir ve anahtarını gir</h3><p>Anahtarın Discord'dan gelir. Bu sayfadaki <a href="#indir">İndir</a> kutusuna anahtarını gir, ARC'ı indir. Programı açınca aynı anahtarı gir.</p></div></div>
+          <div class="discord"><span class="handle" id="dc2">hzh1ko</span><button class="copy" data-for="dc2" type="button">Kopyala</button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -848,6 +977,8 @@
   <div class="wrap">
     <div class="sec-head"><div class="eyebrow">Sıkça sorulanlar</div><h2>Aklına takılanlar</h2></div>
     <div class="faq">
+      <details><summary>Ödeme güvenli mi?</summary><p>Ödeme Shopier altyapısıyla alınır. Kart bilgilerini yalnızca Shopier'in güvenli ödeme sayfasında girersin; ARC kart bilgini hiç görmez. Kredi kartı ve banka kartı geçer.</p></details>
+      <details><summary>Anahtarım ne zaman gelir?</summary><p>Ödeme biter bitmez. Bu sayfaya dönünce anahtarın ekranda görünür, aynı anda e-postana da gönderilir. E-posta gelmediyse gereksiz (spam) klasörüne bak ya da Discord'dan yaz.</p></details>
       <details><summary>Hangi bilgisayarda çalışır?</summary><p>Windows 10 ve Windows 11'de çalışır. Rina sunucusuna FiveM üzerinden bağlı olman yeterli.</p></details>
       <details><summary>VB-Cable nedir, kurmam gerekiyor mu?</summary><p>VB-Cable ücretsiz bir sanal ses kablosu. ARC oyun sesini bunun üzerinden dinler. Kurulumu ARC tek tıkla yapar, FiveM ses ayarını da kendisi düzenler.</p></details>
       <details><summary>İnsan doğrulaması gelirse ne olur?</summary><p>ARC doğrulamayı çözmez, durur ve sesli uyarı verir. Doğrulamayı sen çözersin, butona basınca 3 saniye sonra devam eder.</p></details>
@@ -859,10 +990,32 @@
 <section class="final">
   <div class="wrap">
     <img src="arc.png" alt="ARC">
-    <h2>Olta hazır. Sen hazır mısın?</h2>
+    <h2>Direksiyonu ARC'a bırak.</h2>
     <a class="btn btn-main" href="#lisans">Lisans al</a>
   </div>
 </section>
+<dialog class="odeme" id="odeme" aria-labelledby="od-baslik">
+  <div class="od-ic" id="od-form-ekran">
+    <div class="od-bas"><img src="arc.png" alt=""><div><b id="od-baslik">ARC APP Lisansı</b><small id="od-alt">Anahtar e-postana ve ekrana gelir</small></div><button class="od-x" type="button" data-kapat aria-label="Kapat">✕</button></div>
+    <div class="od-yol" aria-hidden="true"><span class="on">1 · Bilgiler</span><span>2 · Güvenli ödeme</span><span>3 · Anahtarın</span></div>
+    <form class="od-form" id="od-form" novalidate>
+      <div class="od-alan"><label for="od-ad">Ad</label><input id="od-ad" autocomplete="given-name" maxlength="40" required></div>
+      <div class="od-alan"><label for="od-soyad">Soyad</label><input id="od-soyad" autocomplete="family-name" maxlength="40" required></div>
+      <div class="od-alan tam"><label for="od-email">E-posta (anahtarın buraya gelir)</label><input id="od-email" type="email" autocomplete="email" inputmode="email" maxlength="120" required></div>
+      <div class="od-alan"><label for="od-tel">Telefon</label><input id="od-tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="05XX XXX XX XX" maxlength="20" required></div>
+      <div class="od-alan"><label for="od-sehir">Şehir</label><input id="od-sehir" autocomplete="address-level1" maxlength="40"></div>
+      <label class="od-onay tam"><input type="checkbox" id="od-onay"><span>Lisans anahtarının dijital ürün olduğunu, ödeme sonrası anında teslim edildiğini ve teslimattan sonra cayma hakkının bulunmadığını kabul ediyorum.</span></label>
+      <div class="od-ozet tam"><div><small>Ödenecek tutar</small><div id="od-urun" style="font-size:14px">ARC APP Lisansı</div></div><strong id="od-tutar">500 ₺</strong></div>
+      <div class="od-msg tam" id="od-msg" role="alert"></div>
+      <button class="btn-3d tam" id="od-git" type="submit" style="transform:none">Güvenli ödemeye geç<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="od-not tam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Kart bilgilerin Shopier'in güvenli sayfasında girilir.</p>
+    </form>
+  </div>
+  <div class="od-ic" id="od-sonuc-ekran" hidden>
+    <div class="od-bas"><img src="arc.png" alt=""><div><b>ARC APP</b><small>Satın alma</small></div><button class="od-x" type="button" data-kapat aria-label="Kapat">✕</button></div>
+    <div class="od-sonuc" id="od-sonuc" aria-live="polite"></div>
+  </div>
+</dialog>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden>
   <img src="arc.png" alt="">
   <div><b id="toast-t"></b><span id="toast-s"></span></div>
@@ -1148,7 +1301,7 @@
 
   // 3D eğim: yalnızca fare kullananlarda ve hareket azaltma kapalıyken
   if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const SECICI = '.urun, .promo, .macro-video, .ap-buyuk, .ap-ikili figure, .macro-shots > *, .ets2-track figure, .phone-track figure, .macro-steps > div, .feat, .col, .license, .how-step, .step';
+    const SECICI = '.urun, .promo, .macro-video, .ap-buyuk, .ap-ikili figure, .macro-shots > *, .ets2-track figure, .phone-track figure, .macro-steps > div, .feat, .col, .license, .how-step, .step, .lic-card, .adim3';
     const egimVer = (el) => {
       if (el.classList.contains('tilt')) return;
       el.classList.add('tilt');
@@ -1190,6 +1343,183 @@
       cancelAnimationFrame(hk); hero.classList.remove('uzerinde');
       baslik.style.setProperty('--hx', '0deg'); baslik.style.setProperty('--hy', '0deg');
     });
+  }
+})();
+</script>
+<script>
+// Satın al (2026-11-07): bilgiler sitede alınır, kart için Shopier'in güvenli ödeme sayfasına gidilir,
+// ödeme sonrası Shopier bu sayfaya ?odeme=ok&s=SİPARİŞ&t=TOKEN ile döner ve anahtar ekranda gösterilir.
+(() => {
+  const PAY = 'https://vzibpccxwknhakzgmxfy.supabase.co/functions/v1/shopier-webhook';
+  // Shopier ödeme modülü (API kullanıcı/şifre) açılana kadar Shopier'deki ürün sayfasından satılır; key yine otomatik e-postayla gelir
+  const SHOPIER_URUN = 'https://www.shopier.com/ARCAPP/52667634';
+  const $ = (id) => document.getElementById(id);
+  const dlg = $('odeme'), satinBtn = $('satin-btn'), formEkran = $('od-form-ekran'), sonucEkran = $('od-sonuc-ekran'), sonuc = $('od-sonuc');
+  const azHareket = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let bilgi = { status: '?', price: 500 };
+  const tl = (p) => Number(p).toLocaleString('tr-TR', { maximumFractionDigits: 2 });
+  const sureYazi = (dk) => !dk ? null : dk % 1440 === 0 ? `${dk / 1440} GÜN` : dk % 60 === 0 ? `${dk / 60} SAAT` : `${dk} DAKİKA`;
+  const istek = async (govde) => {
+    const r = await fetch(PAY, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(govde) });
+    let d = {}; try { d = await r.json(); } catch {}
+    return d;
+  };
+
+  // Fiyat, ürün ve süre sunucudan gelir (Key Generator > Shopier > Ayarlar)
+  istek({ action: 'pay_info' }).then((d) => {
+    bilgi = d || bilgi;
+    if (d.price) { $('lic-fiyat').textContent = tl(d.price); $('od-tutar').textContent = tl(d.price) + ' ₺'; }
+    if (d.product) { $('od-baslik').textContent = d.product; $('od-urun').textContent = d.product; }
+    if (d.status === 'not_configured') {   // ürün sayfası modu: 3. adım ve açıklama buna göre
+      const a3 = document.querySelector('.adim3:nth-child(3) p'); if (a3) a3.textContent = 'Ödeme biter bitmez anahtarın e-postana gelir. Bu sayfadaki İndir kutusuna girip ARC\'ı indirirsin.';
+      const ld = document.querySelector('#lisans .lead'); if (ld) ld.textContent = 'Kartınla güvenle öde, lisans anahtarın ödeme biter bitmez e-postanda. Ödeme Shopier güvencesiyle alınır.';
+      const a2 = document.querySelector('.adim3:nth-child(1) p'); if (a2) a2.textContent = 'Satın Al\'a bas, Shopier\'deki ARC sayfasına gidersin. Adını ve e-postanı orada girersin.';
+    }
+    const s = sureYazi(d.duration_minutes);
+    $('lic-sure').textContent = s || 'SÜRESİZ';
+    $('lic-tek').textContent = s ? `${s.toLowerCase()} kullanım` : 'tek ödeme, süresiz';
+  }).catch(() => {});
+
+  // Kartın üstündeki anahtar sürekli değişen harflerle "canlı" görünür (yalnızca ekrandayken)
+  const kutu = $('lic-key'), ALF = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+  if (!azHareket && 'IntersectionObserver' in window) {
+    let zam = 0;
+    const kar = () => 'ARC-' + Array.from({ length: 4 }, () => Array.from({ length: 5 }, () => ALF[Math.random() * 32 | 0]).join('')).join('-');
+    new IntersectionObserver((e) => {
+      clearInterval(zam);
+      if (e[0].isIntersecting) zam = setInterval(() => { kutu.textContent = kar(); }, 140);
+    }).observe(kutu);
+  }
+
+  const ac = (ekran) => {
+    formEkran.hidden = ekran !== 'form'; sonucEkran.hidden = ekran !== 'sonuc';
+    if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
+  };
+  const kapat = () => { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); };
+  dlg.addEventListener('click', (e) => { if (e.target === dlg || e.target.closest('[data-kapat]')) kapat(); });
+
+  const discordLink = 'https://discord.gg/n9tyDcqwbA';
+  const sonucGoster = ({ tur, baslik, metin, key, email, butonlar = [] }) => {
+    sonuc.replaceChildren();
+    const ik = document.createElement('div'); ik.className = 'od-ikon' + (tur === 'ok' ? '' : ' ' + tur);
+    ik.textContent = tur === 'ok' ? '✓' : tur === 'hata' ? '!' : '…';
+    const h = document.createElement('h3'); h.textContent = baslik;
+    const p = document.createElement('p'); p.textContent = metin;
+    sonuc.append(ik, h, p);
+    if (key) {
+      const sat = document.createElement('div'); sat.className = 'od-key';
+      const c = document.createElement('code'); c.textContent = key;
+      const kb = document.createElement('button'); kb.type = 'button'; kb.className = 'copy'; kb.textContent = 'Kopyala';
+      kb.addEventListener('click', () => {
+        const bitti = () => { kb.textContent = 'Kopyalandı'; setTimeout(() => kb.textContent = 'Kopyala', 1600); };
+        try { navigator.clipboard.writeText(key).then(bitti, () => {}); } catch {}
+      });
+      sat.append(c, kb); sonuc.append(sat);
+      if (email) { const e = document.createElement('p'); e.style.fontSize = '13.5px'; e.textContent = `Anahtarın ${email} adresine de gönderildi.`; sonuc.append(e); }
+    }
+    for (const b of butonlar) {
+      const el = document.createElement(b.href ? 'a' : 'button');
+      el.className = b.ana ? 'btn-3d' : 'btn btn-ghost'; el.textContent = b.yazi;
+      if (b.href) { el.href = b.href; el.target = '_blank'; el.rel = 'noopener'; } else { el.type = 'button'; el.addEventListener('click', b.tikla); }
+      sonuc.append(el);
+    }
+    ac('sonuc');
+  };
+
+  const konfeti = () => {
+    if (azHareket) return;
+    const k = document.createElement('div'); k.className = 'konfeti';
+    const renk = ['#8b5cf6', '#c4a8ff', '#2dd4bf', '#22c55e', '#ffffff'];
+    for (let i = 0; i < 90; i++) {
+      const p = document.createElement('i');
+      p.style.left = Math.random() * 100 + 'vw'; p.style.background = renk[i % renk.length];
+      p.style.setProperty('--x', (Math.random() * 30 - 15) + 'vw'); p.style.setProperty('--r', (Math.random() * 900 - 450) + 'deg');
+      p.style.setProperty('--t', (1.8 + Math.random() * 1.6) + 's'); p.style.animationDelay = Math.random() * .4 + 's';
+      k.append(p);
+    }
+    document.body.append(k); setTimeout(() => k.remove(), 4200);
+  };
+
+  const formuAc = () => {
+    if (bilgi.status === 'not_configured') {
+      sonucGoster({ tur: 'bekle', baslik: "Shopier'e yönlendiriliyorsun", metin: 'Ödemeyi Shopier\'in güvenli sayfasında yap. Anahtarın ödeme biter bitmez e-postana gelir (gereksiz klasörüne de bak).',
+        butonlar: [{ yazi: "Shopier'de öde", href: SHOPIER_URUN, ana: true }] });
+      setTimeout(() => { location.href = SHOPIER_URUN; }, 1600);
+      return;
+    }
+    try { const k = JSON.parse(localStorage.getItem('arc_odeme') || '{}'); for (const a of ['ad', 'soyad', 'email', 'tel', 'sehir']) if (k[a] && !$('od-' + a).value) $('od-' + a).value = k[a]; } catch {}
+    $('od-msg').textContent = '';
+    ac('form');
+    setTimeout(() => (($('od-ad').value ? $('od-email') : $('od-ad'))).focus(), 50);
+  };
+  satinBtn.addEventListener('click', formuAc);
+  for (const a of document.querySelectorAll('a[href="#lisans"]')) a.addEventListener('click', () => setTimeout(() => satinBtn.focus({ preventScroll: true }), 600));
+
+  const HATA = {
+    bad_name: 'Adını ve soyadını yaz.', bad_email: 'E-posta adresini kontrol et, anahtarın oraya gelecek.',
+    bad_phone: 'Telefon numaranı kontrol et (ör. 0555 123 45 67).', need_consent: 'Devam etmek için onay kutusunu işaretle.',
+    limit: 'Çok fazla deneme yapıldı. Birkaç dakika sonra tekrar dene.', not_configured: 'Online ödeme şu an kapalı. Discord\'dan yazabilirsin.',
+  };
+  $('od-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const v = (id) => $(id).value.trim();
+    const alanlar = { ad: v('od-ad'), soyad: v('od-soyad'), email: v('od-email'), tel: v('od-tel'), sehir: v('od-sehir') };
+    const gecersiz = [];
+    if (!alanlar.ad) gecersiz.push('od-ad');
+    if (!alanlar.soyad) gecersiz.push('od-soyad');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(alanlar.email)) gecersiz.push('od-email');
+    if (alanlar.tel.replace(/\D/g, '').length < 10) gecersiz.push('od-tel');
+    for (const id of ['od-ad', 'od-soyad', 'od-email', 'od-tel']) $(id).setAttribute('aria-invalid', gecersiz.includes(id));
+    if (gecersiz.length) { $('od-msg').textContent = gecersiz.includes('od-email') ? HATA.bad_email : gecersiz.includes('od-tel') ? HATA.bad_phone : HATA.bad_name; $(gecersiz[0]).focus(); return; }
+    if (!$('od-onay').checked) { $('od-msg').textContent = HATA.need_consent; $('od-onay').focus(); return; }
+    try { localStorage.setItem('arc_odeme', JSON.stringify(alanlar)); } catch {}
+
+    const btn = $('od-git'), eski = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="yukleniyor" aria-hidden="true"></span>Shopier\'e yönlendiriliyorsun…';
+    $('od-msg').textContent = '';
+    try {
+      const d = await istek({ action: 'pay_start', name: alanlar.ad, surname: alanlar.soyad, email: alanlar.email, phone: alanlar.tel, city: alanlar.sehir, consent: true });
+      if (d.status !== 'ok' || !d.url || !d.fields) throw new Error(HATA[d.status] || 'Ödeme başlatılamadı. Biraz sonra tekrar dene.');
+      const f = document.createElement('form'); f.method = 'POST'; f.action = d.url; f.style.display = 'none';
+      for (const [k, deger] of Object.entries(d.fields)) { const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = deger; f.append(i); }
+      document.body.append(f); f.submit();
+    } catch (err) {
+      $('od-msg').textContent = err && err.message && !/fetch|network/i.test(err.message) ? err.message : 'Bağlantı kurulamadı. İnternetini kontrol edip tekrar dene.';
+      btn.disabled = false; btn.innerHTML = eski;
+    }
+  });
+
+  // Shopier'den dönüş
+  const q = new URLSearchParams(location.search), durum = q.get('odeme');
+  if (durum) {
+    const siparis = q.get('s'), token = q.get('t');
+    history.replaceState(null, '', location.pathname + '#lisans');
+    const indirBtn = (key) => ({ yazi: "ARC'ı indir", ana: true, tikla: () => {
+      kapat(); const k = $('dl-key'); if (k) { k.value = key; }
+      document.getElementById('indir').scrollIntoView({ behavior: azHareket ? 'auto' : 'smooth' });
+      setTimeout(() => { const b = $('dl-btn'); if (b) b.focus({ preventScroll: true }); }, 700);
+    } });
+    if (durum === 'ok' && siparis && token) {
+      sonucGoster({ tur: 'bekle', baslik: 'Ödemen kontrol ediliyor', metin: 'Birkaç saniye sürer, bu pencereyi kapatma.' });
+      let deneme = 0;
+      const sor = async () => {
+        let d = {};
+        try { d = await istek({ action: 'pay_status', order: siparis, token }); } catch {}
+        if (d.status === 'odendi' && d.key) {
+          konfeti(); const dk = $('dl-key'); if (dk) dk.value = d.key;
+          return sonucGoster({ tur: 'ok', baslik: 'Ödemen alındı, hoş geldin!', metin: 'Lisans anahtarın hazır. İndirme kutusuna otomatik yazıldı, hemen ARC\'ı indirip kurabilirsin.',
+            key: d.key, email: d.email, butonlar: [indirBtn(d.key)] });
+        }
+        if (d.status === 'basarisiz') return sonucGoster({ tur: 'hata', baslik: 'Ödeme tamamlanamadı', metin: 'Kartından ücret çekilmedi. Tekrar deneyebilirsin.', butonlar: [{ yazi: 'Tekrar dene', ana: true, tikla: formuAc }] });
+        if (++deneme < 10) return setTimeout(sor, 2000);
+        sonucGoster({ tur: 'bekle', baslik: 'Ödemen alındı', metin: 'Anahtarın birkaç dakika içinde e-postana gelecek. Gelmezse Discord\'dan sipariş numaranla yaz: ' + siparis,
+          butonlar: [{ yazi: "Discord'dan yaz", href: discordLink }] });
+      };
+      sor();
+    } else {
+      sonucGoster({ tur: 'hata', baslik: 'Ödeme tamamlanamadı', metin: 'Ödeme iptal edildi ya da kart onaylanmadı. Kartından ücret çekildiyse Discord\'dan yaz' + (siparis ? `, sipariş no: ${siparis}` : '.'),
+        butonlar: [{ yazi: 'Tekrar dene', ana: true, tikla: formuAc }, { yazi: "Discord'dan yaz", href: discordLink }] });
+    }
   }
 })();
 </script>
