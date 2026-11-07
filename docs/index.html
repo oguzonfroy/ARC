@@ -550,8 +550,382 @@
   @media (max-width: 520px) { .od-form { grid-template-columns: 1fr; } .od-yol span { font-size: 11px; } }
   @media (prefers-reduced-motion: reduce) { .lic-card::before, .btn-3d::after, .odeme[open], .od-ikon, .konfeti { animation: none; } .konfeti { display: none; } }
 </style>
+<script>
+  /* Açılış animasyonu: oturum başına bir kez. Ödeme dönüşünde, Discord girişinde ve "hareketi azalt" tercihinde atlanır.
+     ?intro=1 ile her zaman, ?intro=0 ile hiç gösterilmez. */
+  (function () {
+    var d = document.documentElement, s = location.search, gordu = false;
+    try { gordu = sessionStorage.getItem('arc_intro') === '1'; } catch (e) {}
+    var atla = gordu || /[?&](odeme|dc|intro=0)/.test(s) ||
+      (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (/[?&]intro=1/.test(s)) atla = false;
+    d.classList.add(atla ? 'intro-yok' : 'intro-acik');
+  })();
+</script>
+<style>
+  /* ---- Açılış (intro) ---- */
+  html.intro-yok #intro { display: none; }
+  html.intro-acik, html.intro-acik body { overflow: hidden; }
+  #intro { position: fixed; inset: 0; z-index: 2147483000; display: grid; place-items: center; overflow: hidden; color: var(--text);
+    font-family: var(--body); background: radial-gradient(ellipse 70% 60% at 50% 44%, #1d1236 0%, #0c0916 55%, #050409 100%);
+    transition: opacity .8s ease .15s, visibility 0s linear .95s; -webkit-tap-highlight-color: transparent; }
+  #intro.in-cikis { opacity: 0; visibility: hidden; pointer-events: none; }
+  #intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .in-yol { position: absolute; left: -50%; right: -50%; bottom: -8%; height: 52%; transform: perspective(420px) rotateX(68deg); transform-origin: 50% 100%;
+    background: linear-gradient(transparent 0 46%, color-mix(in srgb, var(--violet) 55%, transparent) 46% 54%, transparent 54%) 0 0 / 100% 64px,
+                linear-gradient(90deg, transparent 0 49.6%, color-mix(in srgb, var(--violet) 40%, transparent) 49.6% 50.4%, transparent 50.4%) 0 0 / 80px 100%;
+    -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); mask-image: linear-gradient(to top, #000 10%, transparent 85%);
+    opacity: .35; animation: in-yol 1.4s linear infinite; }
+  #intro.b5 .in-yol { animation-duration: .18s; opacity: .7; transition: opacity .4s; }
+  @keyframes in-yol { to { background-position: 0 64px, 0 0; } }
+  .in-tarama { position: absolute; inset: 0; pointer-events: none; opacity: .06;
+    background: repeating-linear-gradient(to bottom, #fff 0 1px, transparent 1px 3px); }
+  .in-merkez { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px;
+    transition: transform .75s cubic-bezier(.7, 0, .84, 0), opacity .6s ease .1s, filter .6s; }
+  #intro.in-cikis .in-merkez { transform: scale(2.8); opacity: 0; filter: blur(10px); }
+
+  /* logo + yükleme halkası */
+  .in-logo { position: relative; width: clamp(132px, 34vw, 196px); aspect-ratio: 1; }
+  .in-logo > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .in-halka { inset: -17%; width: 134%; height: 134%; transform: rotate(-90deg); transition: opacity .4s, transform .6s; }
+  .in-halka circle { fill: none; stroke-width: 2.2; }
+  .in-halka .iz { stroke: color-mix(in srgb, var(--violet) 22%, transparent); }
+  .in-halka .dolu { stroke: var(--lilac); stroke-linecap: round; filter: drop-shadow(0 0 6px var(--violet)); }
+  #intro.b1 .in-halka { opacity: 0; transform: rotate(-90deg) scale(1.25); }
+  .in-cizim { overflow: visible; filter: drop-shadow(0 0 10px rgba(139,92,246,.7)); animation: in-nefes 2.4s ease-in-out infinite; transition: opacity .35s; }
+  .in-cizim .cer, .in-cizim .a { fill-opacity: 0; stroke: var(--lilac); stroke-width: 5; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1;
+    transition: fill-opacity .55s ease, stroke-opacity .55s; }
+  .in-cizim .cer { fill: #1a1030; stroke-opacity: .55; animation: in-ciz 1.7s cubic-bezier(.6, 0, .3, 1) .15s forwards; }
+  .in-cizim .a { fill: url(#in-grad); animation: in-ciz 1.5s cubic-bezier(.6, 0, .3, 1) .55s forwards; }
+  .in-cizim .yorunge { fill: none; stroke: #e9ddff; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .95; }
+  .in-cizim .nokta { fill: #fff; opacity: 0; filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 22px var(--violet)); }
+  #intro.b1 .in-cizim .cer { fill-opacity: 1; }
+  #intro.b1 .in-cizim .a { fill-opacity: 1; stroke-opacity: 0; }
+  #intro.b2 .in-cizim { opacity: 0; transition-delay: .12s; }
+  @keyframes in-ciz { to { stroke-dashoffset: 0; } }
+  @keyframes in-nefes { 50% { filter: drop-shadow(0 0 22px rgba(139,92,246,1)); } }
+  .in-png { opacity: 0; transform: scale(.55); border-radius: 22%;
+    transition: opacity .25s, transform .7s cubic-bezier(.2, 1.6, .4, 1); }
+  #intro.b2 .in-png { opacity: 1; transform: scale(1); animation: in-parla 2.6s ease-in-out .6s infinite; }
+  @keyframes in-parla { 0%, 100% { filter: drop-shadow(0 0 18px rgba(139,92,246,.6)); }
+                        50% { filter: drop-shadow(0 0 40px rgba(139,92,246,1)); } }
+  .in-logo > .in-dalga { position: absolute; inset: auto; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px; border-radius: 50%; opacity: 0;
+    border: 3px solid var(--lilac); box-shadow: 0 0 30px var(--violet), inset 0 0 30px var(--violet); pointer-events: none; }
+  #intro.b2 .in-dalga { animation: in-dalga 1s cubic-bezier(.1, .7, .3, 1) forwards; }
+  #intro.b2 .in-dalga.d2 { animation-delay: .12s; }
+  @keyframes in-dalga { 0% { opacity: 1; transform: scale(.4); } 100% { opacity: 0; transform: scale(22); } }
+  .in-flas { position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(circle at 50% 44%, #fff 0%, color-mix(in srgb, var(--lilac) 70%, transparent) 18%, transparent 60%); }
+  #intro.b2 .in-flas { animation: in-flas .7s ease-out; }
+  #intro.b5 .in-flas { animation: in-flas2 .9s ease-in .45s forwards; }
+  @keyframes in-flas { 0% { opacity: 0; } 12% { opacity: .95; } 100% { opacity: 0; } }
+  @keyframes in-flas2 { to { opacity: .85; } }
+
+  /* durum / yüzde / buton */
+  .in-alt-blok { position: relative; height: 112px; width: min(92vw, 420px); margin-top: clamp(28px, 6vh, 46px); }
+  .in-alt-blok > * { position: absolute; left: 0; right: 0; }
+  .in-yukle { top: 0; transition: opacity .3s, transform .3s; }
+  .in-durum { font: 600 11px/1 var(--mono); letter-spacing: .32em; color: var(--mute); text-transform: uppercase; }
+  .in-yuzde { font: 700 34px/1.2 var(--display); margin-top: 10px; font-variant-numeric: tabular-nums;
+    background: linear-gradient(180deg, #fff, var(--lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  #intro.hazir .in-yukle { opacity: 0; transform: translateY(-10px); pointer-events: none; }
+  .in-gir-kap { top: 0; display: grid; justify-items: center; gap: 14px; opacity: 0; transform: translateY(14px) scale(.92); pointer-events: none;
+    transition: opacity .45s cubic-bezier(.2, 1.4, .4, 1), transform .45s cubic-bezier(.2, 1.4, .4, 1); }
+  #intro.hazir .in-gir-kap { opacity: 1; transform: none; pointer-events: auto; }
+  #intro.b1 .in-gir-kap { opacity: 0; transform: scale(.85); pointer-events: none; transition-duration: .25s; }
+  .in-gir { --d: 6px; position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 17px 34px; border: 0; border-radius: 16px; cursor: pointer;
+    font: 800 15px/1 var(--display); letter-spacing: .14em; color: #fff; isolation: isolate; overflow: hidden;
+    background: linear-gradient(180deg, #a17bff, var(--violet) 55%, #6d3fe6);
+    box-shadow: 0 var(--d) 0 #4c25b0, 0 calc(var(--d) + 10px) 34px -6px color-mix(in srgb, var(--violet) 80%, transparent), inset 0 1px 0 rgba(255,255,255,.45);
+    transition: transform .12s, box-shadow .12s; animation: in-zipla 2s ease-in-out infinite; }
+  .in-gir svg { width: 20px; height: 20px; transition: transform .2s; }
+  .in-gir:hover svg { transform: translateX(4px); }
+  .in-gir::after { content: ""; position: absolute; inset: 0; z-index: -1; transform: translateX(-120%) skewX(-20deg);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); animation: in-parilti 2.4s ease-in-out infinite; }
+  .in-gir::before { content: ""; position: absolute; inset: -2px; border-radius: 18px; z-index: -2; border: 2px solid var(--lilac); animation: in-nabiz 2s ease-out infinite; }
+  .in-gir:active { transform: translateY(var(--d)); box-shadow: 0 0 0 #4c25b0, 0 4px 16px -6px var(--violet), inset 0 1px 0 rgba(255,255,255,.45); }
+  .in-gir:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+  @keyframes in-zipla { 50% { transform: translateY(-3px); } }
+  @keyframes in-parilti { 0%, 55% { transform: translateX(-120%) skewX(-20deg); } 100% { transform: translateX(220%) skewX(-20deg); } }
+  @keyframes in-nabiz { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.18, 1.5); } }
+  .in-ipucu { font: 500 12px/1.4 var(--body); color: var(--mute); display: inline-flex; align-items: center; gap: 7px; }
+  .in-ipucu svg { width: 15px; height: 15px; color: var(--lilac); }
+
+  /* başlık + modüller */
+  .in-yazi { top: 0; display: grid; justify-items: center; gap: 12px; pointer-events: none; }
+  .in-baslik { display: flex; gap: .06em; font: 800 clamp(34px, 9vw, 52px)/1 var(--display); letter-spacing: .08em; }
+  .in-baslik span { display: inline-block; opacity: 0; transform: translateY(40px) scale(.6) rotateX(80deg); filter: blur(8px);
+    background: linear-gradient(180deg, #fff 30%, var(--lilac)); -webkit-background-clip: text; background-clip: text; color: transparent;
+    transition: opacity .3s, transform .5s cubic-bezier(.2, 1.7, .4, 1), filter .4s; }
+  #intro.b3 .in-baslik span { opacity: 1; transform: none; filter: none; }
+  #intro.b3 .in-baslik span:nth-child(2) { transition-delay: .1s; } #intro.b3 .in-baslik span:nth-child(3) { transition-delay: .2s; }
+  .in-slogan { font: 500 15px/1.3 var(--body); color: var(--text); opacity: 0; letter-spacing: .02em; transform: translateY(8px); transition: opacity .4s .35s, transform .4s .35s; }
+  #intro.b3 .in-slogan { opacity: .85; transform: none; }
+  .in-moduller { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 4px; }
+  .in-moduller span { font: 600 10.5px/1 var(--mono); letter-spacing: .06em; padding: 6px 9px 6px 7px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px;
+    border: 1px solid color-mix(in srgb, var(--violet) 45%, transparent); background: color-mix(in srgb, var(--violet) 14%, transparent); color: var(--lilac);
+    opacity: 0; transform: translateY(10px) scale(.8); transition: opacity .25s, transform .35s cubic-bezier(.2, 1.6, .4, 1); }
+  .in-moduller span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .in-moduller span.on { opacity: 1; transform: none; }
+
+  /* köşe kontrolleri */
+  .in-ses, .in-gec { position: absolute; z-index: 2; border: 1px solid var(--line); background: color-mix(in srgb, var(--deep) 75%, transparent);
+    color: var(--text); border-radius: 999px; cursor: pointer; font: 600 12px/1 var(--body); display: inline-flex; align-items: center; gap: 7px;
+    backdrop-filter: blur(6px); transition: background .2s, opacity .3s; }
+  .in-ses { top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; width: 42px; height: 42px; justify-content: center; }
+  .in-ses svg { width: 19px; height: 19px; }
+  .in-ses .kapali, .in-ses[aria-pressed="false"] .acik { display: none; }
+  .in-ses[aria-pressed="false"] .kapali { display: block; }
+  .in-gec { bottom: calc(18px + env(safe-area-inset-bottom, 0px)); right: 16px; padding: 10px 14px; opacity: 0; pointer-events: none; }
+  #intro.b1 .in-gec { opacity: .75; pointer-events: auto; }
+  .in-ses:hover, .in-gec:hover { background: color-mix(in srgb, var(--violet) 30%, var(--deep)); opacity: 1; }
+  .in-ses:focus-visible, .in-gec:focus-visible { outline: 2px solid var(--lilac); outline-offset: 3px; }
+
+  /* siteye giriş */
+  html.intro-giris body > :not(#intro):not(dialog):not(.toast) { animation: in-site 1s cubic-bezier(.2, .8, .2, 1) both; }
+  @keyframes in-site { from { opacity: 0; transform: scale(1.04); filter: blur(6px); } }
+</style>
 </head>
 <body>
+<div id="intro" role="dialog" aria-modal="true" aria-label="ARC açılış">
+  <canvas id="in-tuval" aria-hidden="true"></canvas>
+  <div class="in-yol" aria-hidden="true"></div>
+  <div class="in-tarama" aria-hidden="true"></div>
+  <div class="in-flas" aria-hidden="true"></div>
+  <button class="in-ses" id="in-ses" type="button" aria-pressed="true" aria-label="Sesi kapat">
+    <svg class="acik" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+    <svg class="kapali" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m23 9-6 6M17 9l6 6"/></svg>
+  </button>
+  <button class="in-gec" id="in-gec" type="button">Geç<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 6 6 6-6 6M13 6l6 6-6 6"/></svg></button>
+  <div class="in-merkez">
+    <div class="in-logo">
+      <svg class="in-halka" viewBox="0 0 100 100" aria-hidden="true"><circle class="iz" cx="50" cy="50" r="47"/><circle class="dolu" id="in-halka" cx="50" cy="50" r="47" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+      <svg class="in-cizim" viewBox="0 0 512 512" aria-hidden="true">
+        <defs><linearGradient id="in-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e9ff"/><stop offset=".55" stop-color="#a98bf5"/><stop offset="1" stop-color="#6d3fe6"/></linearGradient></defs>
+        <rect class="cer" x="10" y="10" width="492" height="492" rx="112" pathLength="1"/>
+        <path class="a" d="M258 88 392 418H322L258 226 192 418H122Z" pathLength="1"/>
+        <path class="yorunge" id="in-yorunge" pathLength="1" d=""/>
+        <circle class="nokta" id="in-nokta" r="15" cx="0" cy="0"/>
+      </svg>
+      <img class="in-png" src="arc.png" alt="" width="512" height="512">
+      <i class="in-dalga" aria-hidden="true"></i><i class="in-dalga d2" aria-hidden="true"></i>
+    </div>
+    <div class="in-alt-blok">
+      <div class="in-yukle" aria-live="polite"><div class="in-durum" id="in-durum">Sistem başlatılıyor</div><div class="in-yuzde" id="in-yuzde">%0</div></div>
+      <div class="in-gir-kap">
+        <button class="in-gir" id="in-gir" type="button">ARC'A GİR<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <span class="in-ipucu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span id="in-ipucu">Sesli giriş için tıkla</span></span>
+      </div>
+      <div class="in-yazi" aria-hidden="true">
+        <div class="in-baslik"><span>A</span><span>R</span><span>C</span></div>
+        <div class="in-slogan">Sen uğraşma, ARC uğraşsın.</div>
+        <div class="in-moduller"><span>ETS2 Auto Drive</span><span>ARC Play</span><span>Rina Auto Fishing</span><span>ARC Macro</span><span>ARC Drive</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const kok = document.documentElement, intro = document.getElementById('intro');
+  if (!intro || !kok.classList.contains('intro-acik')) { intro && intro.remove(); return; }
+  const $ = (id) => document.getElementById(id);
+  const zamanlar = []; let basladi = false, bitti = false;
+  const tuval = $('in-tuval'), ctx = tuval.getContext('2d');
+  const sesBtn = $('in-ses'), girBtn = $('in-gir'), gecBtn = $('in-gec');
+  const kac = (f) => { try { return f(); } catch (e) { return null; } };
+  const kilitle = () => { if (!bitti) document.querySelectorAll('body > :not(#intro):not(script)').forEach((e) => { e.inert = true; }); };
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', kilitle) : setTimeout(kilitle);
+
+  // ------------------------------------------------------------ ses (Web Audio, dosya yok)
+  let sesAcik = kac(() => localStorage.getItem('arc_ses')) !== '0';
+  const sesGoster = () => { sesBtn.setAttribute('aria-pressed', String(sesAcik)); sesBtn.setAttribute('aria-label', sesAcik ? 'Sesi kapat' : 'Sesi aç');
+    $('in-ipucu').textContent = sesAcik ? 'Sesli giriş için tıkla' : 'Ses kapalı'; };
+  sesGoster();
+  let ac = null, ana = null, yanki = null, gurultu = null;
+  function sesHazirla() {
+    if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+    ac = new AC();
+    const komp = ac.createDynamicsCompressor(); komp.threshold.value = -14; komp.ratio.value = 4; komp.connect(ac.destination);
+    ana = ac.createGain(); ana.gain.value = .8; ana.connect(komp);
+    // yankı: üretilmiş darbe tepkisi
+    const uz = ac.sampleRate * 2.4, ir = ac.createBuffer(2, uz, ac.sampleRate);
+    for (let k = 0; k < 2; k++) { const v = ir.getChannelData(k); for (let i = 0; i < uz; i++) v[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / uz, 2.6); }
+    yanki = ac.createConvolver(); yanki.buffer = ir; const yg = ac.createGain(); yg.gain.value = .45; yanki.connect(yg).connect(ana);
+    const gu = ac.sampleRate * 2; gurultu = ac.createBuffer(1, gu, ac.sampleRate);
+    const g = gurultu.getChannelData(0); for (let i = 0; i < gu; i++) g[i] = Math.random() * 2 - 1;
+  }
+  const t0 = (d) => ac.currentTime + (d || 0);
+  function zarf(g, t, tepe, atak, birak) { g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(tepe, t + atak); g.gain.exponentialRampToValueAtTime(0.0001, t + atak + birak); }
+  function cikis(dugum, kuru, islak) { const k = ac.createGain(); k.gain.value = kuru; dugum.connect(k).connect(ana);
+    if (islak) { const y = ac.createGain(); y.gain.value = islak; dugum.connect(y).connect(yanki); } }
+  const ses = {
+    ugultu(d, sure) { // motor/ugultu, giderek açılır
+      const t = t0(d), f = ac.createBiquadFilter(), g = ac.createGain(); f.type = 'lowpass'; f.Q.value = 6;
+      f.frequency.setValueAtTime(140, t); f.frequency.exponentialRampToValueAtTime(1600, t + sure * .85);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(.16, t + sure * .35); g.gain.exponentialRampToValueAtTime(0.0001, t + sure);
+      for (const [tip, fr, det] of [['sawtooth', 55, -9], ['sawtooth', 55, 9], ['sine', 27.5, 0]]) {
+        const o = ac.createOscillator(); o.type = tip; o.frequency.setValueAtTime(fr, t); o.frequency.exponentialRampToValueAtTime(fr * 2.2, t + sure); o.detune.value = det;
+        o.connect(f); o.start(t); o.stop(t + sure + .05); }
+      f.connect(g); cikis(g, 1, .25);
+    },
+    vin(d, sure, p1, p2) { // rüzgar/geçiş
+      const t = t0(d), n = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain(), p = ac.createStereoPanner ? ac.createStereoPanner() : null;
+      n.buffer = gurultu; f.type = 'bandpass'; f.Q.value = 1.4;
+      f.frequency.setValueAtTime(280, t); f.frequency.exponentialRampToValueAtTime(3200, t + sure * .6); f.frequency.exponentialRampToValueAtTime(700, t + sure);
+      zarf(g, t, .55, sure * .6, sure * .4); n.connect(f).connect(g);
+      if (p) { p.pan.setValueAtTime(p1, t); p.pan.linearRampToValueAtTime(p2, t + sure); g.connect(p); cikis(p, 1, .3); } else cikis(g, 1, .3);
+      n.start(t); n.stop(t + sure + .05);
+    },
+    vurus(d, guc) { // derin darbe
+      const t = t0(d), o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine';
+      o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(36, t + .55); zarf(g, t, guc, .005, .9); o.connect(g); cikis(g, 1, .5);
+      o.start(t); o.stop(t + 1);
+      const n = ac.createBufferSource(), f = ac.createBiquadFilter(), ng = ac.createGain(); n.buffer = gurultu; f.type = 'lowpass'; f.frequency.value = 1100;
+      zarf(ng, t, guc * .45, .002, .28); n.connect(f).connect(ng); cikis(ng, 1, .4); n.start(t); n.stop(t + .4);
+    },
+    zil(d) { // parlak akor
+      [659.25, 987.77, 1318.51, 1975.53, 2637.02].forEach((fr, i) => {
+        const t = t0(d + i * .065), o = ac.createOscillator(), o2 = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sine'; o2.type = 'triangle'; o.frequency.value = fr; o2.frequency.value = fr * 2.001; zarf(g, t, .1 - i * .012, .01, 1.8);
+        o.connect(g); o2.connect(g); cikis(g, .7, 1); o.start(t); o2.start(t); o.stop(t + 2); o2.stop(t + 2); });
+    },
+    tik(d, fr) {
+      const t = t0(d), o = ac.createOscillator(), f = ac.createBiquadFilter(), g = ac.createGain(); o.type = 'square'; o.frequency.setValueAtTime(fr, t);
+      o.frequency.exponentialRampToValueAtTime(fr * 1.5, t + .04); f.type = 'highpass'; f.frequency.value = 700; zarf(g, t, .07, .002, .07);
+      o.connect(f).connect(g); cikis(g, 1, .35); o.start(t); o.stop(t + .12);
+    },
+    hiz(d, sure) { // ışık hızı yükselişi
+      const t = t0(d), o = ac.createOscillator(), f = ac.createBiquadFilter(), g = ac.createGain(); o.type = 'sawtooth';
+      o.frequency.setValueAtTime(70, t); o.frequency.exponentialRampToValueAtTime(1900, t + sure); f.type = 'highpass'; f.frequency.value = 180;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(.12, t + sure * .9); g.gain.exponentialRampToValueAtTime(0.0001, t + sure + .15);
+      o.connect(f).connect(g); cikis(g, 1, .4); o.start(t); o.stop(t + sure + .2);
+      this.vin(d + sure * .35, sure * .9, -.6, .6);
+    },
+    pirilti(d) {
+      for (let i = 0; i < 9; i++) { const t = t0(d + i * .045), o = ac.createOscillator(), g = ac.createGain(); o.type = 'sine';
+        o.frequency.value = 1760 * Math.pow(2, [0, 4, 7, 12, 16, 19, 24, 19, 28][i] / 12); zarf(g, t, .045, .005, .5);
+        o.connect(g); cikis(g, .5, 1); o.start(t); o.stop(t + .6); }
+    },
+  };
+  const cal = (ad, ...a) => { if (sesAcik && ac) kac(() => ses[ad](...a)); };
+
+  // ------------------------------------------------------------ parçacıklar
+  let G = 0, Y = 0, dpr = 1, mod = 'akis', hizK = 0, merkez = { x: 0, y: 0 };
+  const P = [];
+  function boyut() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2); G = innerWidth; Y = innerHeight;
+    tuval.width = G * dpr; tuval.height = Y * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const r = document.querySelector('.in-logo').getBoundingClientRect(); merkez = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  }
+  boyut(); addEventListener('resize', boyut);
+  const adet = Math.round(Math.min(170, Math.max(70, G * Y / 8000)));
+  for (let i = 0; i < adet; i++) {
+    const r = 90 + Math.random() * Math.max(G, Y) * .6;
+    P.push({ a: Math.random() * Math.PI * 2, r, r0: r, w: (Math.random() * .25 + .08) * (Math.random() < .5 ? -1 : 1) * (240 / r),
+             s: Math.random() * 1.8 + .4, v: 0, h: Math.random() < .7 ? 265 : 285, f: Math.random() * 6, px: null, py: null });
+  }
+  let onceki = performance.now(), calisiyor = true;
+  function ciz(simdi) {
+    if (!calisiyor) return;
+    const dt = Math.min(.05, (simdi - onceki) / 1000); onceki = simdi;
+    ctx.clearRect(0, 0, G, Y); ctx.globalCompositeOperation = 'lighter';
+    for (const p of P) {
+      p.f += dt * 2.2;
+      if (mod === 'akis') { p.a += p.w * dt; p.r += (p.r0 * .92 - p.r) * dt * .3; }
+      else if (mod === 'patla') { p.r += p.v * dt; p.v *= Math.pow(.18, dt); p.a += p.w * dt * .4; }
+      else { hizK += dt * .9; p.r *= 1 + (1.6 + hizK * 6) * dt; }
+      const x = merkez.x + Math.cos(p.a) * p.r, y = merkez.y + Math.sin(p.a) * p.r * .82;
+      const al = mod === 'akis' ? .35 + Math.sin(p.f) * .25 : .8;
+      if (mod === 'hiz' && p.px !== null) {
+        ctx.strokeStyle = `hsla(${p.h},95%,78%,${al})`; ctx.lineWidth = p.s; ctx.beginPath(); ctx.moveTo(p.px, p.py); ctx.lineTo(x, y); ctx.stroke();
+      } else {
+        ctx.fillStyle = `hsla(${p.h},95%,75%,${al})`; ctx.beginPath(); ctx.arc(x, y, p.s, 0, 7); ctx.fill();
+      }
+      p.px = x; p.py = y;
+      if (mod === 'hiz' && p.r > Math.max(G, Y) * 1.2) { p.r = 30 + Math.random() * 120; p.px = null; }
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    requestAnimationFrame(ciz);
+  }
+  requestAnimationFrame(ciz);
+  function patlat() { mod = 'patla'; for (const p of P) { p.v = 380 + Math.random() * 900; p.r = Math.min(p.r, 60 + Math.random() * 80); } }
+
+  // ------------------------------------------------------------ yörünge (logodaki halka)
+  const yol = $('in-yorunge'), nokta = $('in-nokta');
+  const C = { x: 260, y: 296, rx: 198, ry: 60, rot: -9.9 * Math.PI / 180 };
+  const elips = (t) => { const x = C.rx * Math.cos(t), y = C.ry * Math.sin(t);
+    return [C.x + x * Math.cos(C.rot) - y * Math.sin(C.rot), C.y + x * Math.sin(C.rot) + y * Math.cos(C.rot)]; };
+  { let d = ''; for (let i = 0; i <= 96; i++) { const [x, y] = elips(Math.PI + .25 + i / 96 * Math.PI * 2); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); } yol.setAttribute('d', d); }
+  function yorunge(sure) {
+    const bas = performance.now();
+    (function adim(s) {
+      const k = Math.min(1, (s - bas) / sure), e = 1 - Math.pow(1 - k, 3);
+      const [x, y] = elips(Math.PI + .25 + e * Math.PI * 2);
+      nokta.setAttribute('cx', x.toFixed(1)); nokta.setAttribute('cy', y.toFixed(1)); nokta.style.opacity = '1';
+      yol.style.strokeDashoffset = String(1 - e);
+      if (k < 1) requestAnimationFrame(adim);
+    })(bas);
+  }
+
+  // ------------------------------------------------------------ yükleme
+  const bas = performance.now(); let yuklendi = document.readyState === 'complete', gosterilen = 0, hazir = false;
+  addEventListener('load', () => { yuklendi = true; });
+  setTimeout(() => { yuklendi = true; }, 6000);   // ağ yavaşsa bekletme
+  const durumlar = ['Sistem başlatılıyor', 'Modüller yükleniyor', 'Görseller hazırlanıyor', 'Bağlantı kuruluyor'];
+  const halka = $('in-halka'), yuzde = $('in-yuzde'), durum = $('in-durum');
+  (function yukle(s) {
+    if (hazir) return;
+    const gecen = (s - bas) / 1000, hedef = yuklendi && gecen > 1.6 ? 1 : Math.min(.92, gecen / 2.6);
+    gosterilen += (hedef - gosterilen) * .08; if (hedef === 1 && gosterilen > .995) gosterilen = 1;
+    halka.style.strokeDashoffset = String(1 - gosterilen);
+    yuzde.textContent = '%' + Math.round(gosterilen * 100);
+    durum.textContent = gosterilen >= 1 ? 'Hazır' : durumlar[Math.min(durumlar.length - 1, Math.floor(gosterilen * durumlar.length))];
+    if (gosterilen >= 1) { hazir = true; intro.classList.add('hazir'); setTimeout(() => girBtn.focus({ preventScroll: true }), 350); return; }
+    requestAnimationFrame(yukle);
+  })(bas);
+
+  // ------------------------------------------------------------ giriş akışı
+  const sonra = (ms, f) => zamanlar.push(setTimeout(f, ms));
+  function gir() {
+    if (basladi || !hazir) return; basladi = true;
+    if (sesAcik) sesHazirla();
+    intro.classList.add('b1');
+    cal('vurus', 0, .5); cal('ugultu', 0, 2.9); cal('vin', .05, .9, -.85, .85); cal('tik', 0, 900);
+    yorunge(880);
+    sonra(900, () => { intro.classList.add('b2'); patlat(); cal('vurus', 0, .95); cal('zil', .02); });
+    sonra(1250, () => { intro.classList.add('b3'); [0, .1, .2].forEach((d, i) => cal('tik', d, 900 + i * 300)); });
+    const mods = intro.querySelectorAll('.in-moduller span');
+    mods.forEach((m, i) => sonra(1750 + i * 110, () => { m.classList.add('on'); cal('tik', 0, 1400 + i * 160); }));
+    sonra(2550, () => { intro.classList.add('b5'); mod = 'hiz'; cal('hiz', 0, .75); });
+    sonra(3250, () => bitir(true));
+  }
+  function bitir(sesli) {
+    if (bitti) return; bitti = true; zamanlar.forEach(clearTimeout);
+    if (sesli) cal('pirilti', 0); else if (ac) kac(() => ana.gain.setTargetAtTime(0, ac.currentTime, .08));
+    kac(() => sessionStorage.setItem('arc_intro', '1'));
+    document.querySelectorAll('[inert]').forEach((e) => { e.inert = false; });
+    intro.classList.add('in-cikis');
+    kok.classList.remove('intro-acik'); kok.classList.add('intro-giris');
+    if (location.hash) kac(() => { const h = document.querySelector(location.hash); h && h.scrollIntoView(); });
+    setTimeout(() => { calisiyor = false; kok.classList.remove('intro-giris'); intro.remove(); removeEventListener('resize', boyut);
+      if (ac) setTimeout(() => kac(() => ac.close()), 1500); }, 1100);
+  }
+  girBtn.addEventListener('click', gir);
+  intro.addEventListener('click', (e) => { if (hazir && !basladi && !e.target.closest('button')) gir(); });
+  addEventListener('keydown', function tus(e) {
+    if (bitti) return removeEventListener('keydown', tus);
+    if (e.key === 'Escape') { e.preventDefault(); basladi ? bitir(false) : (hazir && gir()); }
+    else if ((e.key === 'Enter' || e.key === ' ') && hazir && !basladi && document.activeElement !== girBtn) { e.preventDefault(); gir(); }
+  });
+  gecBtn.addEventListener('click', () => bitir(false));
+  sesBtn.addEventListener('click', () => {
+    sesAcik = !sesAcik; kac(() => localStorage.setItem('arc_ses', sesAcik ? '1' : '0')); sesGoster();
+    if (sesAcik) { sesHazirla(); if (ac) { ana.gain.value = .8; cal('tik', 0, 1200); } } else if (ac) ana.gain.value = 0;
+  });
+})();
+</script>
+
 
 <nav>
   <div class="wrap">
