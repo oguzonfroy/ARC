@@ -548,7 +548,10 @@
   @keyframes dus { to { transform: translate(var(--x), 105vh) rotate(var(--r)); opacity: .2; } }
   @media (max-width: 960px) { .buy2 { grid-template-columns: 1fr; } }
   @media (max-width: 520px) { .od-form { grid-template-columns: 1fr; } .od-yol span { font-size: 11px; } }
-  @media (prefers-reduced-motion: reduce) { .lic-card::before, .btn-3d::after, .odeme[open], .od-ikon, .konfeti { animation: none; } .konfeti { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .odeme[open], .od-ikon { animation: none; } }
+  /* dokunmatik ekranda fare eğimi yok: kart kendi kendine hafifçe süzülür */
+  @media not all and (hover: hover) and (pointer: fine) { @media (prefers-reduced-motion: no-preference) { .lic-card { animation: lic-suz 7s ease-in-out infinite; } } }
+  @keyframes lic-suz { 0%, 100% { transform: perspective(1000px) rotateX(3deg) rotateY(-5deg); } 50% { transform: perspective(1000px) rotateX(-2deg) rotateY(5deg) translateY(-6px); } }
 </style>
 <script>
   /* Açılış animasyonu: oturum başına bir kez. Ödeme dönüşünde, Discord girişinde ve "hareketi azalt" tercihinde atlanır.
@@ -1760,12 +1763,12 @@
 
   // Kartın üstündeki anahtar sürekli değişen harflerle "canlı" görünür (yalnızca ekrandayken)
   const kutu = $('lic-key'), ALF = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-  if (!azHareket && 'IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window) {   // yalnızca harf değişimi: hareket azaltma açık olsa da çalışır
     let zam = 0;
     const kar = () => 'ARC-' + Array.from({ length: 4 }, () => Array.from({ length: 5 }, () => ALF[Math.random() * 32 | 0]).join('')).join('-');
     new IntersectionObserver((e) => {
       clearInterval(zam);
-      if (e[0].isIntersecting) zam = setInterval(() => { kutu.textContent = kar(); }, 140);
+      if (e[0].isIntersecting) zam = setInterval(() => { kutu.textContent = kar(); }, azHareket ? 260 : 140);
     }).observe(kutu);
   }
 
