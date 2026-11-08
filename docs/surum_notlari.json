@@ -1,6 +1,62 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.2",
+      "tarih": "2026-11-08",
+      "tr": [
+        {
+          "baslik": "Yeni ARC Hub ve lisans ekranı",
+          "aciklama": "Canlı arka plan, animasyonlu kartlar, lisans onayında kutlama animasyonu ve ses efektleri."
+        },
+        {
+          "baslik": "ETS2 Auto Drive'a yeni arayüz",
+          "aciklama": "Animasyonlar, ses efektleri ve yolda bize doğru gelen ARC tırı. Pencere artık doğru boyutta açılıyor."
+        },
+        {
+          "baslik": "ETS2 1.62 desteği",
+          "aciklama": "Güncel ETS2LA düzeltmeleri: overlay için monitör seçimi, ses dosyası yolu ve eski SDK temizliği."
+        },
+        {
+          "baslik": "Yol okları yenilendi",
+          "aciklama": "Daha küçük ve şık oklar; renk seçimi düzeltildi (kırmızı ile mavi yer değiştiriyordu)."
+        },
+        {
+          "baslik": "Mavi şerit çizgisi düzeltildi",
+          "aciklama": "Artık eski ya da yanlış rotayı göstermiyor."
+        },
+        {
+          "baslik": "Oyun içi pencereler sadeleşti",
+          "aciklama": "Yalnızca ARC Vision ve Kabin Işığı kaldı."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New ARC Hub and license screen",
+          "aciklama": "Live background, animated cards, a celebration animation when your license is verified, and sound effects."
+        },
+        {
+          "baslik": "New ETS2 Auto Drive interface",
+          "aciklama": "Animations, sound effects and the ARC truck driving toward you. The window now opens at the right size."
+        },
+        {
+          "baslik": "ETS2 1.62 support",
+          "aciklama": "Latest ETS2LA fixes: monitor selection for the overlay, sound file path and old SDK cleanup."
+        },
+        {
+          "baslik": "Road arrows refreshed",
+          "aciklama": "Smaller, cleaner arrows; color picking fixed (red and blue were swapped)."
+        },
+        {
+          "baslik": "Blue lane line fixed",
+          "aciklama": "It no longer shows an old or wrong route."
+        },
+        {
+          "baslik": "Simpler in-game windows",
+          "aciklama": "Only ARC Vision and Cabin Light remain."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.1",
       "tarih": "2026-11-05",
       "tr": [
