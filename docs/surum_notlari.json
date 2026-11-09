@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.5",
+      "tarih": "2026-11-10",
+      "tr": [
+        {
+          "baslik": "Otomatik sollama",
+          "aciklama": "Öndeki yavaş aracı aynı yöndeki boş şeritten geçer, sonra şeridine döner. Gösterge'deki Sürüş davranışı bölümünden açılır, varsayılan olarak kapalıdır."
+        },
+        {
+          "baslik": "İki sollama seçeneği",
+          "aciklama": "Yan şerit boşsa hemen sollayabilir ya da aracı 15 saniye izleyip hızlanmıyorsa sollayabilir. Şerit değiştirmeden önce ekranda haber verir."
+        },
+        {
+          "baslik": "Dönüşte yandaki araca yol verme",
+          "aciklama": "Sağa ya da sola dönerken o taraftaki aracı görür, yavaşlayıp geçmesini bekler."
+        },
+        {
+          "baslik": "Uyarılara işaret eklendi",
+          "aciklama": "Ekrandaki uyarılar artık yazıyla birlikte sarı bir uyarı işareti de gösterir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Automatic overtaking",
+          "aciklama": "Passes slow vehicles using a free lane in your direction, then returns to its lane. Enable it under Driving behaviour on the Dashboard, it is off by default."
+        },
+        {
+          "baslik": "Two overtaking options",
+          "aciklama": "Overtake as soon as the next lane is free, or watch the vehicle for 15 seconds first. A warning appears before the lane change."
+        },
+        {
+          "baslik": "Yields to vehicles when turning",
+          "aciklama": "When turning, the truck sees vehicles on that side, slows down and lets them pass."
+        },
+        {
+          "baslik": "Warning icon added",
+          "aciklama": "On-screen warnings now show a yellow warning icon next to the text."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.4",
       "tarih": "2026-11-10",
       "tr": [
