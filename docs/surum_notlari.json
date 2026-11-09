@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.3",
+      "tarih": "2026-11-09",
+      "tr": [
+        {
+          "baslik": "Virajlarda daha kararlı sürüş",
+          "aciklama": "Dorseli ve dorsesiz keskin virajlarda şeritte daha iyi kalır."
+        },
+        {
+          "baslik": "Hedefte dur",
+          "aciklama": "GPS rotasının sonunda tır kendiliğinden durur. Durma mesafesi kaydedilir."
+        },
+        {
+          "baslik": "Direksiyon hassasiyeti ve modu",
+          "aciklama": "Ayarlar > Sürüş Yardımları > Tepki süresi bölümünden ayarlanır."
+        },
+        {
+          "baslik": "Direksiyon seti desteği",
+          "aciklama": "Set otomatik tanınır, tuş ayarların değişmez, direksiyonu çevirip pedala basarak kontrolü geri alırsın. Direksiyon yönü de otomatik bulunur."
+        },
+        {
+          "baslik": "Oyuna gömülü araç etiketleri",
+          "aciklama": "Araç bilgileri ayrı pencere olmadan doğrudan oyunun içinde çizilir, görüntü bozulmaz."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "More stable cornering",
+          "aciklama": "Stays in lane better in sharp corners, with or without a trailer."
+        },
+        {
+          "baslik": "Stop at destination",
+          "aciklama": "The truck stops by itself at the end of the GPS route. The stopping distance is saved."
+        },
+        {
+          "baslik": "Steering sensitivity and mode",
+          "aciklama": "Available under Settings > Driving Assists > Response time."
+        },
+        {
+          "baslik": "Steering wheel support",
+          "aciklama": "Your wheel is detected automatically, your key bindings stay the same, and turning the wheel or pressing a pedal gives you control back. Wheel direction is detected automatically."
+        },
+        {
+          "baslik": "Vehicle labels drawn inside the game",
+          "aciklama": "Vehicle info is drawn directly in the game with no separate window, so the picture stays clean."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.2",
       "tarih": "2026-11-08",
       "tr": [
