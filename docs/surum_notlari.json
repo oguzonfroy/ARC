@@ -1,6 +1,86 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.4",
+      "tarih": "2026-11-10",
+      "tr": [
+        {
+          "baslik": "Sinyal süresini sen seç",
+          "aciklama": "Tır dönüşten ve şerit değişiminden önce sinyal verir. Varsayılan 5 saniye, Gösterge'deki Sürüş davranışı bölümünden ayarlanır."
+        },
+        {
+          "baslik": "Sınırsız hız çubuğu",
+          "aciklama": "Sınırsız hız açıkken ve sınırı olmayan yollarda gidilecek hızı Gösterge'den seçersin."
+        },
+        {
+          "baslik": "Arkadan gelen aracı gözet",
+          "aciklama": "Yan şerit doluysa şerit değiştirmeyi bekletir. Biri sollarken hızı kısa süre düşürür ve ekranda uyarı gösterir."
+        },
+        {
+          "baslik": "Gaza basınca otopilot kapanmaz",
+          "aciklama": "Direksiyon setinde gaz artık otopilotu kapatmaz; fren, debriyaj ve direksiyon kapatır."
+        },
+        {
+          "baslik": "Yüksek hızda daha kararlı",
+          "aciklama": "110 km/s üstünde sağa sola yalpalama azaltıldı."
+        },
+        {
+          "baslik": "Dorseli sürüş sınırları",
+          "aciklama": "Viraj hızı ve takip mesafesi dorseye ve yüke göre ayarlanır."
+        },
+        {
+          "baslik": "Karşı şerit düzeltmesi",
+          "aciklama": "Rota yeniden kurulurken tır artık karşı şeride yönelmez."
+        },
+        {
+          "baslik": "Direksiyon dönüşü isteğe bağlı",
+          "aciklama": "Direksiyon setinin kendi dönmesi artık kendiliğinden açılmaz, Gösterge'den açabilirsin."
+        },
+        {
+          "baslik": "Yol çizgileri ve açılış düzeltmeleri",
+          "aciklama": "Yol çizgilerinin bazen gelmemesi giderildi, ARC adları tamamlandı."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Choose your signal timing",
+          "aciklama": "The truck signals before turns and lane changes. Default is 5 seconds, set it under Driving behaviour on the Dashboard."
+        },
+        {
+          "baslik": "Unlimited speed slider",
+          "aciklama": "Pick the speed used in Unlimited mode and on roads without a limit from the Dashboard."
+        },
+        {
+          "baslik": "Watch traffic behind you",
+          "aciklama": "Lane changes wait while the next lane is busy. When someone overtakes, the truck slows briefly and shows a warning."
+        },
+        {
+          "baslik": "Throttle no longer disengages",
+          "aciklama": "On a wheel set the throttle no longer turns the autopilot off; brake, clutch and steering still do."
+        },
+        {
+          "baslik": "More stable at high speed",
+          "aciklama": "Less weaving above 110 km/h."
+        },
+        {
+          "baslik": "Trailer limits",
+          "aciklama": "Cornering speed and following distance adapt to the trailer and cargo."
+        },
+        {
+          "baslik": "Oncoming lane fix",
+          "aciklama": "The truck no longer heads for the oncoming lane when the route is rebuilt."
+        },
+        {
+          "baslik": "Wheel rotation is optional",
+          "aciklama": "The wheel no longer turns by itself unless you enable it on the Dashboard."
+        },
+        {
+          "baslik": "Road line and startup fixes",
+          "aciklama": "Fixed road lines sometimes not appearing, and finished the ARC naming."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.3",
       "tarih": "2026-11-09",
       "tr": [
