@@ -1905,6 +1905,28 @@
     }
   }
 })();
+
+// Anonim ziyaret sayacı: çerez kullanmaz, IP saklamaz, sayfada hiçbir şey göstermez.
+(() => {
+  const adres = 'https://vzibpccxwknhakzgmxfy.supabase.co/rest/v1/rpc/site_ping';
+  const anahtar = 'sb_publishable_jGZPav4_4lXkdlf7ZRFnoA_19FXcP_p';
+  const gonder = (veri) => {
+    try {
+      fetch(adres, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json', apikey: anahtar }, body: JSON.stringify(veri) }).catch(() => {});
+    } catch { /* sayaç siteyi asla etkilemesin */ }
+  };
+  const yol = location.pathname;
+  gonder({ p_kind: 'view', p_path: yol, p_ref: document.referrer || null, p_utm: new URLSearchParams(location.search).get('utm_source') });
+  if (!('IntersectionObserver' in window)) return;
+  const izleyici = new IntersectionObserver((girdiler) => {
+    girdiler.forEach((g) => {
+      if (!g.isIntersecting) return;
+      izleyici.unobserve(g.target);
+      gonder({ p_kind: 'section', p_path: yol, p_section: g.target.id });
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  document.querySelectorAll('section[id]').forEach((b) => izleyici.observe(b));
+})();
 </script>
 </body>
 </html>
