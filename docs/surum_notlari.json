@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.6",
+      "tarih": "2026-11-10",
+      "tr": [
+        {
+          "baslik": "Otomatik sollama düzeltildi",
+          "aciklama": "Uyarı çıktıktan sonra sollamanın iptal olması sorunu giderildi. Tır yavaşlasa da sollama sürer, viraj kontrolü artık yolun şekline bakar."
+        },
+        {
+          "baslik": "İzleme süresi 5 saniye",
+          "aciklama": "Önce izle seçeneği öndeki aracı artık 15 yerine 5 saniye izler."
+        },
+        {
+          "baslik": "TruckersMP için daha kararlı",
+          "aciklama": "Diğer oyuncuların dalgalı hız verisi artık yumuşatılıyor, sollama kararı anlık ölçümlere takılmıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Automatic overtaking fixed",
+          "aciklama": "Overtakes no longer cancel after the warning. It continues if the truck slows down, and the bend check now uses the shape of the road."
+        },
+        {
+          "baslik": "Watch time is 5 seconds",
+          "aciklama": "The watch-first option now observes the vehicle for 5 seconds instead of 15."
+        },
+        {
+          "baslik": "More stable on TruckersMP",
+          "aciklama": "Fluctuating speed data from other players is now smoothed, so overtaking decisions no longer depend on single readings."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.5",
       "tarih": "2026-11-10",
       "tr": [
