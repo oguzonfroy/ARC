@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.7",
+      "tarih": "2026-11-11",
+      "tr": [
+        {
+          "baslik": "Geri manevra paneli",
+          "aciklama": "Geri vitese geçince direksiyonun yönünü şemayla gösteren panel. Gösterge sayfasından açılıp kapatılır; konumu, boyutu ve gecikmeleri ayarlanabilir."
+        },
+        {
+          "baslik": "Ekran yansıtma",
+          "aciklama": "Bilgisayardaki bir pencereyi (müzik, harita, tarayıcı) tırın GPS ya da gösterge ekranında gösterir. Oyunda Ctrl+F8 ile ayarlanır. Prism Texture Streamer, Baldy09."
+        },
+        {
+          "baslik": "Işıksız kavşak hızı",
+          "aciklama": "Işığı olmayan kavşaklara seçilen hızın üstünde girilmez. 0 seçilirse kapalı."
+        },
+        {
+          "baslik": "Sinyal süresi ayarı",
+          "aciklama": "Dönüşten ve şerit değişiminden kaç saniye önce sinyal verileceği seçilebilir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Reverse manoeuvre panel",
+          "aciklama": "A panel that shows the steering direction as a diagram when you shift into reverse. Turn it on or off from the Dashboard page; its position, size and delays can be adjusted."
+        },
+        {
+          "baslik": "Screen mirroring",
+          "aciklama": "Shows a window from your computer (music, map, browser) on the truck's GPS or dashboard screen. Set it up in game with Ctrl+F8. Prism Texture Streamer by Baldy09."
+        },
+        {
+          "baslik": "Unsignalised junction speed",
+          "aciklama": "Junctions without traffic lights are entered no faster than the chosen speed. Set 0 to turn it off."
+        },
+        {
+          "baslik": "Indicator timing",
+          "aciklama": "Choose how many seconds before a turn or lane change the indicator comes on."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.6",
       "tarih": "2026-11-10",
       "tr": [
