@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.10",
+      "tarih": "2026-11-13",
+      "tr": [
+        {
+          "baslik": "Yeni kısayol tuşları",
+          "aciklama": "Ok tuşları oyunda sürüş tuşu olduğu için otopilot açılır açılmaz kapanabiliyordu. Kısayollar sürüşte kullanılmayan tuşlara taşındı: otopilot / hız + Page Up, hız − Page Down, iptal End, tamam Home. Eski ok tuşu ayarın kendiliğinden güncellenir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New shortcut keys",
+          "aciklama": "Arrow keys are driving keys in the game, so autopilot could turn off right after it turned on. Shortcuts moved to keys not used while driving: autopilot / speed + Page Up, speed − Page Down, cancel End, OK Home. Old arrow key settings are updated automatically."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.9",
       "tarih": "2026-11-13",
       "tr": [
