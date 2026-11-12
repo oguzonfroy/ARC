@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.8",
+      "tarih": "2026-11-12",
+      "tr": [
+        {
+          "baslik": "Daha az kasma",
+          "aciklama": "ETS2 Auto Drive'ın arka planda sürekli dönen animasyonları kaldırıldı; oyunla birlikte açıkken işlemci ve ekran kartı daha az yorulur."
+        },
+        {
+          "baslik": "Direksiyon taraması düzeltildi",
+          "aciklama": "Bağlı oyun kumandaları artık 2 saniyede bir değil 30 saniyede bir taranıyor; bazı bilgisayarlarda oyunda düzenli takılmaya yol açıyordu."
+        },
+        {
+          "baslik": "Daha hızlı açılış",
+          "aciklama": "Lisans, ARC Hub ve uygulama açılış animasyonları kısaltıldı; pencereler boştayken işlemci harcamıyor. Tıklama ve üstüne gelme efektleri aynen duruyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Less stutter",
+          "aciklama": "ETS2 Auto Drive's constantly running background animations were removed, so it uses less CPU and GPU while the game is running."
+        },
+        {
+          "baslik": "Controller scanning fixed",
+          "aciklama": "Connected controllers are now scanned every 30 seconds instead of every 2 seconds; on some PCs this caused regular in-game hitches."
+        },
+        {
+          "baslik": "Faster startup",
+          "aciklama": "License, ARC Hub and app startup animations were trimmed; idle windows no longer use CPU. Click and hover effects are unchanged."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.7",
       "tarih": "2026-11-11",
       "tr": [
