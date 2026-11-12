@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.9",
+      "tarih": "2026-11-13",
+      "tr": [
+        {
+          "baslik": "Direksiyon seti düzeltmesi",
+          "aciklama": "Otopilotta direksiyonun ters dönmesi ya da kenara kaçıp yamuk kalması giderildi. Direksiyonun yönü artık kendiliğinden öğreniliyor, ayar yapmana gerek yok."
+        },
+        {
+          "baslik": "Direksiyon ilk açılışta",
+          "aciklama": "Bazı setlerde ilk otopilotta direksiyon bir an yanlış yöne gidip hemen düzelir; doğru yön kaydedildiği için bir daha tekrarlamaz."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Steering wheel fix",
+          "aciklama": "Fixed the wheel turning the wrong way or drifting to one side and staying there on autopilot. The wheel direction is now learned automatically, no setting needed."
+        },
+        {
+          "baslik": "First autopilot on a wheel",
+          "aciklama": "On some wheels the first autopilot run may briefly turn the wrong way and correct itself; the right direction is saved, so it does not happen again."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.8",
       "tarih": "2026-11-12",
       "tr": [
