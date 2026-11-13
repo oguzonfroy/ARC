@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.12",
+      "tarih": "2026-11-13",
+      "tr": [
+        {
+          "baslik": "ARC Mining nişanı düzeltildi",
+          "aciklama": "Nişan alırken kamera sağa sola savrulabiliyordu, çünkü fare hassasiyeti bilinmeden büyük adımlar atılıyordu. Artık hassasiyet önce küçük adımlarla ölçülüyor; halka kaybolmuyor, başka halkaya atlanmıyor ve nişan takılıp kalmıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining aim fixed",
+          "aciklama": "The camera could swing left and right while aiming, because large steps were taken before the mouse sensitivity was known. Sensitivity is now measured first with small steps; the ring is no longer lost, aim doesn't jump to another ring and doesn't get stuck."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.11",
       "tarih": "2026-11-13",
       "tr": [
