@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.11",
+      "tarih": "2026-11-13",
+      "tr": [
+        {
+          "baslik": "Sınırsız hız düzeltildi",
+          "aciklama": "Sınırsız hız açıkken tır bazen 36 km/sa'te takılı kalıyordu. Artık sınırsız hızı açtığın an bütün hız limitleri kalkıyor."
+        },
+        {
+          "baslik": "Yarı yarıya daha az RAM",
+          "aciklama": "Auto Drive, haritada kullanmadığı 1,7 milyon noktayı bellekte tutuyordu. Bunlar artık atılıyor: 949 MB yerine 435 MB."
+        },
+        {
+          "baslik": "ARC Mining halkaları görüyor",
+          "aciklama": "İnce çizgili kazı halkaları görüntü işlenirken kayboluyordu. Ekran artık tam çözünürlükte taranıyor, halkalar kaçmıyor."
+        },
+        {
+          "baslik": "Menüler toparlandı",
+          "aciklama": "Ayarlar Sürüş, Görünüm ve Ses, Gelişmiş diye üç gruba ayrıldı ve doğrudan Sürüş Yardımları ile açılıyor. Bildirimler menü düğmeleri gibi görünüyor."
+        },
+        {
+          "baslik": "Gereksiz özellikler kaldırıldı",
+          "aciklama": "Ekran yansıtma ve geri görüş paneli kaldırıldı; oyuna kurulan yansıtma eklentisi kendiliğinden siliniyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Unlimited speed fixed",
+          "aciklama": "With unlimited speed on, the truck could get stuck at 36 km/h. Now all speed limits are lifted the moment you turn it on."
+        },
+        {
+          "baslik": "Half the RAM",
+          "aciklama": "Auto Drive kept 1.7 million unused map points in memory. They are now dropped: 435 MB instead of 949 MB."
+        },
+        {
+          "baslik": "ARC Mining sees the rings",
+          "aciklama": "Thin mining rings were lost during image processing. The screen is now scanned at full resolution, so rings are no longer missed."
+        },
+        {
+          "baslik": "Cleaner menus",
+          "aciklama": "Settings are split into Driving, Display and Sound, and Advanced, and open straight to Driving Assists. Notifications look like the menu buttons."
+        },
+        {
+          "baslik": "Unneeded features removed",
+          "aciklama": "Screen mirroring and the reverse camera panel were removed; the mirroring plugin installed into the game is removed automatically."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.10",
       "tarih": "2026-11-13",
       "tr": [
