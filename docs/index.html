@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   /* Layout: a dark "night lake" page. Hero pairs the pitch with a live replica of ARC's control panel,
      then a real 4-step sequence, a feature grid, manual-vs-ARC comparison, how to buy, FAQ. Single dark look by choice. */
   :root {
@@ -172,6 +173,17 @@
   .how-step p { margin: 0; color: var(--mute); font-size: 15px; }
   .discord { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 6px; }
   .handle { font: 600 15px/1 var(--mono); padding: 12px 14px; border-radius: 10px; background: #06050a; border: 1px solid var(--line); user-select: all; }
+  /* 3D Discord rozeti (2026-11-13): kullanıcı adının başında, kalın alt kenar + gölgeyle kabartma, yavaşça süzülür */
+  .dc3d { flex: none; width: 44px; height: 44px; perspective: 260px; }
+  .dc3d i { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 13px; color: #fff;
+    background: linear-gradient(150deg, #8c95ff 0%, #5865f2 48%, #3c45c9 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.45), inset 0 -3px 0 rgba(0,0,0,.18), 0 4px 0 #2d34a3, 0 5px 0 #262c8c,
+      0 14px 22px -6px rgba(88,101,242,.75);
+    transform: rotateX(14deg) rotateY(-16deg); transform-style: preserve-3d; animation: dc3d 5s ease-in-out infinite; }
+  .dc3d svg { width: 25px; height: 19px; filter: drop-shadow(0 2px 0 rgba(30,34,120,.65)); transform: translateZ(8px); }
+  .discord:hover .dc3d i { animation-duration: 1.6s; }
+  @keyframes dc3d { 0%, 100% { transform: rotateX(14deg) rotateY(-16deg) translateY(0); }
+    50% { transform: rotateX(-8deg) rotateY(16deg) translateY(-3px); } }
   .copy { background: var(--deep-2); color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font: 600 14px/1 var(--body); cursor: pointer; }
   .copy:hover { border-color: var(--violet); }
 
@@ -239,9 +251,6 @@
     .g-steps b { margin-top: 6px; }
     .btn-dc { width: 100%; justify-content: center; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    .dl-gate::before, .g-steps::before, .g-steps li, .g-ico, .btn-dc, .btn-dc::after { animation: none; }
-  }
   .dl-ok { color: var(--ok); font-size: 14.5px; }
   [hidden] { display: none !important; }
 
@@ -260,7 +269,6 @@
   .toast b { font-size: 14.5px; font-weight: 600; }
   .toast span { color: var(--mute); font-size: 13px; }
   .toast button { align-self: flex-start; margin-left: 4px; background: none; border: 0; color: var(--mute); cursor: pointer; font-size: 13px; padding: 2px; }
-  @media (prefers-reduced-motion: reduce) { .live i { animation: none; } .toast { transition: none; } }
 
   /* download box under the hero: animated slogan + slowly turning glow border */
   .indir-sec { padding-block: clamp(20px, 4vw, 40px) clamp(64px, 9vw, 112px); }
@@ -279,10 +287,6 @@
     animation: spin 6s linear infinite; }
   .dl-hot .dl { max-width: none; border-color: transparent; border-radius: 22px; }
   @keyframes spin { to { transform: rotate(1turn); } }
-  @media (prefers-reduced-motion: reduce) {
-    .slogan .sw, .slogan .sg, .dl-hot::before { animation: none; }
-    .dl-hot { background: color-mix(in srgb, var(--violet) 55%, var(--line)); }
-  }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* ARC Macro: second module, own video + real screenshots */
@@ -348,7 +352,6 @@
     .feat.big { grid-column: auto; }
     .stat b { font-size: 20px; }
   }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 
   /* Sayfa düzeni (2026-11-06): her ürün bölümü ince bir çizgiyle başlar; bir ürünün alt bölümleri (.alt) aralıksız devam eder */
   .urun-bas { border-top: 1px solid var(--line); }
@@ -366,7 +369,6 @@
   @media (max-width: 960px) { .urunler { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .urunler { gap: 10px; } .urun { padding-bottom: 14px; border-radius: 14px; }
     .urun-tag { margin: 0 12px; font-size: 10px; letter-spacing: .1em; } .urun b { margin: 0 12px; font-size: 15px; } .urun small { margin: 0 12px; font-size: 13px; } }
-  @media (prefers-reduced-motion: reduce) { .urun { transition: none; } }
 
   /* Yenilikler: son 3 sürüm açık, gerisi butonla */
   .notes-eski { margin-top: 16px; }
@@ -419,7 +421,6 @@
     text-shadow: 0 1px 0 #2a2240, 0 2px 0 #241c38, 0 3px 0 #1e1730, 0 4px 0 #181326, 0 16px 34px rgba(139, 92, 246, .35); }
   .hero.uzerinde h1 { transition: transform .12s linear; }
   .hero h1 em { display: inline-block; transform: translateZ(40px); text-shadow: 0 0 30px rgba(196, 168, 255, .55), 0 3px 0 #3b2a6b, 0 16px 34px rgba(139, 92, 246, .5); }
-  @media (prefers-reduced-motion: reduce) { .tilt, .hero h1 { transform: none !important; transition: none; } }
   .dl-yardim { border: 1px solid var(--line); border-radius: 14px; background: #06050a; }
   .dl-yardim summary { padding: 14px 18px; font-size: 15px; }
   .dl-yardim > div { padding: 0 18px 16px; display: grid; gap: 10px; color: var(--mute); font-size: 14.5px; }
@@ -550,9 +551,8 @@
   @keyframes dus { to { transform: translate(var(--x), 105vh) rotate(var(--r)); opacity: .2; } }
   @media (max-width: 960px) { .buy2 { grid-template-columns: 1fr; } }
   @media (max-width: 520px) { .od-form { grid-template-columns: 1fr; } .od-yol span { font-size: 11px; } }
-  @media (prefers-reduced-motion: reduce) { .odeme[open], .od-ikon { animation: none; } }
   /* dokunmatik ekranda fare eğimi yok: kart kendi kendine hafifçe süzülür */
-  @media not all and (hover: hover) and (pointer: fine) { @media (prefers-reduced-motion: no-preference) { .lic-card { animation: lic-suz 7s ease-in-out infinite; } } }
+  @media not all and (hover: hover) and (pointer: fine) { .lic-card { animation: lic-suz 7s ease-in-out infinite; } }
   @keyframes lic-suz { 0%, 100% { transform: perspective(1000px) rotateX(3deg) rotateY(-5deg); } 50% { transform: perspective(1000px) rotateX(-2deg) rotateY(5deg) translateY(-6px); } }
 </style>
 <script>
@@ -561,8 +561,7 @@
   (function () {
     var d = document.documentElement, s = location.search, gordu = false;
     try { gordu = sessionStorage.getItem('arc_intro') === '1'; } catch (e) {}
-    var atla = gordu || /[?&](odeme|dc|intro=0)/.test(s) ||
-      (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var atla = gordu || /[?&](odeme|dc|intro=0)/.test(s);
     if (/[?&]intro=1/.test(s)) atla = false;
     d.classList.add(atla ? 'intro-yok' : 'intro-acik');
   })();
@@ -973,7 +972,7 @@
         <div class="adim3"><i>2</i><div><h3>Shopier'de güvenle öde</h3><p>Kart bilgilerini yalnızca Shopier'in güvenli ödeme sayfasında girersin, biz görmeyiz.</p></div></div>
         <div class="adim3"><i>3</i><div><h3>Anahtarın hazır</h3><p>Ödeme sonrası bu sayfaya dönersin: anahtarın ekranda. Aynı sayfadan ARC'ı indirip kurarsın.</p></div></div>
         <div class="iban-not" id="iletisim">
-          <div class="discord" style="margin-top:0"><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
+          <div class="discord" style="margin-top:0"><span class="dc3d" aria-hidden="true"><i><svg viewBox="0 0 127.14 96.36"><path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/></svg></i></span><span class="handle" id="dc1">vsquar</span><button class="copy" data-for="dc1" type="button">Kopyala</button></div>
         </div>
       </div>
     </div>
@@ -1426,7 +1425,7 @@
   et.addEventListener('scroll', sec, { passive: true }); sec();
   for (const [cls, dir] of [['prev', -1], ['next', 1]])
     document.querySelector(`#ets2 .car-btn.${cls}`).addEventListener('click', () => { durdu = true; git((sec() + dir + kartlar.length) % kartlar.length); });
-  let durdu = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let durdu = false;
   for (const ev of ['pointerdown', 'wheel', 'touchstart', 'keydown']) et.addEventListener(ev, () => { durdu = true; }, { passive: true });
   setInterval(() => { if (!durdu && document.visibilityState === 'visible') git((sec() + 1) % kartlar.length); }, 4500);
 
@@ -1643,7 +1642,6 @@
   }
   draw(hist[N - 1]);
 
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let phase = 'wait', t0 = performance.now(), bite = 3500 + Math.random() * 4000, miss = false;
   function tick(now) {
@@ -1738,7 +1736,7 @@
   const SHOPIER_URUN = 'https://www.shopier.com/ARCAPP/52879130';
   const $ = (id) => document.getElementById(id);
   const dlg = $('odeme'), satinBtn = $('satin-btn'), formEkran = $('od-form-ekran'), sonucEkran = $('od-sonuc-ekran'), sonuc = $('od-sonuc');
-  const azHareket = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const azHareket = false;
   let bilgi = { status: '?', price: 500 };
   const tl = (p) => Number(p).toLocaleString('tr-TR', { maximumFractionDigits: 2 });
   const sureYazi = (dk) => !dk ? null : dk % 1440 === 0 ? `${dk / 1440} GÜN` : dk % 60 === 0 ? `${dk / 60} SAAT` : `${dk} DAKİKA`;
@@ -1926,6 +1924,100 @@
     });
   }, { rootMargin: '-45% 0px -45% 0px' });
   document.querySelectorAll('section[id]').forEach((b) => izleyici.observe(b));
+})();
+</script>
+
+<!-- Yenilik penceresi (2026-11-13): siteye girince, açılış animasyonu bittikten sonra sağ altta son sürümü görselle tanıtır.
+     İçerik surum_notlari.json'un ilk kaydından, görsel guncelleme/<sürüm>.webp'den gelir (yoksa görselsiz açılır).
+     Her sürüm bir kez gösterilir (localStorage arc_yenilik). ?yenilik=1 ile her zaman açılır. -->
+<style>
+  .yp { position: fixed; right: 22px; bottom: 22px; z-index: 40; width: min(400px, calc(100vw - 32px)); perspective: 1100px; }
+  .yp-kart { position: relative; border-radius: 22px; padding: 1px; overflow: hidden; transform-origin: 100% 100%;
+    animation: yp-gel .9s cubic-bezier(.2, .9, .25, 1.15) both; box-shadow: 0 30px 70px -20px rgba(0,0,0,.85), 0 0 60px -18px var(--violet); }
+  .yp-kart::before { content: ""; position: absolute; inset: -60%; z-index: 0;
+    background: conic-gradient(from 0deg, transparent 0 55%, var(--violet) 70%, var(--lilac) 78%, transparent 90%); animation: spin 5s linear infinite; }
+  .yp-ic { position: relative; z-index: 1; border-radius: 21px; background: linear-gradient(160deg, #1b1430, var(--deep) 60%); padding: 16px; }
+  .yp.gidiyor .yp-kart { animation: yp-git .45s cubic-bezier(.5, 0, .75, 0) forwards; }
+  @keyframes yp-gel { 0% { opacity: 0; transform: translate(40px, 60px) rotateX(28deg) rotateY(-24deg) scale(.82); }
+    100% { opacity: 1; transform: none; } }
+  @keyframes yp-git { to { opacity: 0; transform: translate(30px, 50px) rotateX(20deg) rotateY(-18deg) scale(.86); } }
+  .yp-ust { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .yp-rozet { font: 800 11px/1 var(--body); letter-spacing: .14em; color: #1a1028; background: linear-gradient(90deg, var(--lilac), #f0abfc);
+    border-radius: 999px; padding: 6px 10px; animation: yp-nabiz 2.2s ease-in-out infinite; }
+  @keyframes yp-nabiz { 50% { box-shadow: 0 0 0 6px rgba(196,168,255,.16); } }
+  .yp-ust b { font: 700 15px/1.2 var(--display); }
+  .yp-x { margin-left: auto; width: 32px; height: 32px; border-radius: 10px; border: 1px solid var(--line); background: #0b0912; color: var(--mute);
+    cursor: pointer; font-size: 14px; transition: color .2s, transform .2s; }
+  .yp-x:hover { color: #fff; transform: rotate(90deg); }
+  .yp-gorsel { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; cursor: zoom-in;
+    background: #06050a; aspect-ratio: 16 / 9; }
+  .yp-gorsel img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+  .yp-gorsel:hover img { transform: scale(1.06); }
+  .yp ul { list-style: none; margin: 12px 0 14px; padding: 0; display: grid; gap: 7px; }
+  .yp li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; font-size: 14.5px; line-height: 1.35; opacity: 0;
+    animation: yp-satir .5s ease forwards; animation-delay: calc(.55s + var(--i) * .09s); }
+  .yp li::before { content: "✓"; color: var(--ok); font-weight: 800; }
+  @keyframes yp-satir { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+  .yp-alt { display: flex; gap: 8px; }
+  .yp-alt a, .yp-alt button { flex: 1; text-align: center; text-decoration: none; padding: 11px 12px; border-radius: 12px; font: 700 14px/1 var(--body); cursor: pointer; }
+  .yp-alt a { color: #fff; background: linear-gradient(180deg, #a78bfa, var(--violet)); border: 0; box-shadow: 0 4px 0 #5b3bb8; }
+  .yp-alt a:active { transform: translateY(3px); box-shadow: 0 1px 0 #5b3bb8; }
+  .yp-alt button { color: var(--text); background: var(--deep-2); border: 1px solid var(--line); }
+  .yp-buyuk { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px; background: rgba(5,4,9,.86);
+    backdrop-filter: blur(6px); cursor: zoom-out; animation: yp-sol .25s ease; }
+  .yp-buyuk img { max-width: min(1600px, 100%); max-height: 100%; border-radius: 16px; box-shadow: 0 30px 90px -20px var(--violet);
+    animation: yp-gel .5s cubic-bezier(.2, .9, .25, 1.1); }
+  @keyframes yp-sol { from { opacity: 0; } }
+  @media (max-width: 560px) { .yp { right: 16px; bottom: 16px; } .yp li:nth-child(n+4) { display: none; } }
+</style>
+<script>
+(() => {
+  const ANAHTAR = 'arc_yenilik', zorla = /[?&]yenilik=1/.test(location.search);
+  if (!zorla && /[?&](odeme|dc)/.test(location.search)) return;
+  const oku = () => { try { return localStorage.getItem(ANAHTAR); } catch (e) { return null; } };
+  const yaz = (v) => { try { localStorage.setItem(ANAHTAR, v); } catch (e) {} };
+  const kac = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  fetch('surum_notlari.json', { cache: 'no-cache' }).then((r) => r.json()).then((veri) => {
+    const son = (veri.surumler || [])[0];
+    if (!son || (!zorla && oku() === son.surum)) return;
+    // açılış animasyonu sürerken bekle, bitince 1,2 sn sonra gel
+    const bekle = () => {
+      const k = document.documentElement.classList;
+      if (k.contains('intro-acik') || k.contains('intro-giris')) return setTimeout(bekle, 400);
+      setTimeout(() => goster(son), 1200);
+    };
+    bekle();
+  }).catch(() => {});
+
+  function goster(son) {
+    const gorsel = `guncelleme/${encodeURIComponent(son.surum)}.webp`;
+    const yp = document.createElement('aside');
+    yp.className = 'yp'; yp.setAttribute('aria-label', 'Yeni güncelleme');
+    yp.innerHTML = `<div class="yp-kart"><div class="yp-ic">
+      <div class="yp-ust"><span class="yp-rozet">YENİ</span><b>ARC ${kac(son.surum)} yayında</b>
+        <button class="yp-x" type="button" aria-label="Kapat">✕</button></div>
+      <button class="yp-gorsel" type="button" aria-label="Görseli büyüt"><img alt="ARC ${kac(son.surum)} yenilikleri" src="${gorsel}"></button>
+      <ul>${(son.tr || []).slice(0, 5).map((n, i) => `<li style="--i:${i}">${kac(n.baslik)}</li>`).join('')}</ul>
+      <div class="yp-alt"><a href="#yenilikler">Tümünü gör</a><button type="button" class="yp-kapat">Tamam</button></div>
+    </div></div>`;
+    const img = yp.querySelector('img');
+    img.addEventListener('error', () => yp.querySelector('.yp-gorsel').remove());
+    const kapat = () => { yaz(son.surum); yp.classList.add('gidiyor'); setTimeout(() => yp.remove(), 460); };
+    yp.querySelector('.yp-x').addEventListener('click', kapat);
+    yp.querySelector('.yp-kapat').addEventListener('click', kapat);
+    yp.querySelector('.yp-alt a').addEventListener('click', kapat);
+    yp.querySelector('.yp-gorsel').addEventListener('click', () => {
+      const b = document.createElement('div');
+      b.className = 'yp-buyuk'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Güncelleme görseli');
+      b.innerHTML = `<img alt="ARC ${kac(son.surum)} yenilikleri" src="${gorsel}">`;
+      const kapa = () => { b.remove(); removeEventListener('keydown', esc); };
+      const esc = (e) => { if (e.key === 'Escape') kapa(); };
+      b.addEventListener('click', kapa); addEventListener('keydown', esc);
+      document.body.append(b);
+    });
+    document.body.append(yp);
+  }
 })();
 </script>
 </body>
