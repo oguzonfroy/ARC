@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.16",
+      "tarih": "2026-11-17",
+      "tr": [
+        {
+          "baslik": "Daha küçük kurulum",
+          "aciklama": "ETS2 Auto Drive artık ARC kurulumunun içinde gelmiyor. Kurulum 50 MB'tan 23 MB'a indi."
+        },
+        {
+          "baslik": "Auto Drive ayrı paket",
+          "aciklama": "Hub'da ETS2 Auto Drive'a ilk tıkladığında ARC onu indirip kurar. Kullanmıyorsan bilgisayarında yer kaplamaz; kartta \"İndirilmedi\" yazar."
+        },
+        {
+          "baslik": "Yalnız kendi güncellemen",
+          "aciklama": "Auto Drive güncellemeleri yalnız onu kuranlara gelir. FiveM uygulamalarını kullananlar Auto Drive için güncelleme indirmez."
+        },
+        {
+          "baslik": "Kaldırma",
+          "aciklama": "Hub'da Auto Drive kartına sağ tıklayıp bu bilgisayardan kaldırabilirsin. Ayarların korunur, tekrar açınca yeniden indirilir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Smaller installer",
+          "aciklama": "ETS2 Auto Drive no longer ships inside the ARC installer. The installer went from 50 MB to 23 MB."
+        },
+        {
+          "baslik": "Auto Drive as a separate package",
+          "aciklama": "The first time you click ETS2 Auto Drive in the Hub, ARC downloads and installs it. If you don't use it, it takes no space on your computer; the card says \"Not downloaded\"."
+        },
+        {
+          "baslik": "Only your own updates",
+          "aciklama": "Auto Drive updates only reach people who installed it. FiveM app users don't download Auto Drive updates."
+        },
+        {
+          "baslik": "Removing",
+          "aciklama": "Right-click the Auto Drive card in the Hub to remove it from this computer. Your settings are kept, and it downloads again when you open it."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.15",
       "tarih": "2026-11-16",
       "tr": [
