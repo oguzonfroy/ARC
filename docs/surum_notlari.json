@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.15",
+      "tarih": "2026-11-16",
+      "tr": [
+        {
+          "baslik": "Auto Fishing'e yeni arayüz",
+          "aciklama": "Baştan tasarlandı: gece gölü sahnesi, oyun sesini suyun üstünde gösteren canlı sonar çizgisi, balık vurunca dalan şamandıra, büyük Başlat düğmesi ve sekmeli yeni menü."
+        },
+        {
+          "baslik": "Hazırlık adımları",
+          "aciklama": "VB-Cable, FiveM sesi ve bagaj koordinatı tek bakışta görünüyor; eksik olan sarı yanıyor. VB-Cable eksikse adıma tıklamak yeterli."
+        },
+        {
+          "baslik": "Oturum kartı",
+          "aciklama": "Aktif balık tutma süresi, saatlik balık sayısı ve bir sonraki bagaj aktarımına kaç balık kaldığı artık panelde."
+        },
+        {
+          "baslik": "ARC Mining'e yeni arayüz",
+          "aciklama": "Maden nişangahı görünümü: köşe parantezli kazı ekranı, kehribar tarama ışığı, ikonlu sayaçlar ve yeni Kazıyı Başlat düğmesi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New look for Auto Fishing",
+          "aciklama": "Redesigned from scratch: a night lake scene, a live sonar line showing game audio on the water, a float that dips on a bite, a big Start button and a new tabbed menu."
+        },
+        {
+          "baslik": "Setup steps",
+          "aciklama": "VB-Cable, FiveM audio and the trunk position are visible at a glance; anything missing glows yellow. If VB-Cable is missing, just click the step."
+        },
+        {
+          "baslik": "Session card",
+          "aciklama": "Active fishing time, fish per hour and how many fish are left until the next trunk transfer are now on the panel."
+        },
+        {
+          "baslik": "New look for ARC Mining",
+          "aciklama": "A mining scope view: a bracketed mining view, an amber scan light, counters with icons and a new Start Mining button."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.14",
       "tarih": "2026-11-16",
       "tr": [
