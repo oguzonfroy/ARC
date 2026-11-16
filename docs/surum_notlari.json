@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.14",
+      "tarih": "2026-11-16",
+      "tr": [
+        {
+          "baslik": "FiveM ses hatası düzeltildi",
+          "aciklama": "Bazı bilgisayarlarda Auto Fishing \"FiveM sesi otomatik yönlendirilemedi (0x80070057)\" hatası veriyordu. FiveM'in arka planda açılıp kapanan işlemleri artık atlanıyor, ses doğru yönlendiriliyor."
+        },
+        {
+          "baslik": "Ayarlar ve makrolar kaybolmuyor",
+          "aciklama": "Program kayıt sırasında kapanırsa (elektrik kesintisi, çökme) ayarlar, istatistikler ya da makrolar sıfırlanabiliyordu. Kayıtlar artık güvenli yazılıyor; okunamayan dosya silinmeden yanına yedekleniyor."
+        },
+        {
+          "baslik": "Takılan ekranlar düzeltildi",
+          "aciklama": "Bağlantı yarıda kesilince lisans ve güncelleme ekranları takılı kalabiliyordu. Artık hata mesajı ve \"Tekrar dene\" çıkıyor."
+        },
+        {
+          "baslik": "Kısayollar ve makrolar daha sağlam",
+          "aciklama": "Tek bir hata, acil durdurma dahil kısayolları kapatabiliyordu; bozuk bir makro ayarı da makroyu \"oynatılıyor\" durumunda bırakabiliyordu. İkisi de düzeltildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "FiveM audio error fixed",
+          "aciklama": "On some PCs Auto Fishing showed \"Couldn't route FiveM audio automatically (0x80070057)\". FiveM's short-lived background processes are now skipped and the audio is routed correctly."
+        },
+        {
+          "baslik": "Settings and macros no longer get lost",
+          "aciklama": "If the program closed while saving (power cut, crash), settings, stats or macros could be reset. Saves are now written safely, and a file that can't be read is backed up instead of deleted."
+        },
+        {
+          "baslik": "Stuck screens fixed",
+          "aciklama": "When the connection dropped midway, the license and update screens could get stuck. They now show an error and \"Try again\"."
+        },
+        {
+          "baslik": "Sturdier hotkeys and macros",
+          "aciklama": "A single error could disable the hotkeys, including emergency stop, and a broken macro setting could leave a macro stuck in \"playing\". Both are fixed."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.13",
       "tarih": "2026-11-13",
       "tr": [
