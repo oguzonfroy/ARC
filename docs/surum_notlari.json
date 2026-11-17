@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.19",
+      "tarih": "2026-11-18",
+      "tr": [
+        {
+          "baslik": "Oyunda ARC adı",
+          "aciklama": "ETS2 içindeki tuş ipuçlarında ve kontrol ayarlarında artık ETS2LA yerine ARC yazıyor. Yeni adlar oyunu yeniden açınca görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC name in game",
+          "aciklama": "Key hints and control settings inside ETS2 now say ARC instead of ETS2LA. The new names appear after restarting the game."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.18",
       "tarih": "2026-11-18",
       "tr": [
