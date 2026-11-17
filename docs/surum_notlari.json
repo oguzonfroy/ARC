@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.17",
+      "tarih": "2026-11-17",
+      "tr": [
+        {
+          "baslik": "Yeni Hub",
+          "aciklama": "Uygulamalar artık yan yana büyük kartlarda. Üstüne gelince kart yükselip parlar; ← → ile seçip Enter ile açabilirsin."
+        },
+        {
+          "baslik": "Auto Drive Kokpit",
+          "aciklama": "Gösterge ekranı baştan tasarlandı: ortada büyük hız göstergesi ve tek tuşla aç/kapat, solda sistemlerin durumu, sağda rota."
+        },
+        {
+          "baslik": "Yeni Auto Drive görünümü",
+          "aciklama": "Auto Drive'ın tüm ekranları ARC'ın mor tasarımına geçti; ayarlar daha düzenli."
+        },
+        {
+          "baslik": "Instagram",
+          "aciklama": "Hub'dan ve Auto Drive'dan Instagram hesabımıza (@arcapp.tr) tek tıkla gidebilirsin."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New Hub",
+          "aciklama": "Apps now sit side by side on large cards. Hover to lift and highlight a card; pick with ← → and open with Enter."
+        },
+        {
+          "baslik": "Auto Drive Cockpit",
+          "aciklama": "The dashboard was redesigned: a big speed gauge and one-press on/off in the middle, system status on the left, route on the right."
+        },
+        {
+          "baslik": "New Auto Drive look",
+          "aciklama": "Every Auto Drive screen now uses ARC's purple design; settings are tidier."
+        },
+        {
+          "baslik": "Instagram",
+          "aciklama": "Reach our Instagram (@arcapp.tr) with one click from the Hub and from Auto Drive."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.16",
       "tarih": "2026-11-17",
       "tr": [
