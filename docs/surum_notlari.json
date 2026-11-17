@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.18",
+      "tarih": "2026-11-18",
+      "tr": [
+        {
+          "baslik": "Hata düzeltmesi",
+          "aciklama": "Auto Drive kurulu bilgisayarlarda Hub açılırken çıkan \"Beklenmeyen bir hata oluştu\" sorunu giderildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Bug fix",
+          "aciklama": "Fixed the \"An unexpected error occurred\" message when opening the Hub on PCs with Auto Drive installed."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.17",
       "tarih": "2026-11-17",
       "tr": [
