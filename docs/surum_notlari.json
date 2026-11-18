@@ -5,14 +5,14 @@
       "tarih": "2026-11-18",
       "tr": [
         {
-          "baslik": "Oyunda ARC adı",
-          "aciklama": "ETS2 içindeki tuş ipuçlarında ve kontrol ayarlarında artık ETS2LA yerine ARC yazıyor. Yeni adlar oyunu yeniden açınca görünür."
+          "baslik": "İyileştirmeler",
+          "aciklama": "Hata düzeltmeleri ve iyileştirmeler."
         }
       ],
       "en": [
         {
-          "baslik": "ARC name in game",
-          "aciklama": "Key hints and control settings inside ETS2 now say ARC instead of ETS2LA. The new names appear after restarting the game."
+          "baslik": "Improvements",
+          "aciklama": "Bug fixes and improvements."
         }
       ]
     },
@@ -622,7 +622,7 @@
         },
         {
           "baslik": "ETS2 1.62 desteği",
-          "aciklama": "Güncel ETS2LA düzeltmeleri: overlay için monitör seçimi, ses dosyası yolu ve eski SDK temizliği."
+          "aciklama": "Auto Drive düzeltmeleri: overlay için monitör seçimi, ses dosyası yolu ve eski SDK temizliği."
         },
         {
           "baslik": "Yol okları yenilendi",
@@ -648,7 +648,7 @@
         },
         {
           "baslik": "ETS2 1.62 support",
-          "aciklama": "Latest ETS2LA fixes: monitor selection for the overlay, sound file path and old SDK cleanup."
+          "aciklama": "Auto Drive fixes: monitor selection for the overlay, sound file path and old SDK cleanup."
         },
         {
           "baslik": "Road arrows refreshed",
