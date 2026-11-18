@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.21",
+      "tarih": "2026-11-19",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive açılmama düzeltmesi",
+          "aciklama": "Bilgisayarda adı \"ARC ETS2 Auto Drive\" olan bir klasör ya da pencere açıkken ARC bunu açık Auto Drive sanıyor, Auto Drive'ı başlatmadan kapanıyordu. Artık yalnız gerçekten çalışan Auto Drive dikkate alınıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ETS2 Auto Drive not opening fixed",
+          "aciklama": "When a folder or window named \"ARC ETS2 Auto Drive\" was open, ARC mistook it for a running Auto Drive and closed without starting it. Now only a real running Auto Drive counts."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.20",
       "tarih": "2026-11-19",
       "tr": [
