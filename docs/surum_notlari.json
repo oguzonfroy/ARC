@@ -1,6 +1,62 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.20",
+      "tarih": "2026-11-19",
+      "tr": [
+        {
+          "baslik": "ETS2 Auto Drive: otomatik yakıt",
+          "aciklama": "Gösterge > Hızlı kontroller'den açılır. Yakıt %15'in altına inince Auto Drive en yakın benzinliğe kendisi gider, pompada durur, Enter'ı basılı tutarak depoyu doldurur ve rotasına devam eder."
+        },
+        {
+          "baslik": "ETS2 Auto Drive: otomatik mola (uyku)",
+          "aciklama": "Gösterge > Hızlı kontroller'den açılır. Zorunlu molaya 60 dakika kala dinlenme alanına gider, uyur ve rotasına devam eder. İki özellik de varsayılan olarak kapalıdır."
+        },
+        {
+          "baslik": "Lisans bitince Yeni key al",
+          "aciklama": "Lisans süresi dolunca artık Discord'a yönlendirmek yerine Yeni key al bağlantısı çıkıyor; tıklayınca arcappss.com.tr açılıyor."
+        },
+        {
+          "baslik": "ARC Mining: doğrulama çıkınca bekleme",
+          "aciklama": "Oyunda insan doğrulaması açılınca kazı durur ve ses verir. Doğrulamayı çözüp pencere kapanınca kendiliğinden devam eder."
+        },
+        {
+          "baslik": "ARC Mining: çubuk algılama düzeltmesi",
+          "aciklama": "Kısalan yeşil geri sayım çubuğu bazen yanlış ölçülüyordu. Artık çubuğun gri izi de hesaba katılıyor."
+        },
+        {
+          "baslik": "Lisanslar bağlantısı",
+          "aciklama": "Oyun seçme ekranının altına açık kaynak lisans bildirimlerini gösteren Lisanslar bağlantısı eklendi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ETS2 Auto Drive: auto refuel",
+          "aciklama": "Turn it on in Dashboard > Quick controls. When fuel drops below 15%, Auto Drive drives itself to the nearest gas station, stops at the pump, holds Enter to fill the tank and continues the route."
+        },
+        {
+          "baslik": "ETS2 Auto Drive: auto rest (sleep)",
+          "aciklama": "Turn it on in Dashboard > Quick controls. With 60 minutes left before the mandatory rest, it drives to a rest area, sleeps and continues the route. Both features are off by default."
+        },
+        {
+          "baslik": "Get a new key when the license ends",
+          "aciklama": "When a license expires, a Get a new key link now appears instead of pointing to Discord; clicking it opens arcappss.com.tr."
+        },
+        {
+          "baslik": "ARC Mining: waits on verification",
+          "aciklama": "When a human verification appears in game, mining stops and plays a sound. Solve it; mining resumes by itself when the window closes."
+        },
+        {
+          "baslik": "ARC Mining: bar detection fix",
+          "aciklama": "The shrinking green countdown bar was sometimes measured wrong. Its grey trail is now taken into account."
+        },
+        {
+          "baslik": "Licenses link",
+          "aciklama": "A Licenses link showing open source license notices was added to the bottom of the game selection screen."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.19",
       "tarih": "2026-11-18",
       "tr": [
