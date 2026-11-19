@@ -1,6 +1,62 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.23",
+      "tarih": "2026-11-19",
+      "tr": [
+        {
+          "baslik": "Yeni key hemen açıyor",
+          "aciklama": "Kilit ekranında yeni key girince kilit birkaç saniye daha kalabiliyordu. Artık doğrulanan key hemen kullanılır."
+        },
+        {
+          "baslik": "Yarım indirme hak yakmıyor",
+          "aciklama": "Tamamı inmiş ama yarıda kalmış görünen güncelleme dosyası silinip yeniden indiriliyor ve indirme hakkı harcıyordu. Artık kullanılır."
+        },
+        {
+          "baslik": "Basılı tetik makrosu duruyor",
+          "aciklama": "Basılı tutulan tetikle başlayan makro, bazı durumlarda tuş bırakılınca durmuyordu. Düzeltildi."
+        },
+        {
+          "baslik": "Kilitliyken doğru uyarı",
+          "aciklama": "Lisans kilitliyken kısayolla başlatılan makro, sürüş ya da kazı 'çalışıyor' görünüyordu. Artık uyarı verip durur."
+        },
+        {
+          "baslik": "Kontrol Et ve Düzelt takılmıyor",
+          "aciklama": "Beklenmeyen bir hatada ekran 'Kontrol ediliyor...'da kalıyordu. Artık hata gösterilir."
+        },
+        {
+          "baslik": "Auto Drive 1.0.5",
+          "aciklama": "Sollamada yanda duran araç ve dorse şeridi dolu sayılıyor, tek ölçümle gereksiz yol verilmiyor; direksiyon kuvvet yönü müdahalede ters kaydedilmiyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New key unlocks right away",
+          "aciklama": "After entering a new key on the lock screen the lock could stay a few more seconds. The verified key is now used immediately."
+        },
+        {
+          "baslik": "Partial downloads don't waste quota",
+          "aciklama": "A fully downloaded but unfinished-looking update file was deleted and downloaded again, using up a download. It is now reused."
+        },
+        {
+          "baslik": "Held trigger macros stop",
+          "aciklama": "A macro started by a held trigger sometimes kept running after the key was released. Fixed."
+        },
+        {
+          "baslik": "Correct warning when locked",
+          "aciklama": "With the license locked, a macro, drive or mining started by hotkey looked like it was running. It now warns and stops."
+        },
+        {
+          "baslik": "Check & Fix no longer hangs",
+          "aciklama": "An unexpected error left the screen on 'Checking...'. The error is now shown."
+        },
+        {
+          "baslik": "Auto Drive 1.0.5",
+          "aciklama": "When overtaking, a stopped vehicle or trailer beside you counts as occupied, no needless yielding on a single reading; steering force direction is no longer saved reversed during takeover."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.22",
       "tarih": "2026-11-19",
       "tr": [
