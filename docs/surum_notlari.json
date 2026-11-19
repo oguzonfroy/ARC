@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.22",
+      "tarih": "2026-11-19",
+      "tr": [
+        {
+          "baslik": "Lisans kilidi sağlamlaştı",
+          "aciklama": "Lisans kilidi penceresi Alt+F4 ile kapatılıp program lisanssız kullanılabiliyordu; artık kapanmaz, kapanırsa yeniden açılır. Kilitliyken ETS2 Auto Drive da başlamaz."
+        },
+        {
+          "baslik": "Geçerli lisans yanlışlıkla kilitlenmiyor",
+          "aciklama": "Sunucudan yarım gelen bir cevap geçerli lisansı 'sunucuya bağlanılamadı'ya çeviriyordu. Düzeltildi."
+        },
+        {
+          "baslik": "Auto Drive açılırken çökme yok",
+          "aciklama": "Antivirüs ETS2 Auto Drive'ı engellerse ARC çökmek yerine uyarı verip oyun seçme ekranına döner."
+        },
+        {
+          "baslik": "Ayarlar korunuyor",
+          "aciklama": "Ayar ya da istatistik dosyası bir an okunamazsa (antivirüs, yedekleme) ayarlar varsayılana dönüp kaydedilmiyor."
+        },
+        {
+          "baslik": "Güncellemede tuş basılı kalmıyor",
+          "aciklama": "Balık botu çalışırken güncelleme indirilirse ARC önce botu durdurur; Shift/Ctrl basılı kalmaz."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "License lock hardened",
+          "aciklama": "The license lock window could be closed with Alt+F4 to use the app without a license; it can no longer be closed and reopens if it is. ETS2 Auto Drive does not start while locked either."
+        },
+        {
+          "baslik": "Valid licenses no longer locked by mistake",
+          "aciklama": "A truncated server reply could turn a valid license into 'could not reach the server'. Fixed."
+        },
+        {
+          "baslik": "No crash when Auto Drive is blocked",
+          "aciklama": "If antivirus blocks ETS2 Auto Drive, ARC shows a warning and returns to game selection instead of crashing."
+        },
+        {
+          "baslik": "Settings are kept",
+          "aciklama": "If the settings or statistics file cannot be read for a moment (antivirus, backup), settings are no longer reset to defaults and saved."
+        },
+        {
+          "baslik": "No stuck keys on update",
+          "aciklama": "If an update finishes while the fishing bot runs, ARC stops the bot first so Shift/Ctrl are not left pressed."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.21",
       "tarih": "2026-11-19",
       "tr": [
