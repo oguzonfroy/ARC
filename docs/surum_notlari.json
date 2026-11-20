@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.30",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining tam otomatik",
+          "aciklama": "Panel'deki mod düğmesini 'Tam otomatik'e al: ARC mavi ve sarı küreleri tüm oyun ekranında bulur, kamerayı hedefe çevirir, vurur ve sıradakine geçer. Nişangahı senin götürmene gerek yok."
+        },
+        {
+          "baslik": "Hedef bilgi satırı",
+          "aciklama": "Kazı sırasında Panel'de hedef sayısı, aktif hedefin konumu, güven yüzdesi, nişan ve kazı durumu görünür."
+        },
+        {
+          "baslik": "Pencereli modda doğru nişangah",
+          "aciklama": "FiveM pencereli açıksa nişangah artık ekranın değil oyun penceresinin ortası olarak alınır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining full auto",
+          "aciklama": "Switch the mode button on the Panel tab to 'Full auto': ARC finds the blue and yellow spheres anywhere on the game screen, turns the camera to the target, hits it and moves to the next one. You don't need to aim yourself."
+        },
+        {
+          "baslik": "Target info line",
+          "aciklama": "While mining, the Panel shows the target count, the active target's position, confidence, aim and mining status."
+        },
+        {
+          "baslik": "Correct crosshair in windowed mode",
+          "aciklama": "When FiveM runs in a window, the crosshair is now taken as the center of the game window instead of the screen."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.29",
       "tarih": "2026-11-20",
       "tr": [
