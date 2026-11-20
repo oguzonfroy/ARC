@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.25",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining Algılama Paneli",
+          "aciklama": "Panel sekmesindeki Algılama Paneli düğmesiyle kazı alanını seç: çerçeveyi kayanın üstüne sürükle, köşeden boyutlandır, kaydet. ARC artık yalnız bu alandaki hedeflere bakar."
+        },
+        {
+          "baslik": "Mouse aşağı kaymıyor",
+          "aciklama": "Kazı başlayınca kamera bazen kendiliğinden yere bakana kadar kayıyordu: karakterin kaskı hedef sanılıyordu. Kameraya tepki vermeyen hedef artık bırakılıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining Detection Panel",
+          "aciklama": "Use the Detection Panel button on the Panel tab to pick the mining area: drag the frame over the rock, resize it from the corner, save. ARC now only looks for targets inside it."
+        },
+        {
+          "baslik": "Mouse no longer slides down",
+          "aciklama": "When mining started, the camera could slide down until it faced the ground: the character's helmet was taken for a target. Targets that don't react to the camera are now ignored."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.24",
       "tarih": "2026-11-20",
       "tr": [
