@@ -554,6 +554,24 @@
   /* dokunmatik ekranda fare eğimi yok: kart kendi kendine hafifçe süzülür */
   @media not all and (hover: hover) and (pointer: fine) { .lic-card { animation: lic-suz 7s ease-in-out infinite; } }
   @keyframes lic-suz { 0%, 100% { transform: perspective(1000px) rotateX(3deg) rotateY(-5deg); } 50% { transform: perspective(1000px) rotateX(-2deg) rotateY(5deg) translateY(-6px); } }
+
+  /* Universal Soundpad: ücretsiz indirme (lisans yok) */
+  .sp-sec { border-top: 1px solid var(--line); padding-block: clamp(48px, 7vw, 88px); }
+  .sp-kart { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 4vw, 40px); align-items: center;
+    border-radius: 22px; padding: clamp(22px, 4vw, 36px); background: var(--deep); border: 1px solid color-mix(in srgb, var(--ok) 35%, var(--line)); }
+  .sp-kart > img { width: 100%; height: auto; aspect-ratio: 1; display: block; }
+  .sp-ic { display: grid; gap: 14px; min-width: 0; }
+  .sp-ust { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+  .sp-ust h3 { margin: 0; font: 800 26px/1.15 var(--display); }
+  .sp-cip { font: 700 12px/1 var(--mono); letter-spacing: .14em; color: #0b2414; background: var(--ok); border-radius: 999px; padding: 7px 11px; }
+  .sp-ver { font: 600 14px/1 var(--mono); color: var(--lilac); }
+  .sp-ic p { margin: 0; color: var(--mute); }
+  .sp-ozellik { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 18px; color: var(--text); font-size: 16px; }
+  .sp-ozellik li::before { content: "✓"; color: var(--ok); font-weight: 800; margin-right: 8px; }
+  .sp-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+  .sp-not { font-size: 14px; color: var(--mute); overflow-wrap: anywhere; }
+  .sp-not code { font: 500 12px/1.4 var(--mono); color: var(--lilac); }
+  @media (max-width: 640px) { .sp-kart { grid-template-columns: 1fr; } .sp-kart > img { max-width: 140px; } .sp-alt .btn { width: 100%; justify-content: center; } }
 </style>
 <script>
   /* Açılış animasyonu: oturum başına bir kez. Ödeme dönüşünde, Discord girişinde ve "hareketi azalt" tercihinde atlanır.
@@ -1087,6 +1105,52 @@
     </div>
   </div>
 </section>
+
+<section id="soundpad" class="sp-sec">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">Ücretsiz</div>
+      <h2>Universal Soundpad</h2>
+      <p class="lead">Anahtar gerekmez. Ses efektlerini oyunda ve Discord'da mikrofona çal; açtığın oyuna göre doğru profil kendiliğinden gelir.</p>
+    </div>
+    <div class="sp-kart">
+      <img src="soundpad/soundpad.png" alt="" width="200" height="200" loading="lazy">
+      <div class="sp-ic">
+        <div class="sp-ust"><h3>Universal Soundpad</h3><span class="sp-cip">ÜCRETSİZ</span><span class="sp-ver" id="sp-ver">Windows 10 / 11</span></div>
+        <ul class="sp-ozellik">
+          <li>Sesleri mikrofona karıştırır</li>
+          <li>Oyuna göre otomatik profil</li>
+          <li>Oyun açıkken de çalışan kısayollar</li>
+          <li>Kırpma, ses seviyesi, çalma listesi</li>
+        </ul>
+        <p>Mikrofona ses vermek için ücretsiz <b>VB-Audio Virtual Cable</b> gerekir; yoksa program kurulum yolunu gösterir. ARC APP kullanıyorsan Hub'daki Soundpad kartından da tek tıkla kurabilirsin.</p>
+        <div class="sp-alt">
+          <a class="btn btn-main" id="sp-indir" href="https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.0/UniversalSoundpad-Setup-1.0.0.exe" rel="noopener">Ücretsiz indir</a>
+          <span class="sp-not" id="sp-boyut">Kurulum yönetici izni istemez.</span>
+        </div>
+        <div class="sp-not" id="sp-sha" hidden>SHA-256: <code id="sp-sha-d"></code></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+/* Universal Soundpad: sürüm, boyut ve indirme adresi aynı sitedeki latest.json'dan (connect-src 'self').
+   Adres yalnız kendi GitHub sürümümüzse kullanılır; yazılar textContent ile basılır. */
+(function () {
+  var ON = "https://github.com/oguzonfroy/ARC/releases/download/soundpad-v";
+  fetch("soundpad/latest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j || typeof j.version !== "string" || !/^\d+\.\d+\.\d+$/.test(j.version)) return;
+    var url = ON + j.version + "/UniversalSoundpad-Setup-" + j.version + ".exe";
+    if (j.url !== url || typeof j.sha256 !== "string" || !/^[0-9a-f]{64}$/.test(j.sha256)) return;
+    document.getElementById("sp-indir").href = url;
+    document.getElementById("sp-ver").textContent = "Sürüm " + j.version;
+    if (typeof j.size === "number" && j.size > 0)
+      document.getElementById("sp-boyut").textContent = (j.size / 1048576).toFixed(1).replace(".", ",") + " MB · Kurulum yönetici izni istemez.";
+    document.getElementById("sp-sha-d").textContent = j.sha256;
+    document.getElementById("sp-sha").hidden = false;
+  }).catch(function () {});
+})();
+</script>
 
 <section id="arcplay" class="macro-sec urun-bas ap-sec">
   <div class="wrap">

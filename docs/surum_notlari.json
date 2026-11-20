@@ -1,6 +1,214 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.37",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining'de nasıl kullanılır turu",
+          "aciklama": "ARC Mining ilk açıldığında adım adım kısa bir tur gösterir: kayaya geçmek, Algılama Testi, mod seçimi, başlatma ve durdurma. Başlıktaki ? düğmesiyle istediğin zaman yeniden açılır."
+        },
+        {
+          "baslik": "Universal Soundpad yayında",
+          "aciklama": "ARC Hub'dan Universal Soundpad indirilebilir. Yeni logo, temaya uyan başlık çubuğu ve ilk açılışta nasıl kullanılacağını gösteren tur ile geliyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "How-to tour in ARC Mining",
+          "aciklama": "When ARC Mining first opens it shows a short step-by-step tour: going to the rock, the Detection Test, choosing a mode, starting and stopping. Reopen it anytime with the ? button in the title bar."
+        },
+        {
+          "baslik": "Universal Soundpad is out",
+          "aciklama": "Universal Soundpad can now be downloaded from ARC Hub. It comes with a new logo, a title bar that matches the theme and a first-run tour showing how to use it."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.36",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Tam otomatik yeniden yazıldı",
+          "aciklama": "Kamera artık yalnız kayada mavi ya da sarı hedef görünürken ve yalnız o hedefe doğru, karede en çok 2 birim döner. Hedef yokken hiç oynamaz; kalibrasyon ve test hareketleri kaldırıldı."
+        },
+        {
+          "baslik": "Hassasiyeti hedeften öğrenir",
+          "aciklama": "Oyundaki fare hassasiyetini, hedefe dönerken hedefin ne kadar kaydığına bakarak öğrenir; ters eksen de kendiliğinden anlaşılır."
+        },
+        {
+          "baslik": "Gündüz sahnelerinde daha hızlı",
+          "aciklama": "Aydınlık sahnelerde algılama iki kat hızlandı; nişan daha akıcı."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Full auto rewritten",
+          "aciklama": "The camera now turns only while a blue or yellow target is visible on the rock, and only toward that target, at most 2 units per frame. It never moves without a target; calibration and test moves are gone."
+        },
+        {
+          "baslik": "Learns sensitivity from the target",
+          "aciklama": "It learns the in-game mouse sensitivity by watching how far the target moves while turning toward it; an inverted axis is detected too."
+        },
+        {
+          "baslik": "Faster in daylight",
+          "aciklama": "Detection is twice as fast in bright scenes, so aiming is smoother."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.35",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Tam otomatikte kamera savrulmuyor",
+          "aciklama": "Kalibrasyon kamerayı bazen geniş açıyla çevirip görüş alanından çıkarıyordu. Artık 1 birimlik küçük hareketle başlıyor, her denemeden sonra kameranın başladığı yere döndüğünü doğruluyor; dönmezse hiç hareket göndermeden duruyor."
+        },
+        {
+          "baslik": "Hassasiyet uyarısı",
+          "aciklama": "Oyun içi fare hassasiyeti nişan için çok yüksekse ARC kamerayı oynatmaz ve hassasiyeti düşürmeni söyler. Üst üste üç ıskada kazı durur."
+        },
+        {
+          "baslik": "Ayarlar kaydırılabilir",
+          "aciklama": "ARC Mining Ayarlar sayfası artık fare tekerleğiyle ya da sağdaki çubukla kaydırılıyor; pencereye sığmayan ayarlar görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Camera no longer swings in full auto",
+          "aciklama": "Calibration sometimes turned the camera far and out of view. It now starts with a tiny 1-unit move and checks after each try that the camera returned to where it started; if not, it stops without sending any more input."
+        },
+        {
+          "baslik": "Sensitivity warning",
+          "aciklama": "If the in-game mouse sensitivity is too high for aiming, ARC won't move the camera and tells you to lower it. Mining stops after three misses in a row."
+        },
+        {
+          "baslik": "Scrollable settings",
+          "aciklama": "The ARC Mining Settings page now scrolls with the mouse wheel or the bar on the right, so settings that didn't fit are visible."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.34",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Mavi ve sarı yuvarlak algılama",
+          "aciklama": "ARC Mining kayadaki mavi ve sarı yuvarlak hedefleri renk ve şekilden bulur; boyut, parlaklık ya da konum değişse de algılar. Halka şeklindeki ve hafif oval görünen hedefler de sayılır; yazı, karakter ve zemin dokusu sayılmaz."
+        },
+        {
+          "baslik": "Algılama Testi",
+          "aciklama": "Panel'deki Test Et düğmesi kamerayı ve mouse'u hiç oynatmadan 10 saniye boyunca ekrana bakar; bulduğu hedefleri mavi / sarı kutuyla işaretleyip kaydeder, reddettiklerinin nedenini yazar."
+        },
+        {
+          "baslik": "Hedef boyutu ayarı",
+          "aciklama": "Ayarlar'da en küçük ve en büyük hedef boyutu seçilebilir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Blue and yellow round detection",
+          "aciklama": "ARC Mining finds blue and yellow round targets on the rock by color and shape; it still detects them when their size, brightness or position changes. Ring-shaped and slightly oval targets count too; text, the character and ground texture don't."
+        },
+        {
+          "baslik": "Detection Test",
+          "aciklama": "The Test button on the Panel watches the screen for 10 seconds without moving the camera or mouse at all; it marks found targets with blue / yellow boxes, saves them, and logs why other candidates were rejected."
+        },
+        {
+          "baslik": "Target size setting",
+          "aciklama": "Minimum and maximum target size can be set in Settings."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.33",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Kalibrasyon daha sağlam",
+          "aciklama": "Tam otomatikte kalibrasyon bazen \"yön sapması\" deyip kazıyı başlatmıyordu. Artık ekranı parçalara bölüp çoğunluğa bakıyor, kamera kendiliğinden kayarsa o ölçümü saymıyor ve tutarsız ölçümü üç kez deniyor."
+        },
+        {
+          "baslik": "Ayrıntılı kalibrasyon kaydı",
+          "aciklama": "Kalibrasyon başarısız olursa her ölçüm Log Kopyala'da görünür; sorunun nedeni oradan anlaşılır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "More reliable calibration",
+          "aciklama": "In full auto, calibration sometimes reported \"direction drift\" and didn't start mining. It now splits the screen into parts and goes by the majority, ignores a measurement if the camera drifts by itself, and retries an inconsistent measurement three times."
+        },
+        {
+          "baslik": "Detailed calibration log",
+          "aciklama": "If calibration fails, every measurement shows up in Copy Log so the cause can be found."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.32",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Kamera artık savrulmuyor",
+          "aciklama": "Tam otomatikte kamera bazen sağa sola, neredeyse 180 derece dönüyordu. Kaya taraması kaldırıldı; ARC kamerayı yalnız karşındaki kayanın üstünde beliren hedefe, karede en çok 2 birimlik küçük adımlarla çevirir."
+        },
+        {
+          "baslik": "Önce kalibrasyon",
+          "aciklama": "Kazı başlarken ARC kamerayı çok az oynatıp hangi yöne ve ne kadar döndüğünü ölçer, sonra başladığı yere geri döner. Ölçüm tutmazsa kamerayı hiç oynatmaz ve kazıyı durdurur."
+        },
+        {
+          "baslik": "Güvenlik sınırları",
+          "aciklama": "Karede en büyük adım, hedef başına ve toplam dönüş sınırları Ayarlar'da. Sınırı aşan hedefe kamera çevrilmez; kamera ters dönerse ya da kaya görüntüden çıkarsa kazı durur."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "The camera no longer swings around",
+          "aciklama": "In full auto the camera sometimes turned left or right, almost 180 degrees. Rock scanning is removed; ARC only turns the camera toward targets that appear on the rock in front of you, in small steps of at most 2 units per frame."
+        },
+        {
+          "baslik": "Calibration first",
+          "aciklama": "When mining starts, ARC moves the camera very slightly to measure which way and how far it turns, then returns to where it started. If the measurement fails, it doesn't move the camera at all and stops mining."
+        },
+        {
+          "baslik": "Safety limits",
+          "aciklama": "Max step per frame, per-target and total turn limits are in Settings. ARC won't turn toward a target beyond the limits; mining stops if the camera turns the wrong way or the rock leaves the view."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.31",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining kayayı kendisi tarar",
+          "aciklama": "Tam otomatikte ekranda hedef yoksa ARC kamerayı küçük adımlarla kayanın çevresinde gezdirir, her adımda yeniden arar, hedefi bulunca nişan alıp vurur. Aynı yere iki kez bakmaz; her yer boşsa kazıyı durdurur."
+        },
+        {
+          "baslik": "Kazı kendiliğinden durmuyor",
+          "aciklama": "\"Mouse'u sen aldın\" uyarısı artık yalnız fareni gerçekten oynattığında çıkar. ARC'ın ve oyunun kendi imleç hareketleri ya da ele hafifçe değmek kazıyı durdurmaz. F12 acil durdurma aynen çalışır."
+        },
+        {
+          "baslik": "Daha ayrıntılı durum ve log",
+          "aciklama": "Panel'de kazının aşaması, tarama yönü, nişangah ile hedef arasındaki mesafe, kamera durumu ve son hata görünür. Log Kopyala her aday için konum, renk, güven ve neden kabul ya da reddedildiğini yazar."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining scans the rock by itself",
+          "aciklama": "In full auto, if no target is on screen ARC moves the camera around the rock in small steps, searches again after each step, then aims and hits once it finds one. It never checks the same spot twice and stops mining when everything is empty."
+        },
+        {
+          "baslik": "Mining no longer stops by itself",
+          "aciklama": "The \"You took the mouse\" warning now appears only when you really move your mouse. ARC's and the game's own cursor movements or lightly touching the mouse don't stop mining. F12 emergency stop still works."
+        },
+        {
+          "baslik": "More detailed status and log",
+          "aciklama": "The Panel shows the mining stage, scan direction, distance between crosshair and target, camera state and the last error. Copy Log lists each candidate's position, color, confidence and why it was accepted or rejected."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.30",
       "tarih": "2026-11-20",
       "tr": [
