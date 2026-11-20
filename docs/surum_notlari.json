@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.24",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining iki hedefi tanıyor",
+          "aciklama": "Kazı ekranındaki mavi ve krem renkli hedef diskleri artık ikisi de algılanıyor."
+        },
+        {
+          "baslik": "Hedef görününce kendiliğinden başlar",
+          "aciklama": "Yeni ayar: kazı hedefi ekrana gelince ARC Mining kazıyı kendisi başlatır. Ayarlardan kapatabilirsin."
+        },
+        {
+          "baslik": "Daha hızlı ekran okuma",
+          "aciklama": "Ekran yakalama yaklaşık 6 ms'ye indi; canlı önizleme kaldırıldı, işlemci daha az yoruluyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining detects both targets",
+          "aciklama": "Both the blue and the cream target discs on the mining screen are now detected."
+        },
+        {
+          "baslik": "Starts by itself when the target shows",
+          "aciklama": "New setting: when the mining target appears, ARC Mining starts digging on its own. You can turn it off in settings."
+        },
+        {
+          "baslik": "Faster screen reading",
+          "aciklama": "Screen capture is down to about 6 ms; the live preview was removed, so the CPU works less."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.23",
       "tarih": "2026-11-19",
       "tr": [
