@@ -1,6 +1,62 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.39",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Auto Drive baştan sona tarandı",
+          "aciklama": "Tek oyunculu ve TruckersMP için bütün sürüş kodu tarandı, bulunan hatalar düzeltildi (Auto Drive 1.0.9)."
+        },
+        {
+          "baslik": "Dolu şeride geçmez",
+          "aciklama": "Yan şerit dolu kalırsa tır artık zorla şerit değiştirmez; değişimi iptal edip gerekirse rotayı yeniden kurar. Sinyal verirken sürüş kapatılınca sinyal de söner."
+        },
+        {
+          "baslik": "Hız levhasında fren",
+          "aciklama": "Sınırsız yoldan hız levhasına geçerken hedef hız 0'a düşüp tırın frensiz girmesi düzeltildi."
+        },
+        {
+          "baslik": "TruckersMP'de daha yumuşak takip",
+          "aciklama": "Öndeki aracın hızındaki anlık zıplamalar ve bir an kaybolması artık ani fren ya da gaz vermiyor."
+        },
+        {
+          "baslik": "Otomatik yakıt daha güvenli",
+          "aciklama": "Pompada otopilotu kapatınca fren ve Enter bırakılır; dolu depoyla benzinliğe gidilmez; pompa sırasında daha uzun beklenir."
+        },
+        {
+          "baslik": "Ayarlar silinmez",
+          "aciklama": "Gösterge'de bir karta basıldığı an ayar dosyası okunamazsa diğer ayarların silinmesi düzeltildi. Auto Drive bazen açılmıyorsa ARC artık eski kopyanın kapanmasını bekler."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Auto Drive fully reviewed",
+          "aciklama": "The whole driving code was reviewed for single-player and TruckersMP and the bugs found were fixed (Auto Drive 1.0.9)."
+        },
+        {
+          "baslik": "No moving into a busy lane",
+          "aciklama": "If the side lane stays busy the truck no longer forces the lane change; it cancels it and rebuilds the route if needed. Turning driving off while signalling also turns the indicator off."
+        },
+        {
+          "baslik": "Braking at speed signs",
+          "aciklama": "Fixed the target speed dropping to 0 when going from an unlimited road to a speed sign, which let the truck enter without braking."
+        },
+        {
+          "baslik": "Smoother following on TruckersMP",
+          "aciklama": "Momentary speed jumps or a brief disappearance of the vehicle ahead no longer cause sudden braking or throttle."
+        },
+        {
+          "baslik": "Safer auto fuel",
+          "aciklama": "Turning autopilot off at the pump releases the brake and Enter; it won't drive to a station with a full tank; it waits longer in the pump queue."
+        },
+        {
+          "baslik": "Settings are kept",
+          "aciklama": "Fixed other settings being wiped if the settings file couldn't be read at the moment a Dashboard card was clicked. If Auto Drive sometimes didn't open, ARC now waits for the old copy to close."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.38",
       "tarih": "2026-11-20",
       "tr": [
