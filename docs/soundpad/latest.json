@@ -1,7 +1,7 @@
 {
-    "version":  "1.0.0",
-    "url":  "https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.0/UniversalSoundpad-Setup-1.0.0.exe",
-    "sha256":  "590af12070e396211827f58ec6db964b0db776bdad4deb8564e7e19623eb7b0d",
-    "size":  19623692,
-    "notes":  "İlk sürüm: profiller, oyuna göre otomatik profil, kısayollar, kırpma, VB-Cable ile mikrofona ses."
+    "version":  "1.0.1",
+    "url":  "https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.1/UniversalSoundpad-Setup-1.0.1.exe",
+    "sha256":  "e850b73c3eee085f77f5dde37765e2ae72991de9a0c592afa8c3e7b3cdc051b8",
+    "size":  19639871,
+    "notes":  "VB-Cable tek tıkla: «VB-Cable\u0027ı etkinleştir» indirir, kurar ve ayarları yapar; «Devre dışı bırak» her şeyi eski hâline döndürür."
 }
