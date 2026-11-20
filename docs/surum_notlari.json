@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.26",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Mouse aşağı kayması düzeltildi",
+          "aciklama": "Kazı başlayınca kamera hâlâ yere doğru kayabiliyordu: karakterin kaskı, kamera eğildikçe ekranda biraz kaydığı için hedef sanılmaya devam ediyordu. Artık kamerayı çevirince ters yönde kaymayan hedef bırakılıyor."
+        },
+        {
+          "baslik": "Otomatik başlatma karakteri hedef sanmıyor",
+          "aciklama": "Gece koyu zeminde kask, kazıyı kendiliğinden başlatabiliyordu. Bırakılan hedef hatırlanıyor, onunla kazı başlamıyor."
+        },
+        {
+          "baslik": "Güvenlik sınırı",
+          "aciklama": "Vuruş olmadan kamera çok fazla kayarsa kazı durur ve olay akışında nedenini yazar."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Mouse sliding down fixed",
+          "aciklama": "When mining started, the camera could still slide toward the ground: the character's helmet shifts a little on screen as the camera tilts, so it was still taken for a target. Targets that don't move against the camera are now dropped."
+        },
+        {
+          "baslik": "Auto start ignores your character",
+          "aciklama": "At night on dark ground, the helmet could start mining by itself. Dropped targets are remembered and no longer start mining."
+        },
+        {
+          "baslik": "Safety limit",
+          "aciklama": "If the camera moves too far without a hit, mining stops and the event log says why."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.25",
       "tarih": "2026-11-20",
       "tr": [
