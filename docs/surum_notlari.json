@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.38",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Universal Soundpad kendini günceller",
+          "aciklama": "Soundpad'i ARC Hub'dan açınca kurulu sürüm eskiyse güncelleme penceresi çıkar; tek tıkla indirilir, doğrulanır ve kurulur. İnternet yoksa kurulu sürüm açılır."
+        },
+        {
+          "baslik": "Soundpad'de VB-Cable tek tıkla",
+          "aciklama": "Soundpad 1.0.1'de «VB-Cable'ı etkinleştir» düğmesi VB-Cable'ı indirir, kurulumunu açar ve ayarları kendisi yapar; Windows ses aygıtların bozulmaz. «Devre dışı bırak» her şeyi eski hâline döndürür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Universal Soundpad updates itself",
+          "aciklama": "When you open Soundpad from ARC Hub and the installed version is older, an update window appears; it is downloaded, verified and installed in one click. Without internet the installed version opens."
+        },
+        {
+          "baslik": "One-click VB-Cable in Soundpad",
+          "aciklama": "In Soundpad 1.0.1 the «Enable VB-Cable» button downloads VB-Cable, opens its setup and applies the settings for you; your Windows sound devices stay as they were. «Disable» puts everything back."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.37",
       "tarih": "2026-11-20",
       "tr": [
