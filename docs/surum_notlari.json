@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.27",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining Log Kopyala",
+          "aciklama": "Panel sekmesine Log Kopyala düğmesi eklendi. Kazıda sorun olursa basıp Discord'a yapıştır; Windows kullanıcı adın gizlenir."
+        },
+        {
+          "baslik": "Kaya örtse de otomatik başlıyor",
+          "aciklama": "Bir yanını kayanın örttüğü hedef küre görününce kazı kendiliğinden başlamıyordu. Düzeltildi."
+        },
+        {
+          "baslik": "Hedef yanlışlıkla bırakılmıyor",
+          "aciklama": "Oyun bir kareyi geç çizdiğinde gerçek hedef bazen bırakılıp 'Halka görünmüyor' diye kazı duruyordu. Artık bırakmadan önce iki kez kontrol ediliyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining Copy Log",
+          "aciklama": "A Copy Log button was added to the Panel tab. If mining misbehaves, press it and paste into Discord; your Windows user name is hidden."
+        },
+        {
+          "baslik": "Auto start works behind rocks",
+          "aciklama": "Mining did not start by itself when part of the target sphere was hidden by the rock. Fixed."
+        },
+        {
+          "baslik": "Targets are not dropped by mistake",
+          "aciklama": "When the game drew a frame late, a real target could be dropped and mining stopped with 'Ring not visible'. It is now checked twice before being dropped."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.26",
       "tarih": "2026-11-20",
       "tr": [
