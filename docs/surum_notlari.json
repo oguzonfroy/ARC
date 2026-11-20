@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.28",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "Kazı tuşu oyuna gitmiyor",
+          "aciklama": "Kazıyı başlatan ve durduran tuşlar artık oyuna da gitmiyor. 7 gibi bir rakam tuşu seçildiğinde basış FiveM'de silah ya da envanter yuvası seçebiliyordu."
+        },
+        {
+          "baslik": "Hafif mouse teması kazıyı durdurmuyor",
+          "aciklama": "Mouse'a hafifçe değmek kazıyı 'Mouse'u sen aldın' diye durdurabiliyordu. Artık yalnız gerçekten mouse'u oynatınca durur."
+        },
+        {
+          "baslik": "Daha ayrıntılı log",
+          "aciklama": "Log Kopyala artık kısayolları, kazının nasıl başladığını ve kazı sırasındaki mouse hareketlerini de yazıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Mining key no longer reaches the game",
+          "aciklama": "The keys that start and stop mining no longer reach the game. With a number key like 7, the press could select a weapon or inventory slot in FiveM."
+        },
+        {
+          "baslik": "Light mouse touches don't stop mining",
+          "aciklama": "Lightly touching the mouse could stop mining with 'You took the mouse'. It now stops only when you really move the mouse."
+        },
+        {
+          "baslik": "More detailed log",
+          "aciklama": "Copy Log now also includes the hotkeys, how mining was started and mouse movement during mining."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.27",
       "tarih": "2026-11-20",
       "tr": [
