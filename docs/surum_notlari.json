@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.29",
+      "tarih": "2026-11-20",
+      "tr": [
+        {
+          "baslik": "ARC Mining tetik modu",
+          "aciklama": "ARC artık kamerayı hiç oynatmıyor: nişangahı hedefe sen getiriyorsun, hedef nişangahın altına gelince ARC tıklıyor. Kazı başlarken kameranın aşağı dönmesi sorunu böylece ortadan kalkıyor. Eski otomatik nişan alma Ayarlar'da isteğe bağlı."
+        },
+        {
+          "baslik": "Yalnız gerçek hedefler",
+          "aciklama": "Yalnız kazı ekranındaki mavi ve sarı küreler hedef sayılıyor. Karakterin kaskı, yeleği ve ekrandaki başka parlak şeyler artık hedef sanılmıyor."
+        },
+        {
+          "baslik": "Canlı hedef durumu",
+          "aciklama": "Kazı sırasında üstte 'hedef bekleniyor / hedef görüldü / vuruyor' yazıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "ARC Mining trigger mode",
+          "aciklama": "ARC no longer moves the camera at all: you put the crosshair on the target and ARC clicks when the target is under it. This removes the camera turning down when mining starts. The old auto aim is optional in Settings."
+        },
+        {
+          "baslik": "Only real targets",
+          "aciklama": "Only the blue and yellow spheres of the mining screen count as targets. The character's helmet, vest and other bright things are no longer taken for targets."
+        },
+        {
+          "baslik": "Live target status",
+          "aciklama": "While mining, the top bar shows 'waiting for target / target seen / hitting'."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.28",
       "tarih": "2026-11-20",
       "tr": [
