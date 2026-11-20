@@ -76,8 +76,8 @@
   .facts { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; color: var(--mute); font-size: 14px; }
   .facts span::before { content: "◆"; color: var(--violet); margin-right: 8px; font-size: 10px; vertical-align: 2px; }
 
-  /* promo video: vertical 9:16, autoplays muted, sound on tap */
-  .promo { position: relative; justify-self: center; width: min(100%, 360px); aspect-ratio: 9 / 16; max-width: 100%; border-radius: 28px; overflow: hidden; background: var(--deep);
+  /* promo video: 16:9 (Auto Fishing tanıtımı), autoplays muted, sound on tap */
+  .promo { position: relative; justify-self: center; width: min(100%, 640px); aspect-ratio: 16 / 9; max-width: 100%; border-radius: 22px; overflow: hidden; background: var(--deep);
     border: 1px solid var(--line); box-shadow: 0 40px 90px -30px #000, 0 0 90px -20px color-mix(in srgb, var(--violet) 55%, transparent); }
   .promo video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .sound { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
@@ -1010,7 +1010,7 @@
     </div>
 
     <div class="promo">
-      <video id="promo" src="arc-tanitim.mp4" poster="arc-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="ARC tanıtım videosu"></video>
+      <video id="promo" src="arc-fishing-tanitim.mp4" poster="arc-fishing-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="ARC Auto Fishing tanıtım videosu"></video>
       <button class="sound" id="sound" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4z"/><path id="snd-on" d="M15.5 8.5a5 5 0 010 7M18.5 5.5a9 9 0 010 13" hidden/><path id="snd-off" d="M22 9l-6 6M16 9l6 6"/></svg><span id="snd-t">Sesi aç</span></button>
     </div>
   </div>
@@ -1026,7 +1026,7 @@
       </div>
     </div>
     <div class="macro-video">
-      <video id="ets2-video" src="arc-ets2-tanitim.mp4?v=291" poster="arc-ets2-poster.jpg?v=291" autoplay muted loop playsinline preload="metadata" aria-label="ARC ETS2 Auto Drive tanıtım videosu"></video>
+      <video id="ets2-video" src="arc-ets2-tanitim-v2.mp4" poster="arc-ets2-poster-v2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="ARC ETS2 Auto Drive tanıtım videosu"></video>
       <button class="sound" id="ets2-sound" type="button"><span id="ets2-snd-t">Sesi aç</span></button>
     </div>
     <div class="phone-car">
@@ -1053,9 +1053,9 @@
       <p class="lead">İlk beşi ARC uygulamasının içinde gelir: programı açıp Hub'dan seçmen yeter. ARC Phone, FiveM sunucuları için ayrı bir script.</p>
     </div>
     <div class="urunler">
-      <a class="urun" href="#ets2"><img src="arc-ets2-poster.jpg?v=291" alt="" loading="lazy"><span class="urun-tag">ETS2 · ATS</span><b>ETS2 Auto Drive</b><small>Tırını GPS rotasında kendisi sürer.</small></a>
+      <a class="urun" href="#ets2"><img src="arc-ets2-poster-v2.jpg" alt="" loading="lazy"><span class="urun-tag">ETS2 · ATS</span><b>ETS2 Auto Drive</b><small>Tırını GPS rotasında kendisi sürer.</small></a>
       <a class="urun" href="#arcplay"><img src="arc-play/gorsel/oyunda-yakin.webp?v=205" alt="" loading="lazy"><span class="urun-tag">ETS2</span><b>ARC Play</b><small>Tırın ekranında harita, müzik, YouTube.</small></a>
-      <a class="urun" href="#fishing"><img src="arc-poster.jpg" alt="" loading="lazy" style="object-position:50% 28%"><span class="urun-tag">FIVEM · RINA</span><b>Rina Auto Fishing</b><small>Sesi dinler, balığı çeker, bagajı boşaltır.</small></a>
+      <a class="urun" href="#fishing"><img src="arc-fishing-poster.jpg" alt="" loading="lazy"><span class="urun-tag">FIVEM · RINA</span><b>Rina Auto Fishing</b><small>Sesi dinler, balığı çeker, bagajı boşaltır.</small></a>
       <a class="urun" href="#macro"><img src="arc-macro-poster.jpg" alt="" loading="lazy"><span class="urun-tag">HER OYUN</span><b>ARC Macro</b><small>Bir kez kaydet, istediğin kadar tekrarlat.</small></a>
       <a class="urun" href="#drive"><img src="arc-drive-poster.jpg" alt="" loading="lazy"><span class="urun-tag">FIVEM · TEST</span><b>ARC Drive</b><small>Haritada işaretle, ARC seni götürsün.</small></a>
       <a class="urun" href="#phone"><img src="arc-phone-poster.jpg" alt="" loading="lazy"><span class="urun-tag">FIVEM SCRIPT</span><b>ARC Phone</b><small>Sunucun için yeni nesil telefon.</small></a>
