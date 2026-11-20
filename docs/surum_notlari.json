@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.10",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "OTOBÜS modu",
+          "aciklama": "Coaches DLC otobüsleri (Scania Touring, Volvo 9700 DD, MAN Lion's Coach) için tırdan ayrı sürüş: otobüsün uzunluğuna ve dingil mesafesine göre geniş dönüş, virajda yumuşak yavaşlama, konforlu fren ve kalkış. Otobüs otomatik algılanır; Gösterge'den TIR / OTOBÜS elle de seçilebilir."
+        },
+        {
+          "baslik": "Sinyalle şerit değiştir anahtarı",
+          "aciklama": "Sola ya da sağa sinyal verince Auto Drive'ın o şeride geçmesi artık Gösterge'deki Hızlı kontroller'den açılıp kapatılabiliyor. Kapalıyken verdiğin sinyal yalnız sinyaldir."
+        },
+        {
+          "baslik": "Alt+Tab düzeltildi",
+          "aciklama": "Alt+Tab ile başka pencereye geçince Auto Drive penceresi ekranın ortasında en üstte kalıp diğer uygulamaları kapatıyordu. Artık arka plana geçiyor."
+        },
+        {
+          "baslik": "Ayarlar korunuyor",
+          "aciklama": "Sürüş ayarları kaydedilirken bazı Gösterge seçimlerinin silinebilmesi düzeltildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "BUS mode",
+          "aciklama": "Separate driving for Coaches DLC buses (Scania Touring, Volvo 9700 DD, MAN Lion's Coach): wider turns based on the bus length and wheelbase, gentle slowing for curves, comfortable braking and pull-away. The bus is detected automatically; TRUCK / BUS can also be chosen on the dashboard."
+        },
+        {
+          "baslik": "Signal lane change switch",
+          "aciklama": "Changing lanes when you signal left or right can now be turned on or off in the dashboard Quick controls. When off, your signal is just a signal."
+        },
+        {
+          "baslik": "Alt+Tab fixed",
+          "aciklama": "After Alt+Tab, the Auto Drive window stayed on top in the middle of the screen and covered other apps. It now goes to the background."
+        },
+        {
+          "baslik": "Settings kept",
+          "aciklama": "Fixed some dashboard choices being lost when driving settings were saved."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.39",
       "tarih": "2026-11-20",
       "tr": [
