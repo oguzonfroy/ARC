@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.13",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Kavşağa erken yavaşlama",
+          "aciklama": "Yüksek hızda (110 km/s üstü) kavşak ve dönüşler çok daha uzaktan görülüyor; tır yükü ağırsa daha erken, yumuşakça yavaşlıyor. OTOBÜS modu için de geçerli."
+        },
+        {
+          "baslik": "Yol çalışmaları",
+          "aciklama": "Şeritte duran yol çalışması / kaza aracı fark ediliyor; yan şerit boşsa sinyal verilip dolaşılıyor."
+        },
+        {
+          "baslik": "Kabin ışığı %1 adım",
+          "aciklama": "Fren ve sinyal kabin ışığının parlaklığı artık %0–100 arasında %1 adımla ayarlanıyor."
+        },
+        {
+          "baslik": "Oyun Telemetrisi uyarısı kaldırıldı",
+          "aciklama": "Köşede çıkan «Oyun Telemetrisi» bağlantı uyarısı artık gösterilmiyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Earlier slowdown for junctions",
+          "aciklama": "At high speed (above 110 km/h) junctions and turns are seen much further ahead; a heavily loaded truck slows down earlier and more gently. Also applies to BUS mode."
+        },
+        {
+          "baslik": "Roadworks",
+          "aciklama": "A vehicle standing still in your lane at roadworks or an accident is now detected and passed through a free adjacent lane, with the indicator on."
+        },
+        {
+          "baslik": "Cab light in 1% steps",
+          "aciklama": "Brake and blinker cab light brightness now goes from 0 to 100% in 1% steps."
+        },
+        {
+          "baslik": "Game Telemetry warning removed",
+          "aciklama": "The «Game Telemetry» connection warning in the corner is no longer shown."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.12",
       "tarih": "2026-11-21",
       "tr": [
