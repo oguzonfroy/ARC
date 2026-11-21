@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "Yolcu Sesleri 0.2.1",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Yolcular arkadan konuşuyor",
+          "aciklama": "Türkçe yolcu sesleri artık kulağının içinde değil, otobüsün arkasındaki koltuklardan geliyor. Her yolcunun kendi yeri var: kimi solda ön sıralarda, kimi sağda arkalarda. Başını çevirince sesin yönü de değişiyor."
+        },
+        {
+          "baslik": "Otobüs içi akustiği",
+          "aciklama": "Sesler kabin duvarlarından ve ön camdan hafifçe yansıyor; kısa, doğal bir iç mekân hissi var. Yankı abartılmadı, her replik anlaşılır kalıyor."
+        },
+        {
+          "baslik": "Dış kamerada dışarıdan",
+          "aciklama": "Dış ya da serbest kameraya geçince yolcular otobüsün içinden, boğuk ve uzaktan duyuluyor (Auto Drive kurulu olmalı; değilse ses iç kameradaki gibi çalar)."
+        },
+        {
+          "baslik": "Ayarlanabilir",
+          "aciklama": "Belgeler\\ARC Studio\\yolcu_sesleri.cfg dosyasında uzam, yansima ve kuyruk_db ile mekân ve yankı ayarlanabiliyor; uzam 0 eski düz sese döner. Kulaklıkla en iyi sonuç verir. Hâlâ test aşamasında."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Passengers talk from behind you",
+          "aciklama": "Turkish passenger voices no longer sound inside your head; they come from the seats behind you. Every passenger has their own seat, some front-left, some rear-right. Turn your head and the direction changes."
+        },
+        {
+          "baslik": "Bus interior acoustics",
+          "aciklama": "Voices reflect lightly off the cabin walls and windshield for a short, natural interior feel. No heavy echo; every line stays clear."
+        },
+        {
+          "baslik": "Outside on exterior cameras",
+          "aciklama": "On the exterior or free camera, passengers sound muffled and distant from inside the bus (requires Auto Drive; without it voices play as on the interior camera)."
+        },
+        {
+          "baslik": "Adjustable",
+          "aciklama": "In Documents\\ARC Studio\\yolcu_sesleri.cfg, uzam, yansima and kuyruk_db tune space and echo; uzam 0 returns to the old flat sound. Best with headphones. Still in testing."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.42",
       "tarih": "2026-11-21",
       "tr": [
