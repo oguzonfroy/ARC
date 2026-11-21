@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.14 · Yolcu Sesleri 0.2.2",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Sollamada yan şerit karışmıyor",
+          "aciklama": "Öndeki araç artık şeridin kendi çizgisi boyunca aranıyor: virajda ya da şerit değiştirdikten sonra yan şeritteki araç önde sanılmıyor. Bizden hızla uzaklaşan araç için sollama planlanmıyor."
+        },
+        {
+          "baslik": "Gereksiz yavaşlama bitti",
+          "aciklama": "Sizi geçen araca yalnız sollama tarafından geçiyorsa yol veriliyor. En sol şeritteyken sağdan geçenler için ya da kendiniz sollarken yavaşlanmıyor; yol verme en çok 10 sn sürüyor."
+        },
+        {
+          "baslik": "Doğru engel takibi",
+          "aciklama": "Hız sabitleyici yan şeridin ortasındaki aracı engel saymıyor, şeridinize kayan aracı sayıyor (araç genişliğine göre). Hangi aracın neden engel sayıldığı günlüğe yazılıyor."
+        },
+        {
+          "baslik": "Yolcu tepkileri tam zamanında",
+          "aciklama": "Yolcular sert fren, hızlanma ve virajda hareket hissedildiği an tepki veriyor (eşikten sonra ~0,1-0,3 sn); kasiste darbeden önce konuşmuyor. Eski ayar dosyaları kendiliğinden güncelleniyor."
+        },
+        {
+          "baslik": "Gerçek 3D yolcu sesi",
+          "aciklama": "Windows'ta Uzamsal ses (Windows Sonic for Headphones) açıksa yolcular Windows'un 3D ses motoruyla, otobüsün arka koltuklarından ve kabin yansımalarıyla duyuluyor; başınızı çevirince yön değişiyor. Kapalıysa eski ses modeli kullanılır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "No lane mix-ups when overtaking",
+          "aciklama": "The vehicle ahead is now searched along the lane's own line: on curves or after a lane change a vehicle in the next lane is no longer taken as the one ahead. No overtake is planned for a vehicle pulling away from you."
+        },
+        {
+          "baslik": "No more needless slowing",
+          "aciklama": "You only yield to a vehicle passing on the overtaking side. In the leftmost lane, for vehicles passing on the right, or while you overtake, you no longer slow down; yielding lasts at most 10 s."
+        },
+        {
+          "baslik": "Correct obstacle tracking",
+          "aciklama": "Cruise control no longer treats a vehicle in the middle of the next lane as an obstacle, but still does for one drifting into your lane (by vehicle width). Which vehicle is an obstacle and why is written to the log."
+        },
+        {
+          "baslik": "Passenger reactions on time",
+          "aciklama": "Passengers react to hard braking, acceleration and turns as soon as the motion is felt (~0.1-0.3 s after the threshold); on bumps they don't speak before the hit. Old settings files update themselves."
+        },
+        {
+          "baslik": "Real 3D passenger voices",
+          "aciklama": "With Windows Spatial sound (Windows Sonic for Headphones) on, passengers are rendered by Windows' 3D audio engine from the rear seats with cabin reflections; turn your head and the direction changes. Otherwise the old sound model is used."
+        }
+      ]
+    },
+    {
       "surum": "Yolcu Sesleri 0.2.1",
       "tarih": "2026-11-21",
       "tr": [
