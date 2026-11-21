@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.12",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Yeni Hızlı kontroller",
+          "aciklama": "Gösterge'deki Hızlı kontroller yeniden tasarlandı: gruplanmış yuvarlak düğmeler, basınca açılıp kapanır. ⚙ işaretli olanların ayarları alttaki çekmecede açılır. Araç modu (Otomatik / TIR / OTOBÜS) sağ üstte."
+        },
+        {
+          "baslik": "Kabin ışığı parlaklığı",
+          "aciklama": "Frende yanan kırmızı ve sinyalde yanan turuncu kabin ışığının parlaklığı ayrı ayrı ayarlanabiliyor (%0–300). Kabin ışığı > ⚙."
+        },
+        {
+          "baslik": "Sollanınca yavaşla anahtarı",
+          "aciklama": "Biri solundan ya da sağından sollarken yavaşlayıp yol vermek artık isteğe bağlı; Sürüş grubundaki düğmeden kapatılabilir."
+        },
+        {
+          "baslik": "Kabin ışığı kapanmıyor",
+          "aciklama": "Kabin ışığı ayarları kaydedilince fren ve sinyal ışığının kendiliğinden kapanması düzeltildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New Quick controls",
+          "aciklama": "The dashboard Quick controls were redesigned: grouped round buttons that toggle on press. Features marked ⚙ open their settings in the drawer below. Vehicle mode (Auto / TRUCK / BUS) is at the top right."
+        },
+        {
+          "baslik": "Cab light brightness",
+          "aciklama": "The red brake and amber blinker cab lights now have their own brightness (0–300%). Cab light > ⚙."
+        },
+        {
+          "baslik": "Yield when overtaken switch",
+          "aciklama": "Slowing down to make way when someone overtakes on your left or right is now optional; turn it off in the Driving group."
+        },
+        {
+          "baslik": "Cab light stays on",
+          "aciklama": "Fixed the brake and blinker cab light turning itself off when cab light settings were saved."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.40",
       "tarih": "2026-11-21",
       "tr": [
