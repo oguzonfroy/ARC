@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.42",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Yolcu tepkileri gerçek sürüşe göre",
+          "aciklama": "Türkçe Yolcu Sesleri 0.2.0: yolcular artık oyunun telemetrisinden ölçülen G kuvvetine göre tepki veriyor. Sert fren, ani hızlanma, sağ ve sol viraj, savrulma, kasis ve çarpışma birbirinden ayrılıyor; hafif frende ya da küçük titreşimde ses çıkmıyor."
+        },
+        {
+          "baslik": "Yolcu yokken sessiz",
+          "aciklama": "Sesler yalnız otobüste yolcu varken çalıyor. Serbest dolaşımda, ilk durağa giderken, oyun duraklatılınca ya da menüdeyken yolcular susuyor."
+        },
+        {
+          "baslik": "Tekrar eden sesler bitti",
+          "aciklama": "Aynı replik arka arkaya çalmıyor, havuzdaki her replik çalınmadan hiçbiri tekrar gelmiyor, aynı yolcu üst üste konuşmuyor. Sesler üst üste binmiyor; sohbetler seyrek ve doğal aralıklarla."
+        },
+        {
+          "baslik": "Ayarlanabilir eşikler",
+          "aciklama": "Fren, viraj, kasis eşikleri, bekleme süreleri, sohbet sıklığı ve ses seviyesi Belgeler\\ARC Studio\\yolcu_sesleri.cfg dosyasından değiştirilebiliyor. Modül hâlâ test aşamasında: geri bildirimlerinizle ayarlanacak."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Passenger reactions follow real driving",
+          "aciklama": "Turkish Passenger Voices 0.2.0: passengers now react to the G-force measured from the game's telemetry. Hard braking, sudden acceleration, left and right turns, swerving, bumps and crashes are told apart; light braking or small vibrations make no sound."
+        },
+        {
+          "baslik": "Silent without passengers",
+          "aciklama": "Voices only play while there are passengers on the bus. They stay quiet in free roam, on the way to the first stop, while paused and in menus."
+        },
+        {
+          "baslik": "No more repeating voices",
+          "aciklama": "The same line never plays twice in a row, no line repeats before the whole pool is used, and the same passenger doesn't speak back to back. Voices never overlap; chats are rare and naturally spaced."
+        },
+        {
+          "baslik": "Adjustable thresholds",
+          "aciklama": "Braking, turn and bump thresholds, cooldowns, chat frequency and volume can be changed in Documents\\ARC Studio\\yolcu_sesleri.cfg. The module is still in testing and will be tuned with your feedback."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.41",
       "tarih": "2026-11-21",
       "tr": [
