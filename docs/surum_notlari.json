@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.41",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Yeni modül: Türkçe Yolcu Sesleri",
+          "aciklama": "ETS2 Coaches DLC için hazırlanmış Türkçe yolcu tepkileri ve doğal yolcu sesleri. ARC Hub'dan, key'inle indirip tek tıkla ETS2 mod klasörüne kurabilirsin; yeni sürüm çıkınca aynı kartta güncellenir."
+        },
+        {
+          "baslik": "Coaches DLC gerekir",
+          "aciklama": "Mod oyunda yalnız Coaches DLC ile çalışır. ARC key'in indirme iznidir; DLC'nin oyun hesabında olması ayrı bir şarttır. İlk sürüm: oyun içi davranış geri bildirimlerinle ayarlanacak."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New module: Turkish Passenger Voices",
+          "aciklama": "Turkish passenger reactions and natural passenger voices for the ETS2 Coaches DLC. Download it from ARC Hub with your key and install it into the ETS2 mod folder in one click; new versions update from the same card."
+        },
+        {
+          "baslik": "Coaches DLC required",
+          "aciklama": "The mod only works in game with the Coaches DLC. Your ARC key is the download permission; owning the DLC on your game account is a separate requirement. First version: in-game behaviour will be tuned with your feedback."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.13",
       "tarih": "2026-11-21",
       "tr": [
