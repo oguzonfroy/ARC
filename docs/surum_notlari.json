@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.40",
+      "tarih": "2026-11-21",
+      "tr": [
+        {
+          "baslik": "Sistem tepsisi",
+          "aciklama": "ARC ya da Auto Drive penceresini küçültünce artık sağ alttaki simgeler bölümüne iniyor; simgeye tıklayınca geri açılıyor. Uygulama kaybolmuyor (Auto Drive 1.0.11)."
+        },
+        {
+          "baslik": "Oyun içi durum çubuğu",
+          "aciklama": "Auto Drive küçükken oyunun seçtiğin kenarında (üst, alt, sol, sağ) küçük bir çubuk otopilot durumunu, sürüş modunu, hızı, TIR / OTOBÜS modunu ve açık özellikleri gösterir. Gösterge > Hızlı kontroller'den açılır; oyun pencereli ya da kenarlıksız tam ekranda olmalı."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "System tray",
+          "aciklama": "Minimizing ARC or Auto Drive now sends it to the notification area at the bottom right; click the icon to open it again. The app no longer disappears (Auto Drive 1.0.11)."
+        },
+        {
+          "baslik": "In-game status bar",
+          "aciklama": "While Auto Drive is minimized, a small bar on the game edge you pick (top, bottom, left, right) shows autopilot state, driving mode, speed, TRUCK / BUS mode and active features. Turn it on in Dashboard > Quick controls; the game must run windowed or borderless."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.10",
       "tarih": "2026-11-21",
       "tr": [
