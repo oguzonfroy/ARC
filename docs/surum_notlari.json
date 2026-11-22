@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.44",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "Yeni: Grand Fishing",
+          "aciklama": "Grand RP'deki balık mini oyununu ARC oynar: çubuktaki kancayı mavi alanın içinde tutar. ARC Hub'da ayrı bir uygulama olarak gelir; eski Auto Fishing aynen duruyor."
+        },
+        {
+          "baslik": "Canlı görünüm",
+          "aciklama": "ARC'ın oyunda gördüğü çubuk, mavi alan ve kanca pencerede canlı çizilir; her turun isabet oranı yazılır."
+        },
+        {
+          "baslik": "Uygulama içi tanıtım",
+          "aciklama": "İlk açılışta 5 adımlı, animasyonlu bir tanıtım nasıl kullanılacağını gösterir; ? düğmesiyle tekrar açılır."
+        },
+        {
+          "baslik": "Güvenlik korumaları",
+          "aciklama": "FiveM önde değilken ya da çubuk yokken hiçbir tuşa basmaz, alt-tab yapınca fareyi hemen bırakır, tek karelik yanlış algılamada tıklamaz; başlayınca pencere tepsiye iner."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New: Grand Fishing",
+          "aciklama": "ARC plays Grand RP's fishing minigame: it keeps the hook inside the blue zone. It comes as a separate app in ARC Hub; the old Auto Fishing is unchanged."
+        },
+        {
+          "baslik": "Live view",
+          "aciklama": "The bar, blue zone and hook ARC sees in the game are drawn live in the window, with each round's hit rate."
+        },
+        {
+          "baslik": "In-app tutorial",
+          "aciklama": "A 5-step animated tutorial shows how to use it on first launch; reopen it with the ? button."
+        },
+        {
+          "baslik": "Safety guards",
+          "aciklama": "It never presses anything when FiveM isn't in front or no bar is shown, releases the mouse on alt-tab, never clicks on a one-frame false detection; the window goes to the tray when started."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.17",
       "tarih": "2026-11-22",
       "tr": [
