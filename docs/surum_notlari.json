@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.17",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "Gişede bariyere çarpma yok",
+          "aciklama": "Gişede kapı tam açılmadan geçilmez; ödeme sonrası kapı açılırken bariyere çarpma düzeltildi."
+        },
+        {
+          "baslik": "Otobüs dar virajda rotada",
+          "aciklama": "OTOBÜS modunda dar virajlarda arka dingilin içe kesmesi hesaba katılır; otobüs rotayı kaybetmez."
+        },
+        {
+          "baslik": "Orta virajlara daha yavaş",
+          "aciklama": "Otobüs orta keskinlikteki virajlara daha erken yavaşlayarak girer."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "No more hitting toll barriers",
+          "aciklama": "At toll gates the truck waits until the gate is fully open; hitting the barrier while it opens is fixed."
+        },
+        {
+          "baslik": "Bus stays on route in tight bends",
+          "aciklama": "In BUS mode the rear axle cutting inside tight bends is taken into account; the bus no longer loses its route."
+        },
+        {
+          "baslik": "Slower into medium bends",
+          "aciklama": "The bus slows down earlier before medium bends."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.16 · Yolcu Sesleri 0.2.4",
       "tarih": "2026-11-22",
       "tr": [
