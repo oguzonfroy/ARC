@@ -1,6 +1,54 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.16 · Yolcu Sesleri 0.2.4",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "G göstergesine göre yolcular",
+          "aciklama": "Yolcular oyunun G göstergesine göre konuşur: beyazda (6 m/s² altı) sessiz kalır, sarıda tek tek tepki verir, kırmızıda (sert fren / kaza) kaza sesleri duyulur."
+        },
+        {
+          "baslik": "Gereksiz konuşma yok",
+          "aciklama": "Sohbetler çok seyrekleşti (10-25 dakikada bir, çoğu zaman sessiz); olağan sürüşte yolcular konuşmaz."
+        },
+        {
+          "baslik": "Arka sıralardan, derin ses",
+          "aciklama": "Yolcular otobüsün en arka sıralarından konuşur; ses koltukların arkasından, kabinin içinden gelir gibi ve daha kısıktır."
+        },
+        {
+          "baslik": "Otobüs virajda yavaşlamıyor",
+          "aciklama": "OTOBÜS modunda keskin olmayan virajlarda gereksiz yavaşlama düzeltildi; tırdaki progresif viraj hesabı otobüse de geldi."
+        },
+        {
+          "baslik": "Yalnız otobüs modunda",
+          "aciklama": "Otobüs düzeltmeleri yalnız OTOBÜS modunda çalışır; tır eski haliyle sürer."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Passengers follow the G meter",
+          "aciklama": "Passengers react to the game's G-force meter: silent in white (below 6 m/s²), one reaction at a time in yellow, crash voices in red (hard braking / crash)."
+        },
+        {
+          "baslik": "No needless chatter",
+          "aciklama": "Small talk is much rarer (every 10-25 minutes, often silent); passengers stay quiet during normal driving."
+        },
+        {
+          "baslik": "Deep voices from the back",
+          "aciklama": "Passengers talk from the last rows; voices come from behind the seats, deep inside the cabin, and are quieter."
+        },
+        {
+          "baslik": "Bus keeps speed in gentle bends",
+          "aciklama": "In BUS mode the needless slowdown in gentle corners is fixed; the truck's progressive curve calculation now applies to the bus too."
+        },
+        {
+          "baslik": "Bus mode only",
+          "aciklama": "Bus fixes apply only in BUS mode; trucks drive as before."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.43 · Auto Drive 1.0.15 · Yolcu Sesleri 0.2.3",
       "tarih": "2026-11-22",
       "tr": [
