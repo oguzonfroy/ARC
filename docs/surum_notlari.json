@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.45",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "Kararlılık ve performans",
+          "aciklama": "Programın iç yapısı yenilendi; daha hızlı açılır ve daha kararlı çalışır. Yeni bir özellik yok, mevcut her şey aynen çalışır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Stability and performance",
+          "aciklama": "The app's internals were rebuilt; it starts faster and runs more stably. No new features, everything works as before."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.44",
       "tarih": "2026-11-22",
       "tr": [
