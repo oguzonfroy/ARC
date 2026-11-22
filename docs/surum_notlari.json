@@ -1,6 +1,70 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.43 · Auto Drive 1.0.15 · Yolcu Sesleri 0.2.3",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "Otobüs daha akıcı",
+          "aciklama": "OTOBÜS modunda virajlara %10 daha hızlı girilir, kalkış daha çeviktir. Yolcuyu rahatsız etmeyecek sınırların altında kalır."
+        },
+        {
+          "baslik": "Otobüs ani kırmıyor",
+          "aciklama": "Eğimli yolda otobüsün bir anda sola ya da sağa kırması düzeltildi; viraj artık rotanın kendisinden ölçülüyor. Dorseli tır da bundan yararlanır."
+        },
+        {
+          "baslik": "Gişede doğru kabin",
+          "aciklama": "Auto Drive gişede yalnız binek araçlara açık (tıra ve otobüse kapalı) kabinlere girmez, ağır vasıta kabinini seçer."
+        },
+        {
+          "baslik": "Hızlı sollama",
+          "aciklama": "Yeni seçenek (Hızlı kontroller > Sürüş): yavaş aracın arkasında 2 saniye kalınca uzaklığa bakmadan sollar. Kapalıyken eski, temkinli sollama sürer."
+        },
+        {
+          "baslik": "Sollama düzeltmeleri",
+          "aciklama": "Sollayana yol verme döngüsü ve şeridin bittiği yerden ötedeki aracı önde sanma düzeltildi; boş yolda çökme koruması eklendi."
+        },
+        {
+          "baslik": "Mor çerçeve yok",
+          "aciklama": "Oyunda görünen mor çerçeve ve \"Front\" yazısı (deneme ayarı) artık her açılışta kapatılır."
+        },
+        {
+          "baslik": "Yolcu sesleri",
+          "aciklama": "Sesler %28 kısıldı ve arka koltuklardan gelir gibi daha belirgin. 3D ses hatasında yolcular susmaz, normal sese geçer; kurulum yarıda kalırsa geri alınır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Smoother bus",
+          "aciklama": "In BUS mode corners are taken 10% faster and pulling away is quicker, staying below passenger comfort limits."
+        },
+        {
+          "baslik": "No sudden bus swerves",
+          "aciklama": "Fixed the bus suddenly steering left or right on slopes; corners are now measured from the route itself. Trucks with trailers benefit too."
+        },
+        {
+          "baslik": "Right toll booth",
+          "aciklama": "Auto Drive no longer enters car-only toll booths (closed to trucks and buses) and picks a heavy-vehicle booth instead."
+        },
+        {
+          "baslik": "Quick overtake",
+          "aciklama": "New option (Quick controls > Driving): overtakes after staying 2 seconds behind a slow vehicle, whatever the distance. When off, the cautious overtake stays."
+        },
+        {
+          "baslik": "Overtake fixes",
+          "aciklama": "Fixed the yield loop when being overtaken and vehicles past the end of the lane being treated as ahead; added a crash guard on empty roads."
+        },
+        {
+          "baslik": "No purple frame",
+          "aciklama": "The purple frame and \"Front\" label in the game (a debug setting) are now turned off on every start."
+        },
+        {
+          "baslik": "Passenger voices",
+          "aciklama": "28% quieter and clearly coming from the rear seats. On a 3D audio error passengers fall back to normal sound instead of going silent; a half-finished install is rolled back."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.14 · Yolcu Sesleri 0.2.2",
       "tarih": "2026-11-21",
       "tr": [
