@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.46",
+      "tarih": "2026-11-22",
+      "tr": [
+        {
+          "baslik": "Grand Fishing oltayı kendisi atar",
+          "aciklama": "Oltayı envanterde 1. slota koy, Başlat'a bas: ARC oltayı ele alır, atar ve her tur bitince yeniden atar. Mini oyunu yine ARC oynar."
+        },
+        {
+          "baslik": "Güvenli atış",
+          "aciklama": "Alt-tab'dan dönünce hemen tıklamaz; oyun önde ve çubuk bir süre yokken atar. Üst üste 3 atışta balık gelmezse durur ve uyarır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Grand Fishing casts the rod itself",
+          "aciklama": "Put the rod in inventory slot 1 and press Start: ARC equips it, casts, and recasts after every round. ARC still plays the mini-game."
+        },
+        {
+          "baslik": "Safe casting",
+          "aciklama": "No instant click when you alt-tab back; it casts only with the game in front and no bar for a moment. After 3 casts with no bite it stops and warns you."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.45",
       "tarih": "2026-11-22",
       "tr": [
