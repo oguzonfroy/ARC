@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.18",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Araç kendi kendine yoldan çıkmaz",
+          "aciklama": "Direksiyon artık rota yeniden kurulmadan bırakılmaz; araç şeritten saparken direksiyon bırakılıp yoldan çıkma düzeltildi (tır ve otobüs)."
+        },
+        {
+          "baslik": "Direksiyon kaybolursa durur",
+          "aciklama": "Direksiyon herhangi bir sebeple bırakılırsa gaz kesilir ve araç yavaşlayıp durur; istenen hızda dümdüz gitmez."
+        },
+        {
+          "baslik": "Rota bitince durur",
+          "aciklama": "Rota ileriye uzatılamıyorsa araç rotanın sonundan önce durur."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "No more leaving the road by itself",
+          "aciklama": "Steering is no longer released before the route is rebuilt; drifting off the road after steering was released is fixed (truck and bus)."
+        },
+        {
+          "baslik": "Stops if steering is lost",
+          "aciklama": "If steering is released for any reason, throttle is cut and the vehicle slows down and stops instead of driving straight on."
+        },
+        {
+          "baslik": "Stops at the end of the route",
+          "aciklama": "If the route cannot be extended, the vehicle stops before its end."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.46",
       "tarih": "2026-11-22",
       "tr": [
