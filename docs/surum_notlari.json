@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.54",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Grand Fishing daha güvenli",
+          "aciklama": "Tur sonunda tek karelik yanlış algı artık oltayı ele almadan boş elle tıklatmıyor; çubuk kaybolunca fare hemen bırakılıyor."
+        },
+        {
+          "baslik": "ARC Mining ve ARC Drive düzeltmeleri",
+          "aciklama": "Mining acil durdurdan sonra son bir tık göndermiyor; Drive ikinci monitördeki oyunu da görüyor. Ayar dosyası kilitliyse kalibrasyonun artık silinmiyor."
+        },
+        {
+          "baslik": "Güncelleme hakkı korunuyor",
+          "aciklama": "Kurulum yarıda kalırsa yeniden denemede inmiş dosya kullanılıyor, indirme hakkı boşa gitmiyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Safer Grand Fishing",
+          "aciklama": "A single-frame false detection after a round no longer clicks with an empty hand; the mouse is released as soon as the bar disappears."
+        },
+        {
+          "baslik": "ARC Mining and ARC Drive fixes",
+          "aciklama": "Mining no longer sends a last click after emergency stop; Drive also sees the game on a second monitor. A locked settings file no longer wipes your calibration."
+        },
+        {
+          "baslik": "Update downloads are kept",
+          "aciklama": "If an install fails, the retry reuses the downloaded file instead of using up another download."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.53",
       "tarih": "2026-11-23",
       "tr": [
