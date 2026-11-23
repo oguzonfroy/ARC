@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.49",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Grand Fishing: olta kaybolmuyor",
+          "aciklama": "Balık çekilince olta elden gidiyordu. Artık her tur bitince ARC 1'e basıp oltayı 1. slottan yeniden ele alıyor, sonra atıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Grand Fishing: rod no longer disappears",
+          "aciklama": "The rod left your hand after each catch. Now ARC presses 1 after every round to take the rod from slot 1 again, then casts."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.19",
       "tarih": "2026-11-23",
       "tr": [
