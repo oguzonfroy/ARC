@@ -1,6 +1,46 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.19",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Arayüz kilitlenmez",
+          "aciklama": "Oyun Değiştir ARC APP'i açamazsa düğmeler artık kilitlenmez; ne yapman gerektiğini söyleyen bir bildirim çıkar."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Interface no longer freezes",
+          "aciklama": "If Switch game cannot open ARC APP, the buttons no longer freeze; a notification tells you what to do."
+        }
+      ]
+    },
+    {
+      "surum": "v3.0.48",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Oyun Değiştir yeniden çalışıyor",
+          "aciklama": "Auto Drive'daki Oyun Değiştir artık ARC APP'i açıyor; arayüzün kilitlenmesi düzeltildi."
+        },
+        {
+          "baslik": "Otomatik güncelleme düzeltildi",
+          "aciklama": "v3.0.45'ten beri bazı güncellemeler yarıda geri alınıyordu; güncelleme artık sorunsuz tamamlanır."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Switch game works again",
+          "aciklama": "Switch game in Auto Drive opens ARC APP again; the frozen interface is fixed."
+        },
+        {
+          "baslik": "Automatic update fixed",
+          "aciklama": "Since v3.0.45 some updates were rolled back halfway; updates now complete normally."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.47",
       "tarih": "2026-11-23",
       "tr": [
