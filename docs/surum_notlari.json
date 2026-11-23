@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.56",
+      "tarih": "2026-11-24",
+      "tr": [
+        {
+          "baslik": "Grand Fishing yeni arayüz",
+          "aciklama": "Panel baştan tasarlandı: tam boy menü, ikonlu istatistik kartları, büyük canlı görünüm, ortada Başlat düğmesi ve sağda son aktiviteler."
+        },
+        {
+          "baslik": "Lisans rozeti ve isabet eğrisi",
+          "aciklama": "Üst bantta lisans durumu, Ortalama kartında bu oturumun son turlarının isabeti görünüyor. Balık tutma mantığı değişmedi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New Grand Fishing interface",
+          "aciklama": "The panel was redesigned: full-height menu, stat cards with icons, a larger live view, a centred Start button and recent activity on the right."
+        },
+        {
+          "baslik": "License badge and accuracy trend",
+          "aciklama": "The top band shows your license status and the Average card shows the accuracy of this session's recent rounds. Fishing logic is unchanged."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.20",
       "tarih": "2026-11-24",
       "tr": [
