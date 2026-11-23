@@ -10,7 +10,7 @@
         },
         {
           "baslik": "ARC Mining ve ARC Drive düzeltmeleri",
-          "aciklama": "Mining acil durdurdan sonra son bir tık göndermiyor; Drive ikinci monitördeki oyunu da görüyor. Ayar dosyası kilitliyse kalibrasyonun artık silinmiyor."
+          "aciklama": "Mining acil durdurdan sonra son bir tık göndermiyor; Drive ikinci monitördeki oyunu da görüyor. Ayar dosyası kilitliyse kalibrasyon artık silinmiyor."
         },
         {
           "baslik": "Güncelleme hakkı korunuyor",
