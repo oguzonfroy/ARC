@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.51",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Yepyeni ARC HUB",
+          "aciklama": "Hub baştan tasarlandı: mor neon tema, büyük karşılama alanı, görselli modül kartları ve önerilen Grand Fishing kartı."
+        },
+        {
+          "baslik": "Modül arama",
+          "aciklama": "Modül adına, oyuna ya da açıklamaya göre ara; büyük / küçük harf ve Türkçe I-İ farkı sorun olmaz."
+        },
+        {
+          "baslik": "Ayarlar, Güncellemeler, Hakkında",
+          "aciklama": "Hub'dan açılışta son modülü sormadan açma, arayüz sesleri ve dil ayarlanır; yüklü sürüm, bileşenler ve sürüm notları görünür."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "All-new ARC HUB",
+          "aciklama": "The Hub was redesigned: purple neon theme, a large welcome banner, illustrated module cards and a featured Grand Fishing card."
+        },
+        {
+          "baslik": "Module search",
+          "aciklama": "Search by module name, game or description; upper / lower case does not matter."
+        },
+        {
+          "baslik": "Settings, Updates, About",
+          "aciklama": "Set opening the last module without asking, interface sounds and language from the Hub; see the installed version, components and release notes."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.50",
       "tarih": "2026-11-23",
       "tr": [
