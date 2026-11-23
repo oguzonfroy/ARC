@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.47",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Grand Fishing'e yepyeni arayüz",
+          "aciklama": "Grand Fishing sıfırdan tasarlandı: canlı mini oyun görünümü, istatistik kartları, tur geçmişi ve adım adım tanıtım."
+        },
+        {
+          "baslik": "Mini oyunu canlı izle",
+          "aciklama": "Kancanın bölgede olup olmadığı, sol tık ve bu turun isabeti akıcı biçimde canlı görünür; tur bitince isabet kartı çıkar."
+        },
+        {
+          "baslik": "Tur geçmişi",
+          "aciklama": "Bu oturumdaki her turun süresi ve isabeti listelenir; ortalama ve en iyi isabet ayrıca gösterilir."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Brand-new Grand Fishing interface",
+          "aciklama": "Grand Fishing was redesigned from scratch: live mini-game view, stat cards, round history and a step-by-step guide."
+        },
+        {
+          "baslik": "Watch the mini-game live",
+          "aciklama": "Whether the hook is in the zone, the left click and this round's accuracy are shown smoothly in real time; a result card appears when a round ends."
+        },
+        {
+          "baslik": "Round history",
+          "aciklama": "Every round of the session is listed with its duration and accuracy, plus the average and best accuracy."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.18",
       "tarih": "2026-11-23",
       "tr": [
