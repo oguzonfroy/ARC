@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.20",
+      "tarih": "2026-11-24",
+      "tr": [
+        {
+          "baslik": "Çoklu dorsede çarpma azaldı",
+          "aciklama": "Çift dorse, B-double ve HCT kombinasyonlarında virajda savrulan arka dorse artık hesaba katılıyor; yanındaki araç görülüyor ve o tarafa şerit değişimi bekletiliyor."
+        },
+        {
+          "baslik": "Tek dorse aynı",
+          "aciklama": "Tek dorseli ve dorsesiz sürüşte davranış değişmedi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Fewer collisions with multiple trailers",
+          "aciklama": "With double, B-double and HCT combinations, the rear trailer swinging out in corners is now taken into account; vehicles next to it are detected and lane changes to that side are held."
+        },
+        {
+          "baslik": "Single trailer unchanged",
+          "aciklama": "Driving with one trailer or none behaves exactly as before."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.54",
       "tarih": "2026-11-23",
       "tr": [
