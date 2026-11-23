@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.53",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Grand Fishing Hub'dan yine açılıyor",
+          "aciklama": "Yeni Hub'da Grand Fishing kartına basınca pencere açılıyor ama sayfa gelmiyordu (404). Düzeltildi."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Grand Fishing opens from the Hub again",
+          "aciklama": "Clicking the Grand Fishing card in the new Hub opened an empty window (404). Fixed."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.51",
       "tarih": "2026-11-23",
       "tr": [
