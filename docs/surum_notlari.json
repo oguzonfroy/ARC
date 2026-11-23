@@ -1,6 +1,22 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.50",
+      "tarih": "2026-11-23",
+      "tr": [
+        {
+          "baslik": "Grand Fishing: balıktan sonra yeniden atış",
+          "aciklama": "Oyun balığı envantere götürüp oltayı bırakana kadar (7,5 sn) bekleniyor; 1,25 sn sonra ARC 1'e basıp oltayı yeniden alıyor ve atıyor. Olta her zaman 1. slotta durmalı."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Grand Fishing: recast after a catch",
+          "aciklama": "ARC waits until the game moves the fish to your inventory and drops the rod (7.5 s), then 1.25 s later presses 1 to take the rod again and casts. Keep the rod in slot 1."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.49",
       "tarih": "2026-11-23",
       "tr": [
