@@ -1,8 +1,8 @@
 {
-  "version": "0.1.2",
-  "url": "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.2/ARC-Studio-Setup-0.1.2.exe",
-  "sha256": "3bc072042a67588a3932664e248a0aa1a91419341d52b47b5e83082ec9719d3c",
-  "size": 209079364,
-  "notes": "Otomatik güncelleme: yeni sürümler artık uygulama içinden kendiliğinden inip kuruluyor.",
-  "sig": "XdVu0Elf4ZGr9hy8bUmn1wIt/eooAqmBG3muKrWz0QPcISM+E9LZtzHkE636ylBEteRinXpLTUmV9ebouTUaAQ=="
+  "version": "0.1.3",
+  "url": "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.3/ARC-Studio-Setup-0.1.3.exe",
+  "sha256": "239380dafbe15e9016981aed73a0a4ce8568f898db591b35b14d78867ec9e3bb",
+  "size": 209089956,
+  "notes": "Yeni: ARC Auto Cut ile konuşmadaki sessizlikler tek tıkla kesilir, altyazılardaki doldurma kelimeleri (ııı, eee, hmm) silinir, müzik konuşma sırasında otomatik kısılır, yeşil perde ile arka plan rengi silinir. Düzeltme: yuvarlak köşeli kliplerde dışa aktarmanın ara sıra takılı kalması giderildi.",
+  "sig": "6n1LdYCNbWgHFjvXGrhnPVSH3s2de5Br+btn1x/Yzs5ugq+eNpPX80UjmVaE4BowuPwvFzdRuVpDiwVLlS9lBA=="
 }
