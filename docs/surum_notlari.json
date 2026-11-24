@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.22",
+      "tarih": "2026-11-25",
+      "tr": [
+        {
+          "baslik": "Duran araç geri gitmiyor",
+          "aciklama": "Otopilot aracı durdururken freni basılı tutuyordu; oyunun otomatik vitesi bunu geri vites sayıp aracı geri götürüyordu. Artık durunca fren bırakılıyor, yokuşta geri kayarsa hafif gazla tutuluyor."
+        },
+        {
+          "baslik": "Hedefte dur ve otomatik yakıt/mola",
+          "aciklama": "Hedefte dururken ve benzinlikte beklerken de aynı sorun vardı, düzeltildi. Hedefte durunca el freni hemen çekiliyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Stopped truck no longer reverses",
+          "aciklama": "Autopilot kept the brake pressed after stopping; the game's automatic gearbox took it as reverse and the truck backed up. The brake is now released once stopped, and a light throttle holds the truck if it rolls back on a slope."
+        },
+        {
+          "baslik": "Stop at destination and auto fuel/rest",
+          "aciklama": "The same issue happened while stopping at the destination and waiting at fuel stations; fixed. The parking brake is now applied as soon as the truck stops at the destination."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.21",
       "tarih": "2026-11-24",
       "tr": [
