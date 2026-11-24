@@ -1,0 +1,6 @@
+{
+  "aciklama": "Indirme sayaci = elden dagitim (kullanicinin bildirdigi, GitHub disi) + GitHub surum indirmeleri (canli). Sayi esigin altindaysa gosterilmez.",
+  "esik": 100,
+  "studio": { "elden": 300, "etiket": "studio-v" },
+  "soundpad": { "elden": 0, "etiket": "soundpad-v" }
+}

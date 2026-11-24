@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ARC Studio</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' https://vzibpccxwknhakzgmxfy.supabase.co; form-action 'self' https://www.shopier.com; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' https://vzibpccxwknhakzgmxfy.supabase.co https://api.github.com; form-action 'self' https://www.shopier.com; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="ARC: ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro ve ARC Drive tek uygulamada; ARC Phone FiveM scripti.">
 <meta property="og:title" content="ARC Studio">
@@ -591,6 +591,8 @@
   .ucr-ust h3 { margin: 0; font: 800 21px/1.15 var(--display); }
   .ucr-yeni { font: 700 11px/1 var(--mono); letter-spacing: .14em; color: #fff; background: var(--violet); border-radius: 999px; padding: 6px 9px; }
   .ucr-ic p { margin: 0; color: var(--mute); font-size: 15px; }
+  .ucr-say { padding: 4px 11px; border-radius: 999px; font: 700 13px/1.4 var(--display); color: #e9ddff;
+    background: rgba(139,92,246,.16); border: 1px solid rgba(167,139,250,.4); }
   .ucr-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 4px; }
   .ucr-alt .btn-ghost { padding-inline: 16px; }
   .ss-not { margin: 2px 0 0; font-size: 13px; color: var(--mute); }
@@ -1006,7 +1008,7 @@
       <article class="ucr-kart">
         <img src="studio/arc-studio.png" alt="" width="84" height="84">
         <div class="ucr-ic">
-          <div class="ucr-ust"><h3>ARC Studio</h3><span class="ucr-yeni">YENİ</span><span class="sp-cip">ÜCRETSİZ</span></div>
+          <div class="ucr-ust"><h3>ARC Studio</h3><span class="ucr-yeni">YENİ</span><span class="sp-cip">ÜCRETSİZ</span><span class="ucr-say" data-sayac="studio" hidden></span></div>
           <p>Video editörü: oyun videonu tek tıkla TikTok, Reels ve Shorts'a çevir. Webcam yerleşimi, yapay zekâ altyazı, efektler.</p>
           <div class="ucr-alt">
             <a class="btn btn-main" data-urun="studio" href="https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.1/ARC-Studio-Setup-0.1.1.exe" rel="noopener">Ücretsiz indir</a>
@@ -1018,7 +1020,7 @@
       <article class="ucr-kart">
         <img src="soundpad/soundpad.png" alt="" width="84" height="84">
         <div class="ucr-ic">
-          <div class="ucr-ust"><h3>Universal Soundpad</h3><span class="sp-cip">ÜCRETSİZ</span></div>
+          <div class="ucr-ust"><h3>Universal Soundpad</h3><span class="sp-cip">ÜCRETSİZ</span><span class="ucr-say" data-sayac="soundpad" hidden></span></div>
           <p>Ses efektlerini oyunda ve Discord'da mikrofona çal. Açtığın oyuna göre doğru profil kendiliğinden gelir.</p>
           <div class="ucr-alt">
             <a class="btn btn-main" data-urun="soundpad" href="https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.1/UniversalSoundpad-Setup-1.0.1.exe" rel="noopener">Ücretsiz indir</a>
@@ -1264,6 +1266,30 @@
 </script>
 
 <script>
+/* İndirme sayacı: sayac.json'daki elden dağıtım + GitHub sürümlerinin gerçek indirme sayısı; eşiğin altındaysa gizli. */
+(function () {
+  var onbellek = null;
+  try { onbellek = JSON.parse(sessionStorage.getItem("arc-gh-indirme") || "null"); } catch (e) {}
+  var gh = onbellek ? Promise.resolve(onbellek) : fetch("https://api.github.com/repos/oguzonfroy/ARC/releases?per_page=100")
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (rs) {
+      var t = rs.map(function (r) { return [r.tag_name, r.assets.reduce(function (n, a) { return n + (a.download_count || 0); }, 0)]; });
+      try { sessionStorage.setItem("arc-gh-indirme", JSON.stringify(t)); } catch (e) {}
+      return t;
+    }).catch(function () { return []; });
+  Promise.all([fetch("sayac.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }), gh]).then(function (v) {
+    var cfg = v[0], t = v[1];
+    if (!cfg) return;
+    document.querySelectorAll("[data-sayac]").forEach(function (el) {
+      var u = cfg[el.getAttribute("data-sayac")];
+      if (!u) return;
+      var n = (u.elden || 0) + t.reduce(function (s, x) { return s + (String(x[0]).indexOf(u.etiket) === 0 ? x[1] : 0); }, 0);
+      if (n < (cfg.esik || 0)) return;
+      el.textContent = "⬇ " + n.toLocaleString("tr-TR") + " indirme";
+      el.hidden = false;
+    });
+  }).catch(function () {});
+})();
 /* ARC Studio: sürüm, boyut ve adres aynı sitedeki studio/latest.json'dan; adres yalnız kendi GitHub sürümümüzse kullanılır. */
 (function () {
   var ON = "https://github.com/oguzonfroy/ARC/releases/download/studio-v";
