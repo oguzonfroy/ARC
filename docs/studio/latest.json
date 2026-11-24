@@ -1,7 +1,8 @@
 {
-    "version":  "0.1.1",
-    "url":  "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.1/ARC-Studio-Setup-0.1.1.exe",
-    "sha256":  "559eb0b64610de47fd7c9ce52fe0a859d0e3dca02dffbd599a7c1aa7399c6ff7",
-    "size":  209074543,
-    "notes":  "Otomatik altyazı düzeltmeleri: doğru ses kaynağı, sözlerle senkron zamanlama, ses notları ayıklanıyor."
+  "version": "0.1.2",
+  "url": "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.2/ARC-Studio-Setup-0.1.2.exe",
+  "sha256": "3bc072042a67588a3932664e248a0aa1a91419341d52b47b5e83082ec9719d3c",
+  "size": 209079364,
+  "notes": "Otomatik güncelleme: yeni sürümler artık uygulama içinden kendiliğinden inip kuruluyor.",
+  "sig": "XdVu0Elf4ZGr9hy8bUmn1wIt/eooAqmBG3muKrWz0QPcISM+E9LZtzHkE636ylBEteRinXpLTUmV9ebouTUaAQ=="
 }
