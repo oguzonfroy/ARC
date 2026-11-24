@@ -572,6 +572,43 @@
   .sp-not { font-size: 14px; color: var(--mute); overflow-wrap: anywhere; }
   .sp-not code { font: 500 12px/1.4 var(--mono); color: var(--lilac); }
   @media (max-width: 640px) { .sp-kart { grid-template-columns: 1fr; } .sp-kart > img { max-width: 140px; } .sp-alt .btn { width: 100%; justify-content: center; } }
+  /* Ücretsiz uygulamalar: menünün altında, herkesin ilk gördüğü şerit (ARC Studio + Universal Soundpad) */
+  .nav-free { color: #0b2414 !important; background: var(--ok); border-radius: 999px; padding: 6px 12px !important; font-weight: 800; }
+  .ucr-sec { padding-block: clamp(26px, 4vw, 44px); border-bottom: 1px solid var(--line);
+    background: radial-gradient(ellipse 60% 120% at 15% 0%, color-mix(in srgb, var(--violet) 22%, transparent), transparent 70%),
+                radial-gradient(ellipse 50% 120% at 90% 100%, color-mix(in srgb, var(--ok) 14%, transparent), transparent 70%); }
+  .ucr-bas { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; margin-bottom: 18px; }
+  .ucr-bas h2 { margin: 0; font: 800 clamp(24px, 3.4vw, 36px)/1.1 var(--display); }
+  .ucr-bas h2 em { font-style: normal; color: var(--ok); }
+  .ucr-bas p { margin: 0; color: var(--mute); }
+  .ucr-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .ucr-kart { position: relative; display: grid; grid-template-columns: 84px 1fr; gap: 18px; align-items: center; padding: 20px 22px; border-radius: 20px;
+    background: var(--deep); border: 1px solid color-mix(in srgb, var(--ok) 35%, var(--line)); transition: transform .2s, border-color .2s, box-shadow .2s; }
+  .ucr-kart:hover { transform: translateY(-3px); border-color: var(--ok); box-shadow: 0 14px 40px color-mix(in srgb, var(--ok) 18%, transparent); }
+  .ucr-kart > img { width: 84px; height: 84px; border-radius: 20px; display: block; }
+  .ucr-ic { display: grid; gap: 8px; min-width: 0; }
+  .ucr-ust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+  .ucr-ust h3 { margin: 0; font: 800 21px/1.15 var(--display); }
+  .ucr-yeni { font: 700 11px/1 var(--mono); letter-spacing: .14em; color: #fff; background: var(--violet); border-radius: 999px; padding: 6px 9px; }
+  .ucr-ic p { margin: 0; color: var(--mute); font-size: 15px; }
+  .ucr-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 4px; }
+  .ucr-alt .btn-ghost { padding-inline: 16px; }
+  @media (max-width: 820px) { .ucr-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .ucr-kart { grid-template-columns: 1fr; } .ucr-alt .btn { width: 100%; justify-content: center; } }
+
+  /* ARC Studio video editörü bölümü */
+  .st-sec { border-top: 1px solid var(--line); padding-block: clamp(48px, 7vw, 88px); }
+  .st-video { position: relative; max-width: 1040px; margin: 0 auto 22px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .5), 0 0 80px color-mix(in srgb, var(--violet) 22%, transparent); background: #000; }
+  .st-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .st-ekran { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 1040px; margin: 0 auto 22px; }
+  .st-ekran figure { margin: 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--deep); }
+  .st-ekran img { display: block; width: 100%; height: auto; }
+  .st-ekran figcaption { padding: 10px 12px; font-size: 14px; color: var(--mute); }
+  .st-indir { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 22px;
+    padding: 20px 24px; border-radius: 20px; background: var(--deep); border: 1px solid color-mix(in srgb, var(--ok) 35%, var(--line)); }
+  .st-indir b { font: 800 20px/1.2 var(--display); }
+  @media (max-width: 720px) { .st-ekran { grid-template-columns: 1fr; } .st-indir .btn { width: 100%; justify-content: center; } }
 </style>
 <script>
   /* Açılış animasyonu: oturum başına bir kez. Ödeme dönüşünde, Discord girişinde ve "hareketi azalt" tercihinde atlanır.
@@ -952,10 +989,43 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="arc.png" alt="">ARC</a>
-    <div class="links"><a href="#urunler">Ürünler</a><a href="#indir">İndir</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#sss">SSS</a></div>
+    <div class="links"><a class="nav-free" href="#ucretsiz">Ücretsiz</a><a href="#urunler">Ürünler</a><a href="#indir">İndir</a><a href="#yenilikler">Yenilikler</a><a href="#lisans">Lisans</a><a href="#sss">SSS</a></div>
     <div class="nav-cta"><a class="btn btn-ghost" href="#indir">İndir</a><a class="btn btn-main" href="#lisans">Satın Al</a></div>
   </div>
 </nav>
+
+<section id="ucretsiz" class="ucr-sec" aria-label="Ücretsiz uygulamalar">
+  <div class="wrap">
+    <div class="ucr-bas">
+      <h2>Bunlar <em>ücretsiz</em>. Anahtar gerekmez.</h2>
+      <p>Hemen indir, kur, kullan. Hesap yok, abonelik yok, filigran yok.</p>
+    </div>
+    <div class="ucr-grid">
+      <article class="ucr-kart">
+        <img src="studio/arc-studio.png" alt="" width="84" height="84">
+        <div class="ucr-ic">
+          <div class="ucr-ust"><h3>ARC Studio</h3><span class="ucr-yeni">YENİ</span><span class="sp-cip">ÜCRETSİZ</span></div>
+          <p>Video editörü: oyun videonu tek tıkla TikTok, Reels ve Shorts'a çevir. Webcam yerleşimi, yapay zekâ altyazı, efektler.</p>
+          <div class="ucr-alt">
+            <a class="btn btn-main" data-urun="studio" href="https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.0/ARC-Studio-Setup-0.1.0.exe" rel="noopener">Ücretsiz indir</a>
+            <a class="btn btn-ghost" href="#studio">Tanıtımı izle</a>
+          </div>
+        </div>
+      </article>
+      <article class="ucr-kart">
+        <img src="soundpad/soundpad.png" alt="" width="84" height="84">
+        <div class="ucr-ic">
+          <div class="ucr-ust"><h3>Universal Soundpad</h3><span class="sp-cip">ÜCRETSİZ</span></div>
+          <p>Ses efektlerini oyunda ve Discord'da mikrofona çal. Açtığın oyuna göre doğru profil kendiliğinden gelir.</p>
+          <div class="ucr-alt">
+            <a class="btn btn-main" data-urun="soundpad" href="https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.1/UniversalSoundpad-Setup-1.0.1.exe" rel="noopener">Ücretsiz indir</a>
+            <a class="btn btn-ghost" href="#soundpad">Ayrıntılar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section id="lisans" class="satin-sec satin-ust">
   <div class="wrap">
@@ -1109,6 +1179,39 @@
   </div>
 </section>
 
+<section id="studio" class="st-sec">
+  <div class="wrap">
+    <div class="sec-head" style="justify-items:center;text-align:center">
+      <div class="eyebrow">Yeni · Ücretsiz</div>
+      <h2>ARC Studio: video editörü</h2>
+      <p class="lead">Oyun videonu sürükle, platformu seç, dikey videon hazır. TikTok, YouTube ve Instagram yayıncıları için; tamamen ücretsiz.</p>
+    </div>
+    <div class="st-video">
+      <video id="studio-video" src="studio/arc-studio-tanitim.mp4" poster="studio/arc-studio-poster.jpg" controls muted playsinline preload="metadata" aria-label="ARC Studio tanıtım videosu"></video>
+    </div>
+    <ul class="sp-ozellik" style="max-width:1040px;margin:0 auto 22px">
+      <li>Smart Reels: yatay videon tek tıkla 9:16</li>
+      <li>8 hazır oyun + webcam yerleşimi</li>
+      <li>Yapay zekâ altyazı, kelime kelime vurgu</li>
+      <li>Streamer Mode: oyun, kamera, mikrofon senkron</li>
+      <li>Efektler, filtreler, geçişler, başlıklar</li>
+      <li>GPU hızlandırmalı dışa aktarma, 60 FPS</li>
+      <li>Videoların bilgisayarından çıkmaz</li>
+      <li>Türkçe ve İngilizce arayüz</li>
+    </ul>
+    <div class="st-ekran">
+      <figure><img src="studio/07_l_sag_alt.webp" alt="ARC Studio: oyun ve webcam ile dikey video yerleşimi" loading="lazy" width="1280" height="720"><figcaption>Smart Reels · webcam sağ alt</figcaption></figure>
+      <figure><img src="studio/15_altyazi.webp" alt="ARC Studio: yapay zekâ ile otomatik Türkçe altyazı" loading="lazy" width="1280" height="720"><figcaption>AI altyazı · kelime kelime vurgu</figcaption></figure>
+      <figure><img src="studio/18_disa_aktar_bitti.webp" alt="ARC Studio: TikTok, Reels, Shorts için dışa aktarma" loading="lazy" width="1280" height="720"><figcaption>Social Export · GPU ile hızlı</figcaption></figure>
+    </div>
+    <div class="st-indir">
+      <div><b>ARC Studio</b> <span class="sp-cip">ÜCRETSİZ</span><div class="sp-not" id="st-boyut">Windows 10 / 11 · 64 bit</div></div>
+      <a class="btn btn-main" id="st-indir" data-urun="studio" href="https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.0/ARC-Studio-Setup-0.1.0.exe" rel="noopener">Ücretsiz indir</a>
+    </div>
+    <div class="sp-not" id="st-sha" style="max-width:1040px;margin:10px auto 0" hidden>SHA-256: <code id="st-sha-d"></code></div>
+  </div>
+</section>
+
 <section id="soundpad" class="sp-sec">
   <div class="wrap">
     <div class="sec-head" style="justify-items:center;text-align:center">
@@ -1128,7 +1231,7 @@
         </ul>
         <p>Mikrofona ses vermek için ücretsiz <b>VB-Audio Virtual Cable</b> gerekir; yoksa program kurulum yolunu gösterir. ARC APP kullanıyorsan Hub'daki Soundpad kartından da tek tıkla kurabilirsin.</p>
         <div class="sp-alt">
-          <a class="btn btn-main" id="sp-indir" href="https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.0/UniversalSoundpad-Setup-1.0.0.exe" rel="noopener">Ücretsiz indir</a>
+          <a class="btn btn-main" id="sp-indir" data-urun="soundpad" href="https://github.com/oguzonfroy/ARC/releases/download/soundpad-v1.0.0/UniversalSoundpad-Setup-1.0.0.exe" rel="noopener">Ücretsiz indir</a>
           <span class="sp-not" id="sp-boyut">Kurulum yönetici izni istemez.</span>
         </div>
         <div class="sp-not" id="sp-sha" hidden>SHA-256: <code id="sp-sha-d"></code></div>
@@ -1145,13 +1248,43 @@
     if (!j || typeof j.version !== "string" || !/^\d+\.\d+\.\d+$/.test(j.version)) return;
     var url = ON + j.version + "/UniversalSoundpad-Setup-" + j.version + ".exe";
     if (j.url !== url || typeof j.sha256 !== "string" || !/^[0-9a-f]{64}$/.test(j.sha256)) return;
-    document.getElementById("sp-indir").href = url;
+    document.querySelectorAll('[data-urun="soundpad"]').forEach(function (a) { a.href = url; });
     document.getElementById("sp-ver").textContent = "Sürüm " + j.version;
     if (typeof j.size === "number" && j.size > 0)
       document.getElementById("sp-boyut").textContent = (j.size / 1048576).toFixed(1).replace(".", ",") + " MB · Kurulum yönetici izni istemez.";
     document.getElementById("sp-sha-d").textContent = j.sha256;
     document.getElementById("sp-sha").hidden = false;
   }).catch(function () {});
+})();
+</script>
+
+<script>
+/* ARC Studio: sürüm, boyut ve adres aynı sitedeki studio/latest.json'dan; adres yalnız kendi GitHub sürümümüzse kullanılır. */
+(function () {
+  var ON = "https://github.com/oguzonfroy/ARC/releases/download/studio-v";
+  fetch("studio/latest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j || typeof j.version !== "string" || !/^\d+\.\d+\.\d+$/.test(j.version)) return;
+    var url = ON + j.version + "/ARC-Studio-Setup-" + j.version + ".exe";
+    if (j.url !== url || typeof j.sha256 !== "string" || !/^[0-9a-f]{64}$/.test(j.sha256)) return;
+    document.querySelectorAll('[data-urun="studio"]').forEach(function (a) { a.href = url; });
+    if (typeof j.size === "number" && j.size > 0)
+      document.getElementById("st-boyut").textContent = "Sürüm " + j.version + " · " + Math.round(j.size / 1048576) + " MB · Windows 10 / 11";
+    document.getElementById("st-sha-d").textContent = j.sha256;
+    document.getElementById("st-sha").hidden = false;
+  }).catch(function () {});
+})();
+/* Ücretsiz indirme sayacı: butona basılınca sunucuya ürün adı gider (IP ve çerez saklanmaz), indirme hemen başlar. */
+(function () {
+  var adres = "https://vzibpccxwknhakzgmxfy.supabase.co/rest/v1/rpc/free_download";
+  var anahtar = "sb_publishable_jGZPav4_4lXkdlf7ZRFnoA_19FXcP_p";
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[data-urun]");
+    if (!a) return;
+    try {
+      fetch(adres, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json", apikey: anahtar },
+        body: JSON.stringify({ p_product: a.getAttribute("data-urun"), p_ref: document.referrer || null, p_utm: new URLSearchParams(location.search).get("utm_source") }) }).catch(function () {});
+    } catch (x) { /* sayaç indirmeyi asla engellemesin */ }
+  });
 })();
 </script>
 
