@@ -1,6 +1,30 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.21",
+      "tarih": "2026-11-24",
+      "tr": [
+        {
+          "baslik": "Yayında gizle",
+          "aciklama": "Hızlı kontroller > Oyun içi'ndeki yeni seçenek açıkken mavi şerit çizgisi OBS ve Discord yayınında görünmez, yalnız senin ekranında kalır. Oyun pencereli ya da kenarlıksız olmalı."
+        },
+        {
+          "baslik": "Gişede doğru kabin",
+          "aciklama": "Tır artık yalnız binek araçlara açık gişe kabinine girmiyor; ağır vasıta kabinine yöneliyor. Yan şerit doluysa şerit değişimini iptal etmek yerine sürünerek boşluk bekliyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "Hide from stream",
+          "aciklama": "With the new option under Quick controls > In-game, the blue lane line no longer shows on OBS or Discord streams; it stays on your screen only. The game must run windowed or borderless."
+        },
+        {
+          "baslik": "Correct toll booth",
+          "aciklama": "The truck no longer enters toll booths open only to cars; it heads for the heavy vehicle booth. If the side lane is busy it creeps and waits for a gap instead of cancelling the lane change."
+        }
+      ]
+    },
+    {
       "surum": "v3.0.56",
       "tarih": "2026-11-24",
       "tr": [
