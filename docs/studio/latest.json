@@ -1,8 +1,8 @@
 {
-  "version": "0.1.4",
-  "url": "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.4/ARC-Studio-Setup-0.1.4.exe",
-  "sha256": "8ded42e3be280b677371f9ae5cf3f7c55c1ae3b6da11d1329a1b0b564520930b",
-  "size": 209096056,
-  "notes": "Türkçe otomatik altyazı çok daha doğru (yeni Turbo model) ve sözle tam zamanında; kısık mikrofonda kelime kaçırma düzeltildi.",
-  "sig": "WfPzt1zXg3A08Em212nHakRgHCSpr7eHfHQ+wJb5j3knICwgbM/KXZ/eozUmjapROQ1XoaW49Li58ygSRMz2Cg=="
+  "version": "0.1.5",
+  "url": "https://github.com/oguzonfroy/ARC/releases/download/studio-v0.1.5/ARC-Studio-Setup-0.1.5.exe",
+  "sha256": "341fa6a8e00d8d471de8bf98a46867cac8535a3f98567a1ca4488c76f2f2fccf",
+  "size": 209116517,
+  "notes": "İşaretler ve notlar, sağ tık menüleri (böl, kırp, hız, sil ve boşluğu kapat), ARC Auto Reels ile en iyi anlardan otomatik dikey video, 720p-4K çıktı ve 4K videolarda akıcı önizleme.",
+  "sig": "V7RgaCKqH3ZAIZALj5zDr18HOF3yEDNTNhP5grO93hAKTlMCkZybGyu6Rg4XOaoe/57G1A8QQIRNigJl8k/2DQ=="
 }
