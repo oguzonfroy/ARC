@@ -2110,6 +2110,8 @@
       for (const [k, deger] of Object.entries(d.fields)) { const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = deger; f.append(i); }
       document.body.append(f); f.submit();
     } catch (err) {
+      // Ödeme sunucusuna hiç ulaşılamıyorsa (ör. Supabase kotası) satış Shopier'deki ürün sayfasından sürer
+      if (!err || !err.message || /fetch|network/i.test(err.message)) { location.href = SHOPIER_URUN; return; }
       $('od-msg').textContent = err && err.message && !/fetch|network/i.test(err.message) ? err.message : 'Bağlantı kurulamadı. İnternetini kontrol edip tekrar dene.';
       btn.disabled = false; btn.innerHTML = eski;
     }
