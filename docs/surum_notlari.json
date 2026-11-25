@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "Auto Drive 1.0.23",
+      "tarih": "2026-11-25",
+      "tr": [
+        {
+          "baslik": "Gişede durup kalma",
+          "aciklama": "Ödeme yapılıp bariyer kalktığı hâlde araç gişede bekliyordu: yan şeridin kapalı bariyeri hedef alınıyordu. Artık yalnız aracın kendi şeridindeki kapıya bakılıyor; otomatik (elektronik) geçişlerde de geçerli."
+        },
+        {
+          "baslik": "İspanya ve Avusturya gişeleri",
+          "aciklama": "Tır ve otobüs, yalnız arabalara açık kabine girmiyor; ağır vasıta kabinine yöneliyor."
+        },
+        {
+          "baslik": "Yakıt uyarısı",
+          "aciklama": "Otomatik yakıt kapalıyken yakıt azalınca sesli ve ekranda uyarı veriliyor; yakıt bitip yolda kalınmıyor."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "No more waiting at toll gates",
+          "aciklama": "The truck kept waiting after paying even though its own barrier opened: the closed barrier of the next lane was being targeted. Only the gate of the truck's own lane is considered now, including electronic toll lanes."
+        },
+        {
+          "baslik": "Spanish and Austrian toll plazas",
+          "aciklama": "Trucks and buses no longer enter car-only booths; they head for the heavy-vehicle booth."
+        },
+        {
+          "baslik": "Low fuel warning",
+          "aciklama": "With auto fuel turned off, a sound and on-screen warning is shown when fuel runs low, so the truck doesn't run dry on the road."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.22",
       "tarih": "2026-11-25",
       "tr": [
