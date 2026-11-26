@@ -1,6 +1,38 @@
 {
   "surumler": [
     {
+      "surum": "v3.0.57",
+      "tarih": "2026-11-26",
+      "tr": [
+        {
+          "baslik": "Yeni modül: ARC Miner",
+          "aciklama": "Kayada parlayan noktayı bulur, kamerayı küçük adımlarla çevirip nişan alır ve kendisi vurur. Hub'da ARC Miner kartından açılır."
+        },
+        {
+          "baslik": "Canlı görüntü ve kazı geçmişi",
+          "aciklama": "Panelde ARC'ın gördüğü hedef ve nişangah, vuruş, isabet, cevher, nişan süresi ve her kazının kaydı görünüyor."
+        },
+        {
+          "baslik": "Güvenli çalışma",
+          "aciklama": "Yalnız FiveM öndeyken ve kazı kartı açıkken fareye dokunur; doğrulama ekranı çıkınca durur."
+        }
+      ],
+      "en": [
+        {
+          "baslik": "New module: ARC Miner",
+          "aciklama": "Finds the glowing spot on the rock, turns the camera in small steps to aim and hits it by itself. Open it from the ARC Miner card in the Hub."
+        },
+        {
+          "baslik": "Live view and dig history",
+          "aciklama": "The panel shows what ARC sees (target and crosshair), hits, accuracy, ore, aim time and a record of every dig."
+        },
+        {
+          "baslik": "Safe by design",
+          "aciklama": "It only touches the mouse while FiveM is in front and the dig card is open, and stops when a verification screen appears."
+        }
+      ]
+    },
+    {
       "surum": "Auto Drive 1.0.23",
       "tarih": "2026-11-25",
       "tr": [
