@@ -615,15 +615,8 @@
   @media (max-width: 720px) { .st-ekran { grid-template-columns: 1fr; } .st-indir .btn { width: 100%; justify-content: center; } }
 </style>
 <script>
-  /* Açılış animasyonu: oturum başına bir kez. Ödeme dönüşünde, Discord girişinde ve "hareketi azalt" tercihinde atlanır.
-     ?intro=1 ile her zaman, ?intro=0 ile hiç gösterilmez. */
-  (function () {
-    var d = document.documentElement, s = location.search, gordu = false;
-    try { gordu = sessionStorage.getItem('arc_intro') === '1'; } catch (e) {}
-    var atla = gordu || /[?&](odeme|dc|intro=0)/.test(s);
-    if (/[?&]intro=1/.test(s)) atla = false;
-    d.classList.add(atla ? 'intro-yok' : 'intro-acik');
-  })();
+  /* Açılış animasyonu kaldırıldı (2026-11-26): ziyaretçi doğrudan siteye girer. #intro DOM'dan aşağıdaki betikle silinir. */
+  document.documentElement.classList.add('intro-yok');
 </script>
 <style>
   /* ---- Açılış (intro) ---- */
