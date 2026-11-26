@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ARC Studio</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' https://vzibpccxwknhakzgmxfy.supabase.co https://api.github.com; form-action 'self' https://www.shopier.com; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.facebook.com; media-src 'self' blob:; connect-src 'self' https://vzibpccxwknhakzgmxfy.supabase.co https://api.github.com https://www.facebook.com https://connect.facebook.net; form-action 'self' https://www.shopier.com; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="ARC: ETS2 Auto Drive, ARC Play, Rina Auto Fishing, ARC Macro ve ARC Drive tek uygulamada; ARC Phone FiveM scripti.">
 <meta property="og:title" content="ARC Studio">
@@ -1635,19 +1635,51 @@
   <button type="button" id="toast-x" aria-label="Kapat">✕</button>
 </div>
 
-<footer><div class="wrap"><span>© 2026 ARC Studio<span id="ft-ver"></span> · <a href="gizlilik.html" style="color:inherit;text-decoration:none">Gizlilik</a> · <a href="gizlilik.html#cerez" style="color:inherit;text-decoration:none">Çerezler</a> · <a href="lisanslar.html" style="color:inherit;text-decoration:none">Lisanslar</a></span><span>Discord: vsquar · hzh1ko</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ARC Studio<span id="ft-ver"></span> · <a href="gizlilik.html" style="color:inherit;text-decoration:none">Gizlilik</a> · <a href="gizlilik.html#cerez" style="color:inherit;text-decoration:none">Çerezler</a><span id="cerez-tercih-k" hidden> · <a href="#" id="cerez-tercih" style="color:inherit;text-decoration:none">Çerez tercihi</a></span> · <a href="lisanslar.html" style="color:inherit;text-decoration:none">Lisanslar</a></span><span>Discord: vsquar · hzh1ko</span></div></footer>
 
 <div id="cerez-serit" role="region" aria-label="Çerez bildirimi" hidden style="position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;max-width:760px;margin:0 auto;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:16px 20px;border-radius:14px;background:#181326;border:1px solid #2a2240;box-shadow:0 18px 50px rgba(0,0,0,.55);font:400 14px/1.5 var(--body);color:#9a92b3">
-  <span style="flex:1 1 320px">Bu site çerez ya da izleme aracı kullanmaz; yalnız tercihlerini hatırlamak için tarayıcı depolaması kullanır. Ayrıntılar: <a href="gizlilik.html" style="color:#c4a8ff">Gizlilik ve Çerez Politikası</a>.</span>
+  <span id="cerez-metin" style="flex:1 1 320px">Bu site çerez ya da izleme aracı kullanmaz; yalnız tercihlerini hatırlamak için tarayıcı depolaması kullanır. Ayrıntılar: <a href="gizlilik.html" style="color:#c4a8ff">Gizlilik ve Çerez Politikası</a>.</span>
+  <button type="button" id="cerez-red" hidden style="border:1px solid #2a2240;border-radius:10px;padding:10px 20px;background:transparent;color:#ece8f6;font:600 14px/1 var(--body);cursor:pointer">Reddet</button>
   <button type="button" id="cerez-tamam" style="border:0;border-radius:10px;padding:10px 20px;background:#8b5cf6;color:#fff;font:600 14px/1 var(--body);cursor:pointer">Anladım</button>
 </div>
 <script>
+/* Reklam ölçümü (Meta Pixel) yalnız ziyaretçi "Kabul et" derse yüklenir (KVKK açık rıza). Tercih arc_reklam_cerez'de
+   (evet / hayir); altbilgideki "Çerez tercihi" bağlantısı sıfırlayıp şeridi yeniden açar. PIXEL_ID boşsa eski bilgi şeridi. */
 (() => {
+  const PIXEL_ID = '2816865708751272';
   const s = document.getElementById('cerez-serit');
-  let gordu = false; try { gordu = localStorage.getItem('arc_bildirim') === '1'; } catch {}
-  if (gordu) return;
-  s.hidden = false; s.style.display = 'flex';
-  document.getElementById('cerez-tamam').addEventListener('click', () => { try { localStorage.setItem('arc_bildirim', '1'); } catch {} s.remove(); });
+  const tamam = document.getElementById('cerez-tamam'), red = document.getElementById('cerez-red');
+  const oku = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+  const yaz = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} };
+  const pixelYukle = () => {
+    if (window.fbq) return;
+    const f = window.fbq = function () { f.callMethod ? f.callMethod.apply(f, arguments) : f.queue.push(arguments); };
+    window._fbq = f; f.push = f; f.loaded = true; f.version = '2.0'; f.queue = [];
+    const sc = document.createElement('script'); sc.async = true; sc.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.append(sc);
+    fbq('init', PIXEL_ID); fbq('track', 'PageView');
+  };
+  const goster = () => { s.hidden = false; s.style.display = 'flex'; };
+  const kapat = () => { s.hidden = true; s.style.display = 'none'; };
+  if (!PIXEL_ID) {
+    if (oku('arc_bildirim') === '1') return;
+    goster();
+    tamam.addEventListener('click', () => { yaz('arc_bildirim', '1'); kapat(); });
+    return;
+  }
+  document.getElementById('cerez-metin').innerHTML = 'Reklamlarımızın işe yarayıp yaramadığını ölçmek için Meta (Facebook) reklam çerezini kullanmak istiyoruz. Kabul etmezsen site aynen çalışır. Ayrıntılar: <a href="gizlilik.html#cerez" style="color:#c4a8ff">Gizlilik ve Çerez Politikası</a>.';
+  tamam.textContent = 'Kabul et'; red.hidden = false;
+  tamam.addEventListener('click', () => { yaz('arc_reklam_cerez', 'evet'); kapat(); pixelYukle(); });
+  red.addEventListener('click', () => { yaz('arc_reklam_cerez', 'hayir'); kapat(); });
+  const tercih = document.getElementById('cerez-tercih');
+  if (tercih) { document.getElementById('cerez-tercih-k').hidden = false; tercih.addEventListener('click', (e) => { e.preventDefault(); goster(); }); }
+  const t = oku('arc_reklam_cerez');
+  if (t === 'evet') pixelYukle(); else if (t !== 'hayir') goster();
+  /* Ücretsiz indirme butonu: onay verildiyse Meta'ya "Lead" olayı (reklam optimizasyonu indirmeye göre yapılır) */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[data-urun]');
+    if (a && window.fbq && oku('arc_reklam_cerez') === 'evet') fbq('track', 'Lead', { content_name: a.getAttribute('data-urun') });
+  });
 })();
 </script>
 
