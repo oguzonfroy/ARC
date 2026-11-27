@@ -26,8 +26,9 @@ uygulamaları için <a href="../gizlilik.html">genel gizlilik ve çerez politika
 
 <h2>1. Kısaca</h2>
 <p>ARC Reels videolarını, seslerini, görsellerini ve projelerini <b>yalnızca telefonunda</b> işler. Medya dosyaların, projelerin
-ve konuşma kayıtların hiçbir sunucuya yüklenmez. Uygulamada hesap, reklam, kullanım analitiği (telemetri) ya da izleme yoktur.
-ARC hakkında hiçbir kişisel veri toplamaz.</p>
+ve konuşma kayıtların ARC sunucularına yüklenmez. Ücretsiz sürümde dışa aktarmadan önce isteğe bağlı ödüllü reklam gösterilir;
+ARC Reels Pro, Google Play üzerinden yapılan tek seferlik uygulama içi satın alımdır ve bu reklamları kaldırır. Abonelik yoktur.
+Reklam sunumu için kullanılan Google Mobile Ads SDK, reklam ve tanılama verilerini işleyebilir.</p>
 
 <h2>2. Telefonda yapılan işlemler</h2>
 <ul>
@@ -41,10 +42,13 @@ ARC hakkında hiçbir kişisel veri toplamaz.</p>
 <tr><th>Ne zaman</th><th>Nereye</th><th>Ne gider</th></tr>
 <tr><td>Bir konuşma modelini (ARC Lite / Standart / Pro) indirmeyi onayladığında</td><td>Hugging Face (huggingface.co)</td>
 <td>Yalnız model dosyası istenir. Her internet isteğinde olduğu gibi IP adresin Hugging Face tarafından görülebilir. Videon ya da sesin gönderilmez.</td></tr>
+<tr><td>Ücretsiz sürümde dışa aktarmadan önce ödüllü reklamı izlemeyi seçtiğinde</td><td>Google Mobile Ads SDK (AdMob)</td>
+<td>Google; reklam sunumu, ölçümü, analiz ve dolandırıcılığı önleme için IP adresini (genel konum tahmini için kullanılabilir), reklam/cihaz kimliklerini, uygulama etkileşimlerini ve performans/tanılama bilgilerini toplayıp paylaşabilir. Veriler aktarım sırasında TLS ile şifrelenir. Bölgenizde gerektiğinde Google'ın izin formu gösterilir; reklam gizlilik seçenekleri Pro ekranından açılır. <a href="https://policies.google.com/technologies/ads?hl=tr">Google Reklam ve gizlilik bilgileri</a></td></tr>
+<tr><td>Pro satın alımını başlattığında</td><td>Google Play</td><td>Ödeme Google Play tarafından işlenir. ARC Reels kart veya Google Play ödeme bilgilerini almaz. Satın alım tek seferliktir; abonelik yoktur.</td></tr>
 <tr><td>Uygulamadaki site, Discord ya da Instagram bağlantısına dokunduğunda</td><td>arcappss.com.tr, Discord, Instagram</td>
 <td>Bağlantı tarayıcıda açılır; o sitelerin kendi gizlilik politikaları geçerlidir.</td></tr>
 </table>
-<p>Bunlar dışında uygulama internete bağlanmaz. Uygulama güncellemeleri Google Play (iOS'ta App Store) üzerinden gelir.</p>
+<p>Uygulama güncellemeleri Google Play (iOS'ta App Store) üzerinden gelir.</p>
 
 <h2>4. Telefonda saklanan veriler</h2>
 <p>Uygulamanın kendi alanında: projeler, otomatik kayıt, ayarlar (dil), son projeler listesi, eklediğin medyanın kopyaları,
@@ -66,7 +70,7 @@ modeller yedeklenmez. Bu yedek Google tarafından tutulur, ARC'a ulaşmaz.</p>
 <p>Kamera, mikrofon, konum, rehber izni istenmez.</p>
 
 <h2>6. Çocuklar</h2>
-<p>Uygulama 13 yaşından küçük çocuklara yönelik değildir. Uygulama kimseden kişisel veri toplamadığı için çocuklara ait veri de toplanmaz.</p>
+<p>Uygulama 13 yaşından küçük çocuklara yönelik değildir. Reklam gösterimi ve verilerinin kullanımı bölgenizde geçerli yaş ve izin kurallarına tabidir.</p>
 
 <h2>7. Haklarınız ve iletişim</h2>
 <p>Veri sorumlusu ARC Studio'dur. KVKK m.11 ve GDPR kapsamındaki hakların saklıdır; ARC senin hakkında sunucuda veri tutmadığı için
@@ -78,22 +82,27 @@ Instagram hesabımız (<a href="https://www.instagram.com/arcapp.tr">@arcapp.tr<
 <h1>ARC Reels · Privacy Policy</h1>
 <p class="k">Last updated: 27 November 2026 · App: ARC Reels (Android package tr.com.arcappss.studio)</p>
 <p><b>Summary.</b> ARC Reels edits and exports your videos, audio, images and projects <b>entirely on your phone</b>. Your media,
-projects and speech are never uploaded to any server. There are no accounts, ads, analytics (telemetry) or tracking. ARC does not
-collect any personal data.</p>
+projects and speech are not uploaded to ARC servers. The free version offers an optional rewarded ad before export. ARC Reels Pro
+is a one-time in-app purchase through Google Play that removes these ads; there is no subscription. Google Mobile Ads SDK may process
+advertising and diagnostic data.</p>
 <p><b>On-device processing.</b> Video processing uses FFmpeg on the device; automatic captions use the on-device whisper.cpp speech
 recognition engine. Files you pick with the system file picker are copied into the app's own storage; the app does not access other files.</p>
-<p><b>Network.</b> The app connects to the internet only (1) when you confirm downloading a speech model (ARC Lite / Standard / Pro) from
-Hugging Face (huggingface.co) — only the model file is requested; as with any request your IP address is visible to Hugging Face; and
-(2) when you tap the website, Discord or Instagram links, which open in your browser under those sites' own policies. App updates come
-through Google Play / the App Store.</p>
+<p><b>Network and advertising data.</b> (1) When you confirm downloading a speech model (ARC Lite / Standard / Pro) from
+Hugging Face (huggingface.co), only the model file is requested; your IP address is visible to Hugging Face, but your video or audio is not sent.
+(2) If you choose to watch a rewarded ad before export, the Google Mobile Ads SDK (AdMob) may collect and share your IP address (which can
+be used to estimate general location), advertising/device identifiers, app interactions, and performance/diagnostic information for ad delivery,
+measurement, analytics, and fraud prevention. Data is encrypted in transit using TLS. Where required in your region, Google's consent form is
+shown; ad privacy options are available from the Pro screen. See <a href="https://policies.google.com/technologies/ads?hl=en">Google's Ads and Privacy information</a>.
+(3) Website, Discord and Instagram links open in your browser under those sites' own policies. App updates come through Google Play / the App Store.
+Google Play processes Pro purchases; ARC Reels does not receive your card or Google Play payment details. Pro is a one-time purchase with no subscription.</p>
 <p><b>Data stored on your device.</b> Projects, autosave, settings, recent projects, copies of media you add, thumbnails and waveforms,
 the license agreement acceptance record, and downloaded speech models. Exported videos go to your Gallery (Movies › ARC Reels); saved
 captions and images go to the folder you choose. If Android auto backup is on, only projects and settings are included in your own Google
 backup (held by Google, never sent to ARC). Uninstalling the app or clearing its storage deletes all of this data.</p>
 <p><b>Permissions.</b> Notifications (Android 13+, to show progress of exports, captions and downloads — optional); foreground service
-(keeps a task you started running while the screen is off); storage on Android 9 only (to save exports to the Gallery); internet (model
-download only). No camera, microphone, location or contacts access.</p>
-<p><b>Children.</b> The app is not directed to children under 13 and collects no personal data from anyone.</p>
+(keeps a task you started running while the screen is off); storage on Android 9 only (to save exports to the Gallery); internet (model downloads,
+rewarded ads and Google Play billing). No camera, microphone, location or contacts access.</p>
+<p><b>Children.</b> The app is not directed to children under 13. Ad delivery and data use are subject to applicable age and consent rules in your region.</p>
 <p><b>Contact.</b> Data controller: ARC Studio. Reach us on our <a href="https://discord.gg/n9tyDcqwbA">Discord server</a> or on Instagram
 (<a href="https://www.instagram.com/arcapp.tr">@arcapp.tr</a>). Changes to this policy are published on this page.</p>
 
